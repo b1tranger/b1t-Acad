@@ -1,5 +1,7 @@
 # oUITS-Resources
 
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 LINK --> <a href="https://drive.google.com/drive/folders/1cX1yk7AAqSKcC_cFdE5z2kb36wg34k8m?usp=drive_link" target="_blank">Click Here</a> <--
 
 For now it's just a Google Drive Folder containing all the <i><small>(bare-minimum?)</small></i> necessary resources throughout BSc in CSE Program in UITS.
