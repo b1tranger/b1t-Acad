@@ -193,7 +193,7 @@ body {
 
 /* Hover effect */
 .topnav-1 a:hover {
-  background-color: #2478ff;
+  background-color: #BBE1FA;
   color: rgb(255, 255, 255);
 }
 
@@ -295,7 +295,7 @@ body {
 /* Change color on hover */
 .dropdown-content a:hover,
 .dropdown-content a:active {
-  background-color: #2478ff;
+  background-color: #BBE1FA;
   color: #ffffff;
   /* z-index: 2; */
 }
