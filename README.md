@@ -7,7 +7,7 @@ LINK → <a href="https://ouits-res.netlify.app/" target="_blank">Click Here</a>
 I had planned to make a website which:
 
 * <b>is independent of Google's Ecosystem</b> : Meaning the data will not be stored on Google's server, but rather be hosted in something similar to NAS using Database
-* <b>is a personal project</b>: Meaning it's a personal project that doesn't share or prioritize the requirements of outsider. Although anyone is free to suggest changes and provide their valuable feedback.
+* <b>is a personal project</b>: Meaning it's a project that doesn't share or prioritize the requirements of outsider. Although anyone is free to suggest changes and provide their valuable feedback.
 * <b>is open to collaborations</b>: You can always fork my GitHub repo to make your own version of it. You can also use the same Drive links, or ask for a backup of the original Google Drive that I use.
 * <b>appreciates contribution</b>: If you feel like any aspect of this project lacks something, you can always contribute by sharing your feedback. You can also upload Questions/Notes and even add Schedules (that's a related project) to help out your peers.
 <!-- <b></b> -->
