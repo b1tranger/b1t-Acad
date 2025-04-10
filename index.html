@@ -91,53 +91,25 @@
       <!-- <button class="dropbtn">Quick<br>Links</button> -->
       <div class="dropdown-content">
         <div class="navigation1"></div>
-        <script src="Links\drop-link-01.js"></script>
+        <script src="js\Links\drop-link-01.js"></script>
 
         <div class="navigation2"></div>
-        <script src="Links\drop-link-02.js"></script>
+        <script src="js\Links\drop-link-02.js"></script>
 
         <div class="navigation3"></div>
-        <script src="Links\drop-link-03.js"></script>
+        <script src="js\Links\drop-link-03.js"></script>
 
         <div class="navigation4"></div>
-        <script src="Links\drop-link-04.js"></script>
+        <script src="js\Links\drop-link-04.js"></script>
 
         <div class="navigation5"></div>
-        <script src="Links\drop-link-99.js"></script>
+        <script src="js\Links\drop-link-99.js"></script>
       </div>
     </div>
-
+    
   </div>
 
-  <script>
-    // Improved dropdown toggle function
-    function toggleDropdown(button) {
-      // Get the dropdown content element
-      var dropdownContent = button.nextElementSibling;
-
-      // Toggle the current dropdown
-      dropdownContent.classList.toggle("show");
-
-      // Close all other dropdowns
-      document.querySelectorAll(".dropdown-content.show").forEach(function (openDropdown) {
-        if (openDropdown !== dropdownContent) {
-          openDropdown.classList.remove("show");
-        }
-      });
-    }
-
-    // Add a global click event to close dropdowns when clicking outside
-    document.addEventListener("click", function (event) {
-      if (!event.target.matches('.dropbtn')) {
-        document.querySelectorAll(".dropdown-content.show").forEach(function (dropdown) {
-          dropdown.classList.remove("show");
-        });
-      } else {
-        // Stop event from reaching the document listener when clicking a button
-        event.stopPropagation();
-      }
-    });
-  </script>
+  <script src="js/navbar-drop-down.js"></script>
 
   <!-- GO BOTTOM RELATIVE LINK -->
 
@@ -447,15 +419,20 @@
         <div class="description" style="margin: 15px;color: #00000082;font-size: small;">
           <h3>BloodBag</h3>
           <ul>
-            <li style="padding:2px;font-size: medium;"><a href="https://play.google.com/store/apps/details?id=com.bloodbag.app&hl=en" target="_blank">BloodBag
+            <li style="padding:2px;font-size: medium;"><a
+                href="https://play.google.com/store/apps/details?id=com.bloodbag.app&hl=en" target="_blank">BloodBag
                 [ Playstore app ]</a></li>
-            <li style="padding:2px;font-size: medium;"><a href="https://www.bloodbag.app/d/622" target="_blank">BloodBag [ Website ]</a></li>
-            <li style="padding:2px;font-size: medium;"><a href="https://www.facebook.com/bloodbagRequest" target="_blank">BloodBag [ Facebook ]</a></li>
-            <li style="padding:2px;font-size: medium;"><a href="https://t.me/bloodbagTG" target="_blank">BloodBag [ Telegram for Updates ]</a></li>
+            <li style="padding:2px;font-size: medium;"><a href="https://www.bloodbag.app/d/622" target="_blank">BloodBag
+                [ Website ]</a></li>
+            <li style="padding:2px;font-size: medium;"><a href="https://www.facebook.com/bloodbagRequest"
+                target="_blank">BloodBag [ Facebook ]</a></li>
+            <li style="padding:2px;font-size: medium;"><a href="https://t.me/bloodbagTG" target="_blank">BloodBag [
+                Telegram for Updates ]</a></li>
           </ul>
           <h3>Lifeline</h3>
           <ul>
-            <li style="padding:2px;font-size: medium;"><a href="https://lifeline.bindu.health/" target="_blank">Lifeline [ Website to download app ]</a></li>
+            <li style="padding:2px;font-size: medium;"><a href="https://lifeline.bindu.health/" target="_blank">Lifeline
+                [ Website to download app ]</a></li>
 
           </ul>
         </div>
@@ -467,9 +444,12 @@
         <div class="description" style="margin: 15px;color: #00000082;font-size: small;">
           <!-- <h3>BloodBag</h3> -->
           <ul>
-            <li style="padding:2px;font-size: medium;"><a href="https://www.facebook.com/roktokosh.24" target="_blank">রক্তকোষ  (সেচ্ছায় রক্তদাতা সংগঠন)</a></li>
-            <li style="padding:2px;font-size: medium;"><a href="https://www.facebook.com/groups/303250999789143" target="_blank">Blood Group Bangladesh</a></li>
-            <li style="padding:2px;font-size: medium;"><a href="https://www.facebook.com/groups/231398954401884" target="_blank">Blood Bank Dhaka [ community chats ]</a></li>
+            <li style="padding:2px;font-size: medium;"><a href="https://www.facebook.com/roktokosh.24"
+                target="_blank">রক্তকোষ (সেচ্ছায় রক্তদাতা সংগঠন)</a></li>
+            <li style="padding:2px;font-size: medium;"><a href="https://www.facebook.com/groups/303250999789143"
+                target="_blank">Blood Group Bangladesh</a></li>
+            <li style="padding:2px;font-size: medium;"><a href="https://www.facebook.com/groups/231398954401884"
+                target="_blank">Blood Bank Dhaka [ community chats ]</a></li>
             <!-- <li style="padding:2px;font-size: medium;"><a href="https://t.me/bloodbagTG" target="_blank">BloodBag [ Telegram for Updates ]</a></li> -->
           </ul>
           <!-- <h3>Lifeline</h3>
@@ -519,61 +499,38 @@
       </div>
     </div>
 
-
-
-
     <!-- ------------------------------------------------------------------------- -->
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        const dropdownHeaders = document.querySelectorAll('.dropdown-header2');
-
-        // Function to close all dropdowns
-        function closeAllDropdowns() {
-          dropdownHeaders.forEach(header => {
-            header.classList.remove('active');
-            header.nextElementSibling.classList.remove('show');
-          });
-        }
-
-        // Add click event to each dropdown header
-        dropdownHeaders.forEach(header => {
-          header.addEventListener('click', function (event) {
-            event.stopPropagation(); // Prevent clicking from bubbling to document
-
-            // Get the content element that follows this header
-            const content = this.nextElementSibling;
-
-            // If this dropdown is already open, close it
-            if (this.classList.contains('active')) {
-              this.classList.remove('active');
-              content.classList.remove('show');
-            } else {
-              // Otherwise, close all dropdowns and open this one
-              closeAllDropdowns();
-              this.classList.add('active');
-              content.classList.add('show');
-            }
-          });
-        });
-
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', function () {
-          closeAllDropdowns();
-        });
-
-        // Prevent clicks inside dropdown content from closing the dropdown
-        const dropdownContents = document.querySelectorAll('.dropdown-content-1');
-        dropdownContents.forEach(content => {
-          content.addEventListener('click', function (event) {
-            event.stopPropagation();
-          });
-        });
-      });
+    <script src="js/drop-down.js">
     </script>
 
     <!-- -------------------------------------------------------- -->
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
     <div style="justify-content: center;display:flex;">
       <hr
         style="border: 5px solid rgba(0, 0, 0, 0.619);
