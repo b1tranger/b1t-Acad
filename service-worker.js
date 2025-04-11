@@ -29,7 +29,6 @@ const urlsToCache = [
   "/images/icons/OSL-Logo-192.png",
   OFFLINE_URL,
 
-  "/page-depth-01/General-Info.html",
   "/page-depth-01/Blog.html",
   "/page-depth-01/CP-aux.html",
   "/page-depth-01/Curated-Resources.html",
