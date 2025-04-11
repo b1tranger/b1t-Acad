@@ -11,7 +11,7 @@ const courses = [
     // ----------------------------------------------------------------------
     // ---------------------------####S02####--------------------------------
     // ----------------------------------------------------------------------
-    { code: "Bangladesh Studies: History and Culture", title: "GED0222121", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1cbmYREhfX7_1VePKk-RPW26NCqbBrWYe?usp=drive_link" },
+    { code: "GED0222121", title: "Bangladesh Studies: History and Culture", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1cbmYREhfX7_1VePKk-RPW26NCqbBrWYe?usp=drive_link" },
     { code: "CSE0541123", title: "Discrete Mathematics", department: "CSE", driveLink: "https://drive.google.com/drive/folders/15DOOPBwkSfuimrrREW45jVcevx07-8nu?usp=drive_link" },
     { code: "ME0715122", title: "Engineering Drawing", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1rkl0UWNfJUS3FUxvvKJLKuOUjihWYKc-?usp=drive_link" },
     { code: "EEE0713121 + EEE0713122", title: "Fundamental of Electrical Engineering (+Lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1WTnzJD1nXOM9IDU6bldtMWWA5plWfqTa?usp=drive_link" },
