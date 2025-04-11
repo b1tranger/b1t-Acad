@@ -1,13 +1,3 @@
-// Store the last visited page
-localStorage.setItem("lastPage", window.location.href);
-
-// Redirect user to last visited page (if different)
-window.onload = function() {
-    let lastPage = localStorage.getItem("lastPage");
-    console.log("Last visited:", lastPage);
-};
-
-// Register Service Worker
 
 if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("/sw.js")
@@ -15,6 +5,16 @@ if ("serviceWorker" in navigator) {
         .catch((error) => console.log("Service Worker Registration Failed:", error));
 }
 
+// // Store the last visited page
+// localStorage.setItem("lastPage", window.location.href);
+
+// // Redirect user to last visited page (if different)
+// window.onload = function() {
+//     let lastPage = localStorage.getItem("lastPage");
+//     console.log("Last visited:", lastPage);
+// };
+
+// Register Service Worker
 
 // if ('serviceWorker' in navigator) {
 //     navigator.serviceWorker.register('/sw.js')
