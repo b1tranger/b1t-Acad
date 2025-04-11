@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/selector.css">
   <link rel="stylesheet" href="css/drop-down.css">
+  <link rel="stylesheet" href="css/preloader.css">
 
   <!-- OFFLINE SUPPORT (WEB APP) -->
 
@@ -117,7 +118,9 @@
 
 <body style="background-color:rgba(218, 237, 255, 0.343);">
 
-
+  <div id="preloader">
+    <img src="images/preloader.gif" alt="Loading..." width="200">
+  </div>
   <!-- TOP BAR -->
 
   <!-- <div class="navigation2"></div>
@@ -217,7 +220,7 @@
 
   </div>
 
-<br>
+  <br>
   <div class="section"
     data-faq="If you feel like the resources are lacking, and you can solve that, don't be shy and share your resources!">
     <div class="faq-icon">?</div>
@@ -532,6 +535,33 @@
         navigator.serviceWorker.register('/service-worker.js');
       }
     </script>
+
+    <script>
+      let preloaderDelay = 3000; // Time before preloader disappears (in ms)
+
+      // Check if user has already seen the preloader
+      if (localStorage.getItem("seenPreloader")) {
+        document.getElementById("preloader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        document.getElementById("content").classList.add("fade-in");
+      } else {
+        // Show the preloader only for first-time visitors
+        localStorage.setItem("seenPreloader", "true");
+
+        window.onload = function () {
+          setTimeout(function () {
+            document.getElementById("preloader").classList.add("fade-out");
+
+            setTimeout(function () {
+              document.getElementById("preloader").style.display = "none";
+              document.getElementById("content").style.display = "block";
+              document.getElementById("content").classList.add("fade-in");
+            }, 1000); // Match fade-out duration
+          }, preloaderDelay);
+        };
+      }
+    </script>
+
 
 </body>
 
