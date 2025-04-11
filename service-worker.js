@@ -23,7 +23,7 @@ const urlsToCache = [
   "/js/Links/drop-link-99.js",
 
   "/index.html",
-  "/manifest.json",
+  "https://ouits-res.netlify.app/manifest.json",
   "/images/OSL-Logo.png",
   "/images/icons/OSL-Logo-512.png",
   "/images/icons/OSL-Logo-192.png",

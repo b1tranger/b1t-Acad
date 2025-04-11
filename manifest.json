@@ -4,7 +4,7 @@
     "name": "oUITS Resources",
     "short_name": "oUITS-web",
     "description": "UITS Resources Archiver",
-    "start_url": "/index.html",
+    "start_url": "https://ouits-res.netlify.app/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
