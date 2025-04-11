@@ -1,15 +1,22 @@
+
 {
     "name": "oUITS Resources",
     "short_name": "oUITS-web",
-    "start_url": "/",
+    "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
-    "theme_color": "#000000",
+    "theme_color": "#007BFF",
     "icons": [
-        {
-            "src": "/images/OSL-Logo.png",
+      {
+        "src": "/images/OSL-Logo.png",
             "sizes": "192x192",
             "type": "image/png"
-        }
+      }
+    //   ,
+    //   {
+    //     "src": "/icons/icon-512.png",
+    //     "type": "image/png",
+    //     "sizes": "512x512"
+    //   }
     ]
-}
+  }
