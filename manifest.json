@@ -21,7 +21,7 @@
     "lang": "en-US",
     "name": "oUITS-web",
     "short_name": "oUITS-web",
-    "start_url": "https://ouits-res.netlify.app/index.html",
+    "start_url": "/index.html",
     "description": "UITS Resources Archiver"
 }
 
