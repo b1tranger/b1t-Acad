@@ -636,13 +636,74 @@
     <!-- TO WORK OFFLINE -->
 
     <script>
-      // Store the last visited page
-      localStorage.setItem("lastPage", window.location.href);
+      const CACHE_NAME = "offline-cache-v1";
+      const FILES_TO_CACHE = [
+        "/",  // Homepage
+        "/index.html",
+        "/css/styles.css",
+        "/css/drop-down.css",
+        "/css/selector.css",
+        "/js/faq.js",
+        "/js/drop-down.js",
+        "/js/navbar-drop-down.js",
+        "/js\Links\drop-link-01.js",
+        "/js\Links\drop-link-02.js",
+        "/js\Links\drop-link-03.js",
+        "/js\Links\drop-link-04.js",
+        "/js\Links\drop-link-99.js",
+        "/page-depth-01\General-Info.html",
+      ];
 
-      // Retrieve the last visited page (you can use this for navigation)
-      console.log("Last visited:", localStorage.getItem("lastPage"));
+      // Install Service Worker and cache files
+      self.addEventListener("install", (event) => {
+        event.waitUntil(
+          caches.open(CACHE_NAME).then((cache) => {
+            console.log("Caching files...");
+            return cache.addAll(FILES_TO_CACHE);
+          })
+        );
+      });
+
+      // Fetch request and serve cached files if offline
+      self.addEventListener("fetch", (event) => {
+        event.respondWith(
+          fetch(event.request)  // Try fetching from the network first
+            .then(response => {
+              return caches.open(CACHE_NAME).then(cache => {
+                cache.put(event.request, response.clone()); // Update cache with new version
+                return response;
+              });
+            })
+            .catch(() => caches.match(event.request)) // Use cache if offline
+        );
+      });
+
+
+      // Update cache when new files are available
+      self.addEventListener("activate", (event) => {
+        event.waitUntil(
+          caches.keys().then((keyList) => {
+            return Promise.all(
+              keyList.map((key) => {
+                if (key !== CACHE_NAME) {
+                  console.log("Removing old cache:", key);
+                  return caches.delete(key);
+                }
+              })
+            );
+          })
+        );
+      });
+
     </script>
 
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+          .then(() => console.log("Service Worker Registered"))
+          .catch(err => console.log("Service Worker Registration Failed:", err));
+      }
+    </script>
 
 
 </body>
