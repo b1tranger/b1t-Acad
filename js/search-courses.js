@@ -90,25 +90,25 @@ function highlightMatch(text, query) {
 // Filter courses based on search query
 function filterCourses(query) {
     if (!query) return [];
-
+    
     query = query.toLowerCase();
     return courses.filter(course => {
-        return course.title.toLowerCase().includes(query) ||
-            course.code.toLowerCase().includes(query) ||
-            course.department.toLowerCase().includes(query);
+        return course.title.toLowerCase().includes(query) || 
+               course.code.toLowerCase().includes(query) || 
+               course.department.toLowerCase().includes(query);
     });
 }
 
 // Display the filtered courses
 function displayResults(filteredCourses, query) {
     searchResults.innerHTML = '';
-
+    
     if (filteredCourses.length === 0) {
         searchResults.innerHTML = '<div class="no-results">No courses found</div>';
         searchResults.style.display = 'block';
         return;
     }
-
+    
     filteredCourses.forEach(course => {
         const resultItem = document.createElement('div');
         resultItem.className = 'result-item';
@@ -117,21 +117,22 @@ function displayResults(filteredCourses, query) {
             <span class="result-code">${highlightMatch(course.code, query)}</span>
             <span class="result-dept">${highlightMatch(course.department, query)}</span>
         `;
-
+        
         resultItem.addEventListener('click', () => {
-            window.location.href = course.driveLink;
+            // Modified to open in new tab
+            window.open(course.driveLink, '_blank');
         });
-
+        
         searchResults.appendChild(resultItem);
     });
-
+    
     searchResults.style.display = 'block';
 }
 
 // Event listeners
-searchInput.addEventListener('input', function () {
+searchInput.addEventListener('input', function() {
     const query = this.value.trim();
-
+    
     if (query.length > 0) {
         const filteredCourses = filterCourses(query);
         displayResults(filteredCourses, query);
@@ -141,14 +142,14 @@ searchInput.addEventListener('input', function () {
 });
 
 // Close search results when clicking outside
-document.addEventListener('click', function (event) {
+document.addEventListener('click', function(event) {
     if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
         searchResults.style.display = 'none';
     }
 });
 
 // Show results when focusing on search input (if there's content)
-searchInput.addEventListener('focus', function () {
+searchInput.addEventListener('focus', function() {
     if (this.value.trim().length > 0) {
         const filteredCourses = filterCourses(this.value.trim());
         displayResults(filteredCourses, this.value.trim());
@@ -156,12 +157,12 @@ searchInput.addEventListener('focus', function () {
 });
 
 // Add keyboard navigation for search results
-searchInput.addEventListener('keydown', function (event) {
+searchInput.addEventListener('keydown', function(event) {
     const resultItems = searchResults.querySelectorAll('.result-item');
     const currentFocus = searchResults.querySelector('.result-item.active');
-
+    
     if (resultItems.length === 0) return;
-
+    
     if (event.key === 'ArrowDown') {
         event.preventDefault();
         if (!currentFocus) {
@@ -170,7 +171,7 @@ searchInput.addEventListener('keydown', function (event) {
         } else {
             currentFocus.classList.remove('active');
             currentFocus.style.backgroundColor = '';
-
+            
             const nextFocus = currentFocus.nextElementSibling;
             if (nextFocus && nextFocus.classList.contains('result-item')) {
                 nextFocus.classList.add('active');
@@ -190,7 +191,7 @@ searchInput.addEventListener('keydown', function (event) {
         } else {
             currentFocus.classList.remove('active');
             currentFocus.style.backgroundColor = '';
-
+            
             const prevFocus = currentFocus.previousElementSibling;
             if (prevFocus && prevFocus.classList.contains('result-item')) {
                 prevFocus.classList.add('active');
@@ -205,9 +206,10 @@ searchInput.addEventListener('keydown', function (event) {
     } else if (event.key === 'Enter') {
         if (currentFocus) {
             event.preventDefault();
-            window.location.href = courses.find(course =>
+            // Modified to open in new tab
+            window.open(courses.find(course => 
                 course.title === currentFocus.querySelector('.result-title').textContent.replace(/\s+/g, ' ').trim()
-            ).driveLink;
+            ).driveLink, '_blank');
         }
     }
 });
