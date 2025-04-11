@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources Tutorials</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/selector.css">
+
+    <link rel="manifest" href="../manifest.webmanifest">
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: #fff;
+        } */
+
+        .container-5 {
+
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px auto;
+            width: 79%;
+            max-width: 800px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            /*the button visibility*/
+            position: relative;
+            background-color: #000000c5;
+
+        }
+
+        .drive-link-5 {
+            margin-bottom: 20px;
+        }
+
+        .drive-link-5 a {
+            color: #b8b8e5;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .drive-link-5 a:hover {
+            color: #ffffff;
+        }
+
+        .menu-button {
+            background-color: #00000000;
+            border-radius: 8px;
+            padding: 12px;
+            position: relative;
+
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 50;
+            transition: background-color 0.3s ease;
+
+            /* DISABLES LINK CLICK EFFECT */
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.05);
+            /* Slightly enlarge the button */
+            background-color: rgba(42, 81, 181, 0.694) !important;
+            /* Lighten background on hover */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Add a subtle shadow */
+        }
+
+        .menu-button:hover .cell-link {
+            color: rgba(255, 255, 255, 0.8);
+            /* Slightly change text color on hover */
+        }
+
+        .menu-line {
+            width: 20px;
+            height: 2px;
+            background-color: #d8d8ff;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover .menu-line {
+            background-color: #ffffff;
+        }
+
+        .menu-button.active .menu-line:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .menu-button.active .menu-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-button.active .menu-line:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Modal Popup */
+        .popup-menu {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            width: 80%;
+            max-width: 600px;
+            max-height: 80vh;
+            background-color: rgba(50, 50, 70, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+            overflow-y: auto;
+
+            pointer-events: none;
+        }
+
+        .popup-menu.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+            pointer-events: auto;
+        }
+
+        /* .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: rgba(80, 80, 120, 0.4);
+            transition: background-color 0.3s ease;
+        } */
+
+        .popup-close:hover {
+            background-color: #424242;
+        }
+
+        /* .popup-close::before,
+        .popup-close::after {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 2px;
+            background-color: #424242;
+        } */
+
+        .popup-close::before {
+            transform: rotate(45deg);
+        }
+
+        .popup-close::after {
+            transform: rotate(-45deg);
+        }
+
+        .popup-menu-title {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(200, 200, 255, 0.2);
+            padding-bottom: 15px;
+        }
+
+        .popup-menu-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .popup-menu-category {
+            margin-bottom: 25px;
+        }
+
+        .category-title {
+            color: rgba(220, 220, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 3px solid #b8b8e5;
+        }
+
+        .link-item {
+            background-color: rgba(80, 80, 120, 0.4);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .link-item:hover {
+            background-color: rgba(100, 100, 150, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .link-item a {
+            color: rgba(240, 240, 255, 0.9);
+            text-decoration: none;
+            display: block;
+            padding: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .link-item a:hover {
+            color: #ffffff;
+        }
+
+        .popup-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(30, 30, 40, 0.7);
+            z-index: 997;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        .popup-backdrop.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 768px) {
+            .popup-menu {
+                width: 90%;
+                padding: 20px;
+            }
+
+            .popup-menu-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .resources-table-5 {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .resources-table-5 tr {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .resources-table-5 td {
+                margin: 5px 0;
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <div class="topnav-1">
+        <!-- APK LINK -->
+        <!-- <div class="navigation1"
+            style="display: flex;justify-content: flex-end;background-color: #333;min-height: 50px;width: 100%;"></div>
+        <script src="../apk-link.js"></script> -->
+        <a class="active-1" href="Tutorials.html">
+            <small>Resources<br>Tutorials</small>
+        </a>
+        <a class="active-1" href="References.html">
+            <small>Project<br>References</small>
+        </a>
+        <a class="active-1" href="Blog.html">
+            <small>CSE<br>Blog</small>
+        </a>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown(this)">More<br>Projects</button>
+            <!-- <button class="dropbtn">Quick<br>Links</button> -->
+            <div class="dropdown-content">
+                <div class="navigation1"></div>
+                <script src="../js/Links\drop-link-01.js"></script>
+
+                <div class="navigation2"></div>
+                <script src="../js/Links\drop-link-02.js"></script>
+
+                <div class="navigation3"></div>
+                <script src="../js/Links\drop-link-03.js"></script>
+
+                <div class="navigation4"></div>
+                <script src="../js/Links\drop-link-04.js"></script>
+
+                <div class="navigation5"></div>
+                <script src="../js/Links\drop-link-99.js"></script>
+            </div>
+        </div>
+    </div>
+    <script src="../js/navbar-drop-down.js"></script>
+
+    <!-- BOTTOM BAR "navbar" -->
+
+    <div style="padding-left:16px">
+    </div>
+    <div class="navbar-5">
+        <font size="24"></font>
+        <p align=center style="color:rgba(255, 255, 255, 0.776);"><i>oUITS Resources</i></p>
+        </font>
+
+    </div>
+    <!-- ----------------------------------------------------------------------- -->
+
+    <p class="highlights-5" align="center" style="color: rgba(0, 0, 0, 0.649);margin-bottom: -5px;margin-top: 15px;">
+        <small><i>Portal for Extracurriculars</i></small>
+    </p>
+
+    <div class="section"
+        data-faq="Academics are all about CGPA, but Job Market ask more from you.||Are you willing to put the effort?">
+        <div class="faq-icon">?</div>
+        <div class="faq-box"></div>
+    </div>
+
+    <div style="width:76%;max-width: 600px;" class="container-5" align="center">
+        <table class="resources-table-5" align="center" style="width:90%; margin: auto;">
+
+            <tr>
+                <td style="max-width: 300px;margin: auto;border-radius: 20px;">
+                    <a href="page-depth-01\CP-aux.html" class="cell-link">
+                        Programming
+                </td>
+
+                <td style="max-width: 300px;margin: auto;margin-top: 10px;border-radius: 20px;">
+                    <a href="page-depth-01\Curated-Resources.html" class="cell-link">
+                        Resources Dump
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- HOME BUTTON -->
+
+    <a href="../index.html" class="home-button">
+        <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+    </a>
+
+    <!-- BACK BUTTON -->
+
+    <a href="javascript:history.back()" class="back-icon">&#8592;</a>
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- TO WORK OFFLINE -->
+
+    <script src="offline.js"></script>
+
+    <script src="../js/faq.js"></script>
+
+</body>
+
+</html>

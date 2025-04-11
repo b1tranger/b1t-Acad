@@ -24,7 +24,7 @@
   <!-- ---------------------------------------------------------------------------- -->
   <!-- Add these lines to your index.html file inside the <head> tag -->
 
-  
+
 
   <!-- iOS support -->
   <!-- <meta name="apple-mobile-web-app-capable" content="yes">
@@ -67,6 +67,15 @@
       min-width: 200px;
     }
 
+    .parent-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin: auto;
+      width: 95%;
+    }
+
     .container-6 {
       display: grid;
       place-items: center;
@@ -97,6 +106,7 @@
       padding: 10px;
       font-size: 30px;
       text-align: center;
+      /* margin-top: 50px; */
 
     }
   </style>
@@ -165,7 +175,7 @@
 
   <!-- <h1 align="center">oUITS-Resources</h1> -->
 
-  <p class="highlights-5" align="center" style="color: rgba(0, 0, 0, 0.649);margin-bottom: -5px;margin-top: 15px;">
+  <p class="highlights-5" align="center" style="color: rgba(0, 0, 0, 0.649);margin-top: 15px;">
     <small><i>Browse resources for UITS Students</i></small>
     <!-- <br><small><i style="font-size: xx-small;">(more
         relevant to CSE)</i></small> -->
@@ -178,188 +188,36 @@
   <!-- -------------------------------------------------------------------- -->
   <!-- -------------------------------------------------------------------- -->
 
-  <div class="section"
-    data-faq="This section contains common resources like Notice, course list, outlines etc. and a Semester Selector [Click here] to find course materials for your specific semesters.">
+  <!-- <div class="section"
+    data-faq="This section contains common resources like Notice, course list, outlines etc. and a Semester Selector [Browse Semesters] to find course materials for your specific semesters.">
     <div class="faq-icon">?</div>
     <div class="faq-box"></div>
-  </div>
+  </div> -->
 
 
-  <div class="container-5" style="width:76%;max-width: 600px;">
-    <table class="resources-table-5" align="center" style="width:90%; margin: auto;">
-      <tr>
-        <td colspan="2" style="max-width: 300px;display: block;margin: auto;border-radius: 20px;">
-          <a href="page-depth-01/General-Info.html" class="cell-link"
-            style="max-height: 80px;text-align: center;text-align: center;justify-content: center;padding: 5%;">
-            General Information<br><small><i style="font-size: xx-small;">(Notice,Questions,Outlines,...)</i></small>
-          </a>
-
-        </td>
-
-      </tr>
-    </table>
-
-
-    <!-- -------------------------------------------------------------------- -->
-    <div class="semester-selector-container" style="margin-bottom: -30px;">
-      <label style="color: rgba(255, 255, 255, 0.68);font-size: small;">Click Below to Browse Semesters</label>
-
-      <div class="custom-dropdown" id="departmentDropdown">
-        <div class="dropdown-header" id="dropdownHeader">( Click Here )</div>
-
-        <div class="dropdown-list" id="dropdownList">
-          <div class="dropdown-item" data-value="cse">Computer Science and Engineering</div>
-          <div class="dropdown-item" data-value="ce">Civil Engineering</div>
-        </div>
-      </div>
-
-      <button id="resetButton"><small><b>Clear?</b></small></button>
-
-      <div id="semesterList" class="semester-list"></div>
-      <p id="driveLink"></p>
+  <div class="parent-wrap">
+    <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
+      <a href="page-depth-01/General-Info.html"><img src="images\Section-Logo\logo (1).webp" height="120px"
+          width="120px"></a>
+      <p style="text-align: center;margin-top: -5px;font-size: medium;">General <br>Information<br></p>
     </div>
-
+    <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
+      <a href="page-depth-01/Semesters.html"><img src="images\Section-Logo\logo (2).webp" height="120px"
+          width="120px"></a>
+      <p style="text-align: center;margin-top: -5px;font-size: medium;">Browser<br>Semesters</p>
+    </div>
+    <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
+      <a href="page-depth-01\Extracurriculars.html"><img src="images\Section-Logo\logo (4).webp" height="120px"
+          width="120px"></a>
+      <p style="text-align: center;margin-top: -5px;font-size: medium;">Extra<br>Curriculars</p>
+    </div>
+    <!-- <div style="background-color: rgba(0, 0, 0, 0.316);padding: 5%;border-radius: 5px;">
+        <p>Hello</p>
+    </div> -->
 
   </div>
 
-
-  <!-- -------------------------------------------------------------------- -->
-
-  <script>
-    const departmentDropdown = document.getElementById('departmentDropdown');
-    const dropdownHeader = document.getElementById('dropdownHeader');
-    const dropdownList = document.getElementById('dropdownList');
-    const resetButton = document.getElementById('resetButton');
-    const semesterList = document.getElementById('semesterList');
-    const driveLink = document.getElementById('driveLink');
-
-    // Object mapping departments to semester Google Drive folder links
-    const driveLinks = {
-      cse: {
-        1: "page-depth-01/page-depth-02/S01.html",
-        2: "page-depth-01/page-depth-02/S02.html",
-        3: "page-depth-01/page-depth-02/S03.html",
-        4: "page-depth-01/page-depth-02/S04.html",
-        5: "page-depth-01/page-depth-02/S05.html",
-        6: "page-depth-01/page-depth-02/S06.html",
-        7: "page-depth-01/page-depth-02/S07.html",
-        8: "page-depth-01/page-depth-02/S08.html",
-      },
-      ce: {
-        1: "https://drive.google.com/drive/folders/1Q4-tnRaIoLjZenzEZTRs-35OgqV54l9W?usp=drive_link",
-        2: "https://drive.google.com/drive/folders/1gAajNJtRo3up6dpnP-R3cTx0trNikJVP?usp=drive_link",
-        3: "https://drive.google.com/drive/folders/1XecebUV1rScSMpO0TUbnVoPUWKS8bJAH?usp=drive_link",
-        4: "https://drive.google.com/drive/folders/1R3AkpHgDgB2FiHS-gXxPTV7eljZJRknm?usp=drive_link",
-        5: "#",
-        6: "#",
-        7: "#",
-        8: "#",
-      }
-    };
-
-    // Dropdown toggle functionality
-    dropdownHeader.addEventListener('click', () => {
-      dropdownList.classList.toggle('open');
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', (event) => {
-      if (!departmentDropdown.contains(event.target)) {
-        dropdownList.classList.remove('open');
-      }
-    });
-
-    // Dropdown item selection
-    document.querySelectorAll('.dropdown-item').forEach(item => {
-      item.addEventListener('click', function () {
-        const department = this.getAttribute('data-value');
-        dropdownHeader.textContent = this.textContent;
-        dropdownList.classList.remove('open');
-
-        // Save to session storage
-        sessionStorage.setItem('selectedDepartment', department);
-
-        // Update semesters
-        updateSemesters(department);
-      });
-    });
-
-    // Load previous selection from sessionStorage on page load
-    document.addEventListener('DOMContentLoaded', () => {
-      const savedDepartment = sessionStorage.getItem('selectedDepartment');
-      if (savedDepartment) {
-        const departmentItem = document.querySelector(`.dropdown-item[data-value="${savedDepartment}"]`);
-        if (departmentItem) {
-          dropdownHeader.textContent = departmentItem.textContent;
-          updateSemesters(savedDepartment);
-
-          const savedSemester = sessionStorage.getItem('selectedSemester');
-          if (savedSemester) {
-            const semesterButton = document.querySelector(`.semester-button[data-semester="${savedSemester}"]`);
-            if (semesterButton) {
-              semesterButton.classList.add('active');
-            }
-          }
-        }
-      }
-    });
-
-    // Reset functionality
-    resetButton.addEventListener('click', () => {
-      // Reset dropdown header
-      dropdownHeader.textContent = '( Click Here )';
-
-      // Clear semester list
-      semesterList.innerHTML = "";
-
-      // Clear drive link
-      driveLink.innerHTML = "";
-
-      // Remove from sessionStorage
-      sessionStorage.removeItem('selectedDepartment');
-      sessionStorage.removeItem('selectedSemester');
-    });
-
-    function updateSemesters(department) {
-      // Clear previous semesters and drive link
-      semesterList.innerHTML = "";
-      driveLink.innerHTML = "";
-
-      if (department) {
-        // Create semester buttons
-        for (let i = 1; i <= 8; i++) {
-          let semesterButton = document.createElement("button");
-          semesterButton.textContent = `Semester ${i}`;
-          semesterButton.classList.add('semester-button');
-          semesterButton.setAttribute('data-semester', i);
-          semesterButton.onclick = function () {
-            // Remove active class from all buttons
-            document.querySelectorAll('.semester-button').forEach(btn => {
-              btn.classList.remove('active');
-            });
-
-            // Add active class to clicked button
-            this.classList.add('active');
-
-            // Save selected semester to sessionStorage
-            sessionStorage.setItem('selectedSemester', i);
-
-            // Open drive folder
-            openDriveFolder(department, i);
-          };
-          semesterList.appendChild(semesterButton);
-        }
-      }
-    }
-
-    function openDriveFolder(department, semester) {
-      window.location.href = driveLinks[department][semester];
-    }
-  </script>
-
-  <!-- -------------------------------------------------------------------- -->
-
-
+<br>
   <div class="section"
     data-faq="If you feel like the resources are lacking, and you can solve that, don't be shy and share your resources!">
     <div class="faq-icon">?</div>
@@ -368,7 +226,7 @@
 
   <!-- -------------------------------------------------------------------- -->
   <div class="container-5"
-    style="width:76%;max-width: 600px;border-radius: 30px 0 30px 0;background-color: #1B262C;margin-top: 40px;">
+    style="width:76%;max-width: 600px;border-radius: 30px 0 30px 0;background-color: #1B262C;margin-top: 25px;">
 
 
     <p style="text-align: center;color: #ffffffcd;margin-top: -5px;margin-bottom: -5px;">Feeling generous?</p>
@@ -410,34 +268,7 @@
   <!-- -------------------------------------------------------------------- -->
   <!-- -------------------------------------------------------------------- -->
 
-  <p class="highlights-5" align="center" style="color: rgba(0, 0, 0, 0.649);margin-bottom: -5px;margin-top: 15px;">
-    <small><i>Portal for Extracurriculars</i></small>
-  </p>
 
-  <div class="section"
-    data-faq="Academics are all about CGPA, but Job Market ask more from you.||Are you willing to put the effort?">
-    <div class="faq-icon">?</div>
-    <div class="faq-box"></div>
-  </div>
-
-  <div style="width:76%;max-width: 600px;" class="container-5" align="center">
-    <table class="resources-table-5" align="center" style="width:90%; margin: auto;">
-
-      <tr>
-        <td style="max-width: 300px;margin: auto;border-radius: 20px;">
-          <a href="page-depth-01\CP-aux.html" class="cell-link">
-            Programming
-        </td>
-
-        <td style="max-width: 300px;margin: auto;margin-top: 10px;border-radius: 20px;">
-          <a href="page-depth-01\Curated-Resources.html" class="cell-link">
-            Resources Dump
-          </a>
-        </td>
-      </tr>
-    </table>
-
-  </div>
 
   <div style="justify-content: center;display:flex;">
     <hr style="border: 5px solid rgba(0, 0, 0, 0);
@@ -539,9 +370,27 @@
       </div>
       <div class="dropdown-content-1">
         <p class="dropdown-item2" style="text-align: left;margin-top: -2px;color: #000000bb;font-size: medium;">
-          #<br>
+          #General Information<br>
         <div class="description" style="margin: 15px;color: #00000082;font-size: small;">
-          ( will be added soon )
+          This section contains common resources like Notice, course list, outlines etc.
+
+        </div>
+        </p>
+        <hr>
+
+        <p class="dropdown-item2" style="text-align: left;margin-top: -2px;color: #000000bb;font-size: medium;">
+          #Browse Semesters<br>
+        <div class="description" style="margin: 15px;color: #00000082;font-size: small;">
+          This section contains a Semester Selector [Click Here] to find course materials for your specific semesters.
+
+        </div>
+        </p>
+        <hr>
+
+        <p class="dropdown-item2" style="text-align: left;margin-top: -2px;color: #000000bb;font-size: medium;">
+          #Extracurriculars<br>
+        <div class="description" style="margin: 15px;color: #00000082;font-size: small;">
+          Academics are all about CGPA, but Job Market ask more from you. Are you willing to put the effort?
 
         </div>
         </p>
@@ -557,6 +406,7 @@
 
     <!-- -------------------------------------------------------- -->
     <br>
+    <!-- <br>
     <br>
     <br>
     <br>
@@ -579,7 +429,7 @@
     <br>
     <br>
     <br>
-    <br>
+    <br> -->
 
 
     <div style="justify-content: center;display:flex;">
