@@ -37,43 +37,45 @@ const courses = [
     { code: "CSE217", title: "Linear Algebra, Probability and Statistics for Engineers", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1wFrG_OxI7-BzFHadiAX9aFJRPVH0_TgW?usp=drive_link" },
     { code: "CSE213", title: "Theory of Computation", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1Lk_dkegB5YNBlQpYrOIcUP0KYS7e-oo0?usp=drive_link" },
     // ----------------------------------------------------------------------
-    // ---------------------------####S04####--------------------------------
-    // ----------------------------------------------------------------------
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    // ----------------------------------------------------------------------
     // ---------------------------####S05####--------------------------------
     // ----------------------------------------------------------------------
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
+    { code: "CSE204", title: "Advanced Problem Solving Strategies Lab", department: "CSE", driveLink: "https://drive.google.com/drive/folders/11hNDmHjWV1QPRzaQ6KWblWiUUKnPs5-0?usp=drive_link" },
+    { code: "CSE311 + CSE312", title: "Artificial Intelligence (+lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1j1Os8LHGAgfOl1gbJjiqWWy05kmsk4Mk?usp=drive_link" },
+    { code: "CSE313 + CSE314", title: "Computer Networks (+Lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1ziNG4HDSQVDz0gR8qU1OMbtVW8EPeVRM?usp=drive_link" },
+    { code: "CSE319", title: "Computer Architecture", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1-vcckXJirsjVUnA_BfztCVSKkKFSQnLx?usp=drive_link" },
+    { code: "CSE318", title: "Numerical Methods and Analysis", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1gLWZ6NISQQSZuagWmEJGT_fw9I4BQEXz?usp=drive_link" },
+    // { code: "", title: "", department: "CSE", driveLink: "" },
     // ----------------------------------------------------------------------
     // ---------------------------####S06####--------------------------------
     // ----------------------------------------------------------------------
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
+    { code: "CSE351 + CSE352", title: "Compiler (+lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1nPDQAnm5fQVTLOxGP7NqCOcSwGGd3Bem?usp=drive_link" },
+    { code: "CSE357 + CSE358", title: "Computer Graphics and Multimedia (+Lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/138zkPmC6GXxJOPXdUb3zj4-tdqIT_ix9?usp=drive_link" },
+    { code: "GED 115", title: "Industrial and Operation Management", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1YstV74bC9Vy9VAkfCTpqILzA0jL2DYXd?usp=drive_link" },
+    { code: "CSE359 + CSE360", title: "Microprocessors and Microcontrollers (+Lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1snMh8qTLGLy5eqR5FBTVFhDAJYNITBqu?usp=drive_link" },
+    { code: "CSE355 + CSE356", title: "Software Engineering and System Analysis", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1Sk3cJwYA0slESsWxa0Xvllerh40iTP-1?usp=drive_link" },
+    // { code: "", title: "", department: "CSE", driveLink: "" },
     // ----------------------------------------------------------------------
     // ---------------------------####S07####--------------------------------
     // ----------------------------------------------------------------------
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
-    { code: "", title: "", department: "CSE", driveLink: "" },
+    { code: "CSE490", title: "Capstone Project", department: "CSE", driveLink: "https://drive.google.com/drive/folders/153HLCcu2Kt-3wU6z-f6ujmSQqX85H-R3?usp=drive_link" },
+    { code: "CSE420", title: "Industrial Attachment", department: "CSE", driveLink: "https://drive.google.com/drive/folders/13yd5bW_UjMYmY1aunmq6Nsp_nXnReAw1?usp=drive_link" },
+    { code: "CSE401 + CSE402", title: "Internet of Things (+Lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1deGPqXj8JqS72dQt3EKi3KReVrdiL2df?usp=drive_link" },
+    { code: "CSE431 + CSE432", title: "Machine Learning (+Lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1Hvv28jl20e9olD0ToWbsVkG5Cj3dnJog?usp=drive_link" },
+    { code: "CSE411 + CSE412", title: "Operating Systems (+Lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1cF2I1OdDpi-TMSOnD8sMg7mUR3w4wgxp?usp=drive_link" },
+    { code: "CSE418", title: "Scientific Research and Methodologies", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1HrgdXqI1i0iN6Wrh1JIWa7NUyTpeL30P?usp=drive_link" },
+    { code: "CSE413", title: "Simulation and Modeling Lab", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1C8j93IMJ7U6zUANlAH2nUeLhE12j5PYi?usp=drive_link" },
+    { code: "CSE416", title: "Software Project Design and Development", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1BDXFHdEjoJEwyeGBkbbS2ZzNgJ9Zub-s?usp=drive_link" },
     // ----------------------------------------------------------------------
     // ---------------------------####S08####--------------------------------
+    // ----------------------------------------------------------------------
+    { code: "CSE425 + CSE426", title: "Data Mining and Warehouse (+Lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1XAuS1BQ_eES_Mdg-DsuIl5UsnodhYxMm?usp=drive_link" },
+    { code: "CSE437 + CSE438", title: "Digital Image Processing (+Lab)", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1Du1Yc_zCNIZVIOuYyU1e_4y15rp2rR3y?usp=drive_link" },
+    { code: "CSE459", title: "Professional Ethics and Communication for Engineers", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1cNlANirFZYtjIYm4utSZ5-4W7ZzadO65?usp=drive_link" },
+    { code: "CSE492", title: "Technical Writings and Presentation Lab", department: "CSE", driveLink: "https://drive.google.com/drive/folders/1Xke8qu1dpd-rFvKjkUch8svzKZphTw88?usp=drive_link" },
+    // { code: "", title: "", department: "CSE", driveLink: "" },
+    // { code: "", title: "", department: "CSE", driveLink: "" },
+    // ----------------------------------------------------------------------
+    // ----------------------------------------------------------------------
     // ----------------------------------------------------------------------
 ];
 
