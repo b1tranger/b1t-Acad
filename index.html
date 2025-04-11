@@ -9,12 +9,16 @@
   <link rel="stylesheet" href="css/selector.css">
   <link rel="stylesheet" href="css/drop-down.css">
 
+  <!-- OFFLINE SUPPORT (WEB APP) -->
+  <link rel="manifest" href="/manifest.json">
+
   <!-- WEBSITE PREVIEW -->
   <meta property="og:title" content="oUITS Resources">
   <meta property="og:description" content="UNOFFICIAL Online Resources Archiver for UITS">
   <meta property="og:image" content="Social-Preview.webp">
   <meta property="og:url" content="https://ouits-res.netlify.app/">
   <meta property="og:type" content="website">
+
   <!-- WEBSITE PREVIEW -->
 
   <style>
@@ -636,73 +640,36 @@
     <!-- TO WORK OFFLINE -->
 
     <script>
-      const CACHE_NAME = "offline-cache-v1";
-      const FILES_TO_CACHE = [
-        "/",  // Homepage
-        "/index.html",
-        "/css/styles.css",
-        "/css/drop-down.css",
-        "/css/selector.css",
-        "/js/faq.js",
-        "/js/drop-down.js",
-        "/js/navbar-drop-down.js",
-        "/js\Links\drop-link-01.js",
-        "/js\Links\drop-link-02.js",
-        "/js\Links\drop-link-03.js",
-        "/js\Links\drop-link-04.js",
-        "/js\Links\drop-link-99.js",
-        "/page-depth-01\General-Info.html",
-      ];
+      // Store the last visited page
+      localStorage.setItem("lastPage", window.location.href);
 
-      // Install Service Worker and cache files
-      self.addEventListener("install", (event) => {
-        event.waitUntil(
-          caches.open(CACHE_NAME).then((cache) => {
-            console.log("Caching files...");
-            return cache.addAll(FILES_TO_CACHE);
-          })
-        );
-      });
+      // Redirect user to last visited page (if different)
+      window.onload = function () {
+        let lastPage = localStorage.getItem("lastPage");
+        console.log("Last visited:", lastPage);
+      };
 
-      // Fetch request and serve cached files if offline
-      self.addEventListener("fetch", (event) => {
-        event.respondWith(
-          fetch(event.request)  // Try fetching from the network first
-            .then(response => {
-              return caches.open(CACHE_NAME).then(cache => {
-                cache.put(event.request, response.clone()); // Update cache with new version
-                return response;
-              });
-            })
-            .catch(() => caches.match(event.request)) // Use cache if offline
-        );
-      });
-
-
-      // Update cache when new files are available
-      self.addEventListener("activate", (event) => {
-        event.waitUntil(
-          caches.keys().then((keyList) => {
-            return Promise.all(
-              keyList.map((key) => {
-                if (key !== CACHE_NAME) {
-                  console.log("Removing old cache:", key);
-                  return caches.delete(key);
-                }
-              })
-            );
-          })
-        );
-      });
-
-    </script>
-
-    <script>
+      // Register Service Worker
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js')
-          .then(() => console.log("Service Worker Registered"))
+          .then((reg) => {
+            console.log("Service Worker Registered");
+
+            // Check for updates
+            reg.addEventListener('updatefound', () => {
+              const newWorker = reg.installing;
+              newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                  if (confirm("New version available. Refresh now?")) {
+                    window.location.reload();
+                  }
+                }
+              });
+            });
+          })
           .catch(err => console.log("Service Worker Registration Failed:", err));
       }
+
     </script>
 
 
