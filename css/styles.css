@@ -95,6 +95,14 @@ html {
 
 a {
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
 }
 
 
@@ -165,16 +173,26 @@ body {
 
 
 /* ----------------------------------------------------------- */
-.dropdown-content div.navigation1,.dropdown-content div.navigation2,.dropdown-content div.navigation3,.dropdown-content div.navigation4,.dropdown-content div.navigation5{
+.dropdown-content div.navigation1,
+.dropdown-content div.navigation2,
+.dropdown-content div.navigation3,
+.dropdown-content div.navigation4,
+.dropdown-content div.navigation5 {
   background-color: #ffffff;
   color: rgb(0, 0, 0);
   font-size: large;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-.dropdown-content div.navigation1:hover,.dropdown-content div.navigation2:hover,.dropdown-content div.navigation3:hover,.dropdown-content div.navigation4:hover,.dropdown-content div.navigation5:hover{
+
+.dropdown-content div.navigation1:hover,
+.dropdown-content div.navigation2:hover,
+.dropdown-content div.navigation3:hover,
+.dropdown-content div.navigation4:hover,
+.dropdown-content div.navigation5:hover {
   background-color: #2478ff;
   color: rgb(255, 255, 255);
 }
+
 /* ----------------------------------------------------------- */
 
 
@@ -264,7 +282,7 @@ body {
 
 /* The dropdown content (hidden by default) */
 .dropdown-content {
- min-height: 100px;
+  min-height: 100px;
   display: none;
   position: absolute;
   right: 0;
@@ -278,7 +296,7 @@ body {
   /* z-index: 1; */
   border-radius: 4px;
   overflow-y: scroll;
-  
+
 
 }
 
@@ -300,7 +318,7 @@ body {
   /* z-index: 2; */
 }
 
-.dropdown-content div:hover{
+.dropdown-content div:hover {
 
   background-color: #2478ff;
   color: #ffffff;
