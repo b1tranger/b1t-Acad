@@ -1,6 +1,6 @@
 {
-    "name": "Offline Website",
-    "short_name": "Offline Site",
+    "name": "oUITS Resources",
+    "short_name": "oUITS-web",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#ffffff",
