@@ -26,6 +26,8 @@ const FILES_TO_CACHE = [
     "/js/Links/drop-link-99.js",
 
     "/index.html",
+    "/manifest.json",
+    "/images/OSL-Logo.png",
 
     "/page-depth-01/General-Info.html",
     "/page-depth-01/Blog.html",
