@@ -42,28 +42,25 @@
     /* width: 100%; */
 }
 
-/* For the search results scrolling */
-.search-results {
-    /* Keep existing styles */
-    overflow-y: auto;
-    /* Add these for cross-platform scrolling */
-    -webkit-overflow-scrolling: touch;
-    /* Smooth scrolling on iOS */
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* Alternative approach - thin, semi-transparent scrollbar */
 .search-results::-webkit-scrollbar {
-    display: none;
+    width: 4px;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
+.search-results::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+/* For Firefox */
 .search-results {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
-
 
 .result-item {
     padding: 12px 20px;
