@@ -446,7 +446,8 @@
           <ul>
             <li style="padding:2px;font-size: medium;">
               <a href="https://www.facebook.com/sandhanicentralcommittee">Sandhani Central</a>
-              <div class="description" style="margin: 15px;color: #00000082;font-size: small;margin-top: -15px;margin-bottom: 0px;">
+              <div class="description"
+                style="margin: 15px;color: #00000082;font-size: small;margin-top: -15px;margin-bottom: 0px;">
                 <br>জরুরী রক্তের প্রয়োজনে যোগা্যগ করুনঃ
                 <br>ঠিকানাঃ সন্ধানী কেন্দ্রীয় রক্ত পরিসঞ্চালন কেন্দ্র।
                 সন্ধানী ভবন ৩৩/২ বাবুপুরা রোড, নীলক্ষেত ঢাকা-১২০৫
@@ -631,6 +632,18 @@
 
     <script src="js/faq.js"></script>
     <!-- -------------------------------------------------------------------- -->
+
+    <!-- TO WORK OFFLINE -->
+
+    <script>
+      // Store the last visited page
+      localStorage.setItem("lastPage", window.location.href);
+
+      // Retrieve the last visited page (you can use this for navigation)
+      console.log("Last visited:", localStorage.getItem("lastPage"));
+    </script>
+
+
 
 </body>
 
