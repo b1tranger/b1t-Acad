@@ -1,6 +1,9 @@
 <!DOCTYPE HTML>
-<html lang="en"></html>
+<html lang="en">
+
+</html>
 <html>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +14,32 @@
 
   <!-- OFFLINE SUPPORT (WEB APP) -->
   <!-- <link rel="manifest" href="/manifest.json"> -->
-  <link rel="manifest" href="https://ouits-res.netlify.app/manifest.json">
+  <!-- <link rel="manifest" href="https://ouits-res.netlify.app/manifest.json"> -->
+  <!-- ---------------------------------------------------------------------------- -->
+  <!-- Add these lines to your index.html file inside the <head> tag -->
+
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- iOS support -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="oUITS-Res">
+  <link rel="apple-touch-icon" href="/images/icons/OSL-Logo-192.png">
+
+  <!-- Theme color -->
+  <meta name="theme-color" content="#000000">
+
+  <!-- PWA script -->
+  <script src="/js/pwa.js" defer></script>
+
+  <!-- Optional: Connection status indicator -->
+  <div id="connection-status"
+    style="position: fixed; bottom: 10px; right: 10px; padding: 5px 10px; border-radius: 5px; display: none;">online
+  </div>
+  <!-- ---------------------------------------------------------------------------- -->
+
+
 
   <!-- WEBSITE PREVIEW -->
   <meta property="og:title" content="oUITS Resources">
@@ -642,7 +670,7 @@
 
     <!-- TO WORK OFFLINE -->
 
-    <script src="offline.js"></script>
+    <!-- <script src="offline.js"></script> -->
 
 
 </body>
