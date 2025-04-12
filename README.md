@@ -1,3 +1,5 @@
+[ repository created on 02.12.24 ]
+
 # oUITS-Resources
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -17,5 +19,5 @@ I hope this helps many others at least to find their needs a bit more organized.
 
 Good Luck!
 
-[ repository created on 02.12.24 ]
+
 
