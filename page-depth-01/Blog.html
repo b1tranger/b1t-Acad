@@ -410,6 +410,13 @@
                         </p>
 
                     </div>
+                    <div class="menu-button" id="menuButton4" align="center"
+                        style="background-color: rgba(0, 0, 0, 0.247);height:60px;width:100px;font-size:medium;max-width: 300px;">
+                        <p class="cell-link" align="center" style="color: rgb(255, 255, 255);">
+                            Friends' blog
+                        </p>
+
+                    </div>
                     
                 </div>
                 <!-- </td> -->
@@ -524,6 +531,29 @@
         </div>
     </div>
 
+    <!-- 4th popup menu with different content -->
+    <div class="popup-menu" id="popupMenu4" style="max-width:400px; width: 60%;">
+        <div class="popup-close popup-close-btn"></div>
+        <!-- <div class="popup-menu-title">Resources & Tools</div> -->
+        <div class="popup-menu-categories">
+            <div class="popup-menu-category" align="center">
+                <!-- <div class="category-title">Coding Resources</div> -->
+                <div class="link-item">
+                    <a href="https://walinahmed.blogspot.com/" target="_blank">
+                        Walin Ahmed (DU, Econ)
+                    </a>
+                </div>
+                <!--                 <div class="link-item">
+                    <a href="#" target="_blank">
+                        #
+                    </a>
+                </div> -->
+                <!-- More links here -->
+            </div>
+        </div>
+    </div>
+
+
     <!-- Shared backdrop for all popups -->
     <div class="popup-backdrop" id="popupBackdrop"></div>
     <script>
@@ -532,7 +562,9 @@
             const menuPairs = [
                 { button: 'menuButton1', popup: 'popupMenu1' },
                 { button: 'menuButton2', popup: 'popupMenu2' },
-                { button: 'menuButton3', popup: 'popupMenu3' }
+                { button: 'menuButton3', popup: 'popupMenu3' },
+                { button: 'menuButton4', popup: 'popupMenu4' }
+                
                 // Add more pairs as needed
             ];
 
