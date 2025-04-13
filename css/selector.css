@@ -38,7 +38,7 @@
  /* --------------------------------------------------------------------- */
 
  .semester-selector-container {
-     width: 85%;
+     /* width: 85%; */
      margin: auto;
      padding: 20px;
      text-align: center;
@@ -58,22 +58,23 @@
 
 
  .dropdown-header {
-     background-color: #2478ff;
+     background-color: #ffffff;
      border: 2px solid #cccccc6f;
-     border-radius: 20px;
+     border-radius: 30px;
      padding: 15px;
      cursor: pointer;
      display: flex;
      align-items: center;
      justify-content: center;
      transition: all 0.3s ease;
-     color: #ffffff;
+     color: #000000;
      font-size: smaller;
  }
 
  .dropdown-header:hover {
      border-color: #ffffffb8;
      background-color: #00000078;
+     color: white;
  }
 
  /* .dropdown-header: {
@@ -127,10 +128,12 @@
  .semester-button {
      background-color: #DBE2EF;
      border: 1px solid #dddddd23;
-     border-radius: 10px;
-     padding: 10px 15px;
+     border-radius: 30px;
+     padding: 15px 15px;
      cursor: pointer;
      transition: all 0.3s ease;
+     font-weight: bold ;
+     font-size: medium;
      /* 
      -webkit-tap-highlight-color: transparent;
      -webkit-touch-callout: none;
