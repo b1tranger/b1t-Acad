@@ -71,7 +71,7 @@
     .parent-wrap {
       display: flex;
       flex-wrap: wrap;
-      justify-content:space-evenly;
+      justify-content: space-evenly;
       gap: 16px;
       margin: auto;
       width: 95%;
@@ -126,8 +126,29 @@
 
   <!-- <div class="navigation2"></div>
   <script src="backup\test-all-link-together.js"></script> -->
+  <div class="topnav-2">
+  <div class="dropdown">
+    <button class="dropbtn" onclick="toggleDropdown(this)" style="background-color: #1dcd9efe;color: #ffffff;border-radius: 0px 0px 0px 20px ;">More<br>Projects</button>
+    <!-- <button class="dropbtn">Quick<br>Links</button> -->
+    <div class="dropdown-content">
+      <div class="navigation1"></div>
+      <script src="js\Links\drop-link-01.js"></script>
 
-  <div class="topnav-1">
+      <div class="navigation2"></div>
+      <script src="js\Links\drop-link-02.js"></script>
+
+      <div class="navigation3"></div>
+      <script src="js\Links\drop-link-03.js"></script>
+
+      <div class="navigation4"></div>
+      <script src="js\Links\drop-link-04.js"></script>
+
+      <div class="navigation5"></div>
+      <script src="js\Links\drop-link-99.js"></script>
+    </div>
+  </div>
+</div>
+  <!-- <div class="topnav-1">
 
     <a class="active-1" href="page-depth-01/Tutorials.html">
       <small>Resources<br>Tutorials</small>
@@ -140,7 +161,6 @@
     </a>
     <div class="dropdown">
       <button class="dropbtn" onclick="toggleDropdown(this)">More<br>Projects</button>
-      <!-- <button class="dropbtn">Quick<br>Links</button> -->
       <div class="dropdown-content">
         <div class="navigation1"></div>
         <script src="js\Links\drop-link-01.js"></script>
@@ -159,7 +179,7 @@
       </div>
     </div>
 
-  </div>
+  </div> -->
 
   <script src="js/navbar-drop-down.js"></script>
 
@@ -183,9 +203,9 @@
     <small><i>Browse resources for UITS Students</i></small>
     <br>
     <small style="font-size: x-small;">[mirror: <a href="https://ouits-res.netlify.app/"
-              style="color:rgba(4, 0, 128, 0.806);">Netlify</a> / <a href="https://b1tranger.github.io/oUITS-Resources/"
-              style="color:rgba(4, 0, 128, 0.806);">
-              GitHub</a>]</small>
+        style="color:rgba(4, 0, 128, 0.806);">Netlify</a> / <a href="https://b1tranger.github.io/oUITS-Resources/"
+        style="color:rgba(4, 0, 128, 0.806);">
+        GitHub</a>]</small>
     <!-- <br><small><i style="font-size: xx-small;">(more
         relevant to CSE)</i></small> -->
   </p>
@@ -204,28 +224,40 @@
   </div> -->
 
 
-  <div class="parent-wrap">
+  <div class="parent-wrap" style="background-color: #0073ff1d;padding:15px;border-radius: 30px;width:76%;max-width: 600px;box-shadow: 0.5px 0.5px 20px black;">
     <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
-      <a href="page-depth-01/General-Info.html"><img src="images\Section-Logo\logo (1).webp" height="120px"
-          width="120px"></a>
+      <a href="page-depth-01/General-Info.html"><img src="images\Section-Logo\logo (1).webp" height="100px"
+          width="100px"></a>
       <p style="text-align: center;margin-top: -2px;font-size: medium;">General <br>Information<br></p>
     </div>
     <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
-      <a href="page-depth-01/Semesters.html"><img src="images\Section-Logo\logo (2).webp" height="120px"
-          width="120px"></a>
+      <a href="page-depth-01/Semesters.html"><img src="images\Section-Logo\logo (2).webp" height="100px"
+          width="100px"></a>
       <p style="text-align: center;margin-top: -2px;font-size: medium;">Browse<br>Semesters</p>
     </div>
     <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
-      <a href="page-depth-01\Extracurriculars.html"><img src="images\Section-Logo\logo (4).webp" height="120px"
-          width="120px"></a>
+      <a href="page-depth-01\Extracurriculars.html"><img src="images\Section-Logo\logo (4).webp" height="100px"
+          width="100px"></a>
       <p style="text-align: center;margin-top: -2px;font-size: medium;">Extra<br>Curriculars</p>
     </div>
-    <!-- <div style="background-color: rgba(0, 0, 0, 0.316);padding: 5%;border-radius: 5px;">
-        <p>Hello</p>
-    </div> -->
 
+    <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
+      <a href="page-depth-01\Tutorials.html"><img src="images\Section-Logo\logo (6).webp" height="100px"
+          width="100px"></a>
+      <p style="text-align: center;margin-top: -2px;font-size: medium;">Tutorials</p>
+    </div>
+    <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
+      <a href="page-depth-01\Blog.html"><img src="images\Section-Logo\logo (7).webp" height="100px" width="100px"></a>
+      <p style="text-align: center;margin-top: -2px;font-size: medium;">Blog</p>
+    </div>
+    <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
+      <a href="page-depth-01\References.html"><img src="images\Section-Logo\logo (5).webp" height="100px"
+          width="100px"></a>
+      <p style="text-align: center;margin-top: -2px;font-size: medium;">References</p>
+    </div>
   </div>
-
+  <p align=center style="font-size: x-small;color: #00000086;margin-top: 10px;">This Section was inspired by <a
+    href="https://notebot.netlify.app/" target="_blank" style="color: #0244f99d;">https://notebot.netlify.app/</a></p>
   <br>
   <div class="section"
     data-faq="If you feel like the resources are lacking, and you can solve that, don't be shy and share your resources!">
@@ -264,8 +296,7 @@
 
 
 
-  <p align=center style="font-size: x-small;color: #00000086;margin-top: -10px;">This Section was inspired by <a
-      href="https://notebot.netlify.app/" target="_blank" style="color: #0244f99d;">https://notebot.netlify.app/</a></p>
+ 
 
   <!-- -------------------------------------------------------------------- -->
   <!-- -------------------------------------------------------------------- -->
@@ -473,7 +504,7 @@
       </div>
 
       <p align=center
-        style="color:rgba(0, 0, 0, 0.422);width: 95%;max-width:500px;font-size: small;font-style: italic;">Copyright 
+        style="color:rgba(0, 0, 0, 0.422);width: 95%;max-width:500px;font-size: small;font-style: italic;">Copyright
         &copy; 2024-<span id="year"></span>
         b1tranger. </p>
 
@@ -484,8 +515,9 @@
         <p align=center style="color:rgba(0, 0, 0, 0.422);width: 80%;max-width:550px;font-size: small;"><small
             style="font-size: x-small;"><b>UNOFFICIAL</b>
             Online
-            Resources Archiver for UITS<br>This project is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0"
-              style="color:rgba(4, 0, 128, 0.806);" target="_blank">Apache License 2.0</a>.
+            Resources Archiver for UITS<br>This project is licensed under the <a
+              href="https://www.apache.org/licenses/LICENSE-2.0" style="color:rgba(4, 0, 128, 0.806);"
+              target="_blank">Apache License 2.0</a>.
             You may use, modify, and distribute its contents, but you must provide attribution and include the
             original
             license.</small></p>
