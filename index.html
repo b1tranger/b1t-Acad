@@ -78,6 +78,11 @@
       max-width: 500px;
     }
 
+    .link-logo:hover {
+      transform: translateY(-5px);
+      transition: transform 1s
+    }
+
     .container-6 {
       display: grid;
       place-items: center;
@@ -92,6 +97,11 @@
       column-gap: 30px;
       row-gap: 12%;
 
+    }
+
+    .container-6 a:hover {
+      transform: translateY(-5px);
+      transition: transform 1s
     }
 
     /* .container-6>div {
@@ -127,28 +137,29 @@
   <!-- <div class="navigation2"></div>
   <script src="backup\test-all-link-together.js"></script> -->
   <div class="topnav-2">
-  <div class="dropdown">
-    <button class="dropbtn" onclick="toggleDropdown(this)" style="background-color: #1dcd9efe;color: #ffffff;border-radius: 0px 0px 0px 20px ;box-shadow: 0.5px 0.5px 10px black;">More<br>Projects</button>
-    <!-- <button class="dropbtn">Quick<br>Links</button> -->
-    <div class="dropdown-content">
-      <div class="navigation1"></div>
-      <script src="js\Links\drop-link-01.js"></script>
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown(this)"
+        style="background-color: #1dcd9efe;color: #ffffff;border-radius: 0px 0px 0px 20px ;box-shadow: 0.5px 0.5px 10px black;">More<br>Projects</button>
+      <!-- <button class="dropbtn">Quick<br>Links</button> -->
+      <div class="dropdown-content">
+        <div class="navigation1"></div>
+        <script src="js\Links\drop-link-01.js"></script>
 
-      <div class="navigation2"></div>
-      <script src="js\Links\drop-link-02.js"></script>
+        <div class="navigation2"></div>
+        <script src="js\Links\drop-link-02.js"></script>
 
-      <div class="navigation3"></div>
-      <script src="js\Links\drop-link-03.js"></script>
+        <div class="navigation3"></div>
+        <script src="js\Links\drop-link-03.js"></script>
 
-      <div class="navigation4"></div>
-      <script src="js\Links\drop-link-04.js"></script>
+        <div class="navigation4"></div>
+        <script src="js\Links\drop-link-04.js"></script>
 
-      <div class="navigation5"></div>
-      <script src="js\Links\drop-link-99.js"></script>
+        <div class="navigation5"></div>
+        <script src="js\Links\drop-link-99.js"></script>
+      </div>
     </div>
   </div>
-</div>
- 
+
 
   <script src="js/navbar-drop-down.js"></script>
 
@@ -193,40 +204,55 @@
   </div> -->
 
 
-  <div class="parent-wrap" style="background-color: #524848;padding:15px;border-radius:  30px 0 30px 0;width:76%;max-width: 600px;box-shadow: 0.5px 0.5px 10px black;padding-top: 20px;">
+  <div class="parent-wrap"
+    style="background-color: #524848;padding:15px;border-radius:  30px 0 30px 0;width:76%;max-width: 600px;box-shadow: 0.5px 0.5px 10px black;padding-top: 20px;">
     <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
-      <a href="page-depth-01/General-Info.html"><img src="images\Section-Logo\logo (1).webp" height="100px"
-          width="100px" style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
-      <p style="text-align: center;margin-top: -2px;font-size: medium;color: rgba(255, 255, 255, 0.696);">General <br>Information<br></p>
+      <div class="link-logo">
+        <a href="page-depth-01/General-Info.html">
+          <img src="images\Section-Logo\logo (1).webp" height="100px" width="100px"
+            style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
+      </div>
+      <p style="text-align: center;margin-top: -2px;font-size: medium;color: rgba(255, 255, 255, 0.696);">General
+        <br>Information<br>
+      </p>
     </div>
     <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
-      <a href="page-depth-01/Semesters.html"><img src="images\Section-Logo\logo (2).webp" height="100px"
-          width="100px" style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
-      <p style="text-align: center;margin-top: -2px;font-size: medium;color: rgba(255, 255, 255, 0.696);">Browse<br>Semesters</p>
+      <div class="link-logo">
+        <a href="page-depth-01/Semesters.html"><img src="images\Section-Logo\logo (2).webp" height="100px" width="100px"
+            style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
+      </div>
+      <p style="text-align: center;margin-top: -2px;font-size: medium;color: rgba(255, 255, 255, 0.696);">
+        Browse<br>Semesters</p>
     </div>
     <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
-      <a href="page-depth-01\Extracurriculars.html"><img src="images\Section-Logo\logo (4).webp" height="100px"
-          width="100px" style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
-      <p style="text-align: center;margin-top: -2px;font-size: medium;color: rgba(255, 255, 255, 0.696);">Extra<br>Curriculars</p>
+      <div class="link-logo"><a href="page-depth-01\Extracurriculars.html"><img src="images\Section-Logo\logo (4).webp"
+            height="100px" width="100px" style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
+      </div>
+      <p style="text-align: center;margin-top: -2px;font-size: medium;color: rgba(255, 255, 255, 0.696);">
+        Extra<br>Curriculars</p>
     </div>
 
     <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
-      <a href="page-depth-01\Tutorials.html"><img src="images\Section-Logo\logo (6).webp" height="100px"
-          width="100px" style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
+      <div class="link-logo"><a href="page-depth-01\Tutorials.html"><img src="images\Section-Logo\logo (6).webp"
+            height="100px" width="100px" style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
+      </div>
       <p style="text-align: center;margin-top: -2px;font-size: medium;color: rgba(255, 255, 255, 0.696);">Tutorials</p>
     </div>
     <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
-      <a href="page-depth-01\Blog.html"><img src="images\Section-Logo\logo (7).webp" height="100px" width="100px" style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
+      <div class="link-logo"><a href="page-depth-01\Blog.html"><img src="images\Section-Logo\logo (7).webp"
+            height="100px" width="100px" style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
+      </div>
       <p style="text-align: center;margin-top: -2px;font-size: medium;color: rgba(255, 255, 255, 0.696);">Blog</p>
     </div>
     <div style="background-color: rgba(0, 0, 0, 0);border-radius: 5px;">
-      <a href="page-depth-01\References.html"><img src="images\Section-Logo\logo (5).webp" height="100px"
-          width="100px" style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
+      <div class="link-logo"><a href="page-depth-01\References.html"><img src="images\Section-Logo\logo (5).webp"
+            height="100px" width="100px" style="box-shadow: 0.5px 0.5px 10px rgb(0, 0, 0);border-radius: 100%;"></a>
+      </div>
       <p style="text-align: center;margin-top: -2px;font-size: medium;color: rgba(255, 255, 255, 0.696);">References</p>
     </div>
   </div>
   <p align=center style="font-size: x-small;color: #00000086;margin-top: 10px;">This Section was inspired by <a
-    href="https://notebot.netlify.app/" target="_blank" style="color: #0244f99d;">https://notebot.netlify.app/</a></p>
+      href="https://notebot.netlify.app/" target="_blank" style="color: #0244f99d;">https://notebot.netlify.app/</a></p>
   <br>
   <div class="section"
     data-faq="If you feel like the resources are lacking, and you can solve that, don't be shy and share your resources!">
@@ -265,7 +291,7 @@
 
 
 
- 
+
 
   <!-- -------------------------------------------------------------------- -->
   <!-- -------------------------------------------------------------------- -->
@@ -390,7 +416,9 @@
         <p class="dropdown-item2" style="text-align: left;margin-top: -2px;color: #000000bb;font-size: medium;">
           #Browse Semesters<br>
         <div class="description" style="margin: 15px;color: #00000082;font-size: small;">
-          This section contains a Semester Selector to find course materials for your specific semesters. I have also included a Search Bar to search for the exact courses you are looking for. (The results list is a bit bugged on mobile, so try hiding the keyboard first before trying to scroll.)
+          This section contains a Semester Selector to find course materials for your specific semesters. I have also
+          included a Search Bar to search for the exact courses you are looking for. (The results list is a bit bugged
+          on mobile, so try hiding the keyboard first before trying to scroll.)
 
         </div>
         </p>
@@ -541,7 +569,7 @@
     </script>
 
     <script>
-      let preloaderDelay = 3000; // Time before preloader disappears (in ms)
+      let preloaderDelay = 2500; // Time before preloader disappears (in ms)
 
       // Check if user has already seen the preloader
       if (localStorage.getItem("seenPreloader")) {

@@ -197,6 +197,7 @@ body {
 /* ----------------------------------------------------------- */
 
 
+
 .topnav-1 a {
   display: flex;
   flex-direction: column;
@@ -658,6 +659,8 @@ now Browse Curated Resources*/
   user-select: none;
   outline: none;
 }
+
+
 
 /* Add rules for all link states to maintain the same color */
 .resources-table-5 .cell-link:link,
