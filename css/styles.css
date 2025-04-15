@@ -762,8 +762,8 @@ now Browse Curated Resources*/
 }
 
 .home-icon {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
 }
 
 /* -----------------------------------------------------------------  */
@@ -783,7 +783,7 @@ now Browse Curated Resources*/
   padding: 8px 10px;
   /* border-radius: 50%; */
   text-decoration: none;
-  font-size: 20px;
+  font-size: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
