@@ -6,17 +6,27 @@
     margin: auto;
     right: 15px;
 }
+/* 
+.search-container input::placeholder {
+    color: rgba(255, 255, 255, 0.463);
+} */
+
 
 .search-input {
     width: 100%;
     padding: 15px 20px;
     font-size: 16px;
-    border: 1px solid #ddd;
+    border: 2px solid #ffffff;
     border-radius: 25px;
     outline: none;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s;
     text-align: center;
+}
+
+.search-input:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
 }
 
 .search-input:focus {

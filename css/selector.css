@@ -20,7 +20,7 @@
 
  /* --------------------------------------------------------------------- */
 
-/* DISABLING TAB HIGHLIGHT */
+ /* DISABLING TAB HIGHLIGHT */
  .dropdown-header,
  .dropdown-item,
  .semester-button,
@@ -77,6 +77,12 @@
      color: white;
  }
 
+ /* .dropdown-header:focus {
+    border-color: #4285f4;
+    box-shadow: 0 2px 10px rgba(66, 133, 244, 0.3);
+} */
+
+
  /* .dropdown-header: {
     color: black;
 } */
@@ -132,7 +138,7 @@
      padding: 15px 15px;
      cursor: pointer;
      transition: all 0.3s ease;
-     font-weight: bold ;
+     font-weight: bold;
      font-size: medium;
      /* 
      -webkit-tap-highlight-color: transparent;
