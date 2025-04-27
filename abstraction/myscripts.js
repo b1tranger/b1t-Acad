@@ -19,4 +19,4 @@ let currentZoom = 1;
     }
 
     function updateZoom() {
-        iframe.style.transform = `scale(${currentZoom})`;
+        iframe.style.transform = `scale(${currentZoom})`;}

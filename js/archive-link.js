@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     `;
 
   // Insert the nav HTML into any element with class "navigation"
-  document.querySelectorAll('.navigation2').forEach(nav => {
+  document.querySelectorAll('.navigation-archive').forEach(nav => {
     nav.innerHTML = navHTML;
   });
 });
