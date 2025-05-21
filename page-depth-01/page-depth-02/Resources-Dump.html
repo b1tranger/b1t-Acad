@@ -14,6 +14,11 @@
             overflow-wrap: break-word;
             /* Modern property */
         }
+
+        /* HIDE SCROLLBAR */
+        ::-webkit-scrollbar {
+            display: none;
+        }
     </style>
     <style type="text/css">
         @import url(https://themes.googleusercontent.com/fonts/css?kit=QRM1DB91dRelHylHyc1ZatW6z5wzxkD6lcJ7I7ut-EdcYyTFdRlMDriHaKbLO7v2);
@@ -15399,13 +15404,13 @@
 
     <!-- BOTTOM BAR "navbar" -->
 
-    <!-- <div class="navbar-5">
-        <p align=center style="color:rgba(255, 255, 255, 0.776);">
+    <div class="navbar-5" style="padding-bottom: 20px;padding-top: 20px;">
+        <p align=center style="color:rgba(255, 255, 255, 0.776);font-size: large;">
             <i>oUITS Resources</i>
         </p>
         </font>
 
-    </div> -->
+    </div>
 
     <!-- HOME BUTTON -->
 
@@ -15418,7 +15423,8 @@
 
     <!-- BACK BUTTON -->
 
-    <a href="javascript:history.back()" class="back-icon" style="top: 70px; left: 20px; bottom: 0px; right: 0px;">&#8592;</a>
+    <a href="javascript:history.back()" class="back-icon"
+        style="top: 70px; left: 20px; bottom: 0px; right: 0px;">&#8592;</a>
 
     <!-- SCROLL TOP OR BOTTOM BUTTON -->
 
