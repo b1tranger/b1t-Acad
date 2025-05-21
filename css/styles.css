@@ -7,6 +7,10 @@
 [ 5 ] = HIGHLIGHTS SECTION 
 [ 6 ] = BOTTOM BAR
 */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+
 
 
 /* -----------------------------------------------------------------  */
@@ -721,7 +725,10 @@ now Browse Curated Resources*/
 
 
 /* HOME BUTTON */
-
+/* .home-button {
+  bottom: 65px;
+  right: 20px;
+} */
 
 .home-button {
   z-index: 100;
@@ -729,6 +736,12 @@ now Browse Curated Resources*/
   position: fixed;
   bottom: 65px;
   right: 20px;
+
+  /* top: 20px;
+  left: 20px;
+  bottom: 0px;
+  right: 0px; */
+
   background-color: #007bff;
   color: white;
   width: 40px;
@@ -780,10 +793,21 @@ now Browse Curated Resources*/
 
 /* BACK BUTTON */
 
+
+
+
+/* .back-icon {
+  bottom: 65px;
+  right: 65px;
+} */
+
+
+
 .back-icon {
   z-index: 100;
-
   position: fixed;
+  /* top: 70px;
+  left: 20px; */
   bottom: 65px;
   right: 65px;
   background-color: #007bff;
@@ -837,13 +861,20 @@ now Browse Curated Resources*/
 
 /* SCROLL UP OR DOWN BUTTON */
 
-
+/* .scroll-button {
+  bottom: 10px;
+  right: 10px;
+} */
 .scroll-button {
   z-index: 100;
 
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
   bottom: 10px;
   right: 10px;
+  /* top: 120px;
+  left: 20px; */
+  bottom: 0px;
+  right: 0px;
   width: 20px;
   height: 20px;
   border-radius: 50%;
@@ -939,3 +970,27 @@ now Browse Curated Resources*/
   padding: 16px;
   margin-bottom: 30px;
 }
+
+/* responsive design */
+
+
+/* @media (max-width: 500px) {
+
+
+  .home-button {
+    bottom: 65px;
+    right: 20px;
+  }
+
+  .back-icon {
+    bottom: 65px;
+    right: 65px;
+  }
+
+  .scroll-button {
+    bottom: 10px;
+    right: 10px;
+  }
+
+
+} */
