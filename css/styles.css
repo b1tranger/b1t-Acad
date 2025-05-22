@@ -284,21 +284,7 @@ body {
   color: rgb(255, 255, 255);
 }
 
-/* Media query for smaller screens */
-@media screen and (max-width: 600px) {
 
-  .topnav-1,
-  .topnav-2 {
-    flex-wrap: nowrap;
-    overflow-x: auto;
-  }
-
-  .topnav-1 a,
-  .topnav-2 a {
-    padding: 8px 12px;
-    font-size: 14px;
-  }
-}
 
 /* -----------------------------------------------------------------  */
 /* -----------------------------------------------------------------  */
@@ -994,3 +980,19 @@ now Browse Curated Resources*/
 
 
 } */
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+
+  .topnav-1,
+  .topnav-2 {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .topnav-1 a,
+  .topnav-2 a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
