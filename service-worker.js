@@ -11,12 +11,55 @@ const CACHE_NAME = 'ou1ts-resources-cache-v1';
 // These are the files that will be available offline.
 // Ensure all paths are relative to the root of your PWA (ou1ts.github.io/Resources/).
 const urlsToCache = [
-  '/Resources/',             // Crucial: Caches the root URL of your PWA
-  '/Resources/index.html',   // Your main HTML file
-  '/Resources/styles.css',   // Assuming you have a CSS file for styling
-  '/Resources/script.js',    // Assuming you have a main JavaScript file
-  '/Resources/images/icon-192x192.png', // PWA icon for smaller screens
-  '/Resources/images/icon-512x512.png'  // PWA icon for larger screens
+"/",
+  "/css/drop-down.css",
+  "/css/selector.css",
+  "/css/styles.css",
+  "/js/archive-link.js",
+  "/js/drop-down.js",
+  "/js/faq.js",
+  "/js/navbar-drop-down.js",
+  "/js/Links/drop-link-01.js",
+  "/js/Links/drop-link-02.js",
+  "/js/Links/drop-link-03.js",
+  "/js/Links/drop-link-04.js",
+  "/js/Links/drop-link-99.js",
+
+  "/index.html",
+  "https://ouits-res.netlify.app/manifest.json",
+  "/images/OSL-Logo.png",
+  "/images/icons/OSL-Logo-512.png",
+  "/images/icons/OSL-Logo-192.png",
+  // OFFLINE_URL,
+
+  "/page-depth-01/Blog.html",
+  "/page-depth-01/CP-aux.html",
+  "/page-depth-01/Curated-Resources.html",
+  "/page-depth-01/General-Info.html",
+  "/page-depth-01/References.html",
+  "/page-depth-01/Tutorials.html",
+  "/page-depth-01/[mod]Faculty-Routine-Ramadan.pdf",
+
+  "/page-depth-01/page-depth-02/S01.html",
+  "/page-depth-01/page-depth-02/S02.html",
+  "/page-depth-01/page-depth-02/S03.html",
+  "/page-depth-01/page-depth-02/S04.html",
+  "/page-depth-01/page-depth-02/S05.html",
+  "/page-depth-01/page-depth-02/S06.html",
+  "/page-depth-01/page-depth-02/S08.html",
+  "/page-depth-01/page-depth-02/My-guides.html",
+  "/page-depth-01/page-depth-02/OSSU.html",
+  "/page-depth-01/page-depth-02/Resources-Dump.html",
+
+
+
+
+  // '/Resources/',             // Crucial: Caches the root URL of your PWA
+  // '/Resources/index.html',   // Your main HTML file
+  // '/Resources/styles.css',   // Assuming you have a CSS file for styling
+  // '/Resources/script.js',    // Assuming you have a main JavaScript file
+  // '/Resources/images/icon-192x192.png', // PWA icon for smaller screens
+  // '/Resources/images/icon-512x512.png'  // PWA icon for larger screens
   // Add any other critical assets here. For example:
   // '/Resources/another-page.html',
   // '/Resources/fonts/myfont.woff2',
