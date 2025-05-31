@@ -932,13 +932,33 @@ now Browse Curated Resources*/
 /*BOTTOM BAR CSS*/
 
 .navbar-5 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Example background, adjust as needed */
+    color: white;
+    text-align: center;
+    padding: 10px 15px; /* Add some padding to prevent text from touching edges */
+    box-sizing: border-box; /* Crucial for responsive sizing with padding */
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.navbar-5 p {
+    margin: 0; /* Remove default paragraph margin */
+    white-space: normal; /* Allow text to wrap naturally */
+    word-wrap: break-word; /* Ensure long words break */
+}
+
+
+/* .navbar-5 {
   overflow: hidden;
   background-color: #333;
   position: fixed;
   bottom: 0;
   width: 100%;
   z-index: 1000;
-}
+} */
 
 
 .navbar-5 a {

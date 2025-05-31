@@ -21,6 +21,14 @@
         ::-webkit-scrollbar {
             display: none;
         }
+
+        /* Add a media query for smaller screens to adjust padding further if desired */
+@media (max-width: 768px) { /* Example breakpoint for mobile */
+    div[style*="word-wrap: break-word;"] {
+        padding-left: 10px; /* Smaller padding for very narrow screens */
+        padding-right: -100%;
+    }
+}
     </style>
     <style type="text/css">
         @import url(https://themes.googleusercontent.com/fonts/css?kit=QRM1DB91dRelHylHyc1ZatW6z5wzxkD6lcJ7I7ut-EdcYyTFdRlMDriHaKbLO7v2);
@@ -15944,7 +15952,7 @@
 </head>
 
 
-<body>
+<body style="max-width: 600px;word-wrap: break-word;">
 
     <!-- TOP BAR -->
 
@@ -16067,11 +16075,12 @@
             target="_blank">Click Here for the Updated List</a></p>
 
 
-
-    <div style="word-wrap: break-word;padding-left: 15%;padding-right: 15%;">
+<!-- margin-left: auto;margin-right: auto; -->
+    <div style=" max-width: 800px;  padding-left: 15px;  padding-right: 15px; text-align: center;margin: 
+    auto;">
 
         <p class="c8 c7"><span class="c0"></span></p>
-        <table class="c52">
+        <table class="c52" >
             <tr class="c85">
                 <td class="c20" colspan="1" rowspan="1">
                     <h3 class="c26 c81" id="h.ae7izldxb3ig"><span class="c39">#index</span></h3>
@@ -20466,6 +20475,13 @@
         <p class="c8 c7"><span class="c0"></span></p>
 
 
+        <div class="navbar-5" style="padding-bottom: 20px;padding-top: 20px;width: 100%;;display: flex;justify-content: center;">
+        <p align=center style="color:rgba(255, 255, 255, 0.776);font-size: large;">
+            <i>oUITS Resources</i>
+        </p>
+        </font>
+
+    </div>
     </div>
     <!-- -------------------------------------------------------------------- -->
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -20475,13 +20491,7 @@
 
     <!-- BOTTOM BAR "navbar" -->
 
-    <div class="navbar-5" style="padding-bottom: 20px;padding-top: 20px;width: 100%;">
-        <p align=center style="color:rgba(255, 255, 255, 0.776);font-size: large;">
-            <i>oUITS Resources</i>
-        </p>
-        </font>
-
-    </div>
+    
 
 
 
