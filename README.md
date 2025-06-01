@@ -3,6 +3,7 @@
 # oUITS-Resources
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3ca345a2-951b-499f-a8f3-04d744695256/deploy-status)](https://app.netlify.com/projects/ouits-res/deploys)
 
 LINK → <a href="https://ouits-res.netlify.app/" target="_blank">Click Here</a> ←
