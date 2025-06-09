@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curated-Resources</title>
-    <link rel="stylesheet" href="../styles.css">
+    <title>Programming</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="manifest" href="../manifest.webmanifest">
     <style>
         /* body {
             font-family: Arial, sans-serif;
@@ -337,49 +338,24 @@
             <button class="dropbtn" onclick="toggleDropdown(this)">More<br>Projects</button>
             <!-- <button class="dropbtn">Quick<br>Links</button> -->
             <div class="dropdown-content">
-                <!-- APK LINK -->
-                <div class="navigation1" style="background-color: #0000009b;"></div>
-                <script src="../apk-link.js"></script>
-                <a style="color: black;" class="active-1" href="https://ouits-schedule.netlify.app/" target="blank">
-                    <small>oUITS<br>Scheduler</small>
-                </a>
-                <a style="color: black;" class="active-1"
-                    href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL?usp=sharing"
-                    target="_blank">
-                    <small>oUITS<br>G-Drive</small>
-                </a>
+                <div class="navigation1"></div>
+                <script src="../js/Links\drop-link-01.js"></script>
+
+                <div class="navigation2"></div>
+                <script src="../js/Links\drop-link-02.js"></script>
+
+                <div class="navigation3"></div>
+                <script src="../js/Links\drop-link-03.js"></script>
+
+                <div class="navigation4"></div>
+                <script src="../js/Links\drop-link-04.js"></script>
+
+                <div class="navigation5"></div>
+                <script src="../js/Links\drop-link-99.js"></script>
             </div>
         </div>
     </div>
-    <script>
-        // Improved dropdown toggle function
-        function toggleDropdown(button) {
-            // Get the dropdown content element
-            var dropdownContent = button.nextElementSibling;
-
-            // Toggle the current dropdown
-            dropdownContent.classList.toggle("show");
-
-            // Close all other dropdowns
-            document.querySelectorAll(".dropdown-content.show").forEach(function (openDropdown) {
-                if (openDropdown !== dropdownContent) {
-                    openDropdown.classList.remove("show");
-                }
-            });
-        }
-
-        // Add a global click event to close dropdowns when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                document.querySelectorAll(".dropdown-content.show").forEach(function (dropdown) {
-                    dropdown.classList.remove("show");
-                });
-            } else {
-                // Stop event from reaching the document listener when clicking a button
-                event.stopPropagation();
-            }
-        });
-    </script>
+    <script src="../js/navbar-drop-down.js"></script>
 
     <!-- BOTTOM BAR "navbar" -->
 
@@ -416,8 +392,7 @@
         <div class="menu-button" id="menuButton2" align="center"
             style="background-color: rgb(49, 54, 58);height:60px;width:100px;font-size:medium;max-width: 300px;">
             <p class="cell-link" align="center"
-                style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">Programming
-                Videos
+                style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">Videos
             </p>
         </div>
         
@@ -425,10 +400,17 @@
             style="background-color: rgb(49, 54, 58);height:60px;width:100px;font-size:medium;max-width: 300px;">
             <a class="cell-link" href="https://drive.google.com/drive/folders/1tKdvGoeoYQJ6ms-p7ZPlA2EvYPJ4SWFt"
                 target="_blank" style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">
-                Programming References
+                References
             </a>
         </div>
         <div class=" menu-button" align="center"
+            style="background-color: rgb(49, 54, 58);height:60px;width:100px;font-size:medium;max-width: 300px;">
+            <a class="cell-link" href="Lists\Programming-Resources.html"
+                 style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">
+                Resources
+            </a>
+        </div>
+        <div class="menu-button" align="center"
             style="background-color: #1E3E62;height:60px;width:100px;font-size:medium;max-width: 300px;">
             <a class="cell-link" style="color: #ffffff;margin:auto;background-color: #00000000;text-shadow: 1px 1px 1px  #1B262C;"
                 href="https://drive.google.com/drive/folders/1n8wBkN1nAhpW3Z0eMkU9OlMNaPByp88F?usp=drive_link"
@@ -515,7 +497,7 @@
             <div class="popup-menu-category" align="center">
                 <!-- <div class="category-title">Coding Resources</div> -->
                 <div class="link-item">
-                    <a href="https://www.youtube.com/@BroCodez">
+                    <a href="https://www.youtube.com/@BroCodez" target="_blank">
                         Bro Code @YT
                     </a>
                 </div>
@@ -562,20 +544,20 @@
                 <div class="link-item" style="background-color: #ffffff;">
                     <!-- <p style="background-color: #ffffff;"> -->
                     <a href="https://judge.beecrowd.com/en" target="_blank" style="color: #000000ab;"><img
-                            src="../images\logo-beecrowd.webp" height="40" width="66.21"><br><i><small>(for learning the
+                            src="../images\Online-Judge\beecrowd-logo.webp" height="40" width="66.21"><br><i><small>(for learning the
                                 fundamentals)</small></i>
                     </a>
                     <!-- </p> -->
                 </div>
                 <div class="link-item" style="background-color: #ffffff;">
                     <a href="https://www.hackerrank.com/" target="_blank" style="color: #000000ab;"><img
-                            src="../images\hackerrank.svg" height="40" width="150"><br><i><small>( for learning STL
+                            src="../images\Online-Judge\hackerrank.svg" height="40" width="150"><br><i><small>( for learning STL
                                 concepts)</small></i>
                     </a>
                 </div>
                 <div class="link-item" style="background-color: #ffffff;">
                     <a href="https://codeforces.com/" target="_blank" style="color: #000000ab;"><img
-                            src="../images\codeforces-sponsored-by-ton.webp" height="40"
+                            src="../images\Online-Judge\codeforces-sponsored-by-ton.webp" height="40"
                             width="170.77"><br><i><small>(for participating contests with unique problem
                                 sets)</small></i>
                     </a>
@@ -583,7 +565,7 @@
 
                 <div class="link-item" style="background-color: #ffffff;">
                     <a href="https://leetcode.com/" target="_blank" style="color: #000000ab;"><img
-                            src="../images\LeetCode_Logo.webp" height="30" width="123.67"><br><i><small>(a great
+                            src="../images\Online-Judge\LeetCode_Logo.webp" height="30" width="123.67"><br><i><small>(a great
                                 platform for job preparation)</small></i>
                     </a>
                 </div>
@@ -593,19 +575,19 @@
                     </a>
                 </div>
                 <div class="link-item">
-                    <a href="https://toph.co/" target="_blank"><img src="../images\toph.webp" height="30"
+                    <a href="https://toph.co/" target="_blank"><img src="../images\Online-Judge\toph.webp" height="30"
                             width="100"><br><i><small>(for practicing topic-wise problems)</small></i>
                     </a>
                 </div>
                 <div class="link-item">
                     <a href="https://www.codechef.com/" target="_blank">
-                        <img src="../images\codechef.svg" width="100.00" height="40"><br><i><small>(similar to
+                        <img src="../images\Online-Judge\codechef.svg" width="100.00" height="40"><br><i><small>(similar to
                                 Codeforces)</small></i>
                     </a>
                 </div>
                 <div class="link-item" style="background-color: #ffffff;">
                     <a href="https://atcoder.jp/" target="_blank" style="color: #000000ab;"><img
-                            src="../images\atcoder.webp" height="40" width="49.22"><br><i><small>(similar to
+                            src="../images\Online-Judge\atcoder.webp" height="40" width="49.22"><br><i><small>(similar to
                                 Codeforces)</small></i>
                     </a>
                 </div>
@@ -708,6 +690,12 @@
     <!-- BACK BUTTON -->
 
     <a href="javascript:history.back()" class="back-icon">&#8592;</a>
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- TO WORK OFFLINE -->
+
+    <script src="offline.js"></script>
 
 
 </body>

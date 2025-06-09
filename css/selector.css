@@ -1,0 +1,239 @@
+ /* --------------------------------------------------------------------- */
+ /* --------------------------------------------------------------------- */
+ /* --------------------------------------------------------------------- */
+ /* OLD CODE */
+
+ select option[value="list-description"] {
+     display: none;
+     text-align: center;
+ }
+
+
+
+
+
+
+
+
+
+
+
+ /* --------------------------------------------------------------------- */
+
+ /* DISABLING TAB HIGHLIGHT */
+ .dropdown-header,
+ .dropdown-item,
+ .semester-button,
+ #resetButton {
+     -webkit-tap-highlight-color: transparent;
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     -khtml-user-select: none;
+     -moz-user-select: none;
+     -ms-user-select: none;
+     user-select: none;
+ }
+
+
+ /* --------------------------------------------------------------------- */
+
+ .semester-selector-container {
+     /* width: 85%; */
+     margin: auto;
+     padding: 20px;
+     text-align: center;
+ }
+
+ .custom-dropdown {
+     position: relative;
+     margin: 0 auto;
+     max-width: 245px;
+     width: 100%;
+
+     /* -webkit-tap-highlight-color: transparent;
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     user-select: none; */
+ }
+
+
+ .dropdown-header {
+     background-color: #ffffff;
+     border: 2px solid #cccccc6f;
+     border-radius: 30px;
+     padding: 15px;
+     cursor: pointer;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     transition: all 0.3s ease;
+     color: #000000;
+     font-size: smaller;
+ }
+
+ .dropdown-header:hover {
+     border-color: #ffffffb8;
+     background-color: #00000078;
+     color: white;
+ }
+
+ /* .dropdown-header:focus {
+    border-color: #4285f4;
+    box-shadow: 0 2px 10px rgba(66, 133, 244, 0.3);
+} */
+
+
+ /* .dropdown-header: {
+    color: black;
+} */
+
+ .dropdown-list {
+     font-size: smaller;
+     position: absolute;
+     width: 80%;
+     margin-left: 10%;
+     top: 100%;
+     left: 0;
+     right: 0;
+     background-color: #DBE2EF;
+     color: rgb(0, 0, 0);
+     border: 0px solid #ccc;
+     border-top: none;
+     border-radius: 15px;
+     max-height: 0;
+     overflow: hidden;
+     transition: max-height 0.3s ease, padding 0.3s ease;
+     z-index: 10;
+     padding: 0;
+ }
+
+ .dropdown-list.open {
+     max-height: 300px;
+     padding: 10px 0;
+ }
+
+ .dropdown-item {
+     padding: 10px;
+     cursor: pointer;
+     transition: background-color 0.3s ease;
+ }
+
+ .dropdown-item:hover {
+     background-color: #2478ff;
+     color: white;
+ }
+
+ .semester-list {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 10px;
+     margin-top: 15px;
+ }
+
+ .semester-button {
+     background-color: #DBE2EF;
+     border: 1px solid #dddddd23;
+     border-radius: 30px;
+     padding: 15px 15px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     font-weight: bold;
+     font-size: medium;
+     /* 
+     -webkit-tap-highlight-color: transparent;
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     user-select: none; */
+ }
+
+ .semester-button:hover {
+     background-color: #2478ff;
+     color: white;
+ }
+
+ .semester-button.active {
+     background-color: #2478ff;
+     color: white;
+ }
+
+ #resetButton {
+     background-color: transparent;
+     /* border: 1px solid #ddd; */
+     border-radius: 15px;
+     padding: 5px 10px;
+     margin-top: 10px;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     color: white;
+
+     /* -webkit-tap-highlight-color: transparent;
+     -webkit-touch-callout: none;
+     -webkit-user-select: none;
+     user-select: none; */
+ }
+
+ #resetButton:hover {
+     background-color: #0000009d;
+ }
+
+
+
+ /* --------------------------------------------------------------------- */
+
+ /* OLD code */
+ .custom-dropdown {
+     position: relative;
+     width: 220px;
+     font-family: Arial, sans-serif;
+ }
+
+ .selected {
+     background-color: #007bff;
+     color: white;
+     padding: 12px;
+     border-radius: 5px;
+     cursor: pointer;
+     text-align: center;
+     transition: background 0.3s;
+ }
+
+ .selected:hover {
+     background-color: #0056b3;
+ }
+
+ .options {
+     list-style: none;
+     padding: 0;
+     margin: 0;
+     position: absolute;
+     width: 100%;
+     background: white;
+     border: 1px solid #ccc;
+     border-top: none;
+     border-radius: 5px;
+     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+     display: none;
+     max-height: 0;
+     overflow: hidden;
+     transition: max-height 0.3s ease-in-out;
+ }
+
+ .option {
+     padding: 12px;
+     cursor: pointer;
+     transition: background 0.2s;
+ }
+
+ .option:hover {
+     background: #007bff;
+     color: white;
+ }
+
+ .show {
+     display: block;
+     max-height: 150px;
+ }
+
+
+ /* --------------------------------------------------------------------- */

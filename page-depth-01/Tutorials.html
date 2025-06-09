@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources Tutorials</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="manifest" href="../manifest.webmanifest">
     <style>
         /* body {
             font-family: Arial, sans-serif;
@@ -289,57 +289,28 @@
         <a class="active-1" href="Blog.html">
             <small>CSE<br>Blog</small>
         </a>
-        <!-- <a class="active-1" href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL?usp=sharing"
-            target="_blank">
-            <small>oUITS<br>G-Drive</small>
-        </a> -->
         <div class="dropdown">
             <button class="dropbtn" onclick="toggleDropdown(this)">More<br>Projects</button>
             <!-- <button class="dropbtn">Quick<br>Links</button> -->
             <div class="dropdown-content">
-                <!-- APK LINK -->
-                <div class="navigation1" style="background-color: #0000009b;"></div>
-                <script src="../apk-link.js"></script>
-                <a style="color: black;" class="active-1" href="https://ouits-schedule.netlify.app/" target="blank">
-                    <small>oUITS<br>Scheduler</small>
-                </a>
-                <a style="color: black;" class="active-1"
-                    href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL?usp=sharing"
-                    target="_blank">
-                    <small>oUITS<br>G-Drive</small>
-                </a>
+                <div class="navigation1"></div>
+                <script src="../js/Links\drop-link-01.js"></script>
+
+                <div class="navigation2"></div>
+                <script src="../js/Links\drop-link-02.js"></script>
+
+                <div class="navigation3"></div>
+                <script src="../js/Links\drop-link-03.js"></script>
+
+                <div class="navigation4"></div>
+                <script src="../js/Links\drop-link-04.js"></script>
+
+                <div class="navigation5"></div>
+                <script src="../js/Links\drop-link-99.js"></script>
             </div>
         </div>
     </div>
-    <script>
-        // Improved dropdown toggle function
-        function toggleDropdown(button) {
-            // Get the dropdown content element
-            var dropdownContent = button.nextElementSibling;
-
-            // Toggle the current dropdown
-            dropdownContent.classList.toggle("show");
-
-            // Close all other dropdowns
-            document.querySelectorAll(".dropdown-content.show").forEach(function (openDropdown) {
-                if (openDropdown !== dropdownContent) {
-                    openDropdown.classList.remove("show");
-                }
-            });
-        }
-
-        // Add a global click event to close dropdowns when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                document.querySelectorAll(".dropdown-content.show").forEach(function (dropdown) {
-                    dropdown.classList.remove("show");
-                });
-            } else {
-                // Stop event from reaching the document listener when clicking a button
-                event.stopPropagation();
-            }
-        });
-    </script>
+    <script src="../js/navbar-drop-down.js"></script>
 
     <!-- BOTTOM BAR "navbar" -->
 
@@ -355,7 +326,7 @@
     <div class="container-5" align=center style="max-width:500px;background-color: #1B262C;">
         <table class="resources-table-5" align=center>
             <tr>
-                <p class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);">other tutorials
+                <p class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);">Tutorials Collection
                 </p>
             </tr>
 
@@ -364,36 +335,41 @@
                 <td class="menu-button" id="menuButton3" align="center" style="color: rgba(240, 248, 255, 0.85);margin-left: auto;
                 margin-right: auto;">
 
-                    <p class="highlights" align="center"  style="color: rgba(240, 248, 255, 0.649);padding: 5%;">UITS-affiliate
+                    <p class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);padding: 5%;">
+                        UITS-affiliate
                     </p>
                 </td>
             </tr>
-            <tr>
+            
+            <!-- <tr>
                 <td style="background-color: rgba(240, 248, 255, 0);margin-left: auto;
                 margin-right: auto;">
 
-                    <p class="cell-link" align="center" style="color: rgba(240, 248, 255, 0.649);padding: 5%;">personal tutorials
+                    <p class="cell-link" align="center" style="color: rgba(240, 248, 255, 0.649);padding: 5%;">personal
+                        tutorials
                     </p>
                 </td>
-            </tr>
-            <tr>
-                <td  style="margin-left: auto;
-    margin-right: auto;">
-                    <!-- <p> -->
-                        <a class="cell-link" href="page-depth-02/My-guides.html">
-                            b1tranger @YT
-                        </a>
-                    <!-- </p> -->
-                </td>
-            </tr>
+            </tr> -->
             <tr><!-- 2ndcontainer with menu button -->
                 <td class="menu-button" id="menuButton1" align="center" style="color: rgba(240, 248, 255, 0.85);margin-left: auto;
                 margin-right: auto;">
 
-<p class="cell-link" align="center" style="color: rgba(240, 248, 255, 0.649);padding: 5%;">People I want to
+                    <p class="cell-link" align="center" style="color: rgba(240, 248, 255, 0.649);padding: 5%;">People I
+                        want to
                         keep following</p>
                 </td>
             </tr>
+            <tr>
+                <td style="margin-left: auto;
+    margin-right: auto;">
+                    <!-- <p> -->
+                    <a class="cell-link" href="page-depth-02/My-guides.html">
+                        b1tranger @YT
+                    </a>
+                    <!-- </p> -->
+                </td>
+            </tr>
+
         </table>
     </div>
 
@@ -404,6 +380,21 @@
         <div class="popup-menu-categories">
             <div class="popup-menu-category" align="center">
                 <!-- <div class="category-title">Coding Resources</div> -->
+                <div class="link-item">
+                    <a href="https://en.wikipedia.org/wiki/Ashik_Chowdhury" target="_blank">
+                        Ashik Chowdhury <br>(BIDA)
+                    </a>
+                </div>
+                <div class="link-item">
+                    <a href="https://en.wikipedia.org/wiki/Mahmudul_Hasan_Sohag" target="_blank">
+                        Mahmudul Hasan Sohag<br> (Onnorokom Group)
+                    </a>
+                </div>
+                <div class="link-item">
+                    <a href="https://www.linkedin.com/in/md-maksudul-hossain-4300a095" target="_blank">
+                        Md Maksudul Hossain <br>(Onnorokom Pathshala)
+                    </a>
+                </div>
                 <div class="link-item">
                     <a href="https://github.com/ShahjalalShohag" target="_blank">
                         youkn0wwho <br>(Shahjalal Shohag)
@@ -419,16 +410,7 @@
                         3blue1brown<br> (Grant Sanderson)
                     </a>
                 </div>
-                <div class="link-item">
-                    <a href="https://www.youtube.com/@OnnorokomPathshala/playlists" target="_blank">
-                        Onnorokom Pathshala
-                    </a>
-                </div>
-                <div class="link-item">
-                    <a href="https://www.linkedin.com/in/md-maksudul-hossain-4300a095" target="_blank">
-                        Md Maksudul Hossain <br>(Onnorokom Pathshala)
-                    </a>
-                </div>
+
                 <!-- More links here -->
             </div>
         </div>
@@ -448,17 +430,17 @@
                 </div> -->
                 <div class="link-item">
                     <a href="https://www.youtube.com/@gowithhabib" target="_blank">
-                        Habibur Rahman (Batch-??) @YT
+                        Habibur Rahman (Batch-??)
                     </a>
                 </div>
                 <div class="link-item">
                     <a href="https://www.youtube.com/@safridbhuiyan" target="_blank">
-                        Safrid Bhuiyan (Batch-53) @YT
+                        Safrid Bhuiyan (Batch-53)
                     </a>
                 </div>
                 <div class="link-item">
-                    <a href="#" target="_blank">
-                        #
+                    <a href="https://www.youtube.com/@TechTalkBangla" target="_blank">
+                        Mr. Al-Imtiaz (Faculty)
                     </a>
                 </div>
                 <div class="link-item">
@@ -544,6 +526,12 @@
     <!-- BACK BUTTON -->
 
     <a href="javascript:history.back()" class="back-icon">&#8592;</a>
+
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- TO WORK OFFLINE -->
+
+    <script src="offline.js"></script>
 
 
 </body>

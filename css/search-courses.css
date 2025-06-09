@@ -1,0 +1,116 @@
+.search-container {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    right: 15px;
+}
+/* 
+.search-container input::placeholder {
+    color: rgba(255, 255, 255, 0.463);
+} */
+
+
+.search-input {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.search-input:hover {
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+}
+
+.search-input:focus {
+    border-color: #4285f4;
+    box-shadow: 0 2px 10px rgba(66, 133, 244, 0.3);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 250px;
+    min-width: 110%;
+    overflow-y: scroll;
+    z-index: 10;
+    display: none;
+    margin-top: 5px;
+    text-align: left;
+    /* width: 100%; */
+}
+
+/* Alternative approach - thin, semi-transparent scrollbar */
+.search-results::-webkit-scrollbar {
+    width: 4px;
+}
+
+.search-results::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.search-results::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+
+/* For Firefox */
+.search-results {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.result-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #f1f1f1;
+    transition: background 0.2s;
+}
+
+.result-item:hover {
+    background-color: #f5f8ff;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-title {
+    font-weight: 500;
+    color: #1a0dab;
+    margin-bottom: 4px;
+}
+
+.result-code {
+    color: #545454;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.result-dept {
+    color: #006621;
+    font-size: 14px;
+}
+
+.highlight {
+    background-color: #ffeb3b;
+    font-weight: bold;
+}
+
+.no-results {
+    padding: 15px;
+    color: #666;
+    text-align: center;
+}

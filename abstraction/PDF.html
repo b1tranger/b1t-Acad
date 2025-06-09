@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles.css">
+
+
+
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+
+    <div class="topnav-1">
+        <!-- APK LINK -->
+        <!-- <div class="navigation1"
+            style="display: flex;justify-content: flex-end;background-color: #333;min-height: 50px;width: 100%;"></div>
+        <script src="../apk-link.js"></script> -->
+
+        <a class="active-1" href="Tutorials.html">
+            <small>Resources<br>Tutorials</small>
+        </a>
+        <a class="active-1" href="References.html">
+            <small>Project<br>References</small>
+        </a>
+        <a class="active-1" href="Blog.html">
+            <small>CSE<br>Blog</small>
+        </a>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown(this)">More<br>Projects</button>
+            <!-- <button class="dropbtn">Quick<br>Links</button> -->
+            <div class="dropdown-content">
+                <div class="navigation1"></div>
+                <script src="../Links\drop-link-01.js"></script>
+
+                <div class="navigation2"></div>
+                <script src="../Links\drop-link-02.js"></script>
+
+                <div class="navigation3"></div>
+                <script src="../Links\drop-link-03.js"></script>
+
+                <div class="navigation4"></div>
+                <script src="../Links\drop-link-04.js"></script>
+
+                <div class="navigation5"></div>
+                <script src="../Links\drop-link-99.js"></script>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Improved dropdown toggle function
+        function toggleDropdown(button) {
+            // Get the dropdown content element
+            var dropdownContent = button.nextElementSibling;
+
+            // Toggle the current dropdown
+            dropdownContent.classList.toggle("show");
+
+            // Close all other dropdowns
+            document.querySelectorAll(".dropdown-content.show").forEach(function (openDropdown) {
+                if (openDropdown !== dropdownContent) {
+                    openDropdown.classList.remove("show");
+                }
+            });
+        }
+
+        // Add a global click event to close dropdowns when clicking outside
+        document.addEventListener("click", function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                document.querySelectorAll(".dropdown-content.show").forEach(function (dropdown) {
+                    dropdown.classList.remove("show");
+                });
+            } else {
+                // Stop event from reaching the document listener when clicking a button
+                event.stopPropagation();
+            }
+        });
+    </script>
+
+
+    <!-- BOTTOM BAR "navbar" -->
+
+    <div style="padding-left:16px">
+    </div>
+    <div class="navbar-5">
+        <font size="24"></font>
+        <p align=center style="color:rgba(255, 255, 255, 0.776);"><i>oUITS Resources</i></p>
+        </font>
+
+    </div>
+    <!-- ----------------------------------------------------------------------- -->
+    <br>
+    <div style="justify-content: center;display: flex">
+        <a class="cell-link"
+            href="https://drive.google.com/drive/folders/1NMg91di-2WhGahidZT2JpDhno-M6f2as?usp=drive_link"
+            target="_blank"
+            style="color:rgb(0, 0, 0);border-radius: 15px;background-color: rgba(185, 214, 239, 0.601);padding: 10px;width:50%;text-align: center;max-width: 200px;">
+            See mirror files
+        </a>
+        <br>
+        
+    </div>
+
+
+    <div class="container-5" style="justify-content: center;display: flex; max-width: 100%;">
+        <!-- <object class="pdf" data="https://drive.google.com/file/d/1dgk2l6Xv2ge3afwfr7rGwbxCsUQHzpKL/preview?usp=sharing"
+            height=600px width=100%>
+        </object> -->
+
+        <iframe loading="lazy"
+            src="https://docs.google.com/gview?url=https://drive.google.com/uc?id=1dgk2l6Xv2ge3afwfr7rGwbxCsUQHzpKL&embedded=true" width=100%
+            height="600px" style="border-radius: 5px;"></iframe>
+
+        <!-- <iframe src="[mod]Faculty-Routine-Ramadan.pdf" height=600px width=100% title="Iframe Example"
+            style="border-radius: 5px;"></iframe> -->
+        <!-- <iframe src="https://docs.google.com/gview?url=https://drive.google.com/uc?id=1dgk2l6Xv2ge3afwfr7rGwbxCsUQHzpKL&embedded=true" width="100%" height="600px" style="border-radius: 5px;"></iframe> -->
+        <!-- <iframe src="https://drive.google.com/file/d/1dgk2l6Xv2ge3afwfr7rGwbxCsUQHzpKL/preview" width="100%" height="600px" style="border-radius: 5px;"></iframe> -->
+
+        <!-- <embed src="https://drive.google.com/uc?id=1dgk2l6Xv2ge3afwfr7rGwbxCsUQHzpKL" 
+        type="application/pdf" width="100%" height="600px" /> -->
+
+
+
+    </div>
+    <br><br><br><br><br>
+
+    <!-- HOME BUTTON -->
+
+    <a href="../index.html" class="home-button">
+        <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+        </svg>
+    </a>
+
+    <!-- BACK BUTTON -->
+
+    <a href="javascript:history.back()" class="back-icon">&#8592;</a>
+
+
+</body>
+
+</html>

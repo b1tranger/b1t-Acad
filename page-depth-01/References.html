@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../selector.css">
+    <link rel="manifest" href="../manifest.webmanifest">
     <style>
         .university-resources {
             margin: 2rem auto;
@@ -274,57 +275,28 @@
         <a class="active-1" href="Blog.html">
             <small>CSE<br>Blog</small>
         </a>
-        <!-- <a class="active-1" href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL?usp=sharing"
-            target="_blank">
-            <small>oUITS<br>G-Drive</small>
-        </a> -->
         <div class="dropdown">
             <button class="dropbtn" onclick="toggleDropdown(this)">More<br>Projects</button>
             <!-- <button class="dropbtn">Quick<br>Links</button> -->
             <div class="dropdown-content">
-                <!-- APK LINK -->
-                <div class="navigation1" style="background-color: #0000009b;"></div>
-                <script src="../apk-link.js"></script>
-                <a style="color: black;" class="active-1" href="https://ouits-schedule.netlify.app/" target="blank">
-                    <small>oUITS<br>Scheduler</small>
-                </a>
-                <a style="color: black;" class="active-1"
-                    href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL?usp=sharing"
-                    target="_blank">
-                    <small>oUITS<br>G-Drive</small>
-                </a>
+                <div class="navigation1"></div>
+                <script src="../js/Links\drop-link-01.js"></script>
+
+                <div class="navigation2"></div>
+                <script src="../js/Links\drop-link-02.js"></script>
+
+                <div class="navigation3"></div>
+                <script src="../js/Links\drop-link-03.js"></script>
+
+                <div class="navigation4"></div>
+                <script src="../js/Links\drop-link-04.js"></script>
+
+                <div class="navigation5"></div>
+                <script src="../js/Links\drop-link-99.js"></script>
             </div>
         </div>
     </div>
-    <script>
-        // Improved dropdown toggle function
-        function toggleDropdown(button) {
-            // Get the dropdown content element
-            var dropdownContent = button.nextElementSibling;
-
-            // Toggle the current dropdown
-            dropdownContent.classList.toggle("show");
-
-            // Close all other dropdowns
-            document.querySelectorAll(".dropdown-content.show").forEach(function (openDropdown) {
-                if (openDropdown !== dropdownContent) {
-                    openDropdown.classList.remove("show");
-                }
-            });
-        }
-
-        // Add a global click event to close dropdowns when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                document.querySelectorAll(".dropdown-content.show").forEach(function (dropdown) {
-                    dropdown.classList.remove("show");
-                });
-            } else {
-                // Stop event from reaching the document listener when clicking a button
-                event.stopPropagation();
-            }
-        });
-    </script>
+    <script src="../js/navbar-drop-down.js"></script>
 
     <!-- BOTTOM BAR "navbar" -->
 
@@ -343,20 +315,22 @@
         <div class="container" style="width: 90%;">
 
             <!-- <h1>UITS-Projects Collection</h1> -->
-            
+
             <font size="5">
                 <p align="center">UITS-Projects Collection</p>
             </font>
-<!-- ----------------------------------------------------------------------- -->
-<div class="section" style="margin-top: -30px;margin-bottom: 50px;"
-data-faq="Projects by UITS Students. Let me know if you're working on something and are okay with sharing it, I'll happily list them here.|: )">
-<div class="faq-icon">?</div>
-<div class="faq-box"></div>
-</div>
-<!-- ----------------------------------------------------------------------- -->
+            <!-- ----------------------------------------------------------------------- -->
+            <div class="section" style="margin-top: -30px;margin-bottom: 50px;"
+                data-faq="Projects by UITS Students. Let me know if you're working on something and are okay with sharing it, I'll happily list them here.|: )">
+                <div class="faq-icon">?</div>
+                <div class="faq-box"></div>
+            </div>
+            <!-- ----------------------------------------------------------------------- -->
             <!-- Dropdown-1 -->
             <div class="dropdown-container resources" style="border-radius: 20px;">
-                <div class="dropdown-header" style="background-color: #1B262C;"><p></p>Resource Projects</div>
+                <div class="dropdown-header" style="background-color: #1B262C;">
+                    <p></p>Resource Projects
+                </div>
                 <div class="dropdown-content-1">
                     <a href=" http://akibreza.github.io/uitsBOT" target="_blank" class="dropdown-item">UITS Utility App
                         "uitsBOT"
@@ -381,7 +355,9 @@ data-faq="Projects by UITS Students. Let me know if you're working on something 
 
             <!-- Dropdown-2 -->
             <div class="dropdown-container courses" style="border-radius: 20px;">
-                <div class="dropdown-header" style="background-color: #1B262C;"><p></p>Other Projects</div>
+                <div class="dropdown-header" style="background-color: #1B262C;">
+                    <p></p>Other Projects
+                </div>
                 <div class="dropdown-content-1">
                     <a href="https://github.com/tahmidnasiftamal/DataMiningProject" target="_blank"
                         class="dropdown-item">Search Engine for Data Mining "DataMiningProject"
@@ -389,10 +365,15 @@ data-faq="Projects by UITS Students. Let me know if you're working on something 
                             (92114951008)</div>
                     </a>
 
-                    <a href="https://github.com/safridbhueyan/Scout_APP" class="dropdown-item">
+                    <a href="https://github.com/safridbhueyan/Scout_APP" class="dropdown-item" target="_blank">
                         Event management app "Scout App"
                         <div class="description">by Md. Safrid Bhuiyan
                             (432310005101080)</div>
+                    </a>
+                    <a href="https://akibreza.github.io/imsorry/" class="dropdown-item" target="_blank">
+                        Text bomb for your loved one "I am sorry"
+                        <div class="description">by Akib Reza
+                            (0432220005101061)</div>
                     </a>
                     <!-- <a href="https://example.com/ee-courses" class="dropdown-item">
                         Electrical Engineering
@@ -443,53 +424,9 @@ data-faq="Projects by UITS Students. Let me know if you're working on something 
                 </div>
             </div>
 
-            <!-- Tools Section -->
-            <!-- <div class="dropdown-container tools"  style="border-radius: 20px;">
-                <div class="dropdown-header" style="background-color: #1B262C;">Online Tools</div>
-                <div class="dropdown-content-1">
-                    <a href="https://example.com/calculator" class="dropdown-item">
-                        Engineering Calculator
-                        <div class="description">Specialized calculators for various engineering disciplines</div>
-                    </a>
-                    <a href="https://example.com/simulator" class="dropdown-item">
-                        Simulation Software
-                        <div class="description">Online physics and circuit simulators</div>
-                    </a>
-                    <a href="https://example.com/code-editor" class="dropdown-item">
-                        Online Code Editor
-                        <div class="description">Code, compile, and test in your browser</div>
-                    </a>
-                    <a href="https://example.com/lab-tools" class="dropdown-item">
-                        Virtual Lab Equipment
-                        <div class="description">Remote access to laboratory resources</div>
-                    </a>
-                </div>
-            </div> -->
-
-            <!-- Community Section -->
-            <!-- <div class="dropdown-container community"  style="border-radius: 20px;">
-                <div class="dropdown-header" style="background-color: #1B262C;">Community & Support</div>
-                <div class="dropdown-content-1">
-                    <a href="https://example.com/forums" class="dropdown-item">
-                        Student Forums
-                        <div class="description">Connect with peers and discuss courses</div>
-                    </a>
-                    <a href="https://example.com/mentoring" class="dropdown-item">
-                        Mentoring Program
-                        <div class="description">Get paired with industry professionals</div>
-                    </a>
-                    <a href="https://example.com/career" class="dropdown-item">
-                        Career Resources
-                        <div class="description">Job boards, resume help, and interview prep</div>
-                    </a>
-                    <a href="https://example.com/alumni" class="dropdown-item">
-                        Alumni Network
-                        <div class="description">Connect with graduates in your field</div>
-                    </a>
-                </div>
-            </div> -->
         </div>
 
+        <!-- <script src="../js/drop-down.js"></script> -->
         <script>
             document.addEventListener('DOMContentLoaded', function () {
                 const dropdownHeaders = document.querySelectorAll('.dropdown-header');
@@ -539,87 +476,6 @@ data-faq="Projects by UITS Students. Let me know if you're working on something 
         </script>
         <!-- ----------------------------------------------------------------------- -->
 
-        <!-- <div class="university-resources" align="center">
-            <font size="5">
-                <p align="center">UITS-Projects Collection</p>
-            </font>
-
-            
-
-            <div class="table-container">
-
-                <table>
-
-                    <thead>
-                        <tr>
-                            <th colspan="2" style="text-align: center;"> Resource Projects</th>
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td colspan="2" style="text-align: center;">
-                                <a href=" http://akibreza.github.io/uitsBOT" target="_blank"
-                                    style="color:rgba(60, 60, 82, 0.733);">Akib Reza
-                                    (0432220005101061)<br>(uitsBOT for Notes, Utilities)</a>
-                            </td>
-                        </tr>
-
-                    </tbody>
-
-                    <thead>
-                        <tr>
-                            <th colspan="2" style="text-align: center;">Other Projects</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td colspan="2" style="text-align: center;"><a
-                                    href="https://github.com/tahmidnasiftamal/DataMiningProject" target="_blank"
-                                    style="color:rgba(60, 60, 82, 0.733);">Tahmid Nasif Tamal
-                                    (92114951008)<br>(Search Engine for Data Mining)</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" style="text-align: center;"><a
-                                    href="https://github.com/safridbhueyan/Scout_APP" target="_blank"
-                                    style="color:rgba(60, 60, 82, 0.733);">Md. Safrid Bhuiyan
-                                    (432310005101080)<br>(Scout App: Event management app)</a></td>
-                        </tr>
-
-                        <tr>
-
-                            <td style="text-align: center;" class="feature-list">
-                                <p style="margin-bottom: 5px; color:rgba(60, 60, 82, 0.733);">WAD projects of Batch 54
-                                    <br>(highlights)
-                                </p>
-                                <ul
-                                    style="color:rgba(60, 60, 82, 0.733); list-style-position: inside; padding-left: 0;">
-                                    <li><a style="color:rgba(60, 60, 82, 0.733);"
-                                            href="https://shoytanbaba99.github.io/Just-Another-Typing-Test/"
-                                            target="_blank">Md. Masud Rahman (432320005101064)</a></li>
-                                    <li><a style="color:rgba(60, 60, 82, 0.733);"
-                                            href="https://github.com/UnknownRifah/EventPlanner" target="_blank">Rifah
-                                            Nanjiba Borno (432320005101083)</a></li>
-                                    <li><a style="color:rgba(60, 60, 82, 0.733);"
-                                            href="https://fahimhossain1085.github.io/web-application-design-project/"
-                                            target="_blank">Md. Fahim Hossain (432320005101085)</a></li>
-                                </ul>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div> -->
-
-
-
-        <!-- <br><br> -->
-
 
         <div style="justify-content: center;display:flex;">
             <hr
@@ -655,9 +511,13 @@ data-faq="Projects by UITS Students. Let me know if you're working on something 
                         <td>-</td>
                         <td>
                             <div class="link-group">
-                                <a href="https://nurulalamador.github.io/UIUQuestionBank/" target="_blank">UIU Question
-                                    Bank</a>
-
+                                <p style="margin-top: -2px;margin-bottom: -2px;"><a
+                                        href="https://nurulalamador.github.io/UIUQuestionBank/" target="_blank"
+                                        style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">UIU
+                                        Question
+                                        Bank</a><small> + <a href="https://uiuqb.vercel.app/"
+                                            target="_blank">mirror</a></small>
+                                </p>
                             </div>
                         </td>
                     </tr>
@@ -666,12 +526,16 @@ data-faq="Projects by UITS Students. Let me know if you're working on something 
                         <td>-</td>
                         <td>
                             <div class="link-group">
-                                <a href="https://diuqbank.com/" target="_blank">DIU Question Bank</a>
-                                <a href="https://routine.zohirrayhan.me/" target="_blank">DIU Routine Scrapper</a>
-                                <small><a
-                                        href="https://play.google.com/store/apps/details?id=com.zohirrayhan.routinescrapper"
-                                        target="_blank">(PlayStore
-                                        App)</a></small>
+                                <a href="https://diuqbank.com/" target="_blank"
+                                    style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">DIU
+                                    Question Bank</a>
+                                <p style="margin-top: -2px;margin-bottom: -2px;">
+                                    <a href="https://routine.zohirrayhan.me/" target="_blank">DIU Routine Scrapper</a>+
+                                    <small><a
+                                            href="https://play.google.com/store/apps/details?id=com.zohirrayhan.routinescrapper"
+                                            target="_blank">PlayStore</a>
+                                    </small>
+                                </p>
                             </div>
                         </td>
                     </tr>
@@ -680,7 +544,8 @@ data-faq="Projects by UITS Students. Let me know if you're working on something 
                         <td>-</td>
                         <td>
                             <div class="link-group">
-                                <a href="https://notebot.netlify.app/" target="_blank">notebot</a>
+                                <a href="https://notebot.netlify.app/" target="_blank"
+                                    style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">notebot</a>
 
                             </div>
                         </td>
@@ -703,7 +568,12 @@ data-faq="Projects by UITS Students. Let me know if you're working on something 
                     <tr>
                         <td>IUT</td>
                         <td>
-                            <a href="https://www.iutoic-dhaka.edu/e-resources" target="_blank">E Resources</a>
+                            <div class="link-group">
+                                <a href="https://www.iutoic-dhaka.edu/e-resources" target="_blank">E Resources</a>
+                                <a href="http://103.82.172.44:8080/xmlui/handle/123456789/58" target="_blank"
+                                    style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">Question
+                                    Bank</a>
+                            </div>
                         </td>
                         <td>-</td>
                     </tr>
@@ -734,7 +604,7 @@ data-faq="Projects by UITS Students. Let me know if you're working on something 
                     <tr>
                         <td>SEU</td>
                         <td>
-                            <div class="feature-list">
+                            <div class="feature-list" style="max-width: 300px;">
                                 <span class="feature-title">UCAM Dashboard Features:</span>
                                 <ul>
                                     <li>Student Info</li>
@@ -809,8 +679,16 @@ data-faq="Projects by UITS Students. Let me know if you're working on something 
   <script src="faq.js"></script>
   -->
 
-    <script src="../faq.js"></script>
+    <script src="../js/faq.js"></script>
+
     <!-- -------------------------------------------------------------------- -->
+
+    <!-- TO WORK OFFLINE -->
+
+    <script src="offline.js"></script>
+
+
+
 
 </body>
 

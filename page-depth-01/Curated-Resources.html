@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curated-Resources</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="manifest" href="../manifest.webmanifest">
     <style>
         a {
             -webkit-tap-highlight-color: transparent;
@@ -338,57 +339,28 @@
         <a class="active-1" href="Blog.html">
             <small>CSE<br>Blog</small>
         </a>
-        <!-- <a class="active-1" href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL?usp=sharing"
-            target="_blank">
-            <small>oUITS<br>G-Drive</small>
-        </a> -->
         <div class="dropdown">
             <button class="dropbtn" onclick="toggleDropdown(this)">More<br>Projects</button>
             <!-- <button class="dropbtn">Quick<br>Links</button> -->
             <div class="dropdown-content">
-                <!-- APK LINK -->
-                <div class="navigation1" style="background-color: #0000009b;"></div>
-                <script src="../apk-link.js"></script>
-                <a style="color: black;" class="active-1" href="https://ouits-schedule.netlify.app/" target="blank">
-                    <small>oUITS<br>Scheduler</small>
-                </a>
-                <a style="color: black;" class="active-1"
-                    href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL?usp=sharing"
-                    target="_blank">
-                    <small>oUITS<br>G-Drive</small>
-                </a>
+                <div class="navigation1"></div>
+                <script src="../js/Links\drop-link-01.js"></script>
+
+                <div class="navigation2"></div>
+                <script src="../js/Links\drop-link-02.js"></script>
+
+                <div class="navigation3"></div>
+                <script src="../js/Links\drop-link-03.js"></script>
+
+                <div class="navigation4"></div>
+                <script src="../js/Links\drop-link-04.js"></script>
+
+                <div class="navigation5"></div>
+                <script src="../js/Links\drop-link-99.js"></script>
             </div>
         </div>
     </div>
-    <script>
-        // Improved dropdown toggle function
-        function toggleDropdown(button) {
-            // Get the dropdown content element
-            var dropdownContent = button.nextElementSibling;
-
-            // Toggle the current dropdown
-            dropdownContent.classList.toggle("show");
-
-            // Close all other dropdowns
-            document.querySelectorAll(".dropdown-content.show").forEach(function (openDropdown) {
-                if (openDropdown !== dropdownContent) {
-                    openDropdown.classList.remove("show");
-                }
-            });
-        }
-
-        // Add a global click event to close dropdowns when clicking outside
-        document.addEventListener("click", function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                document.querySelectorAll(".dropdown-content.show").forEach(function (dropdown) {
-                    dropdown.classList.remove("show");
-                });
-            } else {
-                // Stop event from reaching the document listener when clicking a button
-                event.stopPropagation();
-            }
-        });
-    </script>
+    <script src="../js/navbar-drop-down.js"></script>
 
     <!-- BOTTOM BAR "navbar" -->
 
@@ -409,7 +381,7 @@
                     Curated-Resources<br><br></p>
             </tr>
             <tr>
-                
+
 
                 <td style="margin-left: auto;
     margin-right: auto;width:250px;height:60px;padding: 2%;">
@@ -420,12 +392,12 @@
                     </a>
                     <!-- </p> -->
                 </td>
-           
-                <td style="margin-left: auto;
-    margin-right: auto;width:250px;height:60px;padding: 2%;">
+
+                <td style="
+    margin: auto;width:250px;height:60px;padding: 2%;">
                     <!-- <p> -->
-                    <a class="cell-link" href="page-depth-02\Resources-Dump.html">
-                        Saraf's Resources List
+                    <a class="cell-link" href="https://b1tranger.github.io/Dump.html" target="_blank">
+                        Resources Dump
                     </a>
                     <!-- </p> -->
                 </td>
@@ -515,29 +487,28 @@
     <!-- 1st popup menu -->
     <div class=" popup-menu" id="popupMenu1" style="max-width:400px; width: 60%;">
         <div class="popup-close popup-close-btn"></div>
-        <!-- <div class="popup-menu-title">Content Creators</div> -->
+        <div class="popup-menu-title"><a href="https://github.com/b1tranger/oUITS-Resources/tree/main/installers"
+                target="_blank" style="color: white;">Direct Download</a></div>
         <div class="popup-menu-categories">
             <div class="popup-menu-category" align="center">
                 <!-- <div class="category-title">People I Follow</div> -->
                 <div class="link-item">
-                    <a href="https://github.com/Tichau/FileConverter/releases/tag/v2.1 "
-                        target="_blank">FileConverter</a>
+                    <a href="https://github.com/Tichau/FileConverter/releases" target="_blank">FileConverter</a>
                 </div>
                 <div class="link-item">
                     <a href="https://handbrake.fr/downloads.php  " target="_blank">handbrake</a>
                 </div>
                 <div class="link-item">
-                    <a href="https://github.com/microsoft/PowerToys/releases/tag/v0.88.0"
-                        target="_blank">ms-PowerToys</a>
+                    <a href="https://github.com/microsoft/PowerToys/releases" target="_blank">ms-PowerToys</a>
                 </div>
                 <div class="link-item">
-                    <a href="#" target="_blank">
-                        #
+                    <a href="https://www.win-rar.com/postdownload.html?&L=0" target="_blank">
+                        WinRAR
                     </a>
                 </div>
                 <div class="link-item">
-                    <a href="#" target="_blank">
-                        #
+                    <a href="https://www.revouninstaller.com/start-freeware-download/" target="_blank">
+                        Revo Uninstaller
                     </a>
                 </div>
                 <div class="link-item">
@@ -637,21 +608,14 @@
     <!-- 4th popup menu with different content -->
     <div class="popup-menu" id="popupMenu4" style="max-width:400px; width: 60%;">
         <div class="popup-close popup-close-btn"></div>
-        <div class="popup-menu-title">Backup 18.03.25<br><small style="color: #ffffff4f;">(Not Shared)</small></div>
+        <div class="popup-menu-title">Backup 31.05.25<br><small style="color: #ffffff4f;">(Not Shared)</small></div>
         <div class="popup-menu-categories">
             <div class="popup-menu-category" align="center">
-                <!--                 <div class="category-title">Coding Resources</div> -->
-                <!--  <div class="link-item">
-                    <a href="https://drive.google.com/drive/folders/1n8wBkN1nAhpW3Z0eMkU9OlMNaPByp88F?usp=drive_link"
-                        target="_blank">
-                        UITS Contests Archive
-                    </a>
-            </div> -->
                 <div class="link-item">
                     <!-- Drive LINK -->
-                    <div class="navigation2">
+                    <div class="navigation-archive">
                     </div>
-                    <script src="../drive-link.js"></script>
+                    <script src="../js/archive-link.js"></script>
                 </div>
 
                 <!-- More links here -->
@@ -768,6 +732,11 @@
 
     <a href="javascript:history.back()" class="back-icon">&#8592;</a>
 
+    <!-- -------------------------------------------------------------------- -->
+
+    <!-- TO WORK OFFLINE -->
+
+    <script src="offline.js"></script>
 
 </body>
 

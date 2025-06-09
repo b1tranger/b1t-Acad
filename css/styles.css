@@ -1,0 +1,1027 @@
+/* USED NUMBERS UNTIL [ 4 ] 
+
+[ 1 ] = TOP BAR
+ [ 2 ] = Blog window
+  [ 3 ] = Blog header
+   [ 4 ] = Drive iframe (CLAUDE)
+[ 5 ] = HIGHLIGHTS SECTION 
+[ 6 ] = BOTTOM BAR
+*/
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+
+
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+/* FAQ */
+
+.section {
+  /* height: 300px; */
+  /* border-bottom: 2px solid #ddd; */
+  position: relative;
+  /* padding: 20px; */
+}
+
+.faq-icon {
+  position: absolute;
+  left: 93.5%;
+  /* top: 50px; */
+  transform: translateY(-50%);
+  font-size: 20px;
+  cursor: pointer;
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border-color: #e51a1a;
+  border-width: 1px;
+  box-shadow: 1px 1px 10px #000000;
+
+
+  /* -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none; */
+
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+.faq-box {
+  /* overflow:visible; */
+  z-index: 9999;
+  display: none;
+  position: absolute;
+  right: 6%;
+  top: 50px;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.678);
+  color: #ffffff;
+  /* border: 2px solid #000000; */
+  border-radius: 20px;
+  padding: 10px;
+  width: 200px;
+  box-shadow: 1px 1px 10px black;
+  font-size: small;
+
+
+}
+
+/* width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;  */
+
+
+
+/* -----------------------------------------------------------------  */
+
+html {
+  zoom: 100%;
+}
+
+
+/* https://stackoverflow.com/questions/10853881/how-to-remove-underline-from-a-link-in-html*/
+
+a {
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+
+/* sets default zoom level */
+
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+/*Table CSS*/
+
+/* table,
+th,
+td {
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+} */
+
+/*    .topnav3     */
+/* FOR BLOGGER IFRAME HEADER */
+
+.topnav-3 {
+  overflow: hidden;
+  background-color: #333;
+  border-radius: 15px 15px 0 0;
+  font-size: large;
+}
+
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+
+/* TOP BAR CSS [ 1 ] */
+/* Reset margin and font */
+body {
+  background-color: 	#FAF9F6;
+  margin: 0;
+  font-size: large;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+/* -------------------------------------------------------------- */
+
+/* -------------------------------------------------------------- */
+
+
+/* Navigation bar container */
+.topnav-1 {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #333;
+  min-height: 50px;
+  width: 100%;
+
+  position: relative;
+  /* Ensure proper stacking context */
+  z-index: 100;
+  /* Higher z-index for the navbar */
+  overflow: visible !important;
+  /* Critical: allows dropdowns to extend outside */
+  /* margin: 0;
+  padding-left: 0;
+  padding-right: 0; */
+
+
+}
+
+/* Navigation links */
+
+
+/* ----------------------------------------------------------- */
+.dropdown-content div.navigation1,
+.dropdown-content div.navigation2,
+.dropdown-content div.navigation3,
+.dropdown-content div.navigation4,
+.dropdown-content div.navigation5 {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  font-size: large;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.dropdown-content div.navigation1:hover,
+.dropdown-content div.navigation2:hover,
+.dropdown-content div.navigation3:hover,
+.dropdown-content div.navigation4:hover,
+.dropdown-content div.navigation5:hover {
+  background-color: #2478ff;
+  color: rgb(255, 255, 255);
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+.topnav-1 a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: 17px;
+  white-space: nowrap;
+
+
+}
+
+.topnav-2 {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #33333300;
+  color: #000000;
+  min-height: 50px;
+  width: 100%;
+  font-size: small;
+  position: relative;
+  /* Ensure proper stacking context */
+  z-index: 100;
+  /* Higher z-index for the navbar */
+  overflow: visible !important;
+  /* Critical: allows dropdowns to extend outside */
+
+}
+
+.topnav-2 a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 10px 15px;
+  font-size: x-small;
+  white-space: nowrap;
+
+
+}
+
+
+/* Hover effect */
+.topnav-1 a:hover,
+.topnav-2 a:hover {
+  background-color: #BBE1FA;
+  color: rgb(255, 255, 255);
+}
+
+
+
+/* Active link style */
+.topnav-1 a.active-1,
+.topnav-2 a.active-1 {
+  background-color: #197dd500;
+  color: white;
+  font-size: large;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Small text within links */
+.topnav-1 small,
+.topnav-2 small {
+  display: block;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.topnav-1 a:hover,
+.topnav-2 a:hover {
+  background-color: #2478ff;
+  color: rgb(255, 255, 255);
+}
+
+
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+
+/* Container for the dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Button styling */
+.dropbtn {
+  background-color: #4caf4f00;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  /* border-radius: 4px; */
+  /* font-size: large; */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* .dropbtn:hover {
+  background-color: #197dd5;
+  color: rgb(255, 255, 255);
+} */
+
+/* The dropdown content (hidden by default) */
+.dropdown-content {
+  min-height: 100px;
+  display: none;
+  position: absolute;
+  right: 0;
+  /* Align to the right side of the button */
+  left: auto;
+  /* Override default left alignment */
+  background-color: #00000000;
+  color: #000000;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  /* z-index: 1; */
+  border-radius: 4px;
+  overflow-y: scroll;
+
+
+}
+
+/* Style for the links inside the dropdown */
+.dropdown-content a {
+  margin: 5px;
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover,
+.dropdown-content a:active {
+  background-color: #BBE1FA;
+  color: #ffffff;
+  /* z-index: 2; */
+}
+
+.dropdown-content div:hover {
+
+  background-color: #2478ff;
+  color: #ffffff;
+}
+
+
+.show {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when hovering */
+.dropdown:hover .dropbtn {
+  background-color: #2478ff;
+}
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+/*blog windows css [ 2 ]*/
+
+/* Hide scrollbars for Chrome, Safari and Opera */
+
+
+.top-bar-2 {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #000000;
+  overflow: hidden;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.iframe-container-2 {
+  width: 100%;
+  height: 200%;
+  overflow: hidden;
+  position: relative;
+
+}
+
+.iframe-container-2 iframe {
+  width: 103%;
+  height: 200%;
+  border: none;
+  position: absolute;
+  top: -125px;
+  left: 0;
+  pointer-events: none;
+  /* Prevents interaction with the iframe */
+}
+
+/* SCROLL TEXT (MARQUEE IS OLD) */
+
+.scroll-container {
+  height: 100px;
+  /* Visible area */
+  overflow: clip;
+  position: relative;
+}
+
+.scroll-text {
+
+  position: absolute;
+  white-space: normal;
+  animation: scroll-vertical 20s linear infinite;
+}
+
+@keyframes scroll-vertical {
+  from {
+    transform: translateY(5%);
+  }
+
+  to {
+    transform: translateY(-40%);
+  }
+}
+
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+/* IMG SCROLL */
+
+.img-container {
+  z-index: 1;
+
+  width: 100%;
+  height: 400px;
+  /* Adjust height as needed */
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #ddd;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background-color: white;
+
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #445f9d #f1f1f1;
+}
+
+/* For Chrome, Edge, and Safari */
+.img-container::-webkit-scrollbar {
+  width: 5px;
+}
+
+.img-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0 4px 4px 0;
+}
+
+.img-container::-webkit-scrollbar-thumb {
+  background: #445f9d;
+  border-radius: 5px;
+}
+
+.img-container::-webkit-scrollbar-thumb:hover {
+  background: #37498a;
+}
+
+/* The image itself */
+.img-container img {
+  width: 100%;
+  display: block;
+}
+
+/* Smooth scroll effect */
+.img-container {
+  scroll-behavior: smooth;
+}
+
+/* Scroll indicator - optional */
+.scroll-indicator {
+  text-align: center;
+  padding: 10px;
+  color: #666;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid #eee;
+}
+
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+/*View More*/
+
+
+.view-more-link-2 {
+  float: right;
+  position: relative;
+  bottom: 40px;
+  right: 10px;
+  text-align: center;
+  background-color: #000000b7;
+  color: rgb(255, 255, 255);
+  padding: 8px 15px;
+
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  z-index: 0;
+  transition: background-color 0.3s;
+}
+
+.view-more-link-2:hover-2 {
+  background-color: #004c99;
+}
+
+.content-2 {
+  padding: 20px;
+
+}
+
+/* Overlay to prevent iframe interaction */
+.overlay-2 {
+  /* float: right; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+}
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* ----------GOOGLE DRIVE IFRAME [ 4 ] to ARCHIVE-------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+
+
+/* HIGHLIGHTS SECTION [ 5 ] 
+now Browse Curated Resources*/
+
+
+.container-5 {
+  background-color: #1B262C;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 20px auto;
+  width: 79%;
+  max-width: 800px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* justify-content: center;
+  display: flex; */
+  min-width: 250px;
+}
+
+
+
+.drive-link-5 {
+  margin-bottom: 20px;
+}
+
+.drive-link-5 a {
+  color: #a8a8c7;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.drive-link-5 a:hover {
+  color: #ffffff;
+}
+
+.highlights-5 {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 20px;
+  margin-top: -5px;
+  /* text-align: center; */
+  /* justify-content: center;
+  display: flex; */
+}
+
+.resources-table-5 {
+  width: 85%;
+  border-collapse: separate;
+  border-spacing: 10px;
+  margin-top: 15px;
+  min-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.resources-table-5 td {
+  background-color: #00000044;
+  border-radius: 8px;
+  padding: 0;
+  /* Remove padding from td */
+  transition: background-color 0.3s ease;
+  text-align: center;
+  /* Center the content */
+}
+
+.resources-table-5 td:hover {
+  background-color: rgba(42, 81, 181, 0.694);
+}
+
+/* FOR CLICKABLE BUTTON DIV */
+
+.resources-table-5 .cell-link {
+  /* overflow:visible; */
+  color: #ffffffba;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  padding: 8%;
+  transition: color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+
+  /* Disable mobile tap highlight */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+}
+
+
+
+/* Add rules for all link states to maintain the same color */
+.resources-table-5 .cell-link:link,
+.resources-table-5 .cell-link:visited,
+.resources-table-5 .cell-link:active,
+.resources-table-5 .cell-link:focus {
+  color: #ffffffba;
+  /* Keep the same color for all states */
+  outline: none;
+}
+
+/* Only change color on hover */
+.resources-table-5 .cell-link:hover {
+  color: #ffffff;
+}
+
+
+
+.resources-table-5 a {
+  text-align: center;
+  color: #ffffffba;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.resources-table-5 a:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .resources-table-5 {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .resources-table-5 tr {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .resources-table-5 td {
+    margin: 5px 0;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+
+/* HOME BUTTON */
+/* .home-button {
+  bottom: 65px;
+  right: 20px;
+} */
+
+.home-button {
+  z-index: 100;
+
+  position: fixed;
+  bottom: 65px;
+  right: 20px;
+
+  /* top: 20px;
+  left: 20px;
+  bottom: 0px;
+  right: 0px; */
+
+  background-color: #007bff;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s, transform 0.2s;
+
+  /* Disable mobile tap highlight */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+
+}
+
+
+
+/* Add rules for all link states to maintain the same color */
+.home-button:link,
+.home-button:visited,
+.home-button:active,
+.home-button:focus {
+  color: #ffffff;
+  /* Keep the same color for all states */
+  outline: none;
+}
+
+
+.home-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.home-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+/* BACK BUTTON */
+
+
+
+
+/* .back-icon {
+  bottom: 65px;
+  right: 65px;
+} */
+
+
+
+.back-icon {
+  z-index: 100;
+  position: fixed;
+  /* top: 70px;
+  left: 20px; */
+  bottom: 65px;
+  right: 65px;
+  background-color: #007bff;
+  color: white;
+  padding: 8px 10px;
+  /* border-radius: 50%; */
+  text-decoration: none;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+
+  width: 20px;
+  /* Fixed width */
+  height: 25px;
+  /* Fixed height */
+  line-height: 50px;
+  /* Centering the icon */
+  border-radius: 50%;
+
+  /* Disable mobile tap highlight */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  outline: none;
+
+}
+
+
+
+/* Add rules for all link states to maintain the same color */
+.back-icon:link,
+.back-icon:visited,
+.back-icon:active,
+.back-icon:focus {
+  color: #ffffff;
+  /* Keep the same color for all states */
+  outline: none;
+}
+
+.back-icon:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+/* SCROLL UP OR DOWN BUTTON */
+
+/* .scroll-button {
+  bottom: 10px;
+  right: 10px;
+} */
+.scroll-button {
+  z-index: 100;
+
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  bottom: 10px;
+  right: 10px;
+  /* top: 120px;
+  left: 20px; */
+  bottom: 0px;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 60px;
+  right: 110px;
+  padding: 20px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  /* border-radius: 5px; */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Arial, sans-serif;
+  transition: opacity 0.3s;
+  opacity: 0;
+
+
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.scroll-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+}
+
+.scroll-button.visible {
+  opacity: 1;
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transition: transform 0.3s;
+}
+
+.arrow-circle {
+  width: 24px;
+  height: 24px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-up {
+  transform: rotate(-135deg);
+}
+
+.arrow-down {
+  transform: rotate(45deg);
+}
+
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  */
+
+/*BOTTOM BAR CSS*/
+
+.navbar-5 {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Example background, adjust as needed */
+    color: white;
+    text-align: center;
+    padding: 10px 0px 15px 0px; /* Add some padding to prevent text from touching edges */
+    box-sizing: border-box; /* Crucial for responsive sizing with padding */
+    z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.navbar-5 p {
+    margin: 0; /* Remove default paragraph margin */
+    white-space: normal; /* Allow text to wrap naturally */
+    word-wrap: break-word; /* Ensure long words break */
+}
+
+
+/* .navbar-5 {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+} */
+
+
+.navbar-5 a {
+  float: right;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar-5 a:hover {
+  background: #f1f1f1;
+  color: black;
+}
+
+.navbar-5 a.active {
+  background-color: #197dd5;
+  color: white;
+}
+
+.main {
+  padding: 16px;
+  margin-bottom: 30px;
+}
+
+/* responsive design */
+
+
+/* @media (max-width: 500px) {
+
+
+  .home-button {
+    bottom: 65px;
+    right: 20px;
+  }
+
+  .back-icon {
+    bottom: 65px;
+    right: 65px;
+  }
+
+  .scroll-button {
+    bottom: 10px;
+    right: 10px;
+  }
+
+
+} */
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+
+  .topnav-1,
+  .topnav-2 {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .topnav-1 a,
+  .topnav-2 a {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}

@@ -3,9 +3,10 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="manifest" href="../../manifest.webmanifest">
   <title>
-    CSE-Files
+    UITS S04
   </title>
 </head>
 
@@ -28,56 +29,28 @@
     <a class="active-1" href="Blog.html">
       <small>CSE<br>Blog</small>
     </a>
-    <!-- <a class="active-1" href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL?usp=sharing"
-            target="_blank">
-            <small>oUITS<br>G-Drive</small>
-        </a> -->
     <div class="dropdown">
       <button class="dropbtn" onclick="toggleDropdown(this)">More<br>Projects</button>
       <!-- <button class="dropbtn">Quick<br>Links</button> -->
       <div class="dropdown-content">
-        <!-- APK LINK -->
-        <div class="navigation1" style="background-color: #0000009b;"></div>
-        <script src="../../apk-link.js"></script>
-        <a style="color: black;" class="active-1" href="https://ouits-schedule.netlify.app/" target="blank">
-          <small>oUITS<br>Scheduler</small>
-        </a>
-        <a style="color: black;" class="active-1"
-          href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL?usp=sharing" target="_blank">
-          <small>oUITS<br>G-Drive</small>
-        </a>
+        <div class="navigation1"></div>
+        <script src="../../js/Links\drop-link-01.js"></script>
+
+        <div class="navigation2"></div>
+        <script src="../../js/Links\drop-link-02.js"></script>
+
+        <div class="navigation3"></div>
+        <script src="../../js/Links\drop-link-03.js"></script>
+
+        <div class="navigation4"></div>
+        <script src="../../js/Links\drop-link-04.js"></script>
+
+        <div class="navigation5"></div>
+        <script src="../../js/Links\drop-link-99.js"></script>
       </div>
     </div>
   </div>
-  <script>
-    // Improved dropdown toggle function
-    function toggleDropdown(button) {
-      // Get the dropdown content element
-      var dropdownContent = button.nextElementSibling;
-
-      // Toggle the current dropdown
-      dropdownContent.classList.toggle("show");
-
-      // Close all other dropdowns
-      document.querySelectorAll(".dropdown-content.show").forEach(function (openDropdown) {
-        if (openDropdown !== dropdownContent) {
-          openDropdown.classList.remove("show");
-        }
-      });
-    }
-
-    // Add a global click event to close dropdowns when clicking outside
-    document.addEventListener("click", function (event) {
-      if (!event.target.matches('.dropbtn')) {
-        document.querySelectorAll(".dropdown-content.show").forEach(function (dropdown) {
-          dropdown.classList.remove("show");
-        });
-      } else {
-        // Stop event from reaching the document listener when clicking a button
-        event.stopPropagation();
-      }
-    });
-  </script>
+  <script src="../../js/navbar-drop-down.js"></script>
 
 
 
@@ -98,7 +71,7 @@
     <table class="resources-table-5" align=center style="width:90%;">
       <tr>
         <a href="https://drive.google.com/drive/folders/1_ihH9qW1qBSPKn_cHzf6w6cRUcYEE3Zr?usp=drive_link"
-          target="_blank" class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);">4th
+          target="_blank" class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);">🔗 4th
           Semester
           Courses</a>
       </tr>
@@ -107,7 +80,7 @@
           <div class="container">
 
             <div class="img-container" style="max-height: 100px;padding: 2%;border-radius: 5px;">
-              <img src="S04 Course List.webp" alt="Codeforces Streams Page">
+              <img src="../../images/Course-lists/S04 Course List.webp" alt="Codeforces Streams Page">
               <!-- <div class="scroll-indicator">Scroll down to see more</div> -->
             </div>
           </div>
@@ -168,7 +141,7 @@
         <td>
           <a href="https://drive.google.com/drive/folders/1yidd6DDh7Oy-D9DTHR3iQApWCXQ9lH39?usp=drive_link"
             target="_blank" class="cell-link">
-            Internet Programming Lab 
+            Internet Programming Lab
             <br><small>CSE208</small>
           </a>
         </td>
@@ -202,6 +175,13 @@
   <!-- BACK BUTTON -->
 
   <a href="javascript:history.back()" class="back-icon">&#8592;</a>
+
+  <!-- -------------------------------------------------------------------- -->
+
+  <!-- TO WORK OFFLINE -->
+
+  <script src="../../offline.js"></script>
+
 
 </body>
 
