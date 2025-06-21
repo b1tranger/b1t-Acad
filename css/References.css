@@ -2,6 +2,13 @@ li {
     padding: 5px;
 }
 
+.no-edit{
+
+    padding: 2px;
+    font-size: 1rem;
+    list-style-type: none;
+    /* position: relative; */
+}
 
 body {
     font-size: large;
