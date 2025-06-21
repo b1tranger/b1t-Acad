@@ -78,11 +78,11 @@ td {
 .link-container {
     margin-bottom: 100px;
     margin: auto;
-    max-width: 800px;
+    max-width: 600px;
     /* z-index: 1; */
     /* overflow-x: auto; */
     /* overflow-y: visible; */
-    padding-right: 20%;
+    padding-right: 20px;
 }
 
 #link-1 a {
