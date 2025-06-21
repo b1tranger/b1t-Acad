@@ -75,6 +75,16 @@ td {
 
 /* -------------------------------------- */
 
+.link-container {
+    margin-bottom: 100px;
+    margin: auto;
+    max-width: 800px;
+    /* z-index: 1; */
+    /* overflow-x: auto; */
+    /* overflow-y: visible; */
+    padding-right: 20%;
+}
+
 #link-1 a {
     color: rgb(255, 255, 255);
 }
@@ -123,7 +133,9 @@ td {
     text-align: center;
     padding: 10px;
     border-radius: 20px;
-    margin-left: 50%;
+    margin-left: 45%;
+
+    
 }
 
 
