@@ -4,7 +4,7 @@
 // Create a file called shared-elements.js
 document.addEventListener('DOMContentLoaded', function() {
     const navHTML = `
-    <a class="active-1" href="https://github.com/orgs/oU1TS/repositories" 
+    <a href="https://github.com/orgs/oU1TS/repositories" 
       target="_blank"><small>All Repositories</small></a>
       <!-- Add other navigation links here -->
     `;

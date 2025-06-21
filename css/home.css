@@ -75,6 +75,16 @@ td {
 
 /* -------------------------------------- */
 
+.link-container {
+    margin-bottom: 100px;
+    margin: auto;
+    max-width: 800px;
+    /* z-index: 1; */
+    /* overflow-x: auto; */
+    /* overflow-y: visible; */
+    padding-right: 20%;
+}
+
 #link-1 a {
     color: rgb(255, 255, 255);
 }
@@ -123,7 +133,9 @@ td {
     text-align: center;
     padding: 10px;
     border-radius: 20px;
-    margin-left: 50%;
+    margin-left: 45%;
+
+    
 }
 
 
@@ -225,8 +237,8 @@ td {
 
 .loader {
     position: sticky;
-    width: 100px;
-    height: 50px;
+    width: 80%;
+    height: 20%;
     margin: 0 auto;
     z-index: 0;
     /* top: 50%; */
@@ -236,8 +248,8 @@ td {
 .loader:before {
     content: "";
     position: absolute;
-    bottom: 30px;
-    left: 150px;
+    bottom: -40px;
+    left: -50px;
     height: 30px;
     width: 30px;
     border-radius: 50%;
@@ -248,8 +260,8 @@ td {
 .loader:after {
     content: "";
     position: absolute;
-    right: -90px;
-    top: -10px;
+    right: 90px;
+    top: 70px;
     height: 20px;
     width: 100px;
     /* rotate: 20deg; */

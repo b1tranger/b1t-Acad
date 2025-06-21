@@ -15,7 +15,8 @@
       background-color: #ffffff;
       color: black;
       width: -webkit-fill-available;
-      /* width: 100%; */
+      /* max-width: 100wr-40px; */
+      min-width: 100px !important;
       border-radius: 20px 20px 0 0;
       position: fixed;
       margin-top: 20px;
@@ -26,12 +27,13 @@
       left: 0;
       z-index: 2;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      
       /* padding: 5%; */
   }
 
   .nav-container {
       /* margin-top: 20px; */
-      max-width: 1200px;
+      max-width:  -webkit-fill-available;
       margin: 0 auto;
       display: flex;
       justify-content: center;
