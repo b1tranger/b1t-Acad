@@ -98,7 +98,7 @@ td {
 }
 
 #link-4 a {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 #link-5 a {
@@ -191,9 +191,11 @@ td {
 }
 
 #link-4 {
+    border: 2px solid black;
+
     width: 200px;
-    background-color: rgb(95, 87, 87);
-    color: white;
+    background-color: white;
+    color: rgb(0, 0, 0);
     margin: auto;
     text-align: center;
     padding: 10px;
