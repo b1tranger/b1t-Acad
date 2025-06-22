@@ -54,7 +54,7 @@
         } */
 
  .container-6 {
-     display: flex;
+     /* display: flex; */
      /* flex-wrap: wrap;
      justify-content: center; */
      display: grid;
