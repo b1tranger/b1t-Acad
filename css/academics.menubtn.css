@@ -36,21 +36,24 @@
 .container-5 {
     max-width: 800px;
     min-width: 300px;
-    max-height: 800vh;
-    height: fit-content !important;
+    height: fit-content;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+
     background-color: #1B262C;
     /* margin-top: 50px; */
     border-radius: 15px;
     /* background-color: #1B262C; */
     margin-top: 25px;
-    margin: auto;
+    margin: 0;
     border-radius: 15px;
     padding: 25px;
     margin: 20px auto;
     width: 79%;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     /*the button visibility*/
-    position: relative;
+    
     /* background-color: #000000c5; */
     /* z-index: 0; */
 
