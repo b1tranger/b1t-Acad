@@ -131,23 +131,146 @@
             <div class="faq-box"></div>
         </div>
 
-        <div style="width:76%;max-width: 600px; background-color: #1B262C;" class="container-5" align="center">
-            <table class="resources-table-5" align="center" style="width:90%; margin: auto;">
+
+
+        <div class="container-5" align=center style="max-width:500px;background-color: #1B262C;">
+            <table class="resources-table-5" align=center>
+                <tr>
+                    <p class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);">Insterests and
+                        Resources
+                    </p>
+                </tr>
 
                 <tr>
-                    <td style="max-width: 300px;margin: auto;border-radius: 20px;">
+
+                    <div class="container-6"
+                        style="background-color: #00000000;margin: auto;justify-content: center;column-gap: 10%;">
+
+
+                        <div class="menu-button" id="extrabtn1" align="center"
+                            style="background-color: rgba(0, 0, 0, 0.247);height:60px;width:100px;font-size:medium;max-width: 300px;">
+                            <p class="cell-link" style="color: rgb(255, 255, 255);margin:auto;">
+                                Insterests <br><small>(Skill Dev)</small>
+                            </p>
+
+                        </div>
+                        <div class="menu-button" id="extrabtn2" align="center"
+                            style="background-color: rgba(0, 0, 0, 0.247);height:60px;width:100px;font-size:medium;max-width: 300px;">
+                            <p class="cell-link" style="color: rgb(255, 255, 255);margin:auto;">
+                                Curated Resources
+                            </p>
+
+                        </div>
+                    </div>
+
+                </tr>
+
+            </table>
+        </div>
+        <div class="popup-menu" id="extraMenu1" style="max-width:400px; width: 60%;">
+            <div class="popup-close popup-close-btn"></div>
+            <!-- <div class="popup-menu-title">Resources & Tools</div> -->
+            <div class="popup-menu-categories">
+                <div class="popup-menu-category" align="center">
+                    <!-- <div class="category-title">Coding Resources</div> -->
+                    <div class="link-item">
                         <a href="D1/CP-aux.html" class="cell-link">
                             Programming
-                    </td>
+                        </a>
+                    </div>
+                    <div class="link-item">
+                        <a href="https://drive.google.com/drive/folders/1r9ZyCEPb6yeYKn4L2nEt8pxzuEO1mLSz?usp=drive_link" class="cell-link" target="_blank">
+                            Insterests
+                        </a>
+                    </div>
 
-                    <td style="max-width: 300px;margin: auto;margin-top: 10px;border-radius: 20px;">
+                    <!-- More links here -->
+                </div>
+            </div>
+        </div>
+
+
+        <div class="popup-menu" id="extraMenu2" style="max-width:400px; width: 60%;">
+            <div class="popup-close popup-close-btn"></div>
+            <!-- <div class="popup-menu-title">Resources & Tools</div> -->
+            <div class="popup-menu-categories">
+                <div class="popup-menu-category" align="center">
+                    <!-- <div class="category-title">Coding Resources</div> -->
+                    <div class="link-item">
                         <a href="D1/Curated-Resources.html" class="cell-link">
                             Curated Resources
                         </a>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                    <div class="link-item">
+                        <a href="https://drive.google.com/drive/folders/1rkfLkMRHJ1OWoSTy15Zefpn4wsTTUAi2?usp=drive_link" class="cell-link" target="_blank">
+                           Career
+                        </a>
+                    </div>
 
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Shared backdrop for all popups -->
+        <div class="popup-backdrop" id="popupBackdrop">
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Button and popup pairs
+                    const menuPairs = [
+                        { button: 'extrabtn1', popup: 'extraMenu1' },
+                        { button: 'extrabtn2', popup: 'extraMenu2' }
+                        // { button: 'extrabtn3', popup: 'extramenu3' },
+                        // { button: 'extrabtn4', popup: 'extramenu4' }
+
+                        // Add more pairs as needed
+                    ];
+
+                    const popupBackdrop = document.getElementById('popupBackdrop');
+                    let activePopup = null;
+
+                    // Set up each button-popup pair
+                    menuPairs.forEach(pair => {
+                        const button = document.getElementById(pair.button);
+                        const popup = document.getElementById(pair.popup);
+
+                        button.addEventListener('click', function () {
+                            // Open this specific popup
+                            popup.classList.add('open');
+                            popupBackdrop.classList.add('open');
+                            button.classList.add('active');
+                            activePopup = popup;
+                        });
+                    });
+
+                    // Close buttons for all popups
+                    const closeButtons = document.querySelectorAll('.popup-close-btn');
+                    closeButtons.forEach(btn => {
+                        btn.addEventListener('click', closeActivePopup);
+                    });
+
+                    // Backdrop click closes any open popup
+                    popupBackdrop.addEventListener('click', closeActivePopup);
+
+                    function closeActivePopup() {
+                        // Remove active class from all buttons
+                        document.querySelectorAll('.menu-button').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+
+                        // Close all popups
+                        document.querySelectorAll('.popup-menu').forEach(popup => {
+                            popup.classList.remove('open');
+                        });
+
+                        // Hide backdrop
+                        popupBackdrop.classList.remove('open');
+                        activePopup = null;
+                    }
+                });
+            </script>
         </div>
 
         <!-- ------------------------------------------------------------ -->
@@ -167,24 +290,23 @@
 
                         <div class="menu-button" id="menuButton3" align="center"
                             style="background-color: rgba(0, 0, 0, 0.247);height:60px;width:100px;font-size:medium;max-width: 300px;">
-                             <p class="cell-link" style="color: rgb(255, 255, 255);margin:auto;">
+                            <p class="cell-link" style="color: rgb(255, 255, 255);margin:auto;">
                                 UITS-affiliate
-                             </p>
+                            </p>
 
                         </div>
                         <div class="menu-button" id="menuButton1" align="center"
                             style="background-color: rgba(0, 0, 0, 0.247);height:60px;width:100px;font-size:medium;max-width: 300px;">
-                             <p class="cell-link" style="color: rgb(255, 255, 255);margin:auto;">
+                            <p class="cell-link" style="color: rgb(255, 255, 255);margin:auto;">
                                 People I
                                 want to
                                 keep following
-                             </p>
+                            </p>
 
                         </div>
                         <div class="menu-button" align="center"
                             style="background-color: rgba(0, 0, 0, 0.247);height:60px;width:100px;font-size:medium;max-width: 300px;">
-                            <a class="cell-link"
-                                href="D1/My-guides.html"
+                            <a class="cell-link" href="D1/My-guides.html"
                                 style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">
                                 b1tranger @YT
                             </a>
@@ -533,63 +655,63 @@
 
 
         <!-- Shared backdrop for all popups -->
-        <div class="popup-backdrop" id="popupBackdrop"></div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                // Button and popup pairs
-                const menuPairs = [
-                    { button: 'blogbtn1', popup: 'blogmenu1' },
-                    { button: 'blogbtn2', popup: 'blogmenu2' },
-                    { button: 'blogbtn3', popup: 'blogmenu3' },
-                    { button: 'blogbtn4', popup: 'blogmenu4' }
+        <div class="popup-backdrop" id="popupBackdrop">
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Button and popup pairs
+                    const menuPairs = [
+                        { button: 'blogbtn1', popup: 'blogmenu1' },
+                        { button: 'blogbtn2', popup: 'blogmenu2' },
+                        { button: 'blogbtn3', popup: 'blogmenu3' },
+                        { button: 'blogbtn4', popup: 'blogmenu4' }
 
-                    // Add more pairs as needed
-                ];
+                        // Add more pairs as needed
+                    ];
 
-                const popupBackdrop = document.getElementById('popupBackdrop');
-                let activePopup = null;
+                    const popupBackdrop = document.getElementById('popupBackdrop');
+                    let activePopup = null;
 
-                // Set up each button-popup pair
-                menuPairs.forEach(pair => {
-                    const button = document.getElementById(pair.button);
-                    const popup = document.getElementById(pair.popup);
+                    // Set up each button-popup pair
+                    menuPairs.forEach(pair => {
+                        const button = document.getElementById(pair.button);
+                        const popup = document.getElementById(pair.popup);
 
-                    button.addEventListener('click', function () {
-                        // Open this specific popup
-                        popup.classList.add('open');
-                        popupBackdrop.classList.add('open');
-                        button.classList.add('active');
-                        activePopup = popup;
+                        button.addEventListener('click', function () {
+                            // Open this specific popup
+                            popup.classList.add('open');
+                            popupBackdrop.classList.add('open');
+                            button.classList.add('active');
+                            activePopup = popup;
+                        });
                     });
+
+                    // Close buttons for all popups
+                    const closeButtons = document.querySelectorAll('.popup-close-btn');
+                    closeButtons.forEach(btn => {
+                        btn.addEventListener('click', closeActivePopup);
+                    });
+
+                    // Backdrop click closes any open popup
+                    popupBackdrop.addEventListener('click', closeActivePopup);
+
+                    function closeActivePopup() {
+                        // Remove active class from all buttons
+                        document.querySelectorAll('.menu-button').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+
+                        // Close all popups
+                        document.querySelectorAll('.popup-menu').forEach(popup => {
+                            popup.classList.remove('open');
+                        });
+
+                        // Hide backdrop
+                        popupBackdrop.classList.remove('open');
+                        activePopup = null;
+                    }
                 });
-
-                // Close buttons for all popups
-                const closeButtons = document.querySelectorAll('.popup-close-btn');
-                closeButtons.forEach(btn => {
-                    btn.addEventListener('click', closeActivePopup);
-                });
-
-                // Backdrop click closes any open popup
-                popupBackdrop.addEventListener('click', closeActivePopup);
-
-                function closeActivePopup() {
-                    // Remove active class from all buttons
-                    document.querySelectorAll('.menu-button').forEach(btn => {
-                        btn.classList.remove('active');
-                    });
-
-                    // Close all popups
-                    document.querySelectorAll('.popup-menu').forEach(popup => {
-                        popup.classList.remove('open');
-                    });
-
-                    // Hide backdrop
-                    popupBackdrop.classList.remove('open');
-                    activePopup = null;
-                }
-            });
-        </script>
-
+            </script>
+        </div>
 
         <!-- ---------------------------------------------------------- -->
 
