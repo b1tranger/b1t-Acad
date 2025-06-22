@@ -64,6 +64,8 @@
         }
 
         .menu-button {
+            height: auto !important;
+
             background-color: #00000000;
             border-radius: 8px;
            /* width: 100px !important; */
