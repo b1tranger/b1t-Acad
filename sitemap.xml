@@ -1,16 +1,40 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ouits-res.netlify.app/</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <!-- Add other important pages below -->
-  <url>
-    <loc>https://ouits-res.netlify.app/about</loc>
-    <lastmod>2025-06-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+		<!--	created with www.mysitemapgenerator.com	-->
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url>
+	<loc>https://ouits-res.netlify.app/</loc>
+	<lastmod>2025-06-22T13:08:40+01:00</lastmod>
+	<changefreq>always</changefreq>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ouits-res.netlify.app/academics</loc>
+	<lastmod>2025-06-22T13:08:40+01:00</lastmod>
+	<changefreq>always</changefreq>
+	<priority>1.0</priority>
+	<image:image>
+			<image:loc>https://ouits-res.netlify.app/images%5CSection-Logo%5Clogo+%289%29.webp</image:loc>
+	</image:image>
+	<image:image>
+			<image:loc>https://ouits-res.netlify.app/images%5CSection-Logo%5Clogo+%288%29.webp</image:loc>
+	</image:image>
+</url>
+<url>
+	<loc>https://ouits-res.netlify.app/extracurriculars</loc>
+	<lastmod>2025-06-22T13:08:40+01:00</lastmod>
+	<changefreq>always</changefreq>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ouits-res.netlify.app/references</loc>
+	<lastmod>2025-06-22T13:08:40+01:00</lastmod>
+	<changefreq>always</changefreq>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://ouits-res.netlify.app/d1/my-guides</loc>
+	<lastmod>2025-06-22T13:08:42+01:00</lastmod>
+	<changefreq>always</changefreq>
+	<priority>0.8</priority>
+</url>
 </urlset>
