@@ -50,7 +50,9 @@ td {
 .container-6 {
     display: grid;
     place-items: center;
-    grid-template-columns: auto auto;
+    /* grid-template-columns: auto auto; */
+    display: grid;
+           grid-template-columns:repeat(auto-fill,minmax(100px,3fr));
     border-radius: 15px;
     padding: 10px;
     margin: 20px auto;
@@ -58,8 +60,7 @@ td {
     max-width: 350px;
     /*the button visibility*/
     position: relative;
-    column-gap: 30px;
-    row-gap: 12%;
+    gap: 5%;
 
 }
 

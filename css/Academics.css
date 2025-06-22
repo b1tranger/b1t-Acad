@@ -54,21 +54,20 @@
         } */
 
  .container-6 {
-     /* display: flex; */
-     /* flex-wrap: wrap;
-     justify-content: center; */
+     min-height: fit-content !important;
+     max-height: 100vh !important;
      display: grid;
-           grid-template-columns:repeat(auto-fill,minmax(100px,3fr));
+     grid-template-columns: repeat(auto-fill, minmax(100px, 3fr));
      border-radius: 15px;
      padding: 1.2rem;
-     margin: 20px auto;
+     margin: auto;
+     justify-content: center;
      width: 80%;
      max-width: 600px;
      /*the button visibility*/
      position: relative;
-     column-gap: 30px;
-     /* row-gap: 12%; */
-     gap: 1rem;
+     gap: 5%;
+     /* gap: 1rem; */
  }
 
  .container-6 a:hover {
@@ -103,4 +102,3 @@
  /* -----------------------------------------------------------------  */
  /* -----------------------------------------------------------------  */
  /* -----------------------------------------------------------------  */
-
