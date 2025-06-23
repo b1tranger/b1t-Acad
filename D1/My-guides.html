@@ -5,14 +5,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources Tutorials</title>
-    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/top.navbar.css">
+    <link rel="stylesheet" href="../css/home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="manifest" href="../../manifest.webmanifest">
     <style>
+        .nav-links li a {
+            display: block;
+            color: rgb(255, 253, 253);
+            background-color: #83878b;
+
+            text-decoration: rgb(255, 255, 255);
+            padding: 20px 25px;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+
+        }
+
+        .nav-links li a:hover {
+            background-color: #c7cacd;
+            color: rgba(0, 0, 0, 0.554);
+        }
+
         body {
 
-            background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);
+            /* background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%); */
             color: var(--text-color);
             margin: 0;
             padding: 0;
@@ -143,54 +163,130 @@
     </style>
 </head>
 
-<body>
+<body style="background-color: #333;z-index: -1;">
 
-    <!-- TOP BAR -->
-
-    <div class="topnav-1">
-        <!-- APK LINK -->
-        <!-- <div class="navigation1"
-            style="display: flex;justify-content: flex-end;background-color: #333;min-height: 50px;width: 100%;"></div>
-        <script src="../../apk-link.js"></script> -->
-
-
-        <a class="active-1" href="../Tutorials.html">
-            <small>Resources<br>Tutorials</small>
-        </a>
-        <a class="active-1" href="../References.html">
-            <small>Project<br>References</small>
-        </a>
-        <a class="active-1" href="Blog.html">
-            <small>CSE<br>Blog</small>
-        </a>
-
-        <div class="dropdown">
-            <button class="dropbtn" onclick="toggleDropdown(this)">More<br>Projects</button>
-            <!-- <button class="dropbtn">Quick<br>Links</button> -->
-            <div class="dropdown-content">
-                <div class="navigation1"></div>
-                <script src="../../js/Links\drop-link-01.js"></script>
-
-                <div class="navigation2"></div>
-                <script src="../../js/Links\drop-link-02.js"></script>
-
-                <div class="navigation3"></div>
-                <script src="../../js/Links\drop-link-03.js"></script>
-
-                <div class="navigation4"></div>
-                <script src="../../js/Links\drop-link-04.js"></script>
-
-                <div class="navigation5"></div>
-                <script src="../../js/Links\drop-link-99.js"></script>
-            </div>
-        </div>
+    <div style="background-color: #333;display: block;width: 100%;height: 40px;position: fixed;top:0;z-index: 2;">
     </div>
-    <script src="../../js/navbar-drop-down.js"></script>
+    <div
+        style="background-color: #333;display: block;width: 100%;height: 60px;position: fixed;top:20;z-index: 2;box-shadow: 0.5px 0.5px 10px black;margin-left: 20px;margin-right: 20px;border-radius: 20px;max-width: -webkit-fill-available;">
+    </div>
+    <div
+        style="background: linear-gradient(135deg, var(--primary-bg) 0%, var(--secondary-bg) 100%);; margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;overflow-x: hidden;">
+
+        <!-- TOP BAR -->
+
+        <nav class="navbar" style="background-color: #333;">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../Academics.html">Academics</a></li>
+                    <li><a href="../../Extracurriculars.html">Extracurriculars</a></li>
+                    <li><a href="../../References.html">References</a></li>
+                    <!-- <li><a href="https://ouits-res.netlify.app/" target="_blank">Resources</a></li> -->
+                    <!-- <li><a href="contact.html">Contact</a></li> -->
+                </ul>
+            </div>
+        </nav>
 
 
 
+
+        <!-- ----------------------------------------------------------------------- -->
+
+
+        <div class="glow"></div>
+        <div class="container" style="margin-top: 150px;">
+
+            </section>
+
+            <h1>my Tutorial Collection</h1>
+            <br><br>
+
+
+            <!-- SHORTS IFRAME -->
+            <section class="video-section">
+                <div class="shorts-video-container">
+                    <div class="aspect-ratio-box shorts-aspect-ratio">
+                        <iframe src="https://www.youtube.com/embed/10LdVbiaUgI" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <p>Web Alert - Walkthrough 2025 - Cached Website View, RSS view</p>
+            </section>
+
+
+            <!-- REGULAR IFRAME -->
+            <section class="video-section">
+                <div class="regular-video-container">
+                    <div class="aspect-ratio-box regular-aspect-ratio">
+                        <iframe src="https://www.youtube.com/embed/38USkcI0mcA" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <p>rookie GitHub walkthrough for rookie programmers | GitHub Desktop 2025 Guide?</p>
+            </section>
+
+            <!-- REGULAR IFRAME -->
+            <section class="video-section">
+
+                <div class="regular-video-container">
+                    <div class="aspect-ratio-box regular-aspect-ratio">
+                        <iframe src="https://www.youtube.com/embed/Zwx5VvdWbh8" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <p>Google Drive can search for PDF by information inside of it - Tutorial</p>
+            </section>
+
+            <!-- SHORTS IFRAME -->
+            <section class="video-section">
+                <div class="shorts-video-container">
+                    <div class="aspect-ratio-box shorts-aspect-ratio">
+                        <iframe src="https://www.youtube.com/embed/sFuVutbYbws" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <p>Offline Browser | Making w3schools and geeksforgeeks accessible offline</p>
+            </section>
+
+
+
+            <!--    <p class="subtitle">(more to be added later)</p>-->
+            <!-- <p class="footer" align=center><a style="color: #8c8c8c;"" href=../index.html>Go back to index</a> -->
+        </div>
+        <br><br><br><br><br>
+        <!-- HOME BUTTON -->
+
+        <a href="../../index.html" class="home-button">
+            <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+        </a>
+        <!-- BACK BUTTON -->
+
+        <a href="javascript:history.back()" class="back-icon">&#8592;</a>
+
+        <!-- -------------------------------------------------------------------- -->
+
+        <!-- TO WORK OFFLINE -->
+
+        <script src="../../offline.js"></script>
+    </div>
     <!-- BOTTOM BAR "navbar" -->
-
+    </div>
     <div style="padding-left:16px">
     </div>
     <div class="navbar-5">
@@ -199,96 +295,6 @@
         </font>
 
     </div>
-    <!-- ----------------------------------------------------------------------- -->
-
-
-    <div class="glow"></div>
-    <div class="container">
-
-        </section>
-
-        <h1>my Tutorial Collection</h1>
-        <br><br>
-
-
-        <!-- SHORTS IFRAME -->
-        <section class="video-section">
-            <div class="shorts-video-container">
-                <div class="aspect-ratio-box shorts-aspect-ratio">
-                    <iframe src="https://www.youtube.com/embed/10LdVbiaUgI" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-            <p>Web Alert - Walkthrough 2025 - Cached Website View, RSS view</p>
-        </section>
-
-
-        <!-- REGULAR IFRAME -->
-        <section class="video-section">
-            <div class="regular-video-container">
-                <div class="aspect-ratio-box regular-aspect-ratio">
-                    <iframe src="https://www.youtube.com/embed/38USkcI0mcA" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-            <p>rookie GitHub walkthrough for rookie programmers | GitHub Desktop 2025 Guide?</p>
-        </section>
-
-        <!-- REGULAR IFRAME -->
-        <section class="video-section">
-
-            <div class="regular-video-container">
-                <div class="aspect-ratio-box regular-aspect-ratio">
-                    <iframe src="https://www.youtube.com/embed/Zwx5VvdWbh8" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-            <p>Google Drive can search for PDF by information inside of it - Tutorial</p>
-        </section>
-
-        <!-- SHORTS IFRAME -->
-        <section class="video-section">
-            <div class="shorts-video-container">
-                <div class="aspect-ratio-box shorts-aspect-ratio">
-                    <iframe src="https://www.youtube.com/embed/sFuVutbYbws" title="YouTube video player" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-            <p>Offline Browser | Making w3schools and geeksforgeeks accessible offline</p>
-        </section>
-
-
-
-        <!--    <p class="subtitle">(more to be added later)</p>-->
-        <!-- <p class="footer" align=center><a style="color: #8c8c8c;"" href=../index.html>Go back to index</a> -->
-    </div>
-    <br><br><br><br><br>
-    <!-- HOME BUTTON -->
-
-    <a href="../../index.html" class="home-button">
-        <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-    </a>
-    <!-- BACK BUTTON -->
-
-    <a href="javascript:history.back()" class="back-icon">&#8592;</a>
-
-    <!-- -------------------------------------------------------------------- -->
-
-    <!-- TO WORK OFFLINE -->
-
-    <script src="../../offline.js"></script>
-
 </body>
 
 </html>
