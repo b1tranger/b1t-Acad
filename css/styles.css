@@ -456,19 +456,25 @@ body {
 now Browse Curated Resources*/
 
 
+
 .container-5 {
+  max-width: 800px;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
   background-color: #1B262C;
+  border-radius: 15px;
+  margin-top: 25px;
+  margin: auto;
   border-radius: 15px;
   padding: 25px;
   margin: 20px auto;
   width: 79%;
-  max-width: 800px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  /* justify-content: center;
-  display: flex; */
-  min-width: 250px;
-}
 
+}
 
 
 .drive-link-5 {
@@ -922,10 +928,10 @@ now Browse Curated Resources*/
   .randomBS {
     display: block !important;
     /* margin-bottom: 100px !important; */
-    
+
   }
 
-  .randomBS-2{
+  .randomBS-2 {
     display: none;
   }
 }
