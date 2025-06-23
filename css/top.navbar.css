@@ -11,8 +11,9 @@
 
   /* Navigation bar styles */
   .navbar {
+      background-color: #333;
       /* background-color: #03030300; */
-      background-color: #ffffff;
+      /* background-color: #ffffff; */
       color: black;
       width: -webkit-fill-available;
       /* max-width: 100wr-40px; */
@@ -32,7 +33,6 @@
   }
 
   .nav-container {
-      /* margin-top: 20px; */
       max-width: -webkit-fill-available;
       margin: 0 auto;
       display: flex;
@@ -41,6 +41,33 @@
       padding: 0;
       box-shadow: 0 4px 6px -4px rgb(0, 0, 0);
   }
+
+  /* .nav-links li a {
+      display: block;
+      color: rgb(0, 0, 0);
+      background-color: #d6e9fa;
+      text-decoration: none;
+      padding: 20px 25px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+
+  } */
+
+  .nav-links li a {
+      display: block;
+      color: rgb(255, 253, 253);
+      background-color: #83878b;
+      padding: 20px 25px;
+      text-decoration: rgb(255, 255, 255);
+      /* padding: 18px 25px; */
+      text-align: center;
+      transition: background-color 0.3s ease;
+      border-radius: 5px;
+      /* box-shadow: 1px 1px 10px black; */
+  }
+
+  
 
   /* 
   #nav-container {
@@ -70,29 +97,21 @@
 
   }
 
-  .nav-links li a {
-      display: block;
-      color: rgb(0, 0, 0);
-      background-color: #d6e9fa;
-      text-decoration: none;
-      padding: 20px 25px;
-      text-align: center;
-      transition: background-color 0.3s ease;
-      border-radius: 5px;
-
+.nav-links li a:hover {
+      background-color: #ffffffe9;
+      color: rgba(0, 0, 0, 0.98);
   }
-
-  .nav-links li a:hover {
+  /* .nav-links li a:hover {
       background-color: #a2d2fc;
-  }
+  } */
 
   .nav-links li a.active {
-      background-color: #7e70fd;
+      background-color: #141415;
       color: white;
   }
 
   .nav-links li a.active:hover {
-      background-color: #6a5afd;
+      background-color: #00000048;
       color: white;
   }
 
@@ -187,7 +206,7 @@
       .nav-links {
           flex-direction: column;
           width: 100%;
-          max-height: 145px;
+          max-height: 150px;
           overflow-y: auto;
           scrollbar-width: none;
 
@@ -203,7 +222,22 @@
           text-align: center;
           transition: background-color 0.3s ease;
           border-radius: 5px;
+          border-radius: 10px 10px 0 0;
+          box-shadow: 1px 1px 10px black;
+      }
 
+      .nav-links li a:hover {
+          background-color: #a2d2fc;
+      }
+
+      .nav-links li a.active {
+          background-color: #7e70fd;
+          /* color: white; */
+      }
+
+      .nav-links li a.active:hover {
+          background-color: #6a5afd;
+          /* color: white; */
       }
 
 
