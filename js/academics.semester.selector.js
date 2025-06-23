@@ -18,14 +18,14 @@ const departmentDropdown = document.getElementById('departmentDropdown');
             8: "D1/CSE/S08.html",
           },
           ce: {
-            1: "https://drive.google.com/drive/folders/1Q4-tnRaIoLjZenzEZTRs-35OgqV54l9W?usp=drive_link",
-            2: "https://drive.google.com/drive/folders/1gAajNJtRo3up6dpnP-R3cTx0trNikJVP?usp=drive_link",
-            3: "https://drive.google.com/drive/folders/1XecebUV1rScSMpO0TUbnVoPUWKS8bJAH?usp=drive_link",
-            4: "https://drive.google.com/drive/folders/1R3AkpHgDgB2FiHS-gXxPTV7eljZJRknm?usp=drive_link",
-            5: "#",
-            6: "#",
-            7: "#",
-            8: "#",
+            1: "D1/CE/S01.html",
+            2: "D1/CE/S02.html",
+            3: "D1/CE/S03.html",
+            4: "D1/CE/S04.html",
+            5: "D1/CE/S05.html",
+            6: "D1/CE/S06.html",
+            7: "D1/CE/S07.html",
+            8: "D1/CE/S08.html",
           }
         };
     
