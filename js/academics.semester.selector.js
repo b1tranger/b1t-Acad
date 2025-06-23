@@ -8,14 +8,14 @@ const departmentDropdown = document.getElementById('departmentDropdown');
         // Object mapping departments to semester Google Drive folder links
         const driveLinks = {
           cse: {
-            1: "D1/S01.html",
-            2: "D1/S02.html",
-            3: "D1/S03.html",
-            4: "D1/S04.html",
-            5: "D1/S05.html",
-            6: "D1/S06.html",
-            7: "D1/S07.html",
-            8: "D1/S08.html",
+            1: "D1/CSE/S01.html",
+            2: "D1/CSE/S02.html",
+            3: "D1/CSE/S03.html",
+            4: "D1/CSE/S04.html",
+            5: "D1/CSE/S05.html",
+            6: "D1/CSE/S06.html",
+            7: "D1/CSE/S07.html",
+            8: "D1/CSE/S08.html",
           },
           ce: {
             1: "https://drive.google.com/drive/folders/1Q4-tnRaIoLjZenzEZTRs-35OgqV54l9W?usp=drive_link",

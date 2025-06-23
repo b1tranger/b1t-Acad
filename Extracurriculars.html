@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/credit.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/academics.menubtn.css">
+    <link rel="stylesheet" href="css/Academics.css">
 
     <style>
         li {
@@ -27,79 +28,17 @@
             display: none;
         }
     </style>
-    <style>
-        table,
-        th,
-        td {
-            border: 2px solid rgba(31, 106, 168, 0);
-            border-radius: 10px;
-        }
 
-        td {
-            min-width: 200px;
-        }
-
-        .parent-wrap {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-evenly;
-            gap: 16px;
-            margin: auto;
-            width: 95%;
-            max-width: 500px;
-        }
-
-        .link-logo:hover {
-            transform: translateY(-5px);
-            transition: transform 1s
-        }
-/* 
-        .container-6 {
-            display: grid;
-            place-items: center;
-            grid-template-columns: auto auto;
-            border-radius: 15px;
-            padding: 10px;
-            margin: 20px auto;
-            width: 79%;
-            max-width: 350px;
-            position: relative;
-            column-gap: 30px;
-            row-gap: 12%;
-
-        } */
-
-        .container-6 a:hover {
-            transform: translateY(-5px);
-            transition: transform 1s
-        }
-
-        /* .container-6>div {
-            background-color: #f1f1f1;
-            border: 1px solid black;
-            padding: 10px;
-            font-size: 30px;
-            text-align: center;
-        }  */
-
-        .container-6>div>div {
-            background-color: #f1f1f1;
-            border: 1px solid black;
-            padding: 10px;
-            font-size: 30px;
-            text-align: center;
-            /* margin-top: 50px; */
-
-        }
-    </style>
 </head>
 
 <body style="background-color: #333;">
     <div style="background-color: #333;display: block;width: 100%;height: 40px;position: fixed;top:0;z-index: 2;">
     </div>
-
     <div
-        style="background-color: 	#FAF9F6; margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;">
+        style="background-color: #333;display: block;width: 100%;height: 60px;position: fixed;top:20;z-index: 2;box-shadow: 0.5px 0.5px 10px black;margin-left: 20px;margin-right: 20px;border-radius: 20px;max-width: -webkit-fill-available;">
+    </div>
+    <div
+        style="background-color: 	#FAF9F6; margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;overflow-x: auto;">
 
 
 
@@ -131,39 +70,31 @@
         </div>
 
 
+        <div class="container-5">
+            <p class="highlights" style="color: rgba(240, 248, 255, 0.649);text-align: center; ">
+                Insterests and
+                Resources
+            </p>
+            <div class="container-6">
 
-        <div class="container-5" align=center style="max-width:800px;background-color: #1B262C;">
-            <table class="resources-table-5" align=center>
-                <tr>
-                    <p class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);">Insterests and
-                        Resources
+                <div class="menu-button" id="extrabtn1"
+                    style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
+                    <p class="cell-link" style="color: #fff; margin: 0;">
+                        Insterests <br><small>(Skill Dev)</small>
                     </p>
-                </tr>
+                </div>
+                <div class="menu-button" id="extrabtn2"
+                    style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
+                    <p class="cell-link" style="color: #fff; margin: 0;">
+                        Curated Resources
+                    </p>
+                </div>
 
-                <tr>
-
-                    <div class="container-6"
-                        >
-
-
-                        <div class="menu-button" id="extrabtn1" align="center" >
-                            <p class="cell-link" style="color: rgb(255, 255, 255);margin:auto;">
-                                Insterests <br><small>(Skill Dev)</small>
-                            </p>
-
-                        </div>
-                        <div class="menu-button" id="extrabtn2" align="center">
-                            <p class="cell-link" style="color: rgb(255, 255, 255);margin:auto;">
-                                Curated Resources
-                            </p>
-
-                        </div>
-                    </div>
-
-                </tr>
-
-            </table>
+            </div>
         </div>
+
+
+
         <div class="popup-menu" id="extraMenu1" style="max-width:400px; width: 60%;">
             <div class="popup-close popup-close-btn"></div>
             <!-- <div class="popup-menu-title">Resources & Tools</div> -->
@@ -176,7 +107,8 @@
                         </a>
                     </div>
                     <div class="link-item">
-                        <a href="https://drive.google.com/drive/folders/1r9ZyCEPb6yeYKn4L2nEt8pxzuEO1mLSz?usp=drive_link" class="cell-link" target="_blank">
+                        <a href="https://drive.google.com/drive/folders/1r9ZyCEPb6yeYKn4L2nEt8pxzuEO1mLSz?usp=drive_link"
+                            class="cell-link" target="_blank">
                             Insterests
                         </a>
                     </div>
@@ -199,8 +131,9 @@
                         </a>
                     </div>
                     <div class="link-item">
-                        <a href="https://drive.google.com/drive/folders/1rkfLkMRHJ1OWoSTy15Zefpn4wsTTUAi2?usp=drive_link" class="cell-link" target="_blank">
-                           Career
+                        <a href="https://drive.google.com/drive/folders/1rkfLkMRHJ1OWoSTy15Zefpn4wsTTUAi2?usp=drive_link"
+                            class="cell-link" target="_blank">
+                            Career
                         </a>
                     </div>
 
@@ -273,26 +206,20 @@
         <!-- ------------------------------------------------------------ -->
 
         <div class="container-5">
-            <table class="resources-table-5" align=center>
-                <tr>
+            
                     <p class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);">Tutorials Collection
                     </p>
-                </tr>
-
-                <tr>
-
+                
                     <div class="container-6">
 
 
-                        <div class="menu-button" id="menuButton3" align="center"
-                            >
+                        <div class="menu-button" id="menuButton3" align="center">
                             <p class="cell-link" style="color: rgb(255, 255, 255);margin:auto;">
                                 UITS-affiliate
                             </p>
 
                         </div>
-                        <div class="menu-button" id="menuButton1" align="center"
-                            >
+                        <div class="menu-button" id="menuButton1" align="center">
                             <p class="cell-link" style="color: rgb(255, 255, 255);margin:auto;">
                                 People I
                                 want to
@@ -300,8 +227,7 @@
                             </p>
 
                         </div>
-                        <div class="menu-button" align="center"
-                            >
+                        <div class="menu-button" align="center">
                             <a class="cell-link" href="D1/My-guides.html"
                                 style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">
                                 b1tranger @YT
@@ -316,9 +242,7 @@
 
 
 
-                </tr>
-
-            </table>
+                
         </div>
 
         <!-- First popup -->
@@ -466,16 +390,13 @@
         <!-- ------------------------------------------------------- -->
 
 
-        <div class="container-5" align=center style="max-width:800px;width:75%;background-color: #1B262C;">
-            <table class="resources-table-5" align=center style="width:90%;">
-                <tr>
-                    <p class="highlights" style="color: rgba(240, 248, 255, 0.649);">Blog collection
+        <div class="container-5">
+            
+                    <p style="color: rgba(240, 248, 255, 0.649);text-align: center;">Blog collection
                     </p>
-                </tr>
-                <tr>
+                
                     <!-- <td style="background-color: #00000000;margin: auto;min-width: 150px;" align=center> -->
-                    <div class="container-6"
-                        >
+                    <div class="container-6">
 
                         <div class="menu-button" id="blogbtn1" align="center"
                             style="background-color: rgba(0, 0, 0, 0.247);height:60px;width:100px;font-size:medium;max-width: 300px;">
@@ -508,9 +429,7 @@
 
                     </div>
                     <!-- </td> -->
-                </tr>
-
-            </table>
+                
         </div>
 
 

@@ -161,9 +161,9 @@
  /* --------------------------------------------------------------------- */
 
  .semester-selector-container {
-     /* width: 85%; */
+     width: 85%;
      margin: auto;
-     padding: 20px;
+     /* padding: 20px; */
      text-align: center;
      background-color: #1b262c;
  }
@@ -258,6 +258,7 @@
      justify-content: center;
      gap: 10px;
      margin-top: 15px;
+     /* min-width: -webkit-fit-available; */
  }
 
  .semester-button {

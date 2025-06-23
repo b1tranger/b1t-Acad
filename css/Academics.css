@@ -54,21 +54,17 @@
         } */
 
  .container-6 {
-     height: auto;
-     
      display: grid;
      grid-template-columns: repeat(auto-fill, minmax(100px, 3fr));
+     height: auto;
      border-radius: 15px;
      padding: 1.2rem;
      margin: auto;
      margin-bottom: 3rem;
-     justify-content: center;
      width: 80%;
      max-width: 600px;
-     /*the button visibility*/
      position: relative;
      gap: 1rem;
-     /* gap: 1rem; */
  }
 
  .container-6 a:hover {

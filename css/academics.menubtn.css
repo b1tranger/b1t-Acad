@@ -33,31 +33,7 @@
 
 
 
-.container-5 {
-    max-width: 800px;
-    min-width: 300px;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
 
-    background-color: #1B262C;
-    /* margin-top: 50px; */
-    border-radius: 15px;
-    /* background-color: #1B262C; */
-    margin-top: 25px;
-    margin: 0;
-    border-radius: 15px;
-    padding: 25px;
-    margin: 20px auto;
-    width: 79%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    /*the button visibility*/
-
-    /* background-color: #000000c5; */
-    /* z-index: 0; */
-
-}
 
 
 .drive-link-5 {
@@ -76,24 +52,14 @@
 
 .menu-button {
     place-content: center !important;
-    /* padding: 15px; */
     height: 100px !important;
-    width: 180px !important;
-    /* max-width: 200px !important; */
-    /* min-width: 150px !important; */
     background-color: rgba(0, 0, 0, 0.247) !important;
     font-size: medium;
-    /* height: max-content !important; */
-
-    background-color: #00000000;
     border-radius: 8px;
-    /* width: 100px !important; */
     width: -webkit-fill-available !important;
 
-    /* display: grid;
-           grid-template-columns:repeat(auto-fill,minmax(100px,2fr)); */
 
-    align-items: center;
+    align-items: center !important;
     gap: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     z-index: 0;
@@ -302,6 +268,17 @@
 }
 
 @media (max-width: 768px) {
+
+    .menu-button {
+        /* width: fit-content !important; */
+        height: 70px !important;
+        padding: 0.5rem !important;
+    }
+
+    .container-6 {
+        place-items: center !important;
+    }
+
     .popup-menu {
         width: 90%;
         padding: 20px;
