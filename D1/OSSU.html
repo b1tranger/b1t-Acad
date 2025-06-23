@@ -6,128 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curated-Resources</title>
     <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../css/top.navbar.css">
+    <link rel="stylesheet" href="../css/home.css">
     <link rel="manifest" href="../../manifest.webmanifest">
 </head>
 
-<body>
+<body style="background-color: #333;z-index: -1;">
 
-    <!-- TOP BAR -->
+    <div style="background-color: #333;display: block;width: 100%;height: 40px;position: fixed;top:0;z-index: 2;">
+    </div>
+    <div
+        style="background-color: #333;display: block;width: 100%;height: 60px;position: fixed;top:20;z-index: 2;box-shadow: 0.5px 0.5px 10px black;margin-left: 20px;margin-right: 20px;border-radius: 20px;max-width: -webkit-fill-available;">
+    </div>
+    <div
+        style="background-color: #ffffff; margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;overflow-x: hidden;">
 
-    <div class="topnav-1">
-        <!-- APK LINK -->
-        <!-- <div class="navigation1"
-            style="display: flex;justify-content: flex-end;background-color: #333;min-height: 50px;width: 100%;"></div>
-        <script src="../../apk-link.js"></script> -->
+        <!-- TOP BAR -->
 
-        
-        <a class="active-1" href="../Tutorials.html">
-            <small>Resources<br>Tutorials</small>
-        </a>
-        <a class="active-1" href="../References.html">
-            <small>Project<br>References</small>
-        </a>
-        <a class="active-1" href="Blog.html">
-            <small>CSE<br>Blog</small>
-        </a>
-        <div class="dropdown">
-            <button class="dropbtn" onclick="toggleDropdown(this)">More<br>Projects</button>
-            <!-- <button class="dropbtn">Quick<br>Links</button> -->
-            <div class="dropdown-content">
-                <div class="navigation1"></div>
-                <script src="../../js/Links\drop-link-01.js"></script>
-
-                <div class="navigation2"></div>
-                <script src="../../js/Links\drop-link-02.js"></script>
-
-                <div class="navigation3"></div>
-                <script src="../../js/Links\drop-link-03.js"></script>
-
-                <div class="navigation4"></div>
-                <script src="../../js/Links\drop-link-04.js"></script>
-
-                <div class="navigation5"></div>
-                <script src="../../js/Links\drop-link-99.js"></script>
+        <nav class="navbar">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="../../index.html">Home</a></li>
+                    <li><a href="../../Academics.html">Academics</a></li>
+                    <li><a href="../../Extracurriculars.html">Extracurriculars</a></li>
+                    <li><a href="../../References.html">References</a></li>
+                    <!-- <li><a href="https://ouits-res.netlify.app/" target="_blank">Resources</a></li> -->
+                    <!-- <li><a href="contact.html">Contact</a></li> -->
+                </ul>
             </div>
+        </nav>
+
+
+
+        <!-- ----------------------------------------------------------------------- -->
+
+
+
+        <div class="container-5" align=center style="margin-top: 180px;">
+            <table class="resources-table-5" align=center style="width:90%;">
+                <tr>
+                    <p class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);">Open Source Society
+                        University</p>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="cell-link" href="https://ossu.firebaseapp.com/#/" target="_blank">
+                            OSSU Website
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="cell-link" href="https://github.com/ossu" target="_blank">
+                            OSSU GitHub ⭐
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="cell-link" href="https://discord.gg/Geg29VA4rJ" target="_blank">
+                            OSSU Discord ⭐
+                        </a>
+                    </td>
+                </tr>
+
+            </table>
+
         </div>
+
+
+
+
+
+
+
+
+
+        <!-- <p class="footer" align=center><a style="color: #8c8c8c;"" href=../index.html>Go back to index</a> -->
+
+        <br><br><br><br><br><br><br><br><br><br>
+        <!-- HOME BUTTON -->
+
+        <a href="../../index.html" class="home-button">
+            <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+        </a>
+        <!-- BACK BUTTON -->
+
+        <a href="javascript:history.back()" class="back-icon">&#8592;</a>
+        <!-- -------------------------------------------------------------------- -->
+
+        <!-- TO WORK OFFLINE -->
+
+        <script src="../../offline.js"></script>
+
+        <!-- BOTTOM BAR "navbar" -->
     </div>
-    <script src="../../js/navbar-drop-down.js"></script>
-    
-
-
-    <!-- BOTTOM BAR "navbar" -->
-
     <div style="padding-left:16px">
-    </div>
-    <div class="navbar-5">
-        <font size="24"></font>
-        <p align=center style="color:rgba(255, 255, 255, 0.776);"><i>oUITS Resources</i></p>
-        </font>
 
-    </div>
-    <!-- ----------------------------------------------------------------------- -->
+        <div class="navbar-5">
+            <font size="24"></font>
+            <p align=center style="color:rgba(255, 255, 255, 0.776);"><i>oUITS Resources</i></p>
+            </font>
 
-
-
-    <div class="container-5" align=center>
-        <table class="resources-table-5" align=center style="width:90%;">
-            <tr>
-                <p class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);">Open Source Society
-                    University</p>
-            </tr>
-            <tr>
-                <td>
-                    <a class="cell-link" href="https://ossu.firebaseapp.com/#/" target="_blank">
-                        OSSU Website
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a class="cell-link"  href="https://github.com/ossu" target="_blank">
-                        OSSU GitHub ⭐
-                    </a>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a class="cell-link"  href="https://discord.gg/Geg29VA4rJ" target="_blank">
-                        OSSU Discord ⭐
-                    </a>
-                </td>
-            </tr>
-
-        </table>
-
-    </div>
-
-
-
-
-
-
-
-
-
-    <!-- <p class="footer" align=center><a style="color: #8c8c8c;"" href=../index.html>Go back to index</a> -->
-    </div>
-    <br><br><br><br><br>
-    <!-- HOME BUTTON -->
-
-    <a href="../../index.html" class="home-button">
-        <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-    </a>
-    <!-- BACK BUTTON -->
-
-    <a href="javascript:history.back()" class="back-icon">&#8592;</a>
-    <!-- -------------------------------------------------------------------- -->
-
-    <!-- TO WORK OFFLINE -->
-
-    <script src="../../offline.js"></script>
-
+        </div>
 </body>
 
 </html>
