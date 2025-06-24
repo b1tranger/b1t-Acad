@@ -1,7 +1,7 @@
 .container {
   width: 90%;
   max-width: 500px;
-  margin-top: 100px;
+  margin-top: 100px !important;
 
 }
 
@@ -29,7 +29,8 @@
   text-shadow: 0px 2px 1px black;
   display: flex;
   justify-content: center;
-  padding: 5px;
+  /* padding: 5px; */
+
 }
 
 .end-credits {
@@ -65,6 +66,7 @@
   margin: auto;
   display: flex;
   justify-content: center;
+ 
 }
 
 
