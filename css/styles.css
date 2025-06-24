@@ -1,14 +1,23 @@
+.container {
+  width: 90%;
+  max-width: 500px;
+  margin-top: 100px;
+
+}
+
+
 .social-container div a {
   color: white;
   font-size: 2rem;
   padding: 0.5rem;
-  text-shadow: 0 0 3px #000000;
+  text-shadow: 1px 2px 2px #000000;
   /* display: flex; */
   /* justify-content: center; */
 
 }
-.social-container div{
-  
+
+.social-container div {
+
   padding: 0.5rem;
   display: flex;
   justify-content: center;
@@ -25,7 +34,7 @@
 
 .end-credits {
   /* background-color: #00000000; */
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(2px);
   border-radius: 20px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.289);
   padding: 20px;
