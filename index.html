@@ -20,6 +20,9 @@
   <!-- OFFLINE SUPPORT (WEB APP) -->
 
 
+  <!-- ICON LINK -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <!-- Web App Manifest -->
   <link rel="manifest" href="./manifest.json">
 
@@ -38,7 +41,7 @@
   <!-- WEBSITE PREVIEW -->
 
   <title>
-    oUITS Resources
+    oUITS Resources: home
   </title>
 </head>
 
@@ -47,7 +50,7 @@
   <div style="background-color: #333;display: block;width: 100%;height: 40px;position: fixed;top:0;z-index: 2;">
   </div>
 
-  <div 
+  <div
     style="background-color: #333;display: block;width: 100%;height: 60px;position: fixed;background-color: #FAF9F6;top:20;z-index: 2;box-shadow: 0.5px 0.5px 10px black;margin-left: 20px;margin-right: 20px;border-radius: 25px;max-width: -webkit-fill-available;">
   </div>
 
@@ -133,49 +136,42 @@
       </div>
 
       <!-- END CREDIT  -->
-      <div align="center">
-        <div>
+      <div class="end-credits">
+        <div class="social-container">
           <!-- SOCIAL LINKS -->
 
-          <p align=center style="color: #00000086;">Join our Socials </p>
-          <p align=center style="color: #00000061;font-size: x-small;margin-top: -10px;"><i>for Updates and
-              Feedback</i>
+          <p style="font-size: 1.2rem;">Join our Socials </p>
+          <p style="font-size:0.7rem;">for Updates and
+            Feedback
           </p>
+          <div>
+            <a href="https://discord.gg/weetUpfS5X" target="_blank"><i class="fa-brands fa-discord"></i></a>
 
-          <a href="https://discord.gg/weetUpfS5X" target="_blank"><img src=images\Social-logo\discord-logo.webp
-              alt="Discord Server (Protein Shake)" width="70" height="70"></a>
+            <a href="https://t.me/s/oUITS_ORnU" target="_blank"><i class="fa-brands fa-facebook"></i></i></a>
 
-          <a href="https://t.me/s/oUITS_ORnU" target="_blank"><img src=images\Social-logo\telegram-logo2.webp
-              alt="Telegram Channel (oUITS - Online Resources and Updates)" width="70" height="70"></a>
+            <a href="https://facebook.com/groups/1074592960836263/" target="_blank"><i
+                class="fa-brands fa-telegram"></i></a>
 
-          <a href="https://facebook.com/groups/1074592960836263/" target="_blank"><img
-              src=images\Social-logo\fb-logo.webp alt="Facebook Group (oUITS - Online Resources)" width="70"
-              height="70"></a>
+            <a href="https://github.com/oU1TS" target="_blank"><i class="fa-brands fa-github"></i></a>
 
-          <a href="https://github.com/oU1TS" target="_blank"><img src=images\Social-logo\github-logo2.webp
-              alt="Facebook Group (oUITS - Online Resources)" width="70" height="70"></a>
-
+          </div>
         </div>
-
-        <p align=center
-          style="color:rgba(0, 0, 0, 0.422);width: 95%;max-width:500px;font-size: small;font-style: italic;">Copyright
-          &copy; 2024-<span id="year"></span>
-          b1tranger. </p>
-
-
 
         <div style="margin-bottom: 10px;margin-top: 10px;">
           <!-- BOTTOM CREDITS -->
-          <p align=center style="color:rgba(0, 0, 0, 0.422);width: 80%;max-width:550px;font-size: small;"><small
-              style="font-size: x-small;"><b>UNOFFICIAL</b>
+          <p align=center>
+            <small style="font-size: 0.7rem;"><b>UNOFFICIAL</b>
               Online
               Resources Archiver for UITS<br>This project is licensed under the <a
-                href="https://www.apache.org/licenses/LICENSE-2.0" style="color:rgba(4, 0, 128, 0.806);"
-                target="_blank">Apache License 2.0</a>.
+                href="https://www.apache.org/licenses/LICENSE-2.0"
+                style="color:rgba(4, 0, 128, 0.806);text-shadow: 0px 0px 0px black;" target="_blank">Apache License
+                2.0</a>.
               You may use, modify, and distribute its contents, but you must provide attribution and include the
               original
-              license.</small></p>
-
+              license.</small>
+          </p>
+          <br>
+          <p>Copyright &copy; 2024-<span id="year"></span> b1tranger. </p>
 
           <script>
             document.getElementById("year").textContent = new Date().getFullYear();
