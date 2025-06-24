@@ -26,6 +26,16 @@ const departmentDropdown = document.getElementById('departmentDropdown');
             6: "D1/CE/S06.html",
             7: "D1/CE/S07.html",
             8: "D1/CE/S08.html",
+          },
+          it: {
+            1: "D1/IT/S01.html",
+            2: "D1/IT/CE/S02.html",
+            3: "D1/IT/S03.html",
+            4: "D1/IT/S04.html",
+            5: "D1/IT/S05.html",
+            6: "D1/IT/S06.html",
+            7: "D1/IT/S07.html",
+            8: "D1/IT/S08.html",
           }
         };
     

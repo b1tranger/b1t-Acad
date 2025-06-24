@@ -80,30 +80,84 @@
                 </div>
 
             </div>
-
+            <div id="semester-browser-addredd-bar">&nbsp;</div>
             <p align="center" style="font-size: small;margin: -5px;color: #ffffffb4;">( to be listed in the semester
                 folders
                 )
             </p>
 
         </div>
-        <br><br>
 
 
 
 
         <!-- ----------------------------------------------------------------------- -->
 
+        <!-- <div id="semester-browser-addredd-bar">&nbsp;</div> -->
+        <!-- ---------------------------------------------------------- -->
+
+        <div class="section" style="margin-top: 50px;margin-bottom: -20px;"
+            data-faq="This section contains two Course Selectors (by semester/by course) to find course materials for your specific semesters.">
+            <div class="faq-icon">?</div>
+            <div class="faq-box"></div>
+        </div>
+
+        <div class="container-5" style="margin-top: 100px;">
+
+
+            <!-- -------------------------------------------------------------------- -->
+            <div class="semester-selector-container" style="margin-bottom: -30px;">
+                <label style="color: rgba(255, 255, 255, 0.68);">Semester Browser</label>
+
+                <div class="custom-dropdown" id="departmentDropdown" style="margin-top: 20px;width: 100%;
+    max-width: 600px;">
+                    <div class="dropdown-header" id="dropdownHeader"
+                        style="font-size: 1rem;max-width: 500px;margin: auto;">Select Department
+                    </div>
+
+                    <div class="dropdown-list" id="dropdownList">
+                        <div class="dropdown-item" data-value="cse">Computer Science and Engineering</div>
+                        <div class="dropdown-item" data-value="ce">Civil Engineering</div>
+                        <div class="dropdown-item" data-value="it">Information Technology</div>
+                    </div>
+                </div>
+
+                <button id="resetButton"><small><b>Clear?</b></small></button>
+
+
+                <div id="semesterList" class="semester-list"
+                    style="background-color: transparent;border-color: transparent;"></div>
+                <p id="driveLink"></p>
+
+                <script src="js/academics.semester.selector.js"></script>
+            </div>
+            <hr style="margin-top: 10px;width: 70%;margin:20px auto;">
+            <div class="semester-selector-container">
+                <label style="color: rgba(255, 255, 255, 0.68);">University Course Search</label>
+                <div class="search-container" style="margin-top: 20px;border-color: transparent;max-width: 500px;">
+                    <input id="course-search" type="text" class="search-input" placeholder="Search Courses"
+                        autocomplete="off">
+                    <div class="search-results"></div>
+                </div>
+
+
+                <!-- -------------------------------------------------------------------- -->
+                <script src="js/search-courses.js"></script>
+            </div>
+        </div>
+
+        <!-- -------------------------------------------------------------- -->
+
         <!-- GRID FOR INFO -->
 
-        <div class="section" style="margin-top: 25px;margin-bottom: 20px;"
+        <div class="section" style="margin-top: 50px;margin-bottom: -20px;"
             data-faq="This section contains common resources like Notice, course list, outlines etc.">
             <div class="faq-icon">?</div>
             <div class="faq-box"></div>
         </div>
 
 
-        <div class="container-5">
+        <div class="container-5" style="margin-top: 100px;">
             <p class="highlights" style="color: rgba(240, 248, 255, 0.649);text-align: center; ">
                 General Info
             </p>
@@ -155,59 +209,7 @@
             </div>
         </div>
 
-        <!-- <div id="semester-browser-addredd-bar">&nbsp;</div> -->
-        <!-- ---------------------------------------------------------- -->
 
-        <div class="section" style="margin-top: 50px;margin-bottom: -20px;"
-            data-faq="This section contains two Course Selectors (by semester/by course) to find course materials for your specific semesters.">
-            <div class="faq-icon">?</div>
-            <div class="faq-box"></div>
-        </div>
-
-        <div class="container-5" style="width:85%;max-width: 800px;margin-top: 100px; background-color: #1B262C;">
-
-
-            <!-- -------------------------------------------------------------------- -->
-            <div class="semester-selector-container" style="margin-bottom: -30px;">
-                <label style="color: rgba(255, 255, 255, 0.68);">Semester Browser</label>
-
-                <div class="custom-dropdown" id="departmentDropdown" style="margin-top: 20px;width: 100%;
-    max-width: 600px;">
-                    <div class="dropdown-header" id="dropdownHeader"
-                        style="font-size: 1rem;max-width: 500px;margin: auto;">Select Department
-                    </div>
-
-                    <div class="dropdown-list" id="dropdownList">
-                        <div class="dropdown-item" data-value="cse">Computer Science and Engineering</div>
-                        <div class="dropdown-item" data-value="ce">Civil Engineering</div>
-                    </div>
-                </div>
-
-                <button id="resetButton"><small><b>Clear?</b></small></button>
-
-
-                <div id="semesterList" class="semester-list"
-                    style="background-color: transparent;border-color: transparent;"></div>
-                <p id="driveLink"></p>
-
-                <script src="js/academics.semester.selector.js"></script>
-            </div>
-            <hr style="margin-top: 10px;width: 70%;margin:20px auto;">
-            <div class="semester-selector-container">
-                <label style="color: rgba(255, 255, 255, 0.68);">University Course Search</label>
-                <div class="search-container" style="margin-top: 20px;border-color: transparent;max-width: 500px;">
-                    <input id="course-search" type="text" class="search-input" placeholder="Search Courses"
-                        autocomplete="off">
-                    <div class="search-results"></div>
-                </div>
-
-
-                <!-- -------------------------------------------------------------------- -->
-                <script src="js/search-courses.js"></script>
-            </div>
-        </div>
-
-        <!-- -------------------------------------------------------------- -->
 
         <!-- NOTICE POPUP -->
 
@@ -541,7 +543,7 @@
 
         <br><br><br>
         <!-- END CREDIT  -->
-        <div class="container">
+        <div class="footer-container">
             <div class="end-credits">
                 <div class="social-container">
                     <!-- SOCIAL LINKS -->
