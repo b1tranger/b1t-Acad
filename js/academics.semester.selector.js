@@ -29,7 +29,7 @@ const departmentDropdown = document.getElementById('departmentDropdown');
           },
           it: {
             1: "D1/IT/S01.html",
-            2: "D1/IT/CE/S02.html",
+            2: "D1/IT/S02.html",
             3: "D1/IT/S03.html",
             4: "D1/IT/S04.html",
             5: "D1/IT/S05.html",
