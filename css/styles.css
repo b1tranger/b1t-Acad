@@ -11,8 +11,14 @@
   font-size: 2rem;
   padding: 0.5rem;
   text-shadow: 1px 2px 2px #000000;
+  transition: transform 0.3s ease;
   /* display: flex; */
   /* justify-content: center; */
+
+}
+
+.social-container div a:hover {
+  transform: translatey(-2px);
 
 }
 
