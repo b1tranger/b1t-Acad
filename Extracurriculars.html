@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="css/top.navbar.css">
     <link rel="stylesheet" href="css/faq.dropdown.css">
     <link rel="stylesheet" href="css/faq.tooltip.css">
-    <link rel="stylesheet" href="css/credit.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/academics.menubtn.css">
     <link rel="stylesheet" href="css/Academics.css">
+    <link rel="stylesheet" href="css/menu.css">
 
     <!-- ICON LINK -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -34,16 +34,47 @@
 
 </head>
 
-<body style="background-color: #333;">
+<body style="background-color: #333;z-index: -1;">
+    <div class="top-credit-show"
+        style="display: none;background-color: white;display: block;width: -webkit-fit-available;height: 40px;position: static;top:0;z-index: 2;margin-left: 20px;margin-right: 20px;margin-top: -10px;">
+    </div>
     <div style="background-color: #333;display: block;width: 100%;height: 40px;position: fixed;top:0;z-index: 2;">
     </div>
-    <div
-        style="background-color: #333;display: block;width: 100%;height: 60px;position: fixed;top:20;z-index: 2;box-shadow: 0.5px 0.5px 10px black;margin-left: 20px;margin-right: 20px;border-radius: 25px;max-width: -webkit-fill-available;">
-    </div>
-    <div
-        style="background-image: url(images/portrait-bg.jpg) !important; background-repeat: no-repeat; background-size: cover; background-position: center;background-color: #FAF9F6; margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;overflow-x: auto;">
+
+    <div class="page-border"
+        style="background-image: url(images/portrait-bg.jpg) !important; background-repeat: no-repeat; background-size: cover; background-position: center;margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;overflow-x: hidden;">
 
 
+        <!-- MENU BUTTON -->
+
+
+        <!-- Floating Action Button (FAB) for mobile menu -->
+        <div class="fab-container">
+            <button id="fab-button" class="fab" aria-label="Main menu" aria-expanded="false">
+                <div class="menu-icon">
+                    <span class="menu-icon-line"></span>
+                    <span class="menu-icon-line"></span>
+                    <span class="menu-icon-line"></span>
+                </div>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Card Panel (hidden by default) -->
+        <div id="menu-container">
+            <nav id="mobile-menu">
+
+                <a href="Academics.html">Academics</a>
+                <a href="#">Extracurriculars</a>
+                <a href="References.html">References</a>
+                <div class="divider"></div>
+                <a href="index.html">Home</a>
+            </nav>
+        </div>
+
+        <!-- Overlay for when menu is open -->
+        <div id="menu-overlay" class="hidden"></div>
+
+        <!-- TOP BAR -->
 
         <nav class="navbar">
             <div class="nav-container">
@@ -57,7 +88,8 @@
                 </ul>
             </div>
         </nav>
-        <br><br><br><br><br><br><br>
+
+        <br><br><br><br>
 
 
 
@@ -76,7 +108,10 @@
         <div class="container-5">
             <p class="highlights" style="color: rgba(240, 248, 255, 0.649);text-align: center; ">
                 Interests and
-                Resources<br><small><a href="https://drive.google.com/drive/folders/1hTWa-Z7gV3GaUUMJhT2KPasmq5L1ha3p?usp=drive_link" target="_blank" style="color: rgba(240, 248, 255, 0.649);">( 🔗 Skills Dev Resources )</a></small>
+                Resources<br><small><a
+                        href="https://drive.google.com/drive/folders/1hTWa-Z7gV3GaUUMJhT2KPasmq5L1ha3p?usp=drive_link"
+                        target="_blank" style="color: rgba(240, 248, 255, 0.649);">( 🔗 Skills Dev Resources
+                        )</a></small>
             </p>
             <div class="container-6">
 
@@ -178,10 +213,10 @@
                     <div class="link-item">
                         <a href="https://drive.google.com/drive/folders/1PbBxDFPXQ_YVIDRkoyQvqYX7d8XICbTZ?usp=drive_link"
                             class="cell-link" target="_blank">
-                           3. Book-Shelf
+                            3. Book-Shelf
                         </a>
                     </div>
-                    
+
                     <!-- <div class="link-item">
                         <a href=""
                             class="cell-link" target="_blank">
@@ -685,6 +720,7 @@
 
         <script src="js/faq.dropdown.js"></script>
         <script src="js/faq.tooltip.js"></script>
+        <script src="js/menu.js"></script>
 
 
         <!-- END CREDIT  -->
@@ -734,14 +770,17 @@
                 </div>
             </div>
         </div>
-
         <br>
         <br>
+        <br>
+        <br>
+        <br>
+        <div class="bottom-border-block"></div>
     </div>
+
+
     <div class="navbar-5">
         <p align=center style="color:rgba(255, 255, 255, 0.776);"><i>oUITS Resources</i></p>
-        </font>
-
     </div>
 </body>
 
