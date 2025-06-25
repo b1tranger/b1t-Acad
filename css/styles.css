@@ -618,6 +618,7 @@ now Browse Curated Resources*/
 
 .resources-table-5 .cell-link {
   /* overflow:visible; */
+  
   color: #ffffffba;
   text-decoration: none;
   display: block;
@@ -1000,7 +1001,7 @@ now Browse Curated Resources*/
 } */
 
 /* Media query for smaller screens */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 650px) {
 
   .topnav-1,
   .topnav-2 {
