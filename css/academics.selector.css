@@ -303,7 +303,7 @@ overflow-y: scroll; */
 
  #resetButton {
      background-color: transparent;
-     /* border: 1px solid #ddd; */
+     /* border: 2px solid #ddd; */
      border-radius: 15px;
      padding: 5px 10px;
      margin-top: 10px;
