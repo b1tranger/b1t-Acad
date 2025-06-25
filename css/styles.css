@@ -1,3 +1,34 @@
+.hidden-link {
+  display: none;
+  /* background-color: rgba(255, 255, 255, 0.342); */
+  display: block;
+  height: 40px;
+  position: static;
+  top: 0;
+  z-index: 2;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: -10px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  /* box-shadow: 1px 1px 10px black; */
+  /* border: 2px solid black; */
+}
+
+.hidden-link p{
+  padding-top: 0.5rem;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.7rem;
+}
+
+.hidden-link p a{
+  /* text-decoration: underline; */
+  color: #ffffff48;
+}
+
 .footer-container {
   width: 90%;
   max-width: 500px;
@@ -1013,7 +1044,7 @@ now Browse Curated Resources*/
     left: 0;
   }
 
-  .top-credit-show {
+  .hidden-link {
     display: show;
   }
 
