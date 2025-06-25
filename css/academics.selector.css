@@ -242,7 +242,7 @@ overflow-y: scroll; */
      max-height: 0;
      overflow: hidden;
      transition: max-height 0.3s ease, padding 0.3s ease;
-     z-index: 10;
+     z-index: 1;
      padding: 0;
      /* padding: 2px; */
  }
