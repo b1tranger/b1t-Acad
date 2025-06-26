@@ -17,7 +17,7 @@
   text-align: center;
 }
 
-.TG-overview div {
+.TG-overview .link-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 3fr));
   padding: 1rem;
@@ -38,6 +38,7 @@
 
   display: flex;
   justify-content:center;
+  padding: 2rem;
 }
 
 /* ----------------------------------------------------- */
