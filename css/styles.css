@@ -1,3 +1,46 @@
+.TG-overview {
+  max-width: 500px;
+  margin: auto;
+  width: 90%;
+  background-color: transparent;
+
+  border: 1px solid black;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 1px 1px 10px black;
+  backdrop-filter: blur(2px);
+}
+
+.TG-overview h3 {
+  padding: 1rem;
+  margin: auto;
+  text-align: center;
+}
+
+.TG-overview div {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 3fr));
+  padding: 1rem;
+  gap: 1rem;
+}
+.TG-overview div a{
+  background-color: white;
+  text-align: center;
+  width: max-content;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 4px black;
+}
+
+.TG-overview .tg-links {
+
+  display: flex;
+  justify-content:center;
+}
+
+/* ----------------------------------------------------- */
 .hidden-link {
   display: none;
   /* background-color: rgba(255, 255, 255, 0.342); */
@@ -17,14 +60,14 @@
   /* border: 2px solid black; */
 }
 
-.hidden-link p{
+.hidden-link p {
   padding-top: 0.5rem;
   text-align: center;
   padding: 0.8rem;
   font-size: 0.7rem;
 }
 
-.hidden-link p a{
+.hidden-link p a {
   /* text-decoration: underline; */
   color: #ffffff48;
 }
