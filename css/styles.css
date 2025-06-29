@@ -1,4 +1,5 @@
 .TG-overview {
+  color: white;
   max-width: 500px;
   margin: auto;
   width: 90%;
@@ -9,6 +10,10 @@
   border-radius: 20px;
   box-shadow: 1px 1px 10px black;
   backdrop-filter: blur(2px);
+}
+
+.TG-overview a {
+  color: #ECEFCA;
 }
 
 .TG-overview h3 {
@@ -22,9 +27,22 @@
   grid-template-columns: repeat(auto-fill, minmax(100px, 3fr));
   padding: 1rem;
   gap: 1rem;
+
+
 }
-.TG-overview div a{
+
+.TG-overview .tg-links {
+
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.TG-overview .tg-links a,
+.TG-overview .link-grid a,
+.TG-overview .link-grid ul li a {
   background-color: white;
+  color: black;
   text-align: center;
   width: max-content;
   margin: auto;
@@ -34,12 +52,11 @@
   box-shadow: 1px 1px 4px black;
 }
 
-.TG-overview .tg-links {
-
-  display: flex;
-  justify-content:center;
-  padding: 2rem;
+.TG-overview .tg-links a:hover,
+.TG-overview .link-grid a:hover {
+  transform: ;
 }
+
 
 /* ----------------------------------------------------- */
 .hidden-link {
@@ -628,7 +645,8 @@ now Browse Curated Resources*/
   flex-direction: column;
   flex-wrap: wrap;
 
-  background-color: #1B262C;
+  /* background-color: #1B262C; */
+  background-color: #213448;
   border-radius: 15px;
   margin-top: 25px;
   margin: auto;
@@ -1074,10 +1092,16 @@ now Browse Curated Resources*/
 
 
 } */
+.randomBS-2 {
+  display: block;
+  display: flex;
+  justify-content: center;
+}
 
 /* Media query for smaller screens */
 @media screen and (max-width: 650px) {
   .bottom-border-block {
+    /* background-color: #333; */
     background-color: #333;
     display: block;
     width: 100%;
@@ -1134,6 +1158,8 @@ now Browse Curated Resources*/
   .randomBS {
     display: block !important;
     /* margin-bottom: 100px !important; */
+    display: flex !important;
+    justify-content: center !important;
 
   }
 
