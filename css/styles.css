@@ -133,13 +133,14 @@
 }
 
 .end-credits {
-  /* background-color: #00000000; */
+  background-color: #0000009a;
   backdrop-filter: blur(2px);
   border-radius: 20px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.289);
   padding: 20px;
   max-width: 500px;
   margin: auto;
+
 }
 
 .end-credits div {
@@ -148,7 +149,7 @@
 }
 
 .end-credits div p {
-  color: rgb(254, 254, 254);
+  /* color: rgb(254, 254, 254); */
   width: 80%;
   max-width: 550px;
   font-size: 1rem;
