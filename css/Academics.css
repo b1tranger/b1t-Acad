@@ -65,6 +65,7 @@
      max-width: 600px;
      position: relative;
      gap: 1rem;
+     background-color: #213448;
  }
 
  .container-6 a:hover {
