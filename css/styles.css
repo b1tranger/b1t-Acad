@@ -50,11 +50,17 @@
   border-radius: 10px;
   border: 1px solid black;
   box-shadow: 1px 1px 4px black;
+  transition: 0.3s ease;
+}
+
+.TG-overview .tg-links p {
+  transition: 0.3s ease;
 }
 
 .TG-overview .tg-links a:hover,
-.TG-overview .link-grid a:hover {
-  transform: ;
+.TG-overview .link-grid a:hover,
+.TG-overview .tg-links p:hover {
+  transform: translateY(-5px);
 }
 
 
