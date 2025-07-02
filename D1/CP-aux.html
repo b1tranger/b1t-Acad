@@ -5,11 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>b1t Academics: Programming</title>
+
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/top.navbar.css">
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="manifest" href="../manifest.webmanifest">
+    <link rel="stylesheet" href="../css/academics.menubtn.css">
+    <link rel="stylesheet" href="../css/academics.selector.css">
+    <!-- <link rel="stylesheet" href="../css/faq.dropdown.css"> -->
+    <!-- <link rel="stylesheet" href="../css/faq.tooltip.css"> -->
+    <link rel="stylesheet" href="../css/Academics.css">
+    <!-- <link rel="stylesheet" href="../css/menu.css"> -->
     <style>
+        a {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            outline: none;
+        }
+
         /* body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -18,75 +31,9 @@
             color: #fff;
         } */
 
-        /* CONTAINER FOR GRID  */
-        .container-6 {
-            display: grid;
-            place-items: center;
-            grid-template-columns: auto auto;
-            /* background-color: dodgerblue; */
-            /* padding: 10px; */
-            border-radius: 15px;
-            padding: 10px;
-            margin: 20px auto;
-            width: 79%;
-            max-width: 800px;
-            /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); */
-            /*the button visibility*/
-            position: relative;
-            /* background-color: #000000c5; */
-            column-gap: 5%;
-            row-gap: 4%;
-
-        }
-
-        /* .container-6>div {
-            background-color: #f1f1f1;
-            border: 1px solid black;
-            padding: 10px;
-            font-size: 30px;
-            text-align: center;
-        }  */
-
-        .container-5>div>div {
-            background-color: #f1f1f1;
-            border: 1px solid black;
-            padding: 10px;
-            font-size: 30px;
-            text-align: center;
-            /* color: #f2f2f200; */
-            /* width: 100%; */
-
-        }
 
 
 
-        .container-5 {
-
-            border-radius: 15px;
-            padding: 25px;
-            margin: 20px auto;
-            width: 79%;
-            max-width: 800px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            /*the button visibility*/
-            position: relative;
-            background-color: #000000c5;
-
-        }
-
-        .drive-link-5 {
-            margin-bottom: 20px;
-        }
-
-        .drive-link-5 a {
-            color: #b8b8e5;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .drive-link-5 a:hover {
-            color: #ffffff;
-        }
 
         .menu-button {
             background-color: #00000000;
@@ -101,7 +48,7 @@
             align-items: center;
             gap: 5px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            z-index: 50;
+            /* z-index: 50; */
             transition: background-color 0.3s ease;
 
             /* DISABLES LINK CLICK EFFECT */
@@ -114,7 +61,7 @@
         .menu-button:hover {
             transform: scale(1.05);
             /* Slightly enlarge the button */
-            background-color: #1B262C !important;
+            background-color: rgba(42, 81, 181, 0.694) !important;
             /* Lighten background on hover */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             /* Add a subtle shadow */
@@ -317,9 +264,9 @@
 
     <div style="background-color: #333;display: block;width: 100%;height: 40px;position: fixed;top:0;z-index: 2;">
     </div>
-    <div
+    <!-- <div
         style="background-color: #333;display: block;width: 100%;height: 60px;position: fixed;top:20;z-index: 2;box-shadow: 0.5px 0.5px 10px black;margin-left: 20px;margin-right: 20px;border-radius: 20px;max-width: -webkit-fill-available;">
-    </div>
+    </div> -->
     <div
         style="background-color: #ffffff; margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;overflow-x: hidden;">
 
@@ -341,87 +288,87 @@
 
         <!-- ----------------------------------------------------------------------- -->
 
-        <br><br><br><br><br><br>
+        <br><br><br><br>
 
 
         <p align="center"><a href="https://www.geeksforgeeks.org/bitsstdc-h-c/" target="_blank"
                 style="color: rgba(0, 0, 0, 0.649);"><i>#include &ltbit/stdc++.h&gt</i></a></p>
-        <div class="container-6" style="max-width: 400px;background-color: #1b262c00;justify-content: center;z-index: 1;">
 
-            <div class="menu-button" id="menuButton1" align="center"
-                style="background-color: rgb(49, 54, 58);height:60px;width:100px;font-size:medium;max-width: 300px;">
-                <p class="cell-link" align="center"
-                    style="color: rgb(255, 255, 255);margin:auto;padding:10px;background-color: #00000000;">
-                    Learning Websites
-                </p>
-            </div>
-            <div class="menu-button" id="menuButton4" align="center"
-                style="background-color: rgb(49, 54, 58);height:60px;width:100px;font-size:medium;max-width: 300px;">
-                <p class="cell-link" align="center"
-                    style="color: rgb(255, 255, 255);margin:auto;pbackground-color: #00000000;">
-                    Online Judges</b>
-                </p>
-            </div>
-            <div class="menu-button" id="menuButton2" align="center"
-                style="background-color: rgb(49, 54, 58);height:60px;width:100px;font-size:medium;max-width: 300px;">
-                <p class="cell-link" align="center"
-                    style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">Videos
-                </p>
-            </div>
+        <div class="container-5">
+            <div class="container-6">
 
-            <div class=" menu-button" align="center"
-                style="background-color: rgb(49, 54, 58);height:60px;width:100px;font-size:medium;max-width: 300px;">
-                <a class="cell-link" href="https://drive.google.com/drive/folders/1tKdvGoeoYQJ6ms-p7ZPlA2EvYPJ4SWFt"
-                    target="_blank" style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">
-                    References
-                </a>
+                <div class="menu-button" id="menuButton1" align="center"
+                    style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
+                    <p class="cell-link" align="center"
+                        style="color: rgb(255, 255, 255);margin:auto;padding:10px;background-color: #00000000;">
+                        Learning Websites
+                    </p>
+                </div>
+                <div class="menu-button" id="menuButton4" align="center"
+                    style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
+                    <p class="cell-link" align="center"
+                        style="color: rgb(255, 255, 255);margin:auto;padding:10px;background-color: #00000000;">
+                        Online Judges
+                    </p>
+                </div>
+                <div class="menu-button" id="menuButton2" align="center"
+                    style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
+                    <p class="cell-link" align="center"
+                        style="color: rgb(255, 255, 255);margin:auto;padding:10px;background-color: #00000000;">
+                        Videos<br>&nbsp;
+                    </p>
+                </div>
+
+                <div class=" menu-button" align="center"
+                    style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
+                    <a class="cell-link" href="https://drive.google.com/drive/folders/1tKdvGoeoYQJ6ms-p7ZPlA2EvYPJ4SWFt"
+                        target="_blank" style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">
+                        References
+                    </a>
+                </div>
+                <div class=" menu-button" align="center"
+                    style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
+                    <a class="cell-link" href="Lists\Programming-Resources.html"
+                        style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">
+                        Resources
+                    </a>
+                </div>
+                <div class="menu-button" align="center"
+                    style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
+                    <a class="cell-link"
+                        style="color: #ffffff;margin:auto;background-color: #00000000;text-shadow: 1px 1px 1px  #1B262C;"
+                        href="https://drive.google.com/drive/folders/1n8wBkN1nAhpW3Z0eMkU9OlMNaPByp88F?usp=drive_link"
+                        target="_blank">
+                        UITS Contests Archive
+                    </a>
+                </div>
             </div>
-            <div class=" menu-button" align="center"
-                style="background-color: rgb(49, 54, 58);height:60px;width:100px;font-size:medium;max-width: 300px;">
-                <a class="cell-link" href="Lists\Programming-Resources.html"
-                    style="color: rgb(255, 255, 255);margin:auto;background-color: #00000000;">
-                    Resources
-                </a>
-            </div>
-            <div class="menu-button" align="center"
-                style="background-color: #1E3E62;height:60px;width:100px;font-size:medium;max-width: 300px;">
-                <a class="cell-link"
-                    style="color: #ffffff;margin:auto;background-color: #00000000;text-shadow: 1px 1px 1px  #1B262C;"
-                    href="https://drive.google.com/drive/folders/1n8wBkN1nAhpW3Z0eMkU9OlMNaPByp88F?usp=drive_link"
-                    target="_blank">
-                    UITS Contests Archive
-                </a>
-            </div>
-            <div></div>
-            <hr style="color: #00000000;">
         </div>
 
         <!-- IFRAME BEFORE POPUP MENU -->
-        <table align=center class="resources-table-5" style="max-width: 700px;">
-            <tr>
-                <th>
-                    <div class="topnav-3">
-                        <h3>
-                            <p class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);"><a
-                                    href=" https://codeforces.com/streams" target="_blank"
-                                    style="color:rgba(255, 255, 255, 0.776);">
-                                    CodeForces &lt streams &gt
-                                </a></p>
-                        </h3>
-                    </div>
 
-                    <!-- "top-bar2" -->
+        <div class="resources-table-5" style="max-width: 800px;width: 79%;">
+            <div class="topnav-3">
+                <h3>
+                    <p class="highlights" align="center" style="color: rgba(240, 248, 255, 0.649);"><a
+                            href=" https://codeforces.com/streams" target="_blank"
+                            style="color:rgba(255, 255, 255, 0.776);">
+                            🔗CF Solve &lt streams &gt
+                        </a></p>
+                </h3>
+            </div>
+            <div class="container">
 
-                    <div class="container">
+                <div class="img-container" style="height: 300px;margin: auto;">
+                    <img src="https://res.cloudinary.com/djsa2kkyu/image/upload/v1751486052/streams_codeforces.com_shyxbm.webp" alt="Codeforces Streams Page">
 
-                        <div class="img-container" style="height: 300px;margin: auto;">
-                            <img src="../images/cf-streams.webp" alt="Codeforces Streams Page">
-                            <!-- <div class="scroll-indicator">Scroll down to see more</div> -->
-                        </div>
-                    </div>
-                </th>
-            </tr>
-        </table>
+                </div>
+            </div>
+
+
+
+        </div>
+
 
 
 
@@ -519,7 +466,8 @@
                         <!-- <p style="background-color: #ffffff;"> -->
                         <a href="https://judge.beecrowd.com/en" target="_blank" style="color: #000000ab;"><img
                                 src="../images\Online-Judge\beecrowd-logo.webp" height="40"
-                                width="66.21"><br><i><small>(for learning the
+                                width="66.21"><br><i><small>(for
+                                    learning the
                                     fundamentals)</small></i>
                         </a>
                         <!-- </p> -->
@@ -542,7 +490,8 @@
                     <div class="link-item" style="background-color: #ffffff;">
                         <a href="https://leetcode.com/" target="_blank" style="color: #000000ab;"><img
                                 src="../images\Online-Judge\LeetCode_Logo.webp" height="30"
-                                width="123.67"><br><i><small>(a great
+                                width="123.67"><br><i><small>(a
+                                    great
                                     platform for job preparation)</small></i>
                         </a>
                     </div>
@@ -559,14 +508,16 @@
                     <div class="link-item">
                         <a href="https://www.codechef.com/" target="_blank">
                             <img src="../images\Online-Judge\codechef.svg" width="100.00"
-                                height="40"><br><i><small>(similar to
+                                height="40"><br><i><small>(similar
+                                    to
                                     Codeforces)</small></i>
                         </a>
                     </div>
                     <div class="link-item" style="background-color: #ffffff;">
                         <a href="https://atcoder.jp/" target="_blank" style="color: #000000ab;"><img
                                 src="../images\Online-Judge\atcoder.webp" height="40"
-                                width="49.22"><br><i><small>(similar to
+                                width="49.22"><br><i><small>(similar
+                                    to
                                     Codeforces)</small></i>
                         </a>
                     </div>
@@ -656,26 +607,26 @@
 
 
         <!-- <p class="footer" align=center><a style="color: #8c8c8c;"" href=../index.html>Go back to index</a> -->
-    
-    <br><br><br><br><br>
-    <!-- HOME BUTTON -->
 
-    <a href="../index.html" class="home-button">
-        <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-    </a>
-    <!-- BACK BUTTON -->
+        <br><br><br><br><br>
+        <!-- HOME BUTTON -->
 
-    <a href="javascript:history.back()" class="back-icon">&#8592;</a>
+        <a href="../index.html" class="home-button">
+            <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+        </a>
+        <!-- BACK BUTTON -->
 
-    <!-- -------------------------------------------------------------------- -->
+        <a href="javascript:history.back()" class="back-icon">&#8592;</a>
 
-    <!-- TO WORK OFFLINE -->
+        <!-- -------------------------------------------------------------------- -->
 
-    <script src="offline.js"></script>
-    
+        <!-- TO WORK OFFLINE -->
+
+        <script src="offline.js"></script>
+
     </div>
     <!-- BOTTOM BAR "navbar" -->
 
