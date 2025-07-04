@@ -18,6 +18,13 @@
     <!-- ICON LINK -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+    <style>
+        #semester-browser-address-bar {
+            scroll-margin-top: 30vh;
+            /* 50vh = half the viewport height */
+        }
+    </style>
+
 </head>
 
 <body style="background-color: #333333;z-index: -1;">
@@ -50,10 +57,10 @@
         <!-- Mobile Menu Card Panel (hidden by default) -->
         <div id="menu-container">
             <nav id="mobile-menu">
-                <a href="#">Academics</a>
-                <a href="Extracurriculars.html">Extracurriculars</a>
-                <a href="TG-portal.html">Telegram Portal</a>
                 <a href="References.html">References</a>
+                <a href="TG-portal.html">Telegram Portal</a>
+                <a href="Extracurriculars.html">Extracurriculars</a>
+                <a href="#">Academics</a>
                 <div class="divider"></div>
                 <a href="index.html">Home</a>
             </nav>
@@ -105,8 +112,7 @@
 
                 </div>
                 <div style="background-color: transparent;border-color: rgba(0, 0, 0, 0.034);">
-                    <a id="semester-browser-address-bar" class="cell-link" href="https://forms.gle/ovz4p5VAEsB6G7fp7"
-                        target="_blank"
+                    <a class="cell-link" href="https://forms.gle/ovz4p5VAEsB6G7fp7" target="_blank"
                         style="color: #ffffff;padding:15%;background-color: #3282B8;border-radius: 10px;width: 100px;box-shadow: 1px 2px 10px #000000;text-align: center;display: block;text-shadow: 1px 2px 1px #000000;font-size: medium;">
                         <img src="images\Section-Logo\logo (9).webp" height="120px" width="120px"
                             style="margin-top: -30px;margin-bottom: -25px;">
@@ -124,12 +130,7 @@
 
         </div>
 
-        <!-- <span id="semester-browser-address-bar">&nbsp;</span> -->
 
-
-        <!-- ----------------------------------------------------------------------- -->
-
-        <!-- <div id="semester-browser-address-bar">&nbsp;</div> -->
         <!-- ---------------------------------------------------------- -->
 
         <div class="section" style="margin-top: 50px;margin-bottom: -20px;"
@@ -142,9 +143,9 @@
 
 
             <!-- -------------------------------------------------------------------- -->
-            <div class="semester-selector-container" style="margin-bottom: -30px;">
-                <label style="color: rgba(255, 255, 255, 0.68);"><a href="#semester-browser-address-bar"
-                        style="color: rgba(255, 255, 255, 0.68);">Semester Browser</a></label>
+            <div class="semester-selector-container" style="margin-bottom: -30px;" id="semester-browser-address-bar">
+                <label style="color: rgba(255, 255, 255, 0.68);"><a href="#semester-browser-address-bar"><i class="fa-solid fa-link" style="color: white;"></i></a> Semester
+                    Browser</label>
 
                 <div class="custom-dropdown" id="departmentDropdown"
                     style="margin-top: 20px;width: 100%;max-width: 600px;">
