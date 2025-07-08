@@ -4,7 +4,7 @@
 // Create a file called shared-elements.js
 document.addEventListener('DOMContentLoaded', function() {
     const navHTML = `
-    <a href="https://b1tacad.netlify.app/#coffee" 
+    <a href="https://b1tranger.netlify.app/#coffee" 
       target="_blank"><small>buy me a coffee?</small></a>
       <!-- Add other navigation links here -->
     `;
