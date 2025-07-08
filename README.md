@@ -4,7 +4,7 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Netlify Status](https://api.netlify.com/api/v1/badges/82c85edb-4a48-40e0-892d-f6d5766c7a4d/deploy-status)](https://app.netlify.com/projects/ouits-res/deploys)
 
-LINK → <a href="https://ouits-res.netlify.app/" target="_blank">Click Here</a> ←
+Website: → <a href="https://b1tacad.netlify.app/" target="_blank">Click Here</a> ←
 
 I had planned to make a website which:
 
