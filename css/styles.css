@@ -733,6 +733,9 @@ now Browse Curated Resources*/
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -moz-tap-highlight-color: transparent;
+  -moz-touch-callout: none;
+  -moz-user-select: none;
   user-select: none;
   outline: none;
 }
@@ -828,6 +831,9 @@ now Browse Curated Resources*/
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -moz-tap-highlight-color: transparent;
+  -moz-touch-callout: none;
+  -moz-user-select: none;
   user-select: none;
   outline: none;
 
@@ -903,6 +909,9 @@ now Browse Curated Resources*/
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+  -moz-tap-highlight-color: transparent;
+  -moz-touch-callout: none;
+  -moz-user-select: none;
   user-select: none;
   outline: none;
 
@@ -968,6 +977,9 @@ now Browse Curated Resources*/
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
+    -moz-tap-highlight-color: transparent;
+  -moz-touch-callout: none;
+  /* -webkit-user-select: none; */
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1142,6 +1154,7 @@ now Browse Curated Resources*/
     margin-right: 19.1px;
     margin-top: 20px;
     max-width: -webkit-fill-available;
+    max-width: -moz-fill-available;
     padding: 15px 0px 15px 0px;
     position: fixed;
     text-align: center;
