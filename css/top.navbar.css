@@ -16,6 +16,8 @@
       /* background-color: #ffffff; */
       color: black;
       width: -webkit-fill-available;
+      
+      width: -moz-fill-available;
       /* max-width: 100wr-40px; */
       min-width: 100px !important;
       border-radius: 20px 20px 0 0;
@@ -34,6 +36,7 @@
 
   .nav-container {
       max-width: -webkit-fill-available;
+      max-width: -moz-fill-available;
       margin: 0 auto;
       display: flex;
       justify-content: center;
@@ -244,15 +247,15 @@
       }
 
 
-      .nav-links::-webkit-scrollbar {
+      .nav-links::-webkit-scrollbar,.nav-links::-moz-scrollbar {
           width: 5px;
       }
 
-      .nav-links::-webkit-scrollbar-track {
+      .nav-links::-webkit-scrollbar-track,.nav-links::-moz-scrollbar-track {
           background: #444;
       }
 
-      .nav-links::-webkit-scrollbar-thumb {
+      .nav-links::-webkit-scrollbar-thumb,.nav-links::-moz-scrollbar-thumb {
           background: #666;
           border-radius: 10px;
       }

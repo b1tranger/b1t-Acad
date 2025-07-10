@@ -8,7 +8,7 @@
 
 
  /* HIDE SCROLLBAR */
- ::-webkit-scrollbar {
+ ::-webkit-scrollbar, ::-moz-scrollbar {
      display: none;
  }
 

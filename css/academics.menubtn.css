@@ -71,6 +71,9 @@
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
+        -moz-tap-highlight-color: transparent;
+    -moz-touch-callout: none;
+    -moz-user-select: none;
     user-select: none;
 }
 
