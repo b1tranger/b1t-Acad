@@ -10,28 +10,41 @@
   }
 
   /* Navigation bar styles */
-  .navbar {
+  /* .navbar {
+      display: flex;
+      justify-content: center;
       background-color: #333;
-      /* background-color: #03030300; */
-      /* background-color: #ffffff; */
       color: black;
       width: -webkit-fill-available;
-      
+
       width: -moz-fill-available;
-      /* max-width: 100wr-40px; */
       min-width: 100px !important;
       border-radius: 20px 20px 0 0;
       position: fixed;
       margin-top: 20px;
       margin-left: 20px;
       margin-right: 20px;
-      /* padding-top: 10px; */
       top: 0;
       left: 0;
       z-index: 2;
-      /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
       box-shadow: 0.5px 0.5px 15px;
-      /* padding: 5%; */
+  } */
+  .navbar {
+      display: flex;
+      justify-content: center;
+      background-color: #333;
+      color: black;
+      min-width: 100px !important;
+      border-radius: 20px 20px 0 0;
+      position: fixed;
+      top: 20px;
+      /* Keeps the top spacing  */
+      left: 20px;
+      /* New: Sets left spacing   */
+      right: 20px;
+      /* New: Sets right spacing  */
+      z-index: 2;
+      box-shadow: 0.5px 0.5px 15px;
   }
 
   .nav-container {
@@ -247,15 +260,18 @@
       }
 
 
-      .nav-links::-webkit-scrollbar,.nav-links::-moz-scrollbar {
+      .nav-links::-webkit-scrollbar,
+      .nav-links::-moz-scrollbar {
           width: 5px;
       }
 
-      .nav-links::-webkit-scrollbar-track,.nav-links::-moz-scrollbar-track {
+      .nav-links::-webkit-scrollbar-track,
+      .nav-links::-moz-scrollbar-track {
           background: #444;
       }
 
-      .nav-links::-webkit-scrollbar-thumb,.nav-links::-moz-scrollbar-thumb {
+      .nav-links::-webkit-scrollbar-thumb,
+      .nav-links::-moz-scrollbar-thumb {
           background: #666;
           border-radius: 10px;
       }
