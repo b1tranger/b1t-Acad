@@ -49,11 +49,10 @@
      max-height: 250px;
      min-width: 110%;
      overflow-y: scroll;
-     z-index: 10;
+     z-index: 1;
      display: none;
      margin-top: 5px;
      text-align: left;
-     /* width: 100%; */
  }
 
  /* Alternative approach - thin, semi-transparent scrollbar */
