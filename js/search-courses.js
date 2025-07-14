@@ -72,6 +72,7 @@ const courses = [
     { code: "CSE208", title: "Internet Programming Lab - IP", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1yidd6DDh7Oy-D9DTHR3iQApWCXQ9lH39?usp=drive_link" },
     { code: "CSE217", title: "Linear Algebra, Probability and Statistics for Engineers - LAPSE", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1wFrG_OxI7-BzFHadiAX9aFJRPVH0_TgW?usp=drive_link" },
     { code: "CSE213", title: "Theory of Computation - ToC", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Lk_dkegB5YNBlQpYrOIcUP0KYS7e-oo0?usp=drive_link" },
+    { code: "EEE0714211 + EEE0714212", title: "EDC - Electronic Devices and Circuits", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1dLr18ZBIpOTFleZYS3hjiMu3O_ZxBtIC?usp=drive_link" },
     //
     // [ CE ] { code: "", title: "", department: "Dept: CE", driveLink: "" },
     //
@@ -135,6 +136,7 @@ const courses = [
     { code: "CSE418", title: "Scientific Research and Methodologies", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1HrgdXqI1i0iN6Wrh1JIWa7NUyTpeL30P?usp=drive_link" },
     { code: "CSE413", title: "Simulation and Modeling Lab", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1C8j93IMJ7U6zUANlAH2nUeLhE12j5PYi?usp=drive_link" },
     { code: "CSE416", title: "Software Project Design and Development", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1BDXFHdEjoJEwyeGBkbbS2ZzNgJ9Zub-s?usp=drive_link" },
+    
     //
     // [ CE ]
     //
@@ -152,6 +154,7 @@ const courses = [
     { code: "CSE437 + CSE438", title: "Digital Image Processing (+Lab) - DIP", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Du1Yc_zCNIZVIOuYyU1e_4y15rp2rR3y?usp=drive_link" },
     { code: "CSE459", title: "Professional Ethics and Communication for Engineers - PE", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1cNlANirFZYtjIYm4utSZ5-4W7ZzadO65?usp=drive_link" },
     { code: "CSE492", title: "Technical Writings and Presentation Lab", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Xke8qu1dpd-rFvKjkUch8svzKZphTw88?usp=drive_link" },
+    { code: "CSE 421 + CSE 422", title: "Neural Networks", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1dIXOU0zRrjPKaWaP0j3SPzQ_lelX78J8?usp=drive_link" },
     // { code: "", title: "", department: "Dept: CSE", driveLink: "" },
     // { code: "", title: "", department: "Dept: CSE", driveLink: "" },
     //
