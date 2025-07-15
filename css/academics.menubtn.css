@@ -1,22 +1,14 @@
 .container-6 {
-    /* display: grid; */
-    /* grid-template-columns: auto auto; */
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 3fr));
-    /* background-color: dodgerblue; */
-    /* padding: 10px; */
     border-radius: 15px;
     padding: 25px;
     margin: 20px auto;
-    width: 79%;
+    width: 95%;
     max-width: 800px;
-    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); */
-    /*the button visibility*/
     position: relative;
-    /* background-color: #000000c5; */
     gap: 5%;
     align-items: center;
-    /* justify-content:center; */
 }
 
 .container-5>div>div {
@@ -93,16 +85,10 @@
 }
 
 .cell-link {
-    /* color: rgba(255, 255, 255, 0.8);
-            
-            padding-top: 1rem !important;
-            padding-bottom: 1rem !important;
-            margin: auto; */
+
+    /* max-width: 100px !important; */
     font-size: 1rem;
     text-align: center !important;
-    /* align-content:center !important; */
-
-    /* height: max-content; */
 
 }
 
