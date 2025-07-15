@@ -34,10 +34,9 @@ td {
     transition: transform 1s
 }
 
-.container-6 {
+/* .container-6 {
     display: grid;
     place-items: center;
-    /* grid-template-columns: auto auto; */
     display: grid;
            grid-template-columns:repeat(auto-fill,minmax(100px,3fr));
     border-radius: 15px;
@@ -45,11 +44,10 @@ td {
     margin: 20px auto;
     width: 79%;
     max-width: 350px;
-    /*the button visibility*/
     position: relative;
     gap: 5%;
 
-}
+} */
 
 .container-6 a:hover {
     transform: translateY(-5px);
