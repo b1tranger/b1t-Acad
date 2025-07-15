@@ -41,9 +41,9 @@
         }
 
         /* Prevent body scroll when menu is open */
-        .body-no-scroll {
+        /* .body-no-scroll {
             overflow: hidden;
-        }
+        } */
 
         /* Utility Classes */
         .container {
