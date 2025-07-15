@@ -172,7 +172,7 @@
  /* --------------------------------------------------------------------- */
 
  .semester-selector-container {
-     width: 85%;
+     width: 100%;
      margin: auto;
      /* padding: 20px; */
      text-align: center;
@@ -321,4 +321,11 @@ overflow-y: scroll; */
 
  #resetButton:hover {
      background-color: #0000009d;
+ }
+
+ @media screen and (max-width: 450px) {
+.semester-button {
+padding-left: 3rem;
+padding-right: 3rem;
+}
  }
