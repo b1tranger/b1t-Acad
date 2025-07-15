@@ -716,7 +716,7 @@ now Browse Curated Resources*/
 
 /* FOR CLICKABLE BUTTON DIV */
 
-.resources-table-5 td{
+.resources-table-5 td {
 
   /* max-width: 250px; */
 }
@@ -1122,9 +1122,22 @@ now Browse Curated Resources*/
   justify-content: center;
 }
 
+.show-desk {
+  background-color: rgb(160, 225, 255);
+  padding: 0.4rem;
+  border-radius: 5px;
+}
+
+.show-mobile {
+  background-color: rgb(188, 252, 225);
+  padding: 0.4rem;
+  border-radius: 5px;
+  display: none;
+}
+
 .intro-text {
-  padding-top: 100px;
-  padding-bottom: 50px;
+  padding-top: 5vh;
+  padding-bottom: 40vh;
   text-align: center;
   width: 90%;
   margin: auto;
@@ -1134,12 +1147,23 @@ now Browse Curated Resources*/
 /* Media query for smaller screens */
 @media screen and (max-width: 650px) {
 
+
+  .show-desk {
+    display: none;
+  }
+
+  .show-mobile {
+    width: 70%;
+    margin: auto;
+    display: block;
+  }
+
   .img-container {
     /* align-items: center; */
     height: 25vh;
   }
 
-  .img-container img{
+  .img-container img {
     /* width: 150% !important; */
     /* margin-right: -15px; */
   }
