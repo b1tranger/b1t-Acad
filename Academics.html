@@ -276,15 +276,41 @@
                             UITS-Notice
                         </a>
                     </div>
-                    <a href="javascript:history.back()" class="back-icon" style="top: 28%;right: 2%;">&#8592;</a>
+                    <a href="javascript:history.back()" class="back-icon" style="bottom: 0;position: sticky;">&#8592;</a>
                     <div class="link-item">
                         <iframe class="notice-iframe" src="https://uits.edu.bd/notice/#Subheader"></iframe>
-                         
+
                     </div>
+
+                    <!-- <iframe id="myFrame" src="https://uits.edu.bd/notice/" width="100%" height="500px"></iframe> -->
+
+                    <!-- <a href="#" class="back-icon" onclick="goBackToHome(popupMenu1)" style="top: 28%; right: 2%;">&#8592;</a> -->
+
+                    <!-- <script>
+                        const homeURL = "https://uits.edu.bd/notice/"; 
+
+                        function goBackToHome() {
+                            const iframe = document.getElementById("myFrame");
+
+                            try {
+                                const iframeWindow = iframe.contentWindow;
+
+                                const interval = setInterval(() => {
+                                    if (iframeWindow.location.href.includes(homeURL)) {
+                                        clearInterval(interval);
+                                    } else {
+                                        iframeWindow.history.back();
+                                    }
+                                }, 200); 
+                            } catch (e) {
+                                console.warn("Cross-origin iframe – cannot access history.");
+                            }
+                        }
+                    </script> -->
 
                     <!-- BACK BUTTON -->
                     <!-- <div class="link-item"> -->
-                       
+
                     <!-- </div> -->
                     <!-- More links here -->
                 </div>
