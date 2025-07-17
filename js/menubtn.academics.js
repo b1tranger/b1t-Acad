@@ -2,7 +2,7 @@
         document.addEventListener('DOMContentLoaded', function () {
             // Button and popup pairs
             const menuPairs = [
-                { button: 'menuButton1', popup: 'popupMenu1' },
+                // { button: 'menuButton1', popup: 'popupMenu1' },
                 { button: 'menuButton2', popup: 'popupMenu2' },
                 { button: 'menuButton3', popup: 'popupMenu3' },
                 { button: 'menuButton4', popup: 'popupMenu4' },

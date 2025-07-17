@@ -43,6 +43,7 @@
 }
 
 .menu-button {
+    cursor: pointer;;
     place-content: center !important;
     height: 100px !important;
     background-color: rgba(0, 0, 0, 0.247) !important;

@@ -19,8 +19,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
-        #semester-browser-address-bar {
-            scroll-margin-top: 30vh;
+        #semester-browser-address-bar,
+        #notice-section {
+            scroll-margin-top: 20vh;
             /* 50vh = half the viewport height */
         }
     </style>
@@ -209,12 +210,13 @@
 
             <div class="container-6">
 
-                <div class="menu-button" id="menuButton1"
+                <a href="index.html#notice-section" class="menu-button"
                     style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
-                    <p class="cell-link" style="color: #fff; margin: 0;">
+                    <div class="cell-link" style="color: #fff; margin: auto;">
                         Notice
-                    </p>
-                </div>
+                    </div>
+                </a>
+
 
                 <div class="menu-button" id="menuButton2"
                     style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center; ">
@@ -255,7 +257,34 @@
         </div>
 
 
+        <!-- <div class="container-5" style="margin-top: 100px;">
+            <p id="notice-section" class="highlights" style="color: rgba(240, 248, 255, 0.649);text-align: center; ">
+                Notice Section</p>
 
+
+            <div class="link-item" style="text-align: center;max-width: 300px;margin: 5px auto;">
+                <a href="https://uits.edu.bd/notice/" target="_blank">
+                    visit UITS-Notice
+                </a>
+            </div>
+            <div
+                style="display: flex;justify-content: flex-end;margin-bottom: -100px;margin-right: 20px;margin-top: 50px;">
+                <a href="javascript:history.back()" class="back-icon"
+                    style="position: static;border: 2px solid black;">&#8592;</a>
+            </div>
+
+            <div class="link-item" style="margin-bottom: 2rem;margin-top: 2rem;">
+
+                <iframe class="notice-iframe" src="https://uits.edu.bd/notice/#Subheader"></iframe>
+
+            </div>
+
+            <div class="link-item" style="text-align: center;max-width: 300px;margin: 5px auto;">
+                <a href="https://drive.google.com/drive/folders/1qSwFhUFgpWiNJAeJ_smbl99hlSPYYK7-" target="_blank">
+                    Notice Archives
+                </a>
+            </div>
+        </div> -->
         <!-- NOTICE POPUP -->
 
         <!-- First popup menu -->
@@ -276,7 +305,8 @@
                             UITS-Notice
                         </a>
                     </div>
-                    <a href="javascript:history.back()" class="back-icon" style="bottom: 0;position: sticky;">&#8592;</a>
+                    <a href="javascript:history.back()" class="back-icon"
+                        style="bottom: 0;position: sticky;">&#8592;</a>
                     <div class="link-item">
                         <iframe class="notice-iframe" src="https://uits.edu.bd/notice/#Subheader"></iframe>
 
