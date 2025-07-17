@@ -17,7 +17,16 @@
   <link rel="stylesheet" href="css/faq.tooltip.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/academics.menubtn.css">
   <link rel="stylesheet" href="css/arrow-animation.css">
+
+  <style>
+    #notice-section {
+      scroll-margin-top: 20vh;
+      /* 50vh = half the viewport height */
+    }
+  </style>
+
 
   <!-- OFFLINE SUPPORT (WEB APP) -->
 
@@ -122,13 +131,56 @@
     </div>
 
     <div class="intro-text">
-      <p><u>Unofficial</u> online resources archiver.</p>
-      <p>Find your resources using the <span class="show-desk">Navigation Tabs at the top</span><span class="show-mobile"> Hamburger Button at the bottom-right corner</span></p>
+      <p><u>Unofficial</u> Online Resources Archiver for UITS.</p>
+      <p>Find your resources using the <span class="show-desk">Navigation Tabs at the top</span><span
+          class="show-mobile" style="margin-top: 5px;"> Button at the bottom-right corner</span></p>
 
 
     </div>
     <div class="arrows"></div>
     <!-- <script></script>pentitle="SCSS Arrow Animation";</script> -->
+
+
+
+    <div class="container-5" style="margin-top: 20vh;">
+      <p id="notice-section" class="highlights" style="color: rgba(240, 248, 255, 0.649);text-align: center; ">
+        Notice Section</p>
+
+
+      <div class="link-item" style="text-align: center;max-width: 300px;margin: 5px auto;">
+        <a href="https://uits.edu.bd/notice/" target="_blank">
+          visit UITS-Notice
+        </a>
+      </div>
+      <div class="back-btn-container">
+        <a href="javascript:history.back()" class="back-icon"
+          style="position: static;border: 2px solid black;">&#8592;</a>
+      </div>
+
+      <div class="link-item" style="margin-bottom: 2rem;margin-top: 2rem;">
+
+        <iframe id="notice-iframe" class="notice-iframe" src="https://uits.edu.bd/notice/#Subheader"></iframe>
+        <script>
+          const dropdown = document.getElementById('notice-iframe');
+
+          dropdown.addEventListener('change', function () {
+            const url = this.value;
+            if (url) {
+              window.open(url, '_blank'); // or use _self for same tab
+            }
+          });
+        </script>
+
+      </div>
+
+      <div class="link-item" style="text-align: center;max-width: 300px;margin: 5px auto;">
+        <a href="https://drive.google.com/drive/folders/1qSwFhUFgpWiNJAeJ_smbl99hlSPYYK7-" target="_blank">
+          Notice Archives
+        </a>
+
+
+      </div>
+    </div>
 
 
     <!-- <div class="loader"></div> -->
