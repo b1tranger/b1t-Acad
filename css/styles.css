@@ -17,9 +17,10 @@
 }
 
 .TG-overview h3 {
-  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   margin: auto;
-  text-align: center;
+  text-align: left;
 }
 
 .TG-overview .link-grid {
