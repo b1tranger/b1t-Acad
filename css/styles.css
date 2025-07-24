@@ -17,14 +17,15 @@
 }
 
 .TG-overview h3 {
-  padding: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
   margin: auto;
-  text-align: center;
+  text-align: left;
 }
 
 .TG-overview .link-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 3fr));
+  grid-template-columns: repeat(auto-fill, minmax(50px, 3fr));
   padding: 1rem;
   gap: 1rem;
 
@@ -39,7 +40,6 @@
 }
 
 .TG-overview .tg-links a,
-.TG-overview .link-grid a,
 .TG-overview .link-grid ul li a {
   background-color: white;
   color: black;
@@ -53,13 +53,32 @@
   transition: 0.3s ease;
 }
 
+.TG-overview .link-grid .grid-links {
+  background-color: white;
+  color: black;
+  text-align: center;
+  width: max-content;
+  margin: auto;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  box-shadow: 1px 1px 4px black;
+  transition: 0.3s ease;
+}
+
+.TG-overview .link-grid .grid-links a {
+  color: black;
+  text-wrap: wrap;
+}
+
 .TG-overview .tg-links p {
   transition: 0.3s ease;
 }
 
 .TG-overview .tg-links a:hover,
 .TG-overview .link-grid a:hover,
-.TG-overview .tg-links p:hover {
+.TG-overview .tg-links p:hover,
+.TG-overview .link-grid .grid-links:hover {
   transform: translateY(-5px);
 }
 
@@ -1167,6 +1186,14 @@ now Browse Curated Resources*/
 
 /* Media query for smaller screens */
 @media screen and (max-width: 650px) {
+
+  .TG-overview .link-grid .grid-links a {
+    /* grid-template-columns: repeat(auto-fill, minmax(50px, 3fr)); */
+    max-width: 20px !important;
+    text-wrap: wrap;
+    /* word-break: break-all; */
+    word-wrap: break-word;
+  }
 
 
   .show-desk {
