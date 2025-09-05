@@ -671,7 +671,20 @@ body {
 /* HIGHLIGHTS SECTION [ 5 ] 
 now Browse Curated Resources*/
 
+.semester-heading {
+  color: black;
+  background-color: white;
+  width: fit-content;
+  margin: auto;
+  padding: 5px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px white;
+}
 
+.semester-heading:hover{
+  background-color: black;
+  color: white;
+}
 
 .container-5 {
   max-width: 800px;
