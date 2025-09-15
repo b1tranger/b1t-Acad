@@ -112,7 +112,7 @@ const courses = [
     { code: "CSE357 + CSE358", title: "Computer Graphics and Multimedia (+Lab) - CG", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/138zkPmC6GXxJOPXdUb3zj4-tdqIT_ix9?usp=drive_link" },
     { code: "GED 115", title: "Industrial and Operation Management - IOM", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1YstV74bC9Vy9VAkfCTpqILzA0jL2DYXd?usp=drive_link" },
     { code: "CSE359 + CSE360", title: "Microprocessors and Microcontrollers (+Lab) - MM", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1snMh8qTLGLy5eqR5FBTVFhDAJYNITBqu?usp=drive_link" },
-    { code: "CSE355 + CSE356", title: "Software Engineering and System Analysis - SE", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Sk3cJwYA0slESsWxa0Xvllerh40iTP-1?usp=drive_link" },
+    { code: "CSE355 + CSE356", title: "Software Engineering and System Analysis - SESA", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Sk3cJwYA0slESsWxa0Xvllerh40iTP-1?usp=drive_link" },
     //
     // [ CE ] { code: "", title: "", department: "Dept: CE", driveLink: "" },
     //
