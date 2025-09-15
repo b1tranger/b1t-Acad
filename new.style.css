@@ -12,6 +12,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    /* Often used as a fallback for broader support */
 }
 
 /* Replace it with this block */
@@ -1048,18 +1051,33 @@ body.no-scroll {
 }
 
 
+/* ================================================ */
+/* ===== RESPONSIVE FIX FOR SITE FOOTER ===== */
+/* ================================================ */
 
+@media (max-width: 768px) {
+    .site-footer {
+        /* Stack the footer sections vertically on smaller screens */
+        flex-direction: column;
+    }
+
+    /* Ensure text in both sections is centered in the stacked layout */
+    .footer-socials,
+    .footer-credits {
+        text-align: center;
+    }
+}
 
 /* --- Media Query for Mobile Screens --- */
 @media (max-width: 768px) {
 
     .content-section {
         padding: 20px;
-        
+
     }
 
-    #About{
-         padding-bottom: 70rem;
+    #About {
+        padding-bottom: 70rem;
     }
 
     .footer-socials,
