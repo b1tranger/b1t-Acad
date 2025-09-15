@@ -1048,8 +1048,24 @@ body.no-scroll {
 }
 
 
+
+
 /* --- Media Query for Mobile Screens --- */
 @media (max-width: 768px) {
+
+    .content-section {
+        padding: 20px;
+        
+    }
+
+    #About{
+         padding-bottom: 70rem;
+    }
+
+    .footer-socials,
+    .footer-credits {
+        min-width: 150px;
+    }
 
     /* Show the hamburger menu */
     .menu-toggle {
