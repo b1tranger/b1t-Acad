@@ -401,9 +401,10 @@ body.no-scroll {
 }
 
 .upload-card-image {
-    width: 90px;
-    height: 90px;
-    margin-bottom: 0.5rem;
+    width: 150px;
+    margin-bottom: -0.5rem;
+    margin-top: -40px;
+    margin-left: -80px;
 }
 
 .upload-card-text {
@@ -1047,6 +1048,54 @@ body.no-scroll {
 
 .resource-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* ================================== */
+/* ===== STYLES FOR GO TO TOP BUTTON ===== */
+/* ================================== */
+
+.go-to-top-button {
+    /* Positioning */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+
+    /* Styling */
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    /* Makes it a circle */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    /* Centering the arrow inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Visibility & Transitions */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+}
+
+/* This class will be added by JavaScript to show the button */
+.go-to-top-button.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.go-to-top-button:hover {
+    background-color: var(--accent-color);
     transform: translateY(-3px);
 }
 
