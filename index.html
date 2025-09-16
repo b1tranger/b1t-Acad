@@ -1,311 +1,502 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
-
-</html>
-<html>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- viewport meta tag for proper mobile scaling -->
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/selector.css">
-  <link rel="stylesheet" href="css/drop-down.css">
-  <link rel="stylesheet" href="css/preloader.css">
-  <link rel="stylesheet" href="css/top.navbar.css">
-  <link rel="stylesheet" href="css/faq.dropdown.css">
-  <link rel="stylesheet" href="css/faq.tooltip.css">
-  <link rel="stylesheet" href="css/home.css">
-  <link rel="stylesheet" href="css/menu.css">
-  <link rel="stylesheet" href="css/academics.menubtn.css">
-  <link rel="stylesheet" href="css/arrow-animation.css">
-
-  <style>
-    #notice-section {
-      scroll-margin-top: 20vh;
-      /* 50vh = half the viewport height */
-    }
-  </style>
-
-
-  <!-- OFFLINE SUPPORT (WEB APP) -->
-
-
+  <title>b1t Academics</title>
+  <link rel="stylesheet" href="new.style.css">
   <!-- ICON LINK -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Web App Manifest -->
-  <link rel="manifest" href="./manifest.json">
-
-
-  <!-- ---------------------------------------------------------------------------- -->
-
-
-
   <!-- WEBSITE PREVIEW -->
   <meta property="og:title" content="b1t Academics">
-  <meta property="og:description" content="UNOFFICIAL Online Resources Archiver for UITS">
+  <meta property="og:description" content="Resources Archiver for UITS">
   <meta property="og:image" content="images/Social-Preview.webp">
   <meta property="og:url" content="https://ouits-res.netlify.app/">
   <meta property="og:type" content="website">
 
-  <!-- WEBSITE PREVIEW -->
-
-  <title>
-    b1t Academics: home
-  </title>
 </head>
 
-<body style="background-color: #333;z-index: -1;">
-  <div class="hidden-link">
-    <p><a href="https://youtu.be/dQw4w9WgXcQ" target="_blank">You have found a hidden link!!</a>
-    </p>
-  </div>
-  <div style="background-color: #333;display: block;width: 100%;height: 40px;position: fixed;top:0;z-index: 2;">
-  </div>
+<body>
+  <button id="menu-toggle" class="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-  <!-- background-image: url(images/portrait-bg.jpg) !important; -->
-  <div class="page-border"
-    style="background-color: white; background-size: cover; background-position: center;margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;overflow-x: hidden;">
+  <nav id="sticky-nav" class="sticky-nav">
+    <ul>
+      <li><a href="#info">Info</a></li>
+      <li><a href="#Qbank">Question Bank</a></li>
+      <li><a href="#Departments">Departments</a></li>
+      <li><a href="#Donate">Donate</a></li>
+      <li><a href="#ECA">ECA</a></li>
+      <li><a href="#Blog">Blog</a></li>
+      <li><a href="#Library">Library</a></li>
+      <li><a href="#About">About</a></li>
+    </ul>
+  </nav>
 
+  <div id="overlay" class="overlay"></div>
 
-    <!-- <div class="loader"></div> -->
+  <main class="container" style="height: 100vh;margin-top: 10vh;">
+    <header>
+      <h1 class="logo">b1t Academics</h1>
 
-
-
-    <!-- MENU BUTTON -->
-
-
-    <!-- Floating Action Button (FAB) for mobile menu -->
-    <div class="fab-container">
-      <button id="fab-button" class="fab" aria-label="Main menu" aria-expanded="false">
-        <div class="menu-icon">
-          <span class="menu-icon-line"></span>
-          <span class="menu-icon-line"></span>
-          <span class="menu-icon-line"></span>
-        </div>
-      </button>
+    </header>
+    <div style="margin-top: -20px;margin-bottom: 30px;color: rgba(255, 255, 255, 0.342);">
+      <p>Unofficial Resources Archiver<br>for UITS</p>
     </div>
+    <section class="search-section">
+      <div class="search-container">
 
-    <!-- Mobile Menu Card Panel (hidden by default) -->
-    <div id="menu-container">
-      <nav id="mobile-menu">
-        <a href="References.html">References</a>
-        <a href="TG-portal.html">Telegram Portal</a>
-        <a href="Extracurriculars.html">Extracurriculars</a>
-        <a href="Academics.html">Academics</a>
+        <input id="course-search" type="text" class="search-input"
+          placeholder="Search Courses by title, acronym, or code" autocomplete="off">
+        <div class="search-results"></div>
+      </div>
+      <p class="search-hint">
+        <small>(use "Dept: <i>Name</i>" for filtering)</small>
+      </p>
+    </section>
+
+    <section class="button-grid" id="button-grid-section">
+      <a href="#info" class="grid-button">Info</a>
+      <a href="#Qbank" class="grid-button">Question<br>Bank</a>
+      <a href="#Departments" class="grid-button">Departments</a>
+      <a href="#Donate" class="grid-button">Donate</a>
+      <a href="#ECA" class="grid-button">ECA</a>
+      <a href="#Blog" class="grid-button">Blog</a>
+      <a href="#Library" class="grid-button">Library</a>
+      <a href="#About" class="grid-button">About</a>
+    </section>
+    <br>
+
+    <!-- <span style="position: relative;"> -->
+    <p style="text-align: center;">Design inspired from <a href="https://notebot.netlify.app/" target="_blank"
+        style="color: white;">https://notebot.netlify.app/</a></p>
+    <!-- </span> -->
+  </main>
+
+  <div class="content-wrapper">
+    <section id="info" class="content-section">
+      <h2>General Information</h2>
 
 
+      <!-- <section class="info-section"> -->
+      <!-- <h2 class="info-section__title">General Info</h2> -->
 
-        <div class="divider"></div>
-        <a href="#">Home</a>
-      </nav>
-    </div>
-
-    <!-- Overlay for when menu is open -->
-    <div id="menu-overlay" class="hidden"></div>
-
-    <!-- TOP BAR -->
-
-    <nav class="navbar">
-      <div class="nav-container">
-        <ul class="nav-links">
-          <li><a href="#" class="active">Home</a></li>
-          <li><a href="Academics.html">Academics</a></li>
-          <li><a href="Extracurriculars.html">Extracurriculars</a></li>
-          <li><a href="TG-portal.html">Telegram</a></li>
-          <li><a href="References.html">References</a></li>
-          <!-- <li><a href="https://ouits-res.netlify.app/" target="_blank">Resources</a></li> -->
-          <!-- <li><a href="contact.html">Contact</a></li> -->
+      <nav class="info-nav">
+        <ul class="info-nav-list">
+          <li>
+            <a href="index.html#notice-section" class="info-nav-link">Notice</a>
+          </li>
+          <li>
+            <a href="#class-routine" class="info-nav-link">Class Routine</a>
+          </li>
+          <li>
+            <a href="#drive-by-dept" class="info-nav-link">Drive by Dept.</a>
+          </li>
+          <li>
+            <a href="#questions" class="info-nav-link">Questions</a>
+          </li>
+          <li>
+            <a href="#courses" class="info-nav-link">Courses</a>
+          </li>
+          <li>
+            <a href="#academic-materials" class="info-nav-link">Academic Materials</a>
+          </li>
         </ul>
-      </div>
-    </nav>
-
-
-    <div class="randomBS" style="display:none;">
-      <!-- <hr style="color: transparent;margin-top: -50px;"> -->
-      <embed src="images\black-font.webp" alt="animated" width="80%" style="margin-top: 55px;">
-    </div>
-    <div class="randomBS-2">
-      <embed src="images\black-font.webp" alt="animated" width="60%" style="margin-top: 55px;max-width: 600px;">
-    </div>
-
-    <div class="intro-text">
-      <p><u>Unofficial</u> Online Resources Archiver for UITS.</p>
-      <p>Find your resources using the <span class="show-desk">Navigation Tabs at the top</span><span
-          class="show-mobile" style="margin-top: 5px;"> Button at the bottom-right corner</span></p><br><br>
-      <p>Back to <a href="https://ouits-res.netlify.app/" target="_blank"
-          style="color: black;background-color: rgba(146, 255, 124, 0.911);padding: 0.4rem;border-radius: 5px;">Portal</a>
-        ?</p>
-
-
-    </div>
-    <div class="arrows"></div>
-    <!-- <script></script>pentitle="SCSS Arrow Animation";</script> -->
-
-
-
-    <div class="container-5" style="margin-top: 20vh;background-color: #333;">
-      <p id="notice-section" class="highlights" style="color: rgba(240, 248, 255, 0.649);text-align: center; ">
-        Notice Section</p>
-
-
-      <div class="link-item" style="text-align: center;max-width: 300px;margin: 5px auto;">
-        <a href="https://uits.edu.bd/notice/" target="_blank">
-          visit UITS-Notice
-        </a>
-      </div>
-      <div class="back-btn-container">
-        <a href="javascript:history.back()" class="back-icon"
-          style="position: static;border: 2px solid black;">&#8592;</a>
-      </div>
-
-      <div class="link-item" style="margin-bottom: 2rem;margin-top: 2rem;">
-
-        <iframe id="notice-iframe" class="notice-iframe" src="https://uits.edu.bd/notice/#Subheader"></iframe>
-        <script>
-          const dropdown = document.getElementById('notice-iframe');
-
-          dropdown.addEventListener('change', function () {
-            const url = this.value;
-            if (url) {
-              window.open(url, '_blank'); // or use _self for same tab
-            }
-          });
-        </script>
-
-      </div>
-
-      <div class="link-item" style="text-align: center;max-width: 300px;margin: 5px auto;">
-        <a href="https://drive.google.com/drive/folders/1qSwFhUFgpWiNJAeJ_smbl99hlSPYYK7-" target="_blank">
-          Notice Archives
-        </a>
-      </div>
-    </div>
-
-    <div
-      style="margin: 50px auto;background-color: #333;width: 300px;padding: 10px;border-radius: 15px;color: white;margin-bottom: -11px;">
-      <p style="margin: 10px auto;text-align: center;"><a href="https://maps.app.goo.gl/knL3ggtTPv9XEk9KA"
-          target="_blank" style="color: white;">See us on map</a></p>
-    </div>
-    <div
-      style="display: flex; justify-content: center;border: 15px solid #333333d5;width: 90%;margin: auto;border-radius: 15px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);background-color: #333333d5;">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7301.239489528105!2d90.43129067041754!3d23.796551510971536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7bba6ffeb31%3A0xdb02a491b63b8494!2sUniversity%20of%20Information%20Technology%20and%20Sciences%20(UITS)!5e0!3m2!1sen!2sbd!4v1756749361913!5m2!1sen!2sbd"
-        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-
-    <!-- <div class="loader"></div> -->
-
-
-    <embed src="images/more-projects-2.gif" width="50%;" style="margin-left: 50%;max-width: 400px;">
-    <div class="link-container">
-
-      <div class="navigation1" id="link-1"></div>
-      <script src="js\Links\drop-link-01.js"></script>
+      </nav>
       <br>
-      <div class="navigation2" id="link-2"></div>
-      <script src="js\Links\drop-link-02.js"></script>
-      <br>
-      <div class="navigation3" id="link-3"></div>
-      <script src="js\Links\drop-link-03.js"></script>
-      <br>
-      <div class="navigation4" id="link-4"></div>
-      <script src="js\Links\drop-link-04.js"></script>
-      <br>
-      <div class="navigation5" id="link-5"></div>
-      <script src="js\Links\drop-link-99.js"></script>
-      <!-- <div class="loader"></div> -->
-    </div>
-    <!-- ---------------------------------------------------- -->
+      <h2 class="info-section__title">Campus Info</h2>
 
-    <div class="footer-container" style=" margin-top: 100px;">
-      <div
-        style="text-align: center;max-width: -webkit-fit-available;margin: auto;border-radius: 50px;margin-bottom: 100px;">
-        <a href="https://ou1ts.netlify.app/" target="_blank"><img src="images/oUITS-nobg.webp" alt="static"
-            width="40%;"></a>
-        <p
-          style="font-size: 0.9rem;font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
-          Let's contribute where it matters</p>
-      </div>
+      <nav class="info-nav">
+        <ul class="info-nav-list">
+          <li>
+            <a href="campus.html" class="info-nav-link">Campus Portal</a>
+          </li>
+          <!-- <li>
+            <a href="#class-routine" class="info-nav-link">Class Routine</a>
+          </li> -->
+          <!-- <li>
+            <a href="#drive-by-dept" class="info-nav-link">Drive by Dept.</a>
+          </li> -->
+          <!-- <li>
+            <a href="#questions" class="info-nav-link">Questions</a>
+          </li> -->
+          <!-- <li>
+            <a href="#courses" class="info-nav-link">Courses</a>
+          </li> -->
+          <!-- <li>
+            <a href="#academic-materials" class="info-nav-link">Academic Materials</a>
+          </li> -->
+        </ul>
+      </nav>
+      <!-- </section> -->
+    </section>
+    <section id="Qbank" class="content-section">
+      <h2>oU1TS QBank</h2>
+      <p>This section is under work. Expect to see a Google Drive folder with shortcuts to the Question Folders of each
+        course. Or a comprehensive website similar to <a href="https://diuqbank.com/" target="_blank"
+          style="color: white;">https://diuqbank.com/</a> .</p>
+    </section>
+    <section id="Departments" class="content-section">
+      <h2>Department Selector</h2>
 
-      <!-- END CREDIT  -->
-      <div class="end-credits">
-        <div class="social-container">
-          <!-- SOCIAL LINKS -->
-
-          <p style="font-size: 1.2rem;">Join our Socials </p>
-          <p style="font-size:0.7rem;">for Updates and
-            Feedback
-          </p>
-          <div>
-            <a href="https://discord.gg/BdmArz6FHY" target="_blank"><i class="fa-brands fa-discord"></i></a>
-
-            <a href="https://t.me/s/oUITS_ORnU" target="_blank"><i class="fa-brands fa-telegram"></i></i></a>
-
-            <a href="https://facebook.com/groups/1074592960836263/" target="_blank"><i
-                class="fa-brands fa-facebook"></i></a>
-
-            <a href="https://github.com/oU1TS" target="_blank"><i class="fa-brands fa-github"></i></a>
-
+      <section id="semester-browser" class="content-block">
+        <!-- <h2 class="content-block__title">
+          <a href="#semester-browser" class="content-block__anchor" aria-label="Link to this section">
+            <i class="fa-solid fa-link"></i>
+          </a>
+        </h2> -->
+        <p>Select<br>Department > Semester > Courses</p>
+        <div id="departmentDropdown" class="custom-dropdown">
+          <div id="dropdownHeader" class="dropdown-header">Select Department</div>
+          <div id="dropdownList" class="dropdown-list">
+            <div class="dropdown-item" data-value="cse">Computer Science and Engineering</div>
+            <div class="dropdown-item" data-value="ce">Civil Engineering</div>
+            <div class="dropdown-item" data-value="it">Information Technology</div>
           </div>
         </div>
 
-        <div style="margin-bottom: 10px;margin-top: 10px;">
-          <!-- BOTTOM CREDITS -->
-          <p align=center>
-            <small style="font-size: 0.7rem; "><b>UNOFFICIAL</b>
-              Online
-              Resources Archiver for UITS<br>This project is licensed under the <a
-                href="https://www.apache.org/licenses/LICENSE-2.0"
-                style="color:rgb(47, 255, 0);font-size: 0.8rem;text-shadow: 0px 0px 0px black;" target="_blank">Apache
-                License
-                2.0</a>.
-              You may use, modify, and distribute its contents, but you must provide attribution and include the
-              original
-              license.</small>
-          </p>
-          <br>
-          <p align=center><span>Copyright &copy; 2024-<span id="year"></span> &nbsp;b1tranger. </span></p>
+        <button id="resetButton" class="reset-button">
+          <small><b>Clear?</b></small>
+        </button>
 
-          <script>
-            document.getElementById("year").textContent = new Date().getFullYear();
-          </script>
+        <div id="semesterList" class="semester-list"></div>
+        <p id="driveLink" class="drive-link-display"></p>
+      </section>
+      <script src="js/academics.semester.selector.js"></script>
+
+
+    </section>
+
+
+
+    </section>
+    <section id="Donate" class="content-section">
+      <h2>Donate Resources</h2>
+      <section id="upload-section" class="upload-section">
+
+        <h3 class="upload-title">Feeling generous?</h3>
+
+        <div class="upload-grid">
+
+          <a href="https://forms.gle/uFq1vBSUbRhY5CZk6" target="_blank" class="upload-card upload-card--questions">
+            <img src="images/Section-Logo/logo (8).webp" class="upload-card-image" alt="Upload Questions Icon">
+            <span class="upload-card-text">Upload<br>Questions</span>
+          </a>
+
+          <a href="https://forms.gle/ovz4p5VAEsB6G7fp7" target="_blank" class="upload-card upload-card--notes">
+            <img src="images/Section-Logo/logo (9).webp" class="upload-card-image" alt="Upload Notes Icon">
+            <span class="upload-card-text">Upload<br>Notes</span>
+          </a>
+
+          <a href="https://forms.gle/zouhKqXSh8MaLFKf7" target="_blank" class="upload-card upload-card--temp">
+            <img src="images/Section-Logo/logo (10).webp" class="upload-card-image" alt="Temporary Uploads Icon"
+              style="margin-left: 0;">
+            <span class="upload-card-text">Temp<br>Uploads</span>
+          </a>
+
         </div>
-      </div>
+
+        <p class="upload-footer">( to be listed in the semester folders )</p>
+        <p style="margin: 20px;font-size: medium;"><a
+            href="https://drive.google.com/drive/folders/1cclssdYpNGFbf-wz81NTSxTBNvfH-1M_?usp=drive_link"
+            target="_blank" style="color: white;"> See Submissions</a></p>
 
 
+      </section>
+    </section>
+    <section id="ECA" class="content-section">
+      <h2>Extra Curricular Activities (ECA)</h2>
+      <section class="resources-section">
+        <h2 class="resources-section__title">Interests and Resources</h2>
+        <p class="resources-section__subtitle">
+          <a href="https://drive.google.com/drive/folders/1hTWa-Z7gV3GaUUMJhT2KPasmq5L1ha3p?usp=drive_link"
+            target="_blank">
+            ( 🔗 Skills Dev Resources )
+          </a>
+        </p>
+
+        <nav class="resources-nav">
+          <ul class="resources-nav-list">
+            <li>
+              <a href="https://drive.google.com/drive/folders/1r9ZyCEPb6yeYKn4L2nEt8pxzuEO1mLSz?usp=drive_link"
+                class="resource-link" target="_blank">Interests</a>
+            </li>
+            <li>
+              <a href="https://drive.google.com/drive/folders/1rkfLkMRHJ1OWoSTy15Zefpn4wsTTUAi2?usp=drive_link"
+                target="_blank" class="resource-link">
+                Career
+              </a>
+            </li>
+            <li>
+              <a href="D1/CP-aux.html" class="resources-nav-link">
+                Programming
+                <small>(website view)</small>
+              </a>
+            </li>
+            <li>
+              <a href="https://b1tranger.github.io/Dump.html" target="_blank" class="resources-nav-link"
+                style="box-shadow: 0 0 30px rgb(26, 22, 255);">
+                Resources Dump
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </section>
+    <section id="Blog" class="content-section">
+      <h2>Blog</h2>
+      <section class="blog-section">
+        <!-- <h2 class="blog-section__title">Blog Collection</h2> -->
+
+        <nav class="blog-nav">
+          <ul class="blog-nav-list">
+            <li>
+              <a href="#" class="blog-nav-link">UITS blog</a>
+            </li>
+            <li>
+              <a href="#" class="blog-nav-link">Coder's blog</a>
+            </li>
+            <li>
+              <a href="#" class="blog-nav-link">Online blog</a>
+            </li>
+            <li>
+              <a href="#" class="blog-nav-link">Friends' blog</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
+    </section>
+    <section id="Library" class="content-section">
+      <h2>Library</h2>
+      <!-- <section class="curated-resources"> -->
+      <!-- <h2 class="curated-resources__title">Curated Resources</h2> -->
+
+      <nav class="resource-nav">
+        <ul class="resource-list">
+
+          <li>
+            <a href="https://drive.google.com/drive/folders/1PbBxDFPXQ_YVIDRkoyQvqYX7d8XICbTZ?usp=drive_link"
+              target="_blank" class="resource-link">
+              Books
+            </a>
+          </li>
+          <li>
+            <a href="https://b1tranger.netlify.app/core-learning" class="resource-link" target="_blank"
+              style="box-shadow: 0 0 30px rgb(26, 22, 255);">Core Learning</a>
+          </li>
 
 
-      <script src="js/faq.tooltip.js"></script>
-      <script src="js/css-bg.js"></script>
-      <script src="js/menu.js"></script>
+          <li>
+            <a href="https://drive.google.com/drive/folders/1nDOw7ckLNXI-POXLONsLcLqOZS_6friJ?usp=drive_link"
+              class="resource-link" target="_blank">Software Guide</a>
+          </li>
 
 
-      <!-- <h1 align="center">oUITS-Resources</h1> -->
+        </ul>
+      </nav>
 
-      <p class="highlights-5" align="center" style="color: rgba(0, 0, 0, 0.649);margin-top: 15px;">
-        <!-- <i>Browse resources for UITS Students</i> -->
-        <br>
-        <small style="font-size: small;">[mirror: <a href="https://b1tacad.netlify.app/"
-            style="color:rgba(4, 0, 128, 0.806);">Netlify</a> / <a href="https://b1tranger.github.io/b1t-Acad/"
-            style="color:rgba(4, 0, 128, 0.806);">
-            GitHub</a>]</small>
-      </p>
-      <br>
+      <section class="curated-resources">
+        <h2 class="curated-resources__title">oU1TS Drive</h2>
 
-    </div>
+        <nav class="resource-nav">
+          <ul class="resource-list">
+            <li>
+              <a href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL?usp=sharing"
+                target="_blank" class="resource-link">
+                Browse Google Drive
+              </a>
+            </li>
+            <li>
+              <a href="https://drive.google.com/drive/folders/1ikxxwqtI0l90ouTQfe9vcg4vg2Ldfskv?usp=drive_link"
+                class="resource-link">oU1TS Drive<br>Backup 13.06.25</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
 
-    <div class="bottom-border-block"></div>
+    </section>
+    <section id="About" class="content-section">
+
+
+      <h2>About Us</h2>
+      <p>We are the students of UITS. And this is the online gateway to our community.</p>
+      <section id="info" class="content-section">
+        <!-- <h2>General Information</h2> -->
+        <!-- <section class="info-section"> -->
+        <!-- <h2 class="info-section__title">General Info</h2> -->
+
+        <nav class="info-nav">
+          <ul class="info-nav-list">
+            <!-- <li>
+              <a href="TG-portal.html" class="info-nav-link">Telegram Portal</a>
+            </li> -->
+            <!-- <li>
+              <a href="#class-routine" class="info-nav-link">Class Routine</a>
+            </li> -->
+            <li>
+              <a href="References.html" class="info-nav-link">References</a>
+            </li>
+            <li>
+              <a href="" class="info-nav-link">Documentation</a>
+            </li>
+            <li>
+              <a href="https://b1tacad.netlify.app/images/oUITS-nobg.webp" target="_blank" class="info-nav-link">visit
+                oU1TS</a>
+            </li>
+            <li>
+              <a href="https://b1tranger.netlify.app/" target="_blank" class="info-nav-link">Contact me</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- </section> -->
+        <footer class="site-footer">
+          <div class="footer-socials">
+            <h3 class="footer-heading">Join our Socials</h3>
+            <p class="footer-subheading">for Updates and Feedback</p>
+            <ul class="social-links">
+              <li>
+                <a href="https://discord.gg/BdmArz6FHY" target="_blank" aria-label="Discord">
+                  <i class="fa-brands fa-discord"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://t.me/s/oUITS_ORnU" target="_blank" aria-label="Telegram">
+                  <i class="fa-brands fa-telegram"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://facebook.com/groups/1074592960836263/" target="_blank" aria-label="Facebook">
+                  <i class="fa-brands fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/oU1TS" target="_blank" aria-label="Github">
+                  <i class="fa-brands fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer-credits">
+            <p class="credits-text">
+              <strong>UNOFFICIAL</strong> Online Resources Archiver for UITS.
+              This project is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0"
+                target="_blank">Apache License 2.0</a>.
+              You may use, modify, and distribute its contents, but you must provide attribution and include the
+              original license.
+            </p>
+            <p class="copyright-text">
+              Copyright &copy; 2024–<span id="year"></span> &nbsp;b1tranger.
+            </p>
+            <script>
+              document.getElementById("year").textContent = new Date().getFullYear();
+            </script>
+          </div>
+
+
+        </footer>
+
+      </section>
+
+
+    </section>
+
+
+  </div>
+  <div style="margin-top: 150px;padding-top: 100px;">
+    <p>[mirror: <a href="https://b1tacad.netlify.app/" style="color: white;">Netlify</a> / <a
+        href="https://b1tranger.github.io/b1t-Acad/" style="color:white;">
+        GitHub</a>]</p>
   </div>
 
 
+  <a href="#" id="goToTopBtn" class="go-to-top-button" aria-label="Go to top of page">
+    &#8593;
+  </a>
+  <script src="js/search-courses.js"></script>
 
-  <div class="navbar-5">
-    <p align=center style="color:rgba(255, 255, 255, 0.776);"><i>b1t Academics</i></p>
-  </div>
+  <script>
+    // Place this inside your existing DOMContentLoaded script block
 
+    document.addEventListener('DOMContentLoaded', () => {
+
+      // ... (all your existing JS logic for menus, etc.) ...
+
+
+      // ================================================
+      // ===== NEW: GO TO TOP BUTTON LOGIC =====
+      // ================================================
+      const goToTopBtn = document.getElementById('goToTopBtn');
+
+      if (goToTopBtn) {
+        // Show the button when the user scrolls down 300px from the top
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            goToTopBtn.classList.add('visible');
+          } else {
+            goToTopBtn.classList.remove('visible');
+          }
+        });
+      }
+    });
+  </script>
+  <script>
+    // ==========================================================
+    // ===== UPDATED: Combined JavaScript Logic =====
+    // ==========================================================
+    document.addEventListener('DOMContentLoaded', () => {
+      // --- Logic for Desktop Sticky Nav ---
+      const desktopNav = document.getElementById('sticky-nav');
+      const triggerSection = document.getElementById('button-grid-section');
+
+      if (desktopNav && triggerSection) {
+        const handleScroll = () => {
+          if (window.innerWidth > 768) { // Only run this logic on desktop
+            const triggerBottom = triggerSection.getBoundingClientRect().bottom;
+            if (triggerBottom < 0) {
+              desktopNav.classList.add('visible');
+            } else {
+              desktopNav.classList.remove('visible');
+            }
+          }
+        };
+        window.addEventListener('scroll', handleScroll);
+      }
+
+      // --- NEW: Logic for Mobile Side Menu ---
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileNav = document.getElementById('sticky-nav'); // We reuse the same nav
+      const overlay = document.getElementById('overlay');
+      const navLinks = mobileNav.querySelectorAll('a');
+
+      if (menuToggle && mobileNav && overlay) {
+        // Function to open or close the menu
+        const toggleMenu = () => {
+          mobileNav.classList.toggle('open');
+          overlay.classList.toggle('active');
+          document.body.classList.toggle('no-scroll');
+        };
+
+        menuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (mobileNav.classList.contains('open')) {
+              toggleMenu();
+            }
+          });
+        });
+      }
+    });
+  </script>
 
 </body>
 

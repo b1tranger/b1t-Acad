@@ -1,0 +1,1216 @@
+/* --- Basic Setup & Dark Theme --- */
+:root {
+    --bg-color: #121212;
+    --primary-color: #1e1e1e;
+    --secondary-color: #2a2a2a;
+    --text-color: #e0e0e0;
+    --accent-color: #007bff;
+    --border-color: #444;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    /* Often used as a fallback for broader support */
+}
+
+/* Replace it with this block */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    /* This is the main fix */
+    align-items: center;
+    /* This now centers content horizontally */
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* --- Main Container --- */
+.container {
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* --- Logo --- */
+.logo {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+}
+
+/* --- Modified Search Bar Section --- */
+.search-section {
+    margin-bottom: 2.5rem;
+}
+
+.search-label {
+    display: block;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.search-hint {
+    margin-top: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Changed .search-bar to .search-input to match new HTML and JS */
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    /* Pill shape */
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: #888;
+}
+
+.search-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* --- Search Container & Results --- */
+.search-container {
+    position: relative;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.search-results {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 350px;
+    overflow-y: auto;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    text-align: left;
+}
+
+.result-item {
+    padding: 12px 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #444;
+    transition: background-color 0.2s ease;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item:hover,
+.result-item.active {
+    background-color: var(--accent-color);
+}
+
+.result-title {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 4px;
+    color: #e0e0e0;
+}
+
+.result-item:hover .result-title,
+.result-item.active .result-title {
+    color: #fff;
+}
+
+.result-code,
+.result-dept {
+    font-size: 0.85rem;
+    color: #aaa;
+    margin-right: 15px;
+}
+
+.result-item:hover .result-code,
+.result-item:hover .result-dept,
+.result-item.active .result-code,
+.result-item.active .result-dept {
+    color: #f0f0f0;
+}
+
+.highlight {
+    color: #ffc107;
+    background-color: rgba(255, 193, 7, 0.1);
+    border-radius: 3px;
+    padding: 1px 2px;
+}
+
+.no-results {
+    padding: 15px;
+    color: #999;
+    text-align: center;
+}
+
+/* --- Button Grid Layout --- */
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1.5rem;
+}
+
+.grid-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    aspect-ratio: 1 / 1;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.grid-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+/* ======== ADD THESE NEW STYLES TO THE END OF YOUR CSS FILE ======== */
+
+/* --- Smooth Scrolling Behavior --- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Offset for fixed nav to prevent content from being hidden */
+}
+
+/* --- Content Sections --- */
+.content-wrapper {
+    width: 100%;
+}
+
+.content-section {
+    height: 100vh;
+    margin-top: 10vh;
+    padding: 5rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 40vh;
+    /* Give sections some height */
+    text-align: left;
+}
+
+.content-section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #b0b0b0;
+}
+
+/* Alternate background colors for sections to distinguish them */
+.content-section:nth-of-type(even) {
+    background-color: var(--primary-color);
+}
+
+
+/* --- Sticky Navigation Bar --- */
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(30, 30, 30, 0.85);
+    /* Semi-transparent background */
+    backdrop-filter: blur(10px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.5rem 0;
+    z-index: 2000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+    /* Initially hidden and off-screen */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+/* The state when the nav should be visible */
+.sticky-nav.visible {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.sticky-nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sticky-nav ul li a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sticky-nav ul li a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+/* ========================================================== */
+/* ===== ADD THESE NEW STYLES TO THE END OF YOUR CSS FILE ===== */
+/* ========================================================== */
+
+/* Prevent scrolling when the mobile menu is open */
+body.no-scroll {
+    overflow: hidden;
+}
+
+/* --- Mobile Menu Toggle (Hamburger Button) --- */
+.menu-toggle {
+    display: none;
+    /* Hidden on desktop */
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 40px;
+    height: 40px;
+    background: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    z-index: 3001;
+    /* Must be on top of everything */
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--text-color);
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Overlay --- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2999;
+    /* Below menu, above content */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Styling for the Upload Section */
+
+.upload-section {
+    background-color: #3a3a3a;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.upload-title {
+    color: #ffffffcd;
+    font-weight: normal;
+    margin-bottom: 2rem;
+}
+
+.upload-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* Allows cards to wrap on smaller screens */
+    gap: 2rem;
+    /* Creates space between the cards */
+    margin-bottom: 1.5rem;
+}
+
+.upload-card {
+    /* Common styles for all cards */
+    color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 1px 2px 10px #000000;
+    text-shadow: 1px 2px 1px #000000;
+    font-size: medium;
+    text-decoration: none;
+
+    /* Flexbox for centering content inside the card */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 160px;
+    /* A fixed width can work well here */
+    height: 160px;
+    /* A fixed height for consistency */
+    padding: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.upload-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 2px 4px 15px #000000;
+}
+
+.upload-card-image {
+    width: 150px;
+    margin-bottom: -0.5rem;
+    margin-top: -40px;
+    margin-left: -80px;
+}
+
+.upload-card-text {
+    line-height: 1.2;
+}
+
+/* Modifier classes for unique background colors */
+.upload-card--questions {
+    background-color: #a5ca88;
+}
+
+.upload-card--notes {
+    background-color: #3282B8;
+}
+
+.upload-card--temp {
+    background-color: #db7249;
+}
+
+.upload-footer {
+    font-size: small;
+    color: #ffffffb4;
+    margin: 0;
+}
+
+/* ================================================================= */
+/* ===== STYLES FOR SEMESTER BROWSER & SEARCH SECTIONS ===== */
+/* ================================================================= */
+
+/* Reusable container for content sections */
+.content-block {
+    max-width: 800px;
+    /* `5rem auto` provides top/bottom spacing and centers the block */
+    margin: 5rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.content-block__title {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.content-block__anchor {
+    color: white;
+    text-decoration: none;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+}
+
+.content-block__anchor:hover {
+    opacity: 1;
+}
+
+.content-block__hint {
+    color: rgba(255, 255, 255, 0.68);
+    margin-top: 0.75rem;
+}
+
+
+/* --- Custom Dropdown Styles --- */
+.custom-dropdown {
+    position: relative;
+    max-width: 500px;
+    margin: 1.5rem auto;
+    cursor: pointer;
+}
+
+.dropdown-header {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50px;
+    transition: border-color 0.3s ease;
+}
+
+.custom-dropdown.open .dropdown-header {
+    border-color: var(--accent-color);
+}
+
+.dropdown-list {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 10px;
+    margin-top: 0.5rem;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.custom-dropdown.open .dropdown-list {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 0.8rem 1.5rem;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--accent-color);
+}
+
+
+/* --- Reset Button --- */
+.reset-button {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.reset-button:hover {
+    background-color: var(--secondary-color);
+    border-color: #666;
+}
+
+/* --- JS Populated Elements --- */
+.semester-list {
+    /* Add any styles needed for the generated semester list */
+    margin-top: 1.5rem;
+}
+
+.drive-link-display {
+    /* Add any styles needed for the drive link paragraph */
+    margin-top: 1rem;
+    color: var(--accent-color);
+}
+
+/* ========================================================= */
+/* ===== NEW STYLES FOR DYNAMICALLY CREATED BUTTONS ===== */
+/* ========================================================= */
+
+.semester-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+/* Find the .semester-button class in your CSS and add the text-decoration property */
+
+.semester-button {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    text-decoration: none;
+    /* <-- ADD THIS LINE */
+}
+
+.semester-button:hover {
+    background-color: #3e3e3e;
+    border-color: #666;
+}
+
+/* Style for the selected/active semester button */
+.semester-button.active {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #fff;
+    font-weight: bold;
+}
+
+/* ========================================= */
+/* ===== STYLES FOR GENERAL INFO SECTION ===== */
+/* ========================================= */
+
+.info-section {
+    margin-top: 100px;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.info-section__title {
+    color: rgba(240, 248, 255, 0.65);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.info-nav-list {
+    /* Resets for the list */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    /* Flexbox for the grid layout */
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows buttons to wrap to the next line on smaller screens */
+    justify-content: center;
+    gap: 15px;
+    /* Creates consistent space between buttons */
+}
+
+.info-nav-link {
+    /* Common styles for all navigation buttons */
+    background-color: rgba(87, 87, 87, 0.562);
+    color: #fff;
+    height: 60px;
+    width: 160px;
+    /* A wider width for longer text */
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+
+    /* Flexbox to perfectly center the text inside the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.info-nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* ================================================ */
+/* ===== STYLES FOR INTERESTS & RESOURCES SECTION ===== */
+/* ================================================ */
+
+.resources-section {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.resources-section__title {
+    color: rgba(240, 248, 255, 0.85);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.resources-section__subtitle {
+    margin: 0.5rem 0 2rem 0;
+}
+
+.resources-section__subtitle a {
+    color: rgba(240, 248, 255, 0.65);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.resources-section__subtitle a:hover {
+    color: #fff;
+}
+
+.resources-nav-list {
+    /* Resets for the list */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    /* Flexbox for the grid layout */
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows buttons to wrap on smaller screens */
+    justify-content: center;
+    gap: 15px;
+    /* Creates space between buttons */
+}
+
+.resources-nav-link {
+    /* Common styles for all navigation links */
+    background-color: rgba(87, 87, 87, 0.562);
+    color: #fff;
+    width: 160px;
+    min-height: 60px;
+    /* Use min-height for flexibility */
+    padding: 0.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    line-height: 1.3;
+
+    /* Flexbox to perfectly center the text vertically */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.resources-nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.resources-nav-link small {
+    font-weight: normal;
+    opacity: 0.8;
+    font-size: 0.75rem;
+    margin-top: 4px;
+    /* Adds a little space between the two lines of text */
+}
+
+
+/* ===================================== */
+/* ===== STYLES FOR BLOG SECTION ===== */
+/* ===================================== */
+
+.blog-section {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.blog-section__title {
+    color: rgba(240, 248, 255, 0.65);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.blog-nav-list {
+    /* Resets for the list */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    /* Flexbox for layout */
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows links to wrap on smaller screens */
+    justify-content: center;
+    gap: 1.5rem 2.5rem;
+    /* Vertical and horizontal gap */
+}
+
+.blog-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+/* Creates an animated underline effect on hover */
+.blog-nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-color);
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.blog-nav-link:hover {
+    color: var(--text-color);
+    /* Ensures text color stays bright */
+}
+
+.blog-nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+/* ================================== */
+/* ===== STYLES FOR SITE FOOTER ===== */
+/* ================================== */
+
+.site-footer {
+    width: 100%;
+    background-color: var(--primary-color);
+    /* Uses your existing dark theme color */
+    color: rgba(255, 255, 255, 0.6);
+    padding: 2.5rem 1.5rem;
+    margin-top: 4rem;
+    /* Adds space above the footer */
+
+    /* Flexbox for layout */
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows sections to stack on small screens */
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.footer-socials,
+.footer-credits {
+    flex: 1;
+    /* Allows both sections to share space */
+    min-width: 300px;
+    /* Prevents them from getting too squished */
+}
+
+.footer-heading {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 0 0.25rem 0;
+}
+
+.footer-subheading {
+    font-size: 0.8rem;
+    margin: 0 0 1.5rem 0;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 2rem;
+    /* Controls the size of the icons */
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.credits-text {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 1rem auto;
+}
+
+.credits-text strong {
+    color: #fff;
+}
+
+.credits-text a {
+    color: #2edc17;
+    /* Bright green color from original style */
+    font-size: 0.8rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.credits-text a:hover {
+    text-decoration: underline;
+}
+
+.copyright-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+}
+
+/* ========================================= */
+/* ===== STYLES FOR NOTICE VIEWER SECTION ===== */
+/* ========================================= */
+
+.notice-viewer-section {
+    max-width: 1200px;
+    /* A wider container is better for iframe content */
+    margin: 4rem auto;
+    /* Adds space above/below and centers the section */
+    padding: 0 1rem;
+}
+
+.notice-viewer__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    /* Allows items to wrap on small screens */
+    gap: 1rem;
+}
+
+.back-button {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: #3e3e3e;
+    border-color: #666;
+}
+
+.visit-site-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.visit-site-link:hover {
+    text-decoration: underline;
+}
+
+.notice-iframe {
+    width: 100%;
+    height: 80vh;
+    /* Sets the height to 80% of the viewport's height */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: #fff;
+    /* A fallback background while the iframe loads */
+}
+
+/* =============================== */
+/* ===== STYLES FOR MAP SECTION ===== */
+/* =============================== */
+
+.map-section {
+    /* Controls the overall width and centering of the map component */
+    max-width: 90%;
+    margin: 50px auto;
+}
+
+.map-figure {
+    /* Creates the thick, dark frame around the iframe */
+    background-color: #333333d5;
+    border: 15px solid #333333d5;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);
+
+    /* Resets default figure margins */
+    margin: 0;
+    padding: 0;
+}
+
+.map-caption {
+    /* Styles the link container above the map */
+    max-width: 300px;
+    background-color: #333;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 0 auto 15px auto;
+    /* Centers the caption and adds space below it */
+    text-align: center;
+}
+
+.map-caption a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: text-decoration 0.2s ease;
+}
+
+.map-caption a:hover {
+    text-decoration: underline;
+}
+
+.map-iframe {
+    display: block;
+    /* Removes bottom space under the iframe */
+    width: 100%;
+    height: 450px;
+    border: 0;
+    /* Removes the default iframe border */
+}
+
+/* ============================================ */
+/* ===== STYLES FOR CURATED RESOURCES SECTION ===== */
+/* ============================================ */
+
+.curated-resources {
+    margin-top: 100px;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.curated-resources__title {
+    color: rgba(240, 248, 255, 0.65);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+
+.resource-list {
+    /* Resets for the list */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    /* Flexbox for the grid layout */
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows buttons to wrap to the next line */
+    justify-content: center;
+    gap: 15px;
+    /* Creates consistent space between buttons */
+}
+
+.resource-link {
+    /* Common styles for all resource buttons */
+    background-color: rgba(87, 87, 87, 0.562);
+    color: #fff;
+    height: 60px;
+    width: 160px;
+    /* A more appropriate width for longer text */
+    padding: 0.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+
+    /* Flexbox to perfectly center the text inside the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* Handles text that wraps to a new line */
+
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.resource-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* ================================== */
+/* ===== STYLES FOR GO TO TOP BUTTON ===== */
+/* ================================== */
+
+.go-to-top-button {
+    /* Positioning */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+
+    /* Styling */
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    /* Makes it a circle */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    /* Centering the arrow inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Visibility & Transitions */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+}
+
+/* This class will be added by JavaScript to show the button */
+.go-to-top-button.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.go-to-top-button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+
+/* ================================================ */
+/* ===== RESPONSIVE FIX FOR SITE FOOTER ===== */
+/* ================================================ */
+
+@media (max-width: 768px) {
+    .site-footer {
+        /* Stack the footer sections vertically on smaller screens */
+        flex-direction: column;
+    }
+
+    /* Ensure text in both sections is centered in the stacked layout */
+    .footer-socials,
+    .footer-credits {
+        text-align: center;
+    }
+}
+
+/* --- Media Query for Mobile Screens --- */
+@media (max-width: 768px) {
+
+    .content-section {
+        padding: 20px;
+
+    }
+
+    #About {
+        padding-bottom: 70rem;
+    }
+
+    .footer-socials,
+    .footer-credits {
+        min-width: 150px;
+    }
+
+    /* Show the hamburger menu */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Repurpose the sticky-nav to be the slide-in side menu */
+    .sticky-nav {
+        /* Reset desktop styles */
+        transform: translateY(0);
+        visibility: visible;
+        opacity: 1;
+        padding: 0;
+        box-shadow: none;
+        background-color: var(--primary-color);
+        backdrop-filter: none;
+
+        /* New side menu styles */
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 280px;
+        /* Width of the side menu */
+        height: 100%;
+        z-index: 3000;
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+        /* Start off-screen to the left */
+    }
+
+    /* State for when the menu is open */
+    .sticky-nav.open {
+        transform: translateX(0);
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Override the desktop 'visible' class on mobile */
+    .sticky-nav.visible {
+        transform: translateX(-100%);
+    }
+
+    .sticky-nav.open.visible {
+        transform: translateX(0);
+    }
+
+    /* Style the links for a vertical layout */
+    .sticky-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 60px 20px 20px 20px;
+        height: 100%;
+    }
+
+    .sticky-nav ul li {
+        width: 100%;
+    }
+
+    .sticky-nav ul li a {
+        display: block;
+        padding: 15px;
+        font-size: 1.1rem;
+        width: 100%;
+    }
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 2rem;
+    }
+
+    .button-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 1rem;
+    }
+
+    .grid-button {
+        font-size: 1rem;
+        border-radius: 12px;
+    }
+}
