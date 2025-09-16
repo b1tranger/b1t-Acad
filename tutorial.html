@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>b1t Academics</title>
+  <link rel="stylesheet" href="new.style.css">
+</head>
+
+<body>
+
+
+  <div class="content-wrapper">
+    <p style="margin: 50px;"><a href="javascript:history.back()" class="back-button"
+        aria-label="Go back to previous page">
+        &#8592; Back
+      </a>
+    </p>
+    <section class="content-section">
+
+      <h2>Tutorial Collection</h2>
+      <!-- <section class="curated-resources"> -->
+      <!-- <h2 class="curated-resources__title">Curated Resources</h2> -->
+
+      <nav class="resource-nav">
+        <ul class="resource-list">
+
+          <li>
+            <a href="D1/My-guides.html" class="resource-link">
+              b1tranger<br>(CSE55)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@gowithhabib" target="_blank" class="resource-link">
+              Habibur Rahman (CSE37)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@safridbhuiyan" target="_blank" class="resource-link">
+              Safrid Bhuiyan (CSE53)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@TechTalkBangla" target="_blank" class="resource-link">
+              Mr. Al-Imtiaz (Faculty)
+            </a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@freecselearning" target="_blank" class="resource-link">
+              Fazle Rabbi (MSc)
+            </a>
+          </li>
+          <!-- <li>
+            <a href="#"
+              target="_blank" class="resource-link">
+              #
+            </a>
+          </li> -->
+
+        </ul>
+      </nav>
+
+
+
+      <button id="goBackBtn" class="go-back-button" aria-label="Go back to the previous page" title="Go Back">
+        &#8592;
+      </button>
+
+
+      <script src="..."></script>
+      <script>
+        // All your existing JavaScript logic here...
+      </script>
+
+</body>
+
+</html>
+
+<script>
+  // Place this inside your existing DOMContentLoaded script block
+
+  document.addEventListener('DOMContentLoaded', () => {
+
+    // ... (all your existing JS logic for menus, go-to-top, etc.) ...
+
+
+    // ================================================
+    // ===== NEW: GO BACK BUTTON LOGIC =====
+    // ================================================
+    const goBackBtn = document.getElementById('goBackBtn');
+
+    // Check if the button exists and if there is a history to go back to
+    if (goBackBtn && history.length > 1) {
+      // If yes, display the button
+      goBackBtn.style.display = 'flex';
+
+      // Add the click event to go back in history
+      goBackBtn.addEventListener('click', () => {
+        history.back();
+      });
+    }
+  });
+</script>
+
+<script>
+  // ==========================================================
+  // ===== UPDATED: Combined JavaScript Logic =====
+  // ==========================================================
+  document.addEventListener('DOMContentLoaded', () => {
+    // --- Logic for Desktop Sticky Nav ---
+    const desktopNav = document.getElementById('sticky-nav');
+    const triggerSection = document.getElementById('button-grid-section');
+
+    if (desktopNav && triggerSection) {
+      const handleScroll = () => {
+        if (window.innerWidth > 768) { // Only run this logic on desktop
+          const triggerBottom = triggerSection.getBoundingClientRect().bottom;
+          if (triggerBottom < 0) {
+            desktopNav.classList.add('visible');
+          } else {
+            desktopNav.classList.remove('visible');
+          }
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+    }
+
+    // --- NEW: Logic for Mobile Side Menu ---
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('sticky-nav'); // We reuse the same nav
+    const overlay = document.getElementById('overlay');
+    const navLinks = mobileNav.querySelectorAll('a');
+
+    if (menuToggle && mobileNav && overlay) {
+      // Function to open or close the menu
+      const toggleMenu = () => {
+        mobileNav.classList.toggle('open');
+        overlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+      };
+
+      menuToggle.addEventListener('click', toggleMenu);
+      overlay.addEventListener('click', toggleMenu);
+
+      // Close menu when a link is clicked
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileNav.classList.contains('open')) {
+            toggleMenu();
+          }
+        });
+      });
+    }
+  });
+</script>
+
+</body>
+
+</html>

@@ -1099,6 +1099,146 @@ body.no-scroll {
     transform: translateY(-3px);
 }
 
+/* ======================================================= */
+/* ===== UPDATED STYLES FOR SCROLLING BLOG PREVIEW ===== */
+/* ======================================================= */
+
+.blog-preview {
+    width: 90%;
+    max-width: 800px;
+    min-width: 300px;
+    margin: 4rem auto;
+}
+
+.blog-preview__title {
+    color: rgba(255, 255, 255, 0.776);
+    padding-top: 15px;
+    text-align: center;
+    margin: 0 0 1.5rem 0;
+    font-size: 1.5rem;
+}
+
+.blog-preview__title em {
+    font-style: italic;
+    font-weight: normal;
+}
+
+.blog-preview__figure {
+    position: relative;
+    margin: 0;
+    /* This is the visible height of the iframe container */
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    /* This is crucial, it crops the oversized iframe */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.blog-preview__iframe {
+    display: block;
+    width: 100%;
+    /* Make the iframe much taller than its container to have content to scroll */
+    height: 2000px;
+    border: none;
+    /* Link the animation to the iframe */
+    animation: auto-scroll 40s linear infinite alternate;
+}
+
+/* Pause the animation when the user hovers over the preview */
+.blog-preview__figure:hover .blog-preview__iframe {
+    animation-play-state: paused;
+}
+
+.blog-preview__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none;
+}
+
+.blog-preview__link {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.blog-preview__link:hover {
+    background-color: #0056b3;
+    transform: translateX(-50%) scale(1.05);
+}
+
+
+/* ================================== */
+/* ===== STYLES FOR GO BACK BUTTON ===== */
+/* ================================== */
+
+.go-back-button {
+    /* Positioning */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+
+    /* Styling */
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    /* Makes it a circle */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+
+    /* Centering the arrow inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Hidden by default, shown by JavaScript */
+    display: none;
+
+    /* Transitions for hover effect */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.go-back-button:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+/* ======================================================= */
+/* ===== UPDATED STYLES FOR SCROLLING BLOG PREVIEW ===== */
+/* ======================================================= */
+
+/* Define the scrolling animation */
+@keyframes auto-scroll {
+    0% {
+        /* Start at the top */
+        transform: translateY(0);
+    }
+
+    100% {
+        /* End at the bottom. This value should be (iframe height - figure height) */
+        /* 2000px - 450px = 1550px */
+        transform: translateY(-1550px);
+    }
+}
+
 
 /* ================================================ */
 /* ===== RESPONSIVE FIX FOR SITE FOOTER ===== */
