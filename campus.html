@@ -9,7 +9,7 @@
 </head>
 
 <body>
- 
+
 
   <div class="content-wrapper">
     <section id="info" class="content-section">
@@ -50,7 +50,40 @@
         </figure>
 
       </section>
+      <br><br><br><br><br><br>
     </section>
+
+
+
+
+    <button id="goBackBtn" class="go-back-button" aria-label="Go back to the previous page" title="Go Back">
+      &#8592;
+    </button>
+    <script>
+      // Place this inside your existing DOMContentLoaded script block
+
+      document.addEventListener('DOMContentLoaded', () => {
+
+        // ... (all your existing JS logic for menus, go-to-top, etc.) ...
+
+
+        // ================================================
+        // ===== NEW: GO BACK BUTTON LOGIC =====
+        // ================================================
+        const goBackBtn = document.getElementById('goBackBtn');
+
+        // Check if the button exists and if there is a history to go back to
+        if (goBackBtn && history.length > 1) {
+          // If yes, display the button
+          goBackBtn.style.display = 'flex';
+
+          // Add the click event to go back in history
+          goBackBtn.addEventListener('click', () => {
+            history.back();
+          });
+        }
+      });
+    </script>
 
     <script src="js/search-courses.js"></script>
     <script>
