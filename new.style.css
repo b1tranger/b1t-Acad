@@ -636,8 +636,36 @@ body.no-scroll {
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
+
+
 .info-nav-link:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.info-nav-link-a {
+    /* Common styles for all navigation buttons */
+    box-shadow: 0 0 10px white;
+    background-color: white;
+    color: black;
+    height: 60px;
+    width: 160px;
+    /* A wider width for longer text */
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+
+    /* Flexbox to perfectly center the text inside the button */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: background-color 0.5s ease, transform 0.2s ease;
+}
+
+.info-nav-link-a:hover {
+    background-color: rgb(255, 251, 0);
+    box-shadow: 0 0 50px white;
     transform: translateY(-3px);
 }
 
