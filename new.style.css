@@ -18,6 +18,14 @@
     --border-color: #eeeeee;
 }
 
+/* --- Smooth Scrolling Behavior --- */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    /* Offset for fixed nav to prevent content from being hidden */
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -40,6 +48,31 @@ body {
     min-height: 100vh;
     padding: 1rem;
 }
+
+/* --------------------------------------------------------------- */
+
+
+.link-hover-a {}
+
+.link-hover-a:hover {
+    color: rgb(0, 183, 255) !important;
+    transition: 0.3s ease;
+    transform: translateY(-3px);
+}
+
+
+
+
+
+/* --------------------------------------------------------------- */
+
+
+
+
+
+
+
+
 
 /* --- Main Container --- */
 .container {
@@ -205,12 +238,6 @@ body {
 
 /* ======== ADD THESE NEW STYLES TO THE END OF YOUR CSS FILE ======== */
 
-/* --- Smooth Scrolling Behavior --- */
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 80px;
-    /* Offset for fixed nav to prevent content from being hidden */
-}
 
 /* --- Content Sections --- */
 .content-wrapper {

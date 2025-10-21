@@ -16,6 +16,80 @@
   <meta property="og:url" content="https://ouits-res.netlify.app/">
   <meta property="og:type" content="website">
 
+  <style>
+    /* General Body Styles */
+
+
+    /* Floating Button Styles */
+    #floating-button {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      z-index: 4000;
+      padding: 1rem;
+      border-radius: 9999px;
+      /* full round */
+      background-color: #4a5568;
+      /* gray-700 */
+      color: #e2e8f0;
+      /* gray-200 */
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    #floating-button:hover {
+      background-color: #2d3748;
+      /* gray-800 */
+    }
+
+    #floating-button:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(96, 105, 119, 0.6);
+    }
+
+    /* Utility classes for JS */
+    .opacity-0 {
+      opacity: 0;
+    }
+
+    .pointer-events-none {
+      pointer-events: none;
+    }
+
+    /* Floating animation */
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+
+
+
+    /* Bounce animation for scroll indicator */
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      }
+
+      50% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+  </style>
+
+
 </head>
 
 <body>
@@ -38,6 +112,21 @@
       <li><a href="#About">About</a></li>
     </ul>
   </nav>
+
+
+
+
+
+
+  <!-- The Floating Button -->
+  <a href="https://b1tsched.netlify.app/" target="_blank" id="floating-button">
+    b1t Schedulder
+  </a>
+
+
+
+
+
 
   <div id="overlay" class="overlay"></div>
 
@@ -74,16 +163,24 @@
       <a href="#About" class="grid-button">About</a>
     </section>
     <br>
-
+    <!-- This invisible element marks the point where the button should disappear -->
+    <div id="hide-marker"></div>
     <!-- <span style="position: relative;"> -->
     <p style="text-align: center;color: rgba(250, 235, 215, 0.315);">Design inspired from <a
         href="https://notebot.netlify.app/" target="_blank"
         style="color: rgba(255, 255, 255, 0.534);">https://notebot.netlify.app/</a></p>
+
+
     <!-- </span> -->
   </main>
 
+
+
+
   <div class="content-wrapper">
     <section id="info" class="content-section">
+
+
       <h2>General Information</h2>
 
 
@@ -169,18 +266,22 @@
         shortcuts to the
         Question Folders of each
         course (added until CSE-S05). Or a comprehensive website similar to <a href="https://diuqbank.com/"
-          target="_blank" style="color: rgba(255, 255, 255, 0.534);;">https://diuqbank.com/</a> .</p>
+          target="_blank" style="color: rgba(255, 255, 255, 0.534);">https://diuqbank.com/</a> .</p>
     </section>
+
     <section id="Departments" class="content-section">
       <h2>Department Selector</h2>
-
+      <p>The resources linked here are mostly for the CSE department. If you wish to see resources from your department
+        (i.e IT, CE, or others) please contact us through <a href="#About" class="link-hover-a"
+          style="color: white;">Socials</a></p>
       <section id="semester-browser" class="content-block">
         <!-- <h2 class="content-block__title">
           <a href="#semester-browser" class="content-block__anchor" aria-label="Link to this section">
             <i class="fa-solid fa-link"></i>
           </a>
         </h2> -->
-        <p>Select<br>Department > Semester > Courses</p>
+        <hr style="margin: 20px auto;width: 50%;color: #ffffff36;">
+        <p>Select: <span style="color: white;">Department > Semester > Courses</span></p>
         <div id="departmentDropdown" class="custom-dropdown">
           <div id="dropdownHeader" class="dropdown-header">Select Department</div>
           <div id="dropdownList" class="dropdown-list">
@@ -440,7 +541,7 @@
           </ul>
         </nav>
         <p style="text-align: center;margin-top: 20px;"><a href="https://ouits-res.netlify.app/" target="_blank"
-            style="color: white;">Go to portal</a></p>
+            style="color: white;" class="link-hover-a">Go to portal</a></p>
 
         <!-- </section> -->
         <footer class="site-footer">
@@ -582,6 +683,35 @@
             }
           });
         });
+      }
+    });
+  </script>
+
+
+  <script>
+    // JavaScript to handle the button's visibility on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const floatingButton = document.getElementById('floating-button');
+      const hideMarker = document.getElementById('hide-marker');
+
+      if (floatingButton && hideMarker) {
+        const toggleVisibility = () => {
+          const markerPosition = hideMarker.getBoundingClientRect().top;
+
+          // Hide the button if the top of the marker is above the viewport
+          if (markerPosition < 0) {
+            floatingButton.classList.add('opacity-0', 'pointer-events-none');
+          } else {
+            // Otherwise, show it
+            floatingButton.classList.remove('opacity-0', 'pointer-events-none');
+          }
+        };
+
+        // Listen for scroll events on the window
+        window.addEventListener('scroll', toggleVisibility);
+
+        // Initial check in case the page loads already scrolled
+        toggleVisibility();
       }
     });
   </script>
