@@ -81,6 +81,8 @@ body {
     width: 100%;
     max-width: 800px;
     text-align: center;
+    height: 100vh;
+    margin-top: 10vh;
     /* margin-bottom: 10rem; */
 }
 
@@ -254,7 +256,7 @@ body {
     padding: 5rem 2rem;
     max-width: 900px;
     margin: 0 auto;
-    /* margin-bottom: 10rem; */
+    margin-top: 20rem;
     /* min-height: 40vh; */
     /* padding: 2rem; */
     /* Give sections some height */
