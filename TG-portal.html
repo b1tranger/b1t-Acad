@@ -1,411 +1,307 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>b1t Academics: extracurriculars</title>
-    <link rel="stylesheet" href="css/top.navbar.css">
-    <link rel="stylesheet" href="css/faq.dropdown.css">
-    <link rel="stylesheet" href="css/faq.tooltip.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/academics.menubtn.css">
-    <link rel="stylesheet" href="css/Academics.css">
-    <link rel="stylesheet" href="css/menu.css">
-
-    <!-- ICON LINK -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+    <title>UITS Redirects</title>
     <style>
-        li {
-            padding: 5px;
-        }
-
-
+        /* Basic Dark Theme Setup */
         body {
-            font-size: .9rem;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0;           /* Light grey text */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0; /* Removed default padding */
         }
 
-        /* HIDE SCROLLBAR */
-        ::-webkit-scrollbar {
-            display: none;
+        /* --- START: Navigation Bar Styles --- */
+
+        /* Desktop Navbar */
+        .navbar {
+            background-color: #1e1e1e; /* Dark nav background */
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            box-sizing: border-box; /* Ensures padding doesn't add to width */
         }
+
+        .nav-container {
+            max-width: 960px; /* Max-width for the nav links */
+            margin: 0 auto;   /* Center the nav container */
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center; /* Center the nav items */
+            gap: 15px; /* Spacing between items */
+        }
+
+        .nav-links li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+
+        .nav-links li a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* Active page link style */
+        .nav-links li a.active {
+            background-color: #bb86fc; /* Purple accent */
+            color: #121212; /* Dark text on active */
+            font-weight: bold;
+        }
+
+        /* Mobile Menu (Hidden by default) */
+        /* You will need JavaScript to remove 'display: none' */
+        /* and toggle the visibility of these elements. */
+        #menu-container,
+        #mobile-menu,
+        #menu-overlay {
+            display: none; 
+        }
+        
+        /* --- END: Navigation Bar Styles --- */
+
+
+        /* Content Container */
+        .container {
+            max-width: 800px;
+            margin: 40px auto; /* Added top margin to clear nav */
+            padding: 30px;
+            background-color: #1e1e1e; /* Slightly lighter container */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Links */
+        a {
+            color: #bb86fc; /* Purple accent for links */
+            text-decoration: none;
+            transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
+        }
+
+        a:hover {
+            color: #d0b0ff; /* Lighter purple on hover */
+            text-decoration: underline;
+        }
+        
+        /* Ensure nav links don't get double-underlined on hover */
+        .nav-links li a:hover {
+            text-decoration: none;
+        }
+
+        /* Headings */
+        h5 {
+            color: #03dac6; /* Teal accent for heading */
+            border-bottom: 2px solid #03dac6;
+            padding-bottom: 8px;
+            font-size: 1.25rem;
+            margin-top: 0;
+        }
+
+        /* Horizontal Rule */
+        hr {
+            border: 0;
+            height: 1px;
+            background-color: #444; /* Dark grey separator */
+            margin: 25px 0;
+        }
+
+        /* Paragraph & Text Styles */
+        p {
+            margin: 15px 0;
+        }
+
+        .center-text {
+            text-align: center;
+        }
+
+        .section-title {
+            color: #c0c0c0;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        /* Link Groups */
+        .link-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px; /* Space between links */
+            justify-content: center; /* Center-align the links */
+            margin: 20px 0;
+        }
+
+        .link-group a {
+            background-color: #333;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: 500;
+            /* Added text-align center for links with <br> */
+            text-align: center; 
+            transition: background-color 0.2s ease;
+        }
+
+        .link-group a:hover {
+            background-color: #444;
+            text-decoration: none;
+            color: #bb86fc;
+        }
+
+        /* Specific Sections */
+        .quick-links {
+            margin-top: 15px;
+            padding-left: 20px;
+            border-left: 3px solid #333;
+        }
+
+        .quick-links p {
+            margin: 8px 0;
+        }
+
+        /* Indentation for quick links */
+        .indent-1 { margin-left: 20px; }
+        .indent-2 { margin-left: 40px; }
+        .indent-3 { margin-left: 60px; }
+        
+        .outdated-note {
+            color: #cf6679; /* Reddish color for "outdated" */
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
     </style>
-
 </head>
+<body>
 
-<body style="background-color: #333;z-index: -1;">
-    <div class="hidden-link">
-        <p><a href="https://youtu.be/dQw4w9WgXcQ" target="_blank">You have found a hidden link!!</a>
-        </p>
-    </div>
-    <div style="background-color: #333;display: block;width: 100%;height: 40px;position: fixed;top:0;z-index: 2;">
-    </div>
-    <!-- background-image: url(images/portrait-bg.jpg) !important;  -->
-    <div class="page-border"
-        style="background-color: #547792;background-repeat: no-repeat; background-size: cover; background-position: center;margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;overflow-x: hidden;">
+    <div id="menu-container">
+        <nav id="mobile-menu">
+            <a href="References.html">References</a>
+            <a href="#">Telegram Portal</a>
+            <a href="#">Extracurriculars</a>
 
-
-        <!-- MENU BUTTON -->
-
-
-        <!-- Floating Action Button (FAB) for mobile menu -->
-        <div class="fab-container">
-            <button id="fab-button" class="fab" aria-label="Main menu" aria-expanded="false">
-                <div class="menu-icon">
-                    <span class="menu-icon-line"></span>
-                    <span class="menu-icon-line"></span>
-                    <span class="menu-icon-line"></span>
-                </div>
-            </button>
-        </div>
-
-        <!-- Mobile Menu Card Panel (hidden by default) -->
-        <div id="menu-container">
-            <nav id="mobile-menu">
-                <a href="References.html">References</a>
-                <a href="#">Telegram Portal</a>
-                <a href="Extracurriculars.html">Extracurriculars</a>
-
-                <a href="Academics.html">Academics</a>
-                <div class="divider"></div>
-                <a href="index.html">Home</a>
-            </nav>
-        </div>
-
-        <!-- Overlay for when menu is open -->
-        <div id="menu-overlay" class="hidden"></div>
-
-        <!-- TOP BAR -->
-
-        <nav class="navbar">
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="Academics.html">Academics</a></li>
-                    <li><a href="Extracurriculars.html">Extracurriculars</a></li>
-                    <li><a href="#" class="active">Telegram</a></li>
-                    <li><a href="References.html">References</a></li>
-                    <!-- <li><a href="https://ouits-res.netlify.app/" target="_blank">Resources</a></li> -->
-                    <!-- <li><a href="contact.html">Contact</a></li> -->
-                </ul>
-            </div>
+            <a href="#">Academics</a>
+            <div class="divider"></div>
+            <a href="index.html">Home</a>
         </nav>
+    </div>
 
-        <br><br>
+    <div id="menu-overlay" class="hidden"></div>
 
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Academics</a></li>
+                <li><a href="#">Extracurriculars</a></li>
+                <li><a href="#" class="active">Telegram</a></li>
+                <li><a href="References.html">References</a></li>
+                </ul>
+        </div>
+    </nav>
 
+    <div class="container">
 
-        <p class="highlights-5" align="center" style="color: white;margin-bottom: -5px;margin-top: 15px;">
-            <small><i>Portal for Telegram Group</i></small>
+        <h5>Redirects</h5>
+        
+        <hr>
+
+        <p class="section-title center-text">Chats for 1st-8th semesters</p>
+        <p class="center-text">
+            <a href="https://t.me/oU1TS_Forum">@oU1TS_Forum</a>
         </p>
 
-        <!-- <a href=""></a> -->
+        <hr>
 
-
-
-        <div class="TG-overview" style="margin-top: 50px;background-color: #3a3a3a;">
-
-            <h2 style="text-decoration: underline;text-align: center;">#Overview</h3>
-                <h3>Join Us</h3>
-                <div class="tg-links2">
-                    <ul>
-                        <li><a href="https://discord.gg/weetUpfS5X">Discord</a>
-                            &nbsp;&nbsp;|&nbsp;&nbsp;
-                            <a href="https://www.facebook.com/share/g/1C5LR27B4a/">Facebook</a>
-                            &nbsp;&nbsp;|&nbsp;&nbsp;
-                            <a href="https://github.com/oU1TS">GitHub</a>
-                        </li>
-
-                    </ul>
-                </div>
-
-                <h3>Others</h3>
-                <div class="tg-links2">
-                    <ul>
-                        <li><a href="https://www.facebook.com/share/g/1BTXg3cUjp/">FB
-                                Study</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://forms.gle/treGsBbsE3UTFUos9"
-                                target="_blank">Join oU1TS Organization</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <h3>Contribute</h3>
-                <div class="tg-links2">
-                    <ul>
-                        <li>Upload
-                            <a href="https://forms.gle/uFq1vBSUbRhY5CZk6" target="_blank">
-                                Questions?</a>
-                            &nbsp;&nbsp;/&nbsp;&nbsp;
-                            <a href="https://forms.gle/ovz4p5VAEsB6G7fp7" target="_blank">Notes</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <hr style="margin: 15px;">
-                <div class="tg-links2">
-                    <ul>
-                        <li>Visit&nbsp;
-                            <a href="https://ouits-res.netlify.app/" target="_blank">Website</a>
-                        </li>
-                        <li>or,&nbsp;
-                            <a href="https://github.com/b1tranger/ou1ts.portal/releases" target="_blank">try the Android
-                                App</a>
-                        </li>
-                    </ul>
-                </div>
-
-
-                <hr style="margin: 15px;">
-                <h3>🔸Chats for 1st-8th semesters🔸</h3>
-
-                <div class="tg-links">
-                    <p><a href="https://t.me/oU1TS_Forum" target="_blank"> oU1TS Forum </a></p>
-
-                </div>
-                <p style="text-align: center;font-size: 0.8rem;">(Intended to be used as chats in the comments)</p>
-                <hr style="margin: 15px;">
-
-                <h3>🔹FILES for 1st-8th semesters🔹</h3>
-
-                <div class="link-grid">
-                    <div class="grid-links"> <a href="https://t.me/c/2499564727/26" target="_blank"> S01 </a></div>
-                    <div class="grid-links"> <a href="https://t.me/c/2499564727/2" target="_blank"> S02 </a></div>
-                    <div class="grid-links"> <a href="https://t.me/c/2499564727/385" target="_blank"> S03 </a></div>
-                    <div class="grid-links"> <a href="https://t.me/c/2499564727/426" target="_blank"> S04 </a></div>
-                    <div class="grid-links"> <a href="https://t.me/c/2499564727/926" target="_blank"> S05 </a></div>
-                    <div class="grid-links"> <a href="https://t.me/c/2499564727/928" target="_blank"> S06 </a></div>
-                    <div class="grid-links"> <a href="https://t.me/c/2499564727/930" target="_blank"> S07 </a></div>
-                    <div class="grid-links"> <a href="https://t.me/c/2499564727/932" target="_blank"> S08 </a></div>
-
-
-                </div>
-                <p style="text-align: center;font-size: 0.8rem;">(Intended to be used for keeping files and as a backup
-                    of Google Drive)</p>
-                <hr style="margin: 15px;">
-
-                <h3>Quick Links</h3>
-                <div class=".tg-links">
-                    <a href="https://t.me/oUITS_res/304/1750"
-                        target="_blank">UITS&nbsp;Materials</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
-                        href="https://t.me/oUITS_res/304/1749" target="_blank">Book&nbsp;Links</a>
-                    <br>
-                    <a href="https://t.me/oUITS_res/304/1747"
-                        target="_blank">Important&nbsp;Links</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a
-                        href="https://t.me/oUITS_res/304/1686" target="_blank">Important&nbsp;Files</a>
-                </div>
-                <hr style="margin: 15px;">
-                <div class="tg-links"> <a href="https://t.me/oUITS_res/1/140" target="_blank"> go to First Message </a>
-                </div>
-
+        <p class="section-title center-text">FILES for 1st-8th semesters</p>
+        <div class="link-group">
+            <a href="https://t.me/c/2499564727/26">S01</a>
+            <a href="https://t.me/c/2499564727/2">S02</a>
+            <a href="https://t.me/c/2499564727/385">S03</a>
+            <a href="https://t.me/c/2499564727/426">S04</a>
+            <a href="https://t.me/c/2499564727/926">S05</a>
+            <a href="https://t.me/c/2499564727/928">S06</a>
+            <a href="https://t.me/c/2499564727/930">S07</a>
+            <a href="https://t.me/c/2499564727/932">S08</a>
         </div>
 
+        <hr>
 
-        <div class="TG-overview" style="margin-top: 50px;background-color: #3a3a3a;">
-            <h2 style="text-decoration: underline;text-align: center;">Our groups</h3>
-                <div class="link-grid"
-                    style="grid-template-columns: repeat(auto-fill, minmax(80px, 3fr)); padding: .1rem;margin-top: 2rem;">
-                    <div class="grid-links"> <a href="https://t.me/oUITS_res" target="_blank">oU1TS<br>Resources</a>
-                    </div>
-                    <div class="grid-links"> <a href="https://t.me/oUITS_ORnU" target="_blank">oU1TS<br>Updates</a>
-                    </div>
-                    <div class="grid-links"> <a href="https://t.me/oU1TS_Forum" target="_blank">oU1TS<br>Forum</a></div>
-                </div>
+        <p class="section-title center-text">Donate</p>
+        <div class="link-group">
+            <a href="https://forms.gle/uFq1vBSUbRhY5CZk6">Questions</a>
+            <a href="https://forms.gle/ovz4p5VAEsB6G7fp7">Notes</a>
+            <a href="https://t.me/oUITS_res/1217">Topic</a>
         </div>
 
+        <p class="section-title center-text">Blood Donation</p>
+        <p class="center-text">
+            <a href="https://t.me/oUITS_ORnU/56">Refer to this message</a>
+        </p>
 
+        <hr>
 
+        <p class="center-text">// See Guide //</p>
+        <p class="center-text">
+            <a href="httpsD://t.me/oUITS_ORnU/53">https://t.me/oUITS_ORnU/53</a>
+        </p>
 
+        <div class="quick-links">
+            <p class="center-text" style="padding-left: 0; margin-left: -20px;">// Quick Links //</p>
+            <p><a href="httpsD://t.me/c/2499564727/304/1750">UITS Materials</a> <span class="outdated-note">(outdated)</span></p>
 
-
-
-
-
-
-        <!-- <div class="section"
-            data-faq="Academics are all about CGPA, but Job Market asks more from you.||Are you willing to put the effort?">
-            <div class="faq-icon">?</div>
-            <div class="faq-box"></div>
-        </div> -->
-
-
-        <!-- <div class="container-5">
-            <p class="highlights" style="color: rgba(240, 248, 255, 0.649);text-align: center; ">
-                Interests and
-                Resources<br><small><a
-                        href="https://drive.google.com/drive/folders/1hTWa-Z7gV3GaUUMJhT2KPasmq5L1ha3p?usp=drive_link"
-                        target="_blank" style="color: rgba(240, 248, 255, 0.649);">( 🔗 Skills Dev Resources
-                        )</a></small>
-            </p>
-            <div class="container-6">
-
-                <div class="menu-button" id="extrabtn1"
-                    style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
-                    <p class="cell-link" style="color: #fff; margin: 0;">
-                        Interests <br><small>(Skill Dev)</small>
-                    </p>
-                </div>
-                <div class="menu-button" id="extrabtn2"
-                    style="background-color: rgba(0, 0, 0, 0.247); height: 60px; width: 100px; max-width: 300px; align-items: center;">
-                    <p class="cell-link" style="color: #fff; margin: 0;">
-                        Curated Resources<br><small>(Guides)</small>
-                    </p>
-                </div>
-
-            </div>
-        </div> -->
-
-
-
-        <!-- <div class="popup-menu" id="extraMenu1" style="max-width:400px; width: 60%;">
-            <div class="popup-close popup-close-btn"></div>
-             <div class="popup-menu-title">Resources & Tools</div> 
-            <div class="popup-menu-categories">
-                <div class="popup-menu-category" align="center">
-                    <div class="category-title">Coding Resources</div>
-                    
-                    <div class="link-item">
-                        <a href=""
-                            class="cell-link" target="_blank">
-                            
-                        </a>
-                    </div>
-
-                     More links here 
-                </div>
-            </div>
-        </div> -->
-
-
-
-        <!-- Shared backdrop for all popups -->
-        <div class="popup-backdrop" id="popupBackdrop">
-            <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    // Button and popup pairs
-                    const menuPairs = [
-                        { button: 'extrabtn1', popup: 'extraMenu1' },
-                        { button: 'extrabtn2', popup: 'extraMenu2' }
-                        // { button: 'extrabtn3', popup: 'extramenu3' },
-                        // { button: 'extrabtn4', popup: 'extramenu4' }
-
-                        // Add more pairs as needed
-                    ];
-
-                    const popupBackdrop = document.getElementById('popupBackdrop');
-                    let activePopup = null;
-
-                    // Set up each button-popup pair
-                    menuPairs.forEach(pair => {
-                        const button = document.getElementById(pair.button);
-                        const popup = document.getElementById(pair.popup);
-
-                        button.addEventListener('click', function () {
-                            // Open this specific popup
-                            popup.classList.add('open');
-                            popupBackdrop.classList.add('open');
-                            button.classList.add('active');
-                            activePopup = popup;
-                        });
-                    });
-
-                    // Close buttons for all popups
-                    const closeButtons = document.querySelectorAll('.popup-close-btn');
-                    closeButtons.forEach(btn => {
-                        btn.addEventListener('click', closeActivePopup);
-                    });
-
-                    // Backdrop click closes any open popup
-                    popupBackdrop.addEventListener('click', closeActivePopup);
-
-                    function closeActivePopup() {
-                        // Remove active class from all buttons
-                        document.querySelectorAll('.menu-button').forEach(btn => {
-                            btn.classList.remove('active');
-                        });
-
-                        // Close all popups
-                        document.querySelectorAll('.popup-menu').forEach(popup => {
-                            popup.classList.remove('open');
-                        });
-
-                        // Hide backdrop
-                        popupBackdrop.classList.remove('open');
-                        activePopup = null;
-                    }
-                });
-            </script>
+            <p class="indent-1"><a href="httpsSame://t.me/c/2499564727/304/1749">Book Links</a></p>
+            <p class="indent-2"><a href="httpsSame://t.me/c/2499564727/304/1747">Important Links</a></p>
+            <p class="indent-3"><a href="httpsSame://t.me/c/2499564727/304/1686">Important Files</a></p>
         </div>
 
-        <!-- ---------------------------------------------------------- -->
+        <p class="center-text" style="margin-top: 20px;">// Other Links //</p>
+        <p class="center-text">
+            <a href="httpsD://t.me/oUITS_ORnU/50">https://t.me/oUITS_ORnU/50</a>
+        </p>
 
-        <br><br><br>
+        <hr>
 
+        <p class="center-text">
+            <a href="httpsD://ouits-res.netlify.app/">Visit Website</a> or, try the <a href="httpsD://github.com/b1tranger/ou1ts.portal/releases">Android App</a>
+        </p>
 
-        <script src="js/faq.dropdown.js"></script>
-        <script src="js/faq.tooltip.js"></script>
-        <script src="js/menu.js"></script>
+        <hr>
 
+        <p class="section-title center-text">Join us</p>
+        <div class="link-group">
+            <a href="httpsS://discord.gg/weetUpfS5X">Discord</a>
+            <a href="httpsS://www.facebook.com/share/g/1C5LR27B4a/">Facebook</a>
+            <a href="httpsS://github.com/oU1TS">GitHub</a>
+            <a href="httpsS://www.reddit.com/r/oU1TS/">Reddit</a>
+        </div>
 
-        <!-- END CREDIT  -->
-        <div class="footer-container">
-            <div class="end-credits">
-                <div class="social-container">
-                    <!-- SOCIAL LINKS -->
+        <hr>
 
-                    <p style="font-size: 1.2rem;">Join our Socials </p>
-                    <p style="font-size:0.7rem;">for Updates and
-                        Feedback
-                    </p>
-                    <div>
-                        <a href="https://discord.gg/weetUpfS5X" target="_blank"><i class="fa-brands fa-discord"></i></a>
+        <p class="center-text">
+            <a href="httpsS://t.me/c/2499564727/1/140">UP we go</a>
+        </p>
 
-                        <a href="https://t.me/s/oUITS_ORnU" target="_blank"><i
-                                class="fa-brands fa-telegram"></i></i></a>
-
-                        <a href="https://facebook.com/groups/1074592960836263/" target="_blank"><i
-                                class="fa-brands fa-facebook"></i></a>
-
-                        <a href="https://github.com/oU1TS" target="_blank"><i class="fa-brands fa-github"></i></a>
-
-                    </div>
-                </div>
-
-                <div style="margin-bottom: 10px;margin-top: 10px;">
-                    <!-- BOTTOM CREDITS -->
-                    <p align=center>
-                        <small style="font-size: 0.7rem;"><b>UNOFFICIAL</b>
-                            Online
-                            Resources Archiver for UITS<br>This project is licensed under the <a
-                                href="https://www.apache.org/licenses/LICENSE-2.0"
-                                style="color:rgb(47, 255, 0);font-size: 0.8rem;text-shadow: 0px 0px 0px black;"
-                                target="_blank">Apache License
-                                2.0</a>.
-                            You may use, modify, and distribute its contents, but you must provide attribution and
-                            include the
-                            original
-                            license.</small>
-                    </p>
-                    <br>
-                    <p align=center><span>Copyright &copy; 2024-<span id="year"></span> &nbsp;b1tranger. </span></p>
-                    <script>
-                        document.getElementById("year").textContent = new Date().getFullYear();
-                    </script>
-                </div>
+        <div class="TG-overview" style="margin-top: 50px; background-color: #3a3a3a; padding: 20px 20px 10px 20px; border-radius: 8px;">
+            <h2 style="text-decoration: underline; text-align: center; margin-top: 0;">Our groups</h2>
+            
+            <div class="link-group" style="margin-bottom: 10px;">
+                <a href="https://t.me/oUITS_res" target="_blank">oU1TS<br>Resources</a>
+                <a href="https://t.me/oUITS_ORnU" target="_blank">oU1TS<br>Updates</a>
+                <a href="https://t.me/oU1TS_Forum" target="_blank">oU1TS<br>Forum</a>
             </div>
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="bottom-border-block"></div>
-    </div>
+        </div>
 
-
-    <div class="navbar-5">
-        <p align=center style="color:rgba(255, 255, 255, 0.776);"><i>b1t Academics</i></p>
-    </div>
 </body>
-
 </html>
