@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,28 +8,40 @@
     <style>
         /* Basic Dark Theme Setup */
         body {
-            background-color: #121212; /* Dark background */
-            color: #e0e0e0;           /* Light grey text */
+            background-color: #121212;
+            /* Dark background */
+            color: #e0e0e0;
+            /* Light grey text */
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 0; /* Removed default padding */
+            padding: 0;
+            /* Removed default padding */
         }
 
         /* --- START: Navigation Bar Styles --- */
 
         /* Desktop Navbar */
-        .navbar {
-            background-color: #1e1e1e; /* Dark nav background */
+        .navbar,
+        .navbar-2 {
+            background-color: #1e1e1e;
+            /* Dark nav background */
             padding: 10px 20px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
             width: 100%;
-            box-sizing: border-box; /* Ensures padding doesn't add to width */
+            box-sizing: border-box;
+            /* Ensures padding doesn't add to width */
+        }
+
+        .navbar-2 {
+            display: none;
         }
 
         .nav-container {
-            max-width: 960px; /* Max-width for the nav links */
-            margin: 0 auto;   /* Center the nav container */
+            max-width: 960px;
+            /* Max-width for the nav links */
+            margin: 0 auto;
+            /* Center the nav container */
         }
 
         .nav-links {
@@ -36,8 +49,10 @@
             padding: 0;
             margin: 0;
             display: flex;
-            justify-content: center; /* Center the nav items */
-            gap: 15px; /* Spacing between items */
+            justify-content: center;
+            /* Center the nav items */
+            gap: 15px;
+            /* Spacing between items */
         }
 
         .nav-links li a {
@@ -56,8 +71,10 @@
 
         /* Active page link style */
         .nav-links li a.active {
-            background-color: #bb86fc; /* Purple accent */
-            color: #121212; /* Dark text on active */
+            background-color: #bb86fc;
+            /* Purple accent */
+            color: #121212;
+            /* Dark text on active */
             font-weight: bold;
         }
 
@@ -67,34 +84,38 @@
         #menu-container,
         #mobile-menu,
         #menu-overlay {
-            display: none; 
+            display: none;
         }
-        
+
         /* --- END: Navigation Bar Styles --- */
 
 
         /* Content Container */
         .container {
             max-width: 800px;
-            margin: 40px auto; /* Added top margin to clear nav */
+            margin: 40px auto;
+            /* Added top margin to clear nav */
             padding: 30px;
-            background-color: #1e1e1e; /* Slightly lighter container */
+            background-color: #1e1e1e;
+            /* Slightly lighter container */
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         }
 
         /* Links */
         a {
-            color: #bb86fc; /* Purple accent for links */
+            color: #bb86fc;
+            /* Purple accent for links */
             text-decoration: none;
             transition: color 0.2s ease-in-out, text-decoration 0.2s ease-in-out;
         }
 
         a:hover {
-            color: #d0b0ff; /* Lighter purple on hover */
+            color: #d0b0ff;
+            /* Lighter purple on hover */
             text-decoration: underline;
         }
-        
+
         /* Ensure nav links don't get double-underlined on hover */
         .nav-links li a:hover {
             text-decoration: none;
@@ -102,7 +123,8 @@
 
         /* Headings */
         h5 {
-            color: #03dac6; /* Teal accent for heading */
+            color: #03dac6;
+            /* Teal accent for heading */
             border-bottom: 2px solid #03dac6;
             padding-bottom: 8px;
             font-size: 1.25rem;
@@ -113,7 +135,8 @@
         hr {
             border: 0;
             height: 1px;
-            background-color: #444; /* Dark grey separator */
+            background-color: #444;
+            /* Dark grey separator */
             margin: 25px 0;
         }
 
@@ -137,8 +160,10 @@
         .link-group {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px; /* Space between links */
-            justify-content: center; /* Center-align the links */
+            gap: 12px;
+            /* Space between links */
+            justify-content: center;
+            /* Center-align the links */
             margin: 20px 0;
         }
 
@@ -148,7 +173,7 @@
             border-radius: 5px;
             font-weight: 500;
             /* Added text-align center for links with <br> */
-            text-align: center; 
+            text-align: center;
             transition: background-color 0.2s ease;
         }
 
@@ -170,18 +195,37 @@
         }
 
         /* Indentation for quick links */
-        .indent-1 { margin-left: 20px; }
-        .indent-2 { margin-left: 40px; }
-        .indent-3 { margin-left: 60px; }
-        
+        .indent-1 {
+            margin-left: 20px;
+        }
+
+        .indent-2 {
+            margin-left: 40px;
+        }
+
+        .indent-3 {
+            margin-left: 60px;
+        }
+
         .outdated-note {
-            color: #cf6679; /* Reddish color for "outdated" */
+            color: #cf6679;
+            /* Reddish color for "outdated" */
             font-style: italic;
             font-size: 0.9em;
         }
 
+        @media (max-width: 768px) {
+            .navbar-2 {
+                display: block;
+            }
+
+            .navbar {
+                display: none;
+            }
+        }
     </style>
 </head>
+
 <body>
 
     <div id="menu-container">
@@ -206,14 +250,28 @@
                 <li><a href="#">Extracurriculars</a></li>
                 <li><a href="#" class="active">Telegram</a></li>
                 <li><a href="References.html">References</a></li>
-                </ul>
+            </ul>
+        </div>
+    </nav>
+    <nav class="navbar-2">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Academics</a></li>
+            </ul>
+            <br>
+            <ul class="nav-links">
+                <li><a href="#">Extracurriculars</a></li>
+                <li><a href="#" class="active">Telegram</a></li>
+                <li><a href="References.html">References</a></li>
+            </ul>
         </div>
     </nav>
 
     <div class="container">
 
         <h5>Redirects</h5>
-        
+
         <hr>
 
         <p class="section-title center-text">Chats for 1st-8th semesters</p>
@@ -258,7 +316,8 @@
 
         <div class="quick-links">
             <p class="center-text" style="padding-left: 0; margin-left: -20px;">// Quick Links //</p>
-            <p><a href="httpsD://t.me/c/2499564727/304/1750">UITS Materials</a> <span class="outdated-note">(outdated)</span></p>
+            <p><a href="httpsD://t.me/c/2499564727/304/1750">UITS Materials</a> <span
+                    class="outdated-note">(outdated)</span></p>
 
             <p class="indent-1"><a href="httpsSame://t.me/c/2499564727/304/1749">Book Links</a></p>
             <p class="indent-2"><a href="httpsSame://t.me/c/2499564727/304/1747">Important Links</a></p>
@@ -273,7 +332,8 @@
         <hr>
 
         <p class="center-text">
-            <a href="httpsD://ouits-res.netlify.app/">Visit Website</a> or, try the <a href="httpsD://github.com/b1tranger/ou1ts.portal/releases">Android App</a>
+            <a href="httpsD://ouits-res.netlify.app/">Visit Website</a> or, try the <a
+                href="httpsD://github.com/b1tranger/ou1ts.portal/releases">Android App</a>
         </p>
 
         <hr>
@@ -292,16 +352,18 @@
             <a href="httpsS://t.me/c/2499564727/1/140">UP we go</a>
         </p>
 
-        <div class="TG-overview" style="margin-top: 50px; background-color: #3a3a3a; padding: 20px 20px 10px 20px; border-radius: 8px;">
+        <div class="TG-overview"
+            style="margin-top: 50px; background-color: #3a3a3a; padding: 20px 20px 10px 20px; border-radius: 8px;">
             <h2 style="text-decoration: underline; text-align: center; margin-top: 0;">Our groups</h2>
-            
+
             <div class="link-group" style="margin-bottom: 10px;">
                 <a href="https://t.me/oUITS_res" target="_blank">oU1TS<br>Resources</a>
                 <a href="https://t.me/oUITS_ORnU" target="_blank">oU1TS<br>Updates</a>
                 <a href="https://t.me/oU1TS_Forum" target="_blank">oU1TS<br>Forum</a>
             </div>
         </div>
-        </div>
+    </div>
 
 </body>
+
 </html>
