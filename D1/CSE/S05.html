@@ -1,160 +1,184 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../css/styles.css">
-  <link rel="stylesheet" href="../../css/top.navbar.css">
-  <link rel="stylesheet" href="../../css/home.css">
-  <link rel="manifest" href="../manifest.webmanifest">
-  <title>
-    UITS S05
-  </title>
+  <title>UITS - Semester 05</title>
+  
+  <link rel="stylesheet" href="../../new.style.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    .course-card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .course-button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #2d3748;
+      color: white;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .course-button:hover {
+      background-color: #4a5568;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .course-code {
+      font-size: 0.75rem;
+      color: #a0aec0;
+      margin-top: 0.5rem;
+    }
+    .syllabus-img {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 10px;
+        margin: 20px auto;
+        display: block;
+    }
+    #back-button {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 4000;
+      padding: 1rem 1.5rem;
+      border-radius: 9999px;
+      background-color: #4a5568;
+      color: #e2e8f0;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+    #back-button:hover {
+        background-color: #2d3748;
+        transform: scale(1.05);
+    }
+  </style>
 </head>
 
-<body style="background-color: #333;z-index: -1;">
-  <div class="top-credit-show"
-    style="display: none;background-color: white;display: block;width: -webkit-fit-available;height: 40px;position: static;top:0;z-index: 2;margin-left: 20px;margin-right: 20px;margin-top: -10px;">
-  </div>
-  <div style="background-color: #333;display: block;width: 100%;height: 40px;position: fixed;top:0;z-index: 2;">
-  </div>
-  <div
-    style="background-color: #ffffff; margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;overflow-x: hidden;">
+<body>
+  <button id="menu-toggle" class="menu-toggle"><span></span><span></span><span></span></button>
 
-    <!-- TOP BAR -->
+  <nav id="sticky-nav" class="sticky-nav">
+    <ul>
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../index.html#Departments">Departments</a></li>
+      <li><a href="../../index.html#Qbank">Q-Bank</a></li>
+      <li><a href="../../index.html#Library">Library</a></li>
+    </ul>
+  </nav>
 
-    <nav class="navbar">
-      <div class="nav-container">
-        <ul class="nav-links">
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="../../Academics.html">Academics</a></li>
-          <li><a href="../../Extracurriculars.html">Extracurriculars</a></li>
-          <li><a href="../../References.html">References</a></li>
-          <!-- <li><a href="https://ouits-res.netlify.app/" target="_blank">Resources</a></li> -->
-          <!-- <li><a href="contact.html">Contact</a></li> -->
-        </ul>
-      </div>
-    </nav>
+  <a href="javascript:history.back()" id="back-button"><i class="fa-solid fa-arrow-left"></i> Back</a>
+  <div id="overlay" class="overlay"></div>
 
+  <main class="container" style="min-height: auto; padding-top: 80px;">
+    <header>
+      <h1 class="logo" style="font-size: 2.5rem;">Semester 05</h1>
+      <p style="color: rgba(255, 255, 255, 0.5);">Computer Science & Engineering</p>
+    </header>
+    
+    <section style="margin-top: 2rem; margin-bottom: 2rem;">
+        <a href="https://drive.google.com/drive/folders/1_fx4sCES5sL1YeWEI0cSQd850j6Zhkre?usp=drive_link" 
+           target="_blank"  
+           style="color: white; width: 100%; max-width: 300px; margin: 0 auto; display: block; text-align: center;">
+           <i class="fa-brands fa-google-drive"></i>&nbsp; Open Full Drive
+        </a>
+    </section>
 
-
-
-    <!-- ----------------------------------------------------------------------- -->
-
-    <br>
-
-    <div class="container-5" align=center style="margin-top: 50px;">
-      <table class="resources-table-5" align=center>
-        <tr>
-          <!-- <a href="https://drive.google.com/drive/folders/1_fx4sCES5sL1YeWEI0cSQd850j6Zhkre?usp=drive_link"
-            target="_blank" class="semester-heading" align="center" >🔗 5th Semester
-            Courses&nbsp;</a> -->
-          <h2 style="color: white;padding-top: 20px;">5th
-            Semester
-            Courses</h2>
-            <a href="https://drive.google.com/drive/folders/1_fx4sCES5sL1YeWEI0cSQd850j6Zhkre?usp=drive_link"
-            target="_blank" class="semester-heading" align="center">🔗 Go to Drive&nbsp;</a>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <div class="container">
-
-              <div class="img-container">
-                <img src="../../images/Course-lists/CSE/S05 Course List.webp" alt="Codeforces Streams Page">
-                <!-- <div class="scroll-indicator">Scroll down to see more</div> -->
-              </div>
-            </div>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="https://drive.google.com/drive/folders/1j1Os8LHGAgfOl1gbJjiqWWy05kmsk4Mk?usp=drive_link"
-              target="_blank" class="cell-link">
-              AI
-              <br><small>CSE311 + CSE312</small>
-            </a>
-          </td>
-
-          <td>
-            <a href="https://drive.google.com/drive/folders/1ziNG4HDSQVDz0gR8qU1OMbtVW8EPeVRM?usp=drive_link"
-              target="_blank" class="cell-link">CN
-              <br><small>CSE313 + CSE314</small>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="https://drive.google.com/drive/folders/1WbxkGhlKC84ps7r2Ekqs0-Pggq9twvGT?usp=drive_link"
-              target="_blank" class="cell-link">
-              DBMS
-              <br><small>CSE315 + CSE316</small>
-            </a>
-          </td>
-
-          <td>
-            <a href="https://drive.google.com/drive/folders/1gLWZ6NISQQSZuagWmEJGT_fw9I4BQEXz?usp=drive_link"
-              target="_blank" class="cell-link">
-              NMA
-              <br><small>CSE318</small>
-            </a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="https://drive.google.com/drive/folders/1-vcckXJirsjVUnA_BfztCVSKkKFSQnLx?usp=drive_link"
-              target="_blank" class="cell-link">
-              Computer Architecture
-              <br><small>CSE319</small>
-            </a>
-          </td>
-
-          <td>
-            <a href="https://drive.google.com/drive/folders/11hNDmHjWV1QPRzaQ6KWblWiUUKnPs5-0?usp=drive_link"
-              target="_blank" class="cell-link">
-              Advanced Problem Solving
-              <br><small> CSE204</small>
-            </a>
-          </td>
-        </tr>
-      </table>
+    <div style="text-align: center;">
+        <img src="../../images/Course-lists/CSE/S05 Course List.webp" alt="S05 Syllabus" class="syllabus-img">
     </div>
+  </main>
 
-    <!-- <div align=center>
-    <p id=" bottom" align=center><a style="color: #8c8c8c;" href="../CSE-Files.html">Go back to CSE-Files</a>
-  </div> -->
+  <div class="content-wrapper">
+    <section id="courses" class="content-section" style="min-height: auto;">
+      <h2 style="text-align: center; margin-bottom: 30px;">Course Materials</h2>
+      
+      <div class="course-card-container">
+        <a href="https://drive.google.com/drive/folders/1j1Os8LHGAgfOl1gbJjiqWWy05kmsk4Mk?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-brain fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>AI</strong>
+            <span class="course-code">CSE311/312</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1ziNG4HDSQVDz0gR8qU1OMbtVW8EPeVRM?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-network-wired fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>CN</strong>
+            <span class="course-code">CSE313/314</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1WbxkGhlKC84ps7r2Ekqs0-Pggq9twvGT?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-database fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>DBMS</strong>
+            <span class="course-code">CSE315/316</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1gLWZ6NISQQSZuagWmEJGT_fw9I4BQEXz?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-calculator fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>NMA</strong>
+            <span class="course-code">CSE318</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1-vcckXJirsjVUnA_BfztCVSKkKFSQnLx?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-server fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>Architecture</strong>
+            <span class="course-code">CSE319</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/11hNDmHjWV1QPRzaQ6KWblWiUUKnPs5-0?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-code fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>Adv. P. Solving</strong>
+            <span class="course-code">CSE204</span>
+        </a>
+      </div>
+      
+      <br><br>
+      <p style="text-align: center; color: rgba(255,255,255,0.3);"><small>Click on a card to access resources</small></p>
+    </section>
 
-    <br><br><br><br><br>
-
-    <!-- HOME BUTTON -->
-
-    <a href="../../index.html" class="home-button">
-      <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path
-          d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    </a>
-
-    <!-- BACK BUTTON -->
-
-    <a href="javascript:history.back()" class="back-icon">&#8592;</a>
-
-
-    <!-- -------------------------------------------------------------------- -->
-
-    <!-- TO WORK OFFLINE -->
-
-    <script src="../../offline.js"></script>
+    <section id="About" class="content-section" style="min-height: auto;">
+      <footer class="site-footer">
+        <div class="footer-credits">
+          <p class="credits-text"><strong>b1t Academics</strong></p>
+          <p class="copyright-text">&copy; <span id="year"></span> &nbsp;b1tranger.</p>
+          <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+        </div>
+      </footer>
+    </section>
   </div>
-  <!-- BOTTOM BAR "navbar" -->
 
-  <div style="padding-left:16px">
-  </div>
-  <div class="navbar-5">
-    <font size="24"></font>
-    <p align=center style="color:rgba(255, 255, 255, 0.776);"><i>b1t Academics</i></p>
-    </font>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileNav = document.getElementById('sticky-nav');
+      const overlay = document.getElementById('overlay');
+      const navLinks = mobileNav.querySelectorAll('a');
 
-  </div>
+      if (menuToggle && mobileNav && overlay) {
+        const toggleMenu = () => {
+          mobileNav.classList.toggle('open');
+          overlay.classList.toggle('active');
+          document.body.classList.toggle('no-scroll');
+        };
+        menuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (mobileNav.classList.contains('open')) toggleMenu();
+          });
+        });
+      }
+    });
+  </script>
 </body>
-
 </html>

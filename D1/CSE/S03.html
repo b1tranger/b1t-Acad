@@ -1,168 +1,189 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="stylesheet" href="../../css/top.navbar.css">
-    <link rel="stylesheet" href="../../css/home.css">
-    <link rel="manifest" href="../manifest.webmanifest">
-    <title>
-        UITS S03
-    </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UITS - Semester 03</title>
+  
+  <link rel="stylesheet" href="../../new.style.css"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Local overrides */
+    .course-card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .course-button {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #2d3748;
+      color: white;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .course-button:hover {
+      background-color: #4a5568;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+    .course-code {
+      font-size: 0.75rem;
+      color: #a0aec0;
+      margin-top: 0.5rem;
+    }
+    .syllabus-img {
+        width: 100%;
+        max-width: 600px;
+        border-radius: 10px;
+        margin: 20px auto;
+        display: block;
+        transition: opacity 0.3s;
+    }
+    #back-button {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 4000;
+      padding: 1rem 1.5rem;
+      border-radius: 9999px;
+      background-color: #4a5568;
+      color: #e2e8f0;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+    #back-button:hover {
+        background-color: #2d3748;
+        transform: scale(1.05);
+    }
+  </style>
 </head>
 
-<body style="background-color: #333;z-index: -1;">
-    <div class="top-credit-show"
-        style="display: none;background-color: white;display: block;width: -webkit-fit-available;height: 40px;position: static;top:0;z-index: 2;margin-left: 20px;margin-right: 20px;margin-top: -10px;">
-    </div>
-    <div style="background-color: #333;display: block;width: 100%;height: 40px;position: fixed;top:0;z-index: 2;">
-    </div>
-    <div
-        style="background-color: #ffffff; margin: 20px;border-radius: 20px;margin-bottom: 50px;box-shadow: 0.5px 0.5px 10px black;overflow-x: hidden;">
+<body>
+  <button id="menu-toggle" class="menu-toggle"><span></span><span></span><span></span></button>
 
+  <nav id="sticky-nav" class="sticky-nav">
+    <ul>
+      <li><a href="../../index.html">Home</a></li>
+      <li><a href="../../index.html#Departments">Departments</a></li>
+      <li><a href="../../index.html#Qbank">Q-Bank</a></li>
+      <li><a href="../../index.html#Library">Library</a></li>
+    </ul>
+  </nav>
 
-        <!-- TOP BAR -->
+  <a href="javascript:history.back()" id="back-button">
+    <i class="fa-solid fa-arrow-left"></i> Back
+  </a>
 
-        <nav class="navbar">
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../../Academics.html">Academics</a></li>
-                    <li><a href="../../Extracurriculars.html">Extracurriculars</a></li>
-                    <li><a href="../../References.html">References</a></li>
-                    <!-- <li><a href="https://ouits-res.netlify.app/" target="_blank">Resources</a></li> -->
-                    <!-- <li><a href="contact.html">Contact</a></li> -->
-                </ul>
-            </div>
-        </nav>
+  <div id="overlay" class="overlay"></div>
 
-
-
-        <!-- ----------------------------------------------------------------------- -->
-
-        <br>
-
-        <div class="container-5" align=center style="margin-top: 50px;">
-            <table class="resources-table-5" align=center>
-                <tr>
-                    <!-- <a href="https://drive.google.com/drive/folders/1a-v05klj706PZbL-YjWx3LSTs3Q7kvSB?usp=drive_link"
-                        target="_blank" class="semester-heading" align="center" >🔗
-                        3rd
-                        Semester
-                        Courses&nbsp;</a> -->
-                    <h2 style="color: white;padding-top: 20px;">3rd
-                        Semester
-                        Courses</h2>
-                    <a href="https://drive.google.com/drive/folders/1a-v05klj706PZbL-YjWx3LSTs3Q7kvSB?usp=drive_link"
-                        target="_blank" class="semester-heading" align="center">🔗 Go to Drive&nbsp;</a>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <div class="container">
-
-                            <div class="img-container">
-                                <img src="../../images/Course-lists/CSE/S03 Course List.webp"
-                                    alt="Codeforces Streams Page">
-
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="https://drive.google.com/drive/folders/1pmKWdksSPezGZdPct2gAydYctKFJMvpI?usp=drive_link"
-                            target="_blank" class="cell-link">
-                            DSA 1<br><small>CSE0613211 + CSE0613212</small>
-                        </a>
-                    </td>
-
-
-                    <td>
-                        <a href="https://drive.google.com/drive/folders/11rhTTRViSz-mhOVCV0uwtDgBimN5GO8B?usp=drive_link"
-                            target="_blank" class="cell-link">
-                            DLD<br><small>CSE0611215 + CSE0611216</small>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="https://drive.google.com/drive/folders/1WbxkGhlKC84ps7r2Ekqs0-Pggq9twvGT?usp=drive_link"
-                            target="_blank" class="cell-link">
-                            DBMS<br><small>CSE0612215 + CSE0612216</small>
-                        </a>
-                    </td>
-
-
-                    <td>
-                        <a href="https://drive.google.com/drive/folders/1bpqvXJuu2qPZ-hVtkK4D9kotKvlqMtH0?usp=drive_link"
-                            target="_blank" class="cell-link">
-                            CGLAVA
-                            <br><small>MATH0541211</small>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <a href="https://drive.google.com/drive/folders/1tjlH5xP-PlcosHZxcPwvinQE-wAUzOZS?usp=drive_link"
-                            target="_blank" class="cell-link">
-                            Web Application Design<br><small> CSE0613124</small>
-                        </a>
-                    </td>
-
-                    <td>
-                        <a href="https://drive.google.com/drive/folders/1dLr18ZBIpOTFleZYS3hjiMu3O_ZxBtIC?usp=drive_link"
-                            target="_blank" class="cell-link">
-                            Electronic Devices and Circuits<br><small>EEE0714211 + EEE0714212</small>
-                        </a>
-                    </td>
-                    <!-- <td>
-                        <a href="https://drive.google.com/drive/folders/1G5HhXeaaESsUUzvshJI_-UFpQOSMZL-s?usp=drive_link"
-                            target="_blank" class="cell-link">
-                            Data Communication <br><small>CSE0612223</small>
-                        </a>
-                    </td> -->
-                </tr>
-
-            </table>
-        </div>
-
-
-        <!-- <div align=center>
-        <p id=" bottom" align=center><a style="color: #8c8c8c;" href="../CSE-Files.html">Go back to CSE-Files</a>
-    </div> -->
-
-        <br><br><br><br><br>
-
-        <!-- HOME BUTTON -->
-
-        <a href="../../index.html" class="home-button">
-            <svg class="home-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-            </svg>
+  <main class="container" style="min-height: auto; padding-top: 80px;">
+    <header>
+      <h1 class="logo" style="font-size: 2.5rem;">Semester 03</h1>
+      <p style="color: rgba(255, 255, 255, 0.5);">Computer Science & Engineering</p>
+    </header>
+    
+    <section style="margin-top: 2rem; margin-bottom: 2rem;">
+        <a href="https://drive.google.com/drive/folders/1a-v05klj706PZbL-YjWx3LSTs3Q7kvSB?usp=drive_link" 
+           target="_blank"  
+           style="color: white; width: 100%; max-width: 300px; margin: 0 auto; display: block; text-align: center;">
+           <i class="fa-brands fa-google-drive"></i>&nbsp; Open Full Drive
         </a>
+    </section>
 
-        <!-- BACK BUTTON -->
-
-        <a href="javascript:history.back()" class="back-icon">&#8592;</a>
-
-        <!-- -------------------------------------------------------------------- -->
-
-        <!-- TO WORK OFFLINE -->
-
-        <script src="../../offline.js"></script>
+    <div style="text-align: center;">
+        <img src="../../images/Course-lists/CSE/S03 Course List.webp" alt="S03 Syllabus" class="syllabus-img">
     </div>
-    <!-- BOTTOM BAR "navbar" -->
+  </main>
 
-    <div style="padding-left:16px">
-    </div>
-    <div class="navbar-5">
-        <font size="24"></font>
-        <p align=center style="color:rgba(255, 255, 255, 0.776);"><i>b1t Academics</i></p>
-        </font>
+  <div class="content-wrapper">
+    <section id="courses" class="content-section" style="min-height: auto;">
+      <h2 style="text-align: center; margin-bottom: 30px;">Course Materials</h2>
+      
+      <div class="course-card-container">
+        <a href="https://drive.google.com/drive/folders/1pmKWdksSPezGZdPct2gAydYctKFJMvpI?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-sitemap fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>DSA 1</strong>
+            <span class="course-code">CSE0613211/212</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/11rhTTRViSz-mhOVCV0uwtDgBimN5GO8B?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-microchip fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>DLD</strong>
+            <span class="course-code">CSE0611215/216</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1WbxkGhlKC84ps7r2Ekqs0-Pggq9twvGT?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-database fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>DBMS</strong>
+            <span class="course-code">CSE0612215/216</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1bpqvXJuu2qPZ-hVtkK4D9kotKvlqMtH0?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-square-root-variable fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>CGLAVA</strong>
+            <span class="course-code">MATH0541211</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1tjlH5xP-PlcosHZxcPwvinQE-wAUzOZS?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-globe fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>Web Design</strong>
+            <span class="course-code">CSE0613124</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1dLr18ZBIpOTFleZYS3hjiMu3O_ZxBtIC?usp=drive_link" target="_blank" class="course-button">
+            <i class="fa-solid fa-plug fa-2x" style="margin-bottom: 10px;"></i>
+            <strong>Electronics</strong>
+            <span class="course-code">EEE0714211/212</span>
+        </a>
+      </div>
+      
+      <br><br>
+      <p style="text-align: center; color: rgba(255,255,255,0.3);"><small>Click on a card to access resources</small></p>
+    </section>
 
-    </div>
+    <section id="About" class="content-section" style="min-height: auto;">
+      <footer class="site-footer">
+        <div class="footer-credits">
+          <p class="credits-text"><strong>b1t Academics</strong></p>
+          <p class="copyright-text">&copy; <span id="year"></span> &nbsp;b1tranger.</p>
+          <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+        </div>
+      </footer>
+    </section>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileNav = document.getElementById('sticky-nav');
+      const overlay = document.getElementById('overlay');
+      const navLinks = mobileNav.querySelectorAll('a');
+
+      if (menuToggle && mobileNav && overlay) {
+        const toggleMenu = () => {
+          mobileNav.classList.toggle('open');
+          overlay.classList.toggle('active');
+          document.body.classList.toggle('no-scroll');
+        };
+        menuToggle.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+        navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if (mobileNav.classList.contains('open')) toggleMenu();
+          });
+        });
+      }
+    });
+  </script>
 </body>
-
 </html>
