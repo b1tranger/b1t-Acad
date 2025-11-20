@@ -68,6 +68,81 @@
         background-color: #2d3748;
         transform: scale(1.05);
     }
+      /* Scroll Indicator Animation */
+    .scroll-indicator {
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      animation: bounce 2s infinite;
+      cursor: pointer;
+    }
+
+    .scroll-indicator a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .scroll-indicator a:hover {
+      color: white;
+    }
+
+    #back-button {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 4000;
+      padding: 1rem 1.5rem;
+      border-radius: 9999px;
+      background-color: #4a5568;
+      color: #e2e8f0;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    #back-button:hover {
+      background-color: #2d3748;
+      transform: scale(1.05);
+    }
+
+    @keyframes bounce {
+
+      0%,
+      20%,
+      50%,
+      80%,
+      100% {
+        transform: translateY(0);
+      }
+
+      40% {
+        transform: translateY(-10px);
+      }
+
+      60% {
+        transform: translateY(-5px);
+      }
+    }
+
+    #back-button {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 4000;
+      padding: 1rem 1.5rem;
+      border-radius: 9999px;
+      background-color: #4a5568;
+      color: #e2e8f0;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+    }
+
+    #back-button:hover {
+      background-color: #2d3748;
+      transform: scale(1.05);
+    }
   </style>
 </head>
 
@@ -102,6 +177,11 @@
 
     <div style="text-align: center;">
         <img src="../../images/Course-lists/CSE/S06 Course List.webp" alt="S06 Syllabus" class="syllabus-img">
+    </div>
+      <div class="scroll-indicator">
+      <a href="#courses">
+        <i class="fa-solid fa-angles-down fa-2x"></i>
+      </a>
     </div>
   </main>
 
