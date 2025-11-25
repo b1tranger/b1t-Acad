@@ -63,14 +63,20 @@ body {
 }
 
 .link-hover-a-2 {
-    color:antiquewhite;
+    color: antiquewhite;
+}
+
+.link-hover-a-3:hover {
+    color: white !important;
+    transition: 0.3s ease;
+    transform: translateY(-3px);
 }
 
 .link-hover-a-2:hover {
     color: black !important;
     transition: 0.3s ease;
     transform: translateY(-3px);
-    background-color:white;
+    background-color: white;
     padding: 5px;
     border-radius: 2px;
 
