@@ -72,6 +72,12 @@ body {
     transform: translateY(-3px);
 }
 
+.link-hover-a-4:hover{
+    /* link for freemediaheckyeah */
+    transition: 0.3s ease;
+    background-color: #48797F !important;
+}
+
 .link-hover-a-2:hover {
     color: black !important;
     transition: 0.3s ease;
