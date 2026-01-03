@@ -78,6 +78,18 @@ body {
     background-color: #48797F !important;
 }
 
+.link-hover-a-5:hover{
+    /* link for freemediaheckyeah */
+    transition: 0.3s ease;
+    background-color: #009400 !important;
+}
+
+.link-hover-a-6:hover{
+    /* link for freemediaheckyeah */
+    transition: 0.3s ease;
+    background-color: #017df0 !important;
+}
+
 .link-hover-a-2:hover {
     color: black !important;
     transition: 0.3s ease;
