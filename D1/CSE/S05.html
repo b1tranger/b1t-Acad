@@ -5,9 +5,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UITS - Semester 05</title>
-  
-  <link rel="stylesheet" href="../../new.style.css"> 
+
+  <link rel="stylesheet" href="../../new.style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/all.min.css"> -->
 
   <style>
     .course-card-container {
@@ -18,6 +19,7 @@
       max-width: 800px;
       margin: 0 auto;
     }
+
     .course-button {
       display: flex;
       flex-direction: column;
@@ -33,24 +35,28 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     .course-button:hover {
       background-color: #4a5568;
       transform: translateY(-5px);
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
       border-color: rgba(255, 255, 255, 0.3);
     }
+
     .course-code {
       font-size: 0.75rem;
       color: #a0aec0;
       margin-top: 0.5rem;
     }
+
     .syllabus-img {
-        width: 100%;
-        max-width: 600px;
-        border-radius: 10px;
-        margin: 20px auto;
-        display: block;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      margin: 20px auto;
+      display: block;
     }
+
     #back-button {
       position: fixed;
       bottom: 2rem;
@@ -64,11 +70,13 @@
       text-decoration: none;
       transition: all 0.3s ease-in-out;
     }
+
     #back-button:hover {
-        background-color: #2d3748;
-        transform: scale(1.05);
+      background-color: #2d3748;
+      transform: scale(1.05);
     }
-      /* Scroll Indicator Animation */
+
+    /* Scroll Indicator Animation */
     .scroll-indicator {
       text-align: center;
       margin-top: 2rem;
@@ -166,19 +174,18 @@
       <h1 class="logo" style="font-size: 2.5rem;">Semester 05</h1>
       <p style="color: rgba(255, 255, 255, 0.5);">Computer Science & Engineering</p>
     </header>
-    
+
     <section style="margin-top: 2rem; margin-bottom: 2rem;">
-        <a href="https://drive.google.com/drive/folders/1_fx4sCES5sL1YeWEI0cSQd850j6Zhkre?usp=drive_link" 
-           target="_blank"  
-           style="color: white; width: 100%; max-width: 300px; margin: 0 auto; display: block; text-align: center;">
-           <i class="fa-brands fa-google-drive"></i>&nbsp; Open Full Drive
-        </a>
+      <a href="https://drive.google.com/drive/folders/1_fx4sCES5sL1YeWEI0cSQd850j6Zhkre?usp=drive_link" target="_blank"
+        style="color: white; width: 100%; max-width: 300px; margin: 0 auto; display: block; text-align: center;">
+        <i class="fa-brands fa-google-drive"></i>&nbsp; Open Full Drive
+      </a>
     </section>
 
     <div style="text-align: center;">
-        <img src="../../images/Course-lists/CSE/S05 Course List.webp" alt="S05 Syllabus" class="syllabus-img">
+      <img src="../../images/Course-lists/CSE/S05 Course List.webp" alt="S05 Syllabus" class="syllabus-img">
     </div>
-      <div class="scroll-indicator">
+    <div class="scroll-indicator">
       <a href="#courses">
         <i class="fa-solid fa-angles-down fa-2x"></i>
       </a>
@@ -188,42 +195,81 @@
   <div class="content-wrapper">
     <section id="courses" class="content-section" style="min-height: auto;">
       <h2 style="text-align: center; margin-bottom: 30px;">Course Materials</h2>
-      
+
       <div class="course-card-container">
-        <a href="https://drive.google.com/drive/folders/1j1Os8LHGAgfOl1gbJjiqWWy05kmsk4Mk?usp=drive_link" target="_blank" class="course-button">
-            <i class="fa-solid fa-brain fa-2x" style="margin-bottom: 10px;"></i>
-            <strong>AI</strong>
-            <span class="course-code">CSE311/312</span>
+        <a href="https://drive.google.com/drive/folders/1j1Os8LHGAgfOl1gbJjiqWWy05kmsk4Mk?usp=drive_link"
+          target="_blank" class="course-button">
+          <i class="fa-solid fa-brain fa-2x" style="margin-bottom: 10px;"></i>
+          <strong>AI</strong>
+          <span class="course-code">CSE311/312</span>
         </a>
-        <a href="https://drive.google.com/drive/folders/1ziNG4HDSQVDz0gR8qU1OMbtVW8EPeVRM?usp=drive_link" target="_blank" class="course-button">
-            <i class="fa-solid fa-network-wired fa-2x" style="margin-bottom: 10px;"></i>
-            <strong>CN</strong>
-            <span class="course-code">CSE313/314</span>
+        <a href="https://drive.google.com/drive/folders/1ziNG4HDSQVDz0gR8qU1OMbtVW8EPeVRM?usp=drive_link"
+          target="_blank" class="course-button">
+          <i class="fa-solid fa-network-wired fa-2x" style="margin-bottom: 10px;"></i>
+          <strong>CN</strong>
+          <span class="course-code">CSE313/314</span>
         </a>
-        <a href="https://drive.google.com/drive/folders/1WbxkGhlKC84ps7r2Ekqs0-Pggq9twvGT?usp=drive_link" target="_blank" class="course-button">
-            <i class="fa-solid fa-database fa-2x" style="margin-bottom: 10px;"></i>
-            <strong>DBMS</strong>
-            <span class="course-code">CSE315/316</span>
+        <!-- <a href="https://drive.google.com/drive/folders/1WbxkGhlKC84ps7r2Ekqs0-Pggq9twvGT?usp=drive_link"
+          target="_blank" class="course-button">
+          <i class="fa-solid fa-database fa-2x" style="margin-bottom: 10px;"></i>
+          <strong>DBMS</strong>
+          <span class="course-code">CSE315/316</span>
+        </a> -->
+        <!-- <a href="https://drive.google.com/drive/folders/1gLWZ6NISQQSZuagWmEJGT_fw9I4BQEXz?usp=drive_link"
+          target="_blank" class="course-button">
+          <i class="fa-solid fa-calculator fa-2x" style="margin-bottom: 10px;"></i>
+          <strong>NMA</strong>
+          <span class="course-code">CSE318</span>
+        </a> -->
+        <a href="https://drive.google.com/drive/folders/1-vcckXJirsjVUnA_BfztCVSKkKFSQnLx?usp=drive_link"
+          target="_blank" class="course-button">
+          <i class="fa-solid fa-server fa-2x" style="margin-bottom: 10px;"></i>
+          <strong>Computer Architecture</strong>
+          <span class="course-code">CSE319</span>
         </a>
-        <a href="https://drive.google.com/drive/folders/1gLWZ6NISQQSZuagWmEJGT_fw9I4BQEXz?usp=drive_link" target="_blank" class="course-button">
-            <i class="fa-solid fa-calculator fa-2x" style="margin-bottom: 10px;"></i>
-            <strong>NMA</strong>
-            <span class="course-code">CSE318</span>
-        </a>
-        <a href="https://drive.google.com/drive/folders/1-vcckXJirsjVUnA_BfztCVSKkKFSQnLx?usp=drive_link" target="_blank" class="course-button">
-            <i class="fa-solid fa-server fa-2x" style="margin-bottom: 10px;"></i>
-            <strong>Architecture</strong>
-            <span class="course-code">CSE319</span>
-        </a>
-        <a href="https://drive.google.com/drive/folders/11hNDmHjWV1QPRzaQ6KWblWiUUKnPs5-0?usp=drive_link" target="_blank" class="course-button">
+        <!-- <a href="https://drive.google.com/drive/folders/11hNDmHjWV1QPRzaQ6KWblWiUUKnPs5-0?usp=drive_link" target="_blank" class="course-button">
             <i class="fa-solid fa-code fa-2x" style="margin-bottom: 10px;"></i>
             <strong>Adv. P. Solving</strong>
             <span class="course-code">CSE204</span>
+        </a> -->
+        <a href="https://drive.google.com/drive/folders/1W6XrFTrUiOLuCSJb-NlUNLbTd-bIwazd?usp=sharing" target="_blank"
+          class="course-button">
+          <i class="fa-solid fa-code fa-2x" style="margin-bottom: 10px;"></i>
+          <strong>Linux Programming</strong>
+          <span class="course-code">CSE0611304/CSE304</span>
+        </a>
+        <!-- { code: "GED0411311/GED113", title: "Financial and Managerial Accounting", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1achIW_ZkLk7SUTcCBIamg7CHvvl2yeSb?usp=drive_link" }, -->
+        <a href="https://drive.google.com/drive/folders/11hNDmHjWV1QPRzaQ6KWblWiUUKnPs5-0?usp=drive_link"
+          target="_blank" class="course-button">
+          <i class="fa-solid fa-fax fa-2x" style="margin-bottom: 10px;"></i>
+          <strong>Accounting</strong>
+          <span class="course-code">GED0411311/CSE204</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1BDXFHdEjoJEwyeGBkbbS2ZzNgJ9Zub-s?usp=drive_link"
+          target="_blank" class="course-button">
+          <i class="fa-solid fa-project-diagram fa-2x" style="margin-bottom: 10px;"></i>
+          <strong>Project Design</strong>
+          <span class="course-code">CSE0613316/CSE416</span>
+        </a>
+        <!-- { code: "CSE213", title: "Theory of Computation - ToC", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Lk_dkegB5YNBlQpYrOIcUP0KYS7e-oo0?usp=drive_link" }, -->
+        <a href="https://drive.google.com/drive/folders/1Lk_dkegB5YNBlQpYrOIcUP0KYS7e-oo0?usp=drive_link"
+          target="_blank" class="course-button">
+          <i class="fa-solid fa-calculator fa-2x" style="margin-bottom: 10px;"></i>
+          <strong>Theory of Computation</strong>
+          <span class="course-code">CSE0611319/CSE213</span>
+        </a>
+        <!-- { code: "MATH0542213", title: "Probability & Statistics", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Ou6ti0_B90QeHr55-cyJsIWcpha4o_LZ?usp=sharing" }, -->
+        <a href="https://drive.google.com/drive/folders/1Ou6ti0_B90QeHr55-cyJsIWcpha4o_LZ?usp=sharing"
+          target="_blank" class="course-button">
+          <i class="fa-solid fa-chart-simple fa-2x" style="margin-bottom: 10px;"></i>
+          <strong>Probability & Statistics</strong>
+          <span class="course-code">MATH0542213</span>
         </a>
       </div>
-      
+
       <br><br>
-      <p style="text-align: center; color: rgba(255,255,255,0.3);"><small>Click on a card to access resources</small></p>
+      <p style="text-align: center; color: rgba(255,255,255,0.3);"><small>Click on a card to access resources</small>
+      </p>
     </section>
 
     <section id="About" class="content-section" style="min-height: auto;">
@@ -261,4 +307,5 @@
     });
   </script>
 </body>
+
 </html>

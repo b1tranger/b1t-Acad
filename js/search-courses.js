@@ -66,7 +66,8 @@ const courses = [
     //
     // [ CSE ] { code: "", title: "", department: "Dept: CSE", driveLink: "" },
     //
-    { code: "GED113", title: "Financial and Managerial Accounting", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1achIW_ZkLk7SUTcCBIamg7CHvvl2yeSb?usp=drive_link" },
+    { code: "MATH0542213", title: "Probability & Statistics", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Ou6ti0_B90QeHr55-cyJsIWcpha4o_LZ?usp=sharing" },
+    { code: "GED0411311/GED113", title: "Financial and Managerial Accounting", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1achIW_ZkLk7SUTcCBIamg7CHvvl2yeSb?usp=drive_link" },
     { code: "MAT265", title: "Complex Variables, Fourier Analysis and Laplace Transform - CVFALT", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1WVfboSGhSvmWjYBU23s2Bk79JX7SyoI2?usp=drive_link" },
     { code: "CSE251 + CSE252", title: "Data Structures and Algorithms 2 - DSA2", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1ZR__njpWSwOeJNhgX1t5eWrIzfmoO0fI?usp=drive_link" },
     { code: "CSE208", title: "Internet Programming Lab - IP", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1yidd6DDh7Oy-D9DTHR3iQApWCXQ9lH39?usp=drive_link" },
@@ -90,6 +91,7 @@ const courses = [
     //
     // [ CSE ] { code: "", title: "", department: "Dept: CSE", driveLink: "" },
     //
+    { code: "CSE0611304/CSE304", title: "Linux Programming Lab", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1W6XrFTrUiOLuCSJb-NlUNLbTd-bIwazd?usp=sharing"},
     { code: "CSE204", title: "Advanced Problem Solving Strategies Lab", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/11hNDmHjWV1QPRzaQ6KWblWiUUKnPs5-0?usp=drive_link" },
     { code: "CSE311 + CSE312", title: "Artificial Intelligence (+lab) - AI", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1j1Os8LHGAgfOl1gbJjiqWWy05kmsk4Mk?usp=drive_link" },
     { code: "CSE313 + CSE314", title: "Computer Networks (+Lab) - CN", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1ziNG4HDSQVDz0gR8qU1OMbtVW8EPeVRM?usp=drive_link" },
