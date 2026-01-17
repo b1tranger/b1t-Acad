@@ -4,10 +4,28 @@
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Netlify Status](https://api.netlify.com/api/v1/badges/82c85edb-4a48-40e0-892d-f6d5766c7a4d/deploy-status)](https://app.netlify.com/projects/ouits-res/deploys)
 
-Website: https://b1tacad.netlify.app/
+<div style="text-align:center;">
+<h2><a href="https://b1tacad.netlify.app/" target="_blank">Website</a> | <a href="https://b1tranger.gitbook.io/archive/documentations/web-dev/b1t-academics target="_blank">Documentation</a></h2>
+</div>
 
-Documentation: https://b1tranger.gitbook.io/archive/documentations/web-dev/b1t-academics
+### # Features:
+- Course Search Bar: Use it to search for results which are linked to their corresponding Cloud Storage Folder.
+- Navigation: Just below the Search Bar, buttons in grid layout to various section of the website are located. Once scrolled below, a sidebar/topbar should appear for navigation instead.
+- Donation: These are linked to Google Forms to donate Questions, Notes and other resources. This is the alternative way you can contribute to the project, other than sharing resources in person, or through a Social Platform.
+- Department selector: Unlike the Course Search Bar, you can now browse resources by your specific Department and Semester. Reach out to me if you can't find the resources you need, or you want to contribute.
+- Library and others: The rest of the features of my website are blog, tutorials, ECA, Books etc. They are mostly my personal collection that you can browse through.
 
+
+### # Socials:
+
+| |
+|-|
+| [Discord](https://discord.gg/BdmArz6FHY) \|  [Telegram](https://t.me/s/oUITS_ORnU) \| [Facebook](https://facebook.com/groups/1074592960836263/) \| [GitHub](https://github.com/oU1TS) |
+| [Portal](https://ouits-res.netlify.app/) \| [Support](https://ou1ts.netlify.app/)  |
+
+
+
+### # Plans:
 I had planned to make a website which:
 
 * <b>is independent of Google's Ecosystem</b> : Meaning the data will not be stored on Google's server, but rather be hosted in something similar to NAS using Database
