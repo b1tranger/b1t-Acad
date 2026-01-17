@@ -16,13 +16,16 @@
 - Library and others: The rest of the features of my website are blog, tutorials, ECA, Books etc. They are mostly my personal collection that you can browse through.
 
 
-### # Socials:
+### # 
+
+<div style="text-align:center;">
 
 | |
 |-|
-| [Discord](https://discord.gg/BdmArz6FHY) \|  [Telegram](https://t.me/s/oUITS_ORnU) \| [Facebook](https://facebook.com/groups/1074592960836263/) \| [GitHub](https://github.com/oU1TS) |
-| [Portal](https://ouits-res.netlify.app/) \| [Support](https://ou1ts.netlify.app/)  |
+| # Socials: [Discord](https://discord.gg/BdmArz6FHY) \|  [Telegram](https://t.me/s/oUITS_ORnU) \| [Facebook](https://facebook.com/groups/1074592960836263/) \| [GitHub](https://github.com/oU1TS) |
+| # Website: [Resources(this)](https://b1tacad.netlify.app/) \| [Portal](https://ouits-res.netlify.app/) \| [Support](https://ou1ts.netlify.app/)  |
 
+</div>
 
 
 ### # Plans:
