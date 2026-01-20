@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UITS - Departments</title>
+
+    <!-- Reuse existing styles -->
+    <link rel="stylesheet" href="new.style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Departments Page Specific Styles */
+        body {
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        /* Layout */
+        .dept-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 1rem 1rem 1rem;
+            /* Uniform padding, removed excessive top */
+            min-height: 80vh;
+            padding-top: 100px;
+            /* Keep space for fixed nav */
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        /* Department Selector (Tabs) - GRID */
+        .dept-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            /* Responsive Grid */
+            gap: 1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            /* Limit width to keep it centered and nice */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dept-tab {
+            padding: 0.75rem 1rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .dept-tab:hover,
+        .dept-tab.active {
+            background-color: #3182ce;
+            /* Blue-500 equivalent */
+            color: white;
+            border-color: #63b3ed;
+            box-shadow: 0 4px 6px rgba(49, 130, 206, 0.3);
+        }
+
+        /* Semester Selection Bar - GRID */
+        .semester-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            /* Responsive Grid */
+            gap: 0.8rem;
+            margin-bottom: 3rem;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            /* Uniform padding */
+            border-radius: 1rem;
+            width: 100%;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            box-sizing: border-box;
+        }
+
+        .semester-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.75rem 0.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.95rem;
+            text-align: center;
+            width: 100%;
+            /* Fill grid cell */
+        }
+
+        .semester-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .semester-btn.active {
+            background: #38a169;
+            /* Green-500 */
+            border-color: #48bb78;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(56, 161, 105, 0.3);
+        }
+
+        /* Dynamic Content Container */
+        .semester-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .semester-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .drive-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #2d3748;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 1rem;
+            transition: transform 0.2s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .drive-btn:hover {
+            transform: translateY(-2px);
+            background: #4a5568;
+        }
+
+        .syllabus-img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Reuse Grid code */
+        .course-card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 1rem;
+            /* Add padding to container */
+        }
+
+        .course-button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #2d3748;
+            color: white;
+            padding: 1.5rem;
+            /* Reduced slightly */
+            border-radius: 1rem;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            min-height: 140px;
+        }
+
+        .course-button:hover {
+            background-color: #4a5568;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .others-btn {
+            /* Special style from S04 */
+            display: block;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fbbf24;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .others-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: #fbbf24;
+        }
+
+        .course-code {
+            font-size: 0.8rem;
+            color: #a0aec0;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .dept-container {
+                /* Uniform padding for mobile */
+                padding: 100px 1rem 2rem 1rem;
+            }
+
+            .semester-title {
+                font-size: 1.8rem;
+            }
+
+            #dept-title {
+                font-size: 2rem;
+            }
+
+            /* Stack selector grids more densely on mobile */
+            .dept-selector {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 cols */
+                max-width: 100%;
+            }
+
+            .semester-bar {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 cols */
+                padding: 1rem;
+                gap: 0.5rem;
+            }
+
+            .course-card-container {
+                grid-template-columns: repeat(2, 1fr);
+                /* Ensure 2 cols */
+                gap: 0.8rem;
+                padding: 0;
+            }
+
+            .course-button {
+                padding: 1rem;
+                min-height: 110px;
+            }
+
+            .course-button i {
+                font-size: 1.5rem !important;
+                /* Force smaller icon */
+            }
+
+            .dept-tab {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+
+            /* Very small screens */
+            .course-card-container {
+                grid-template-columns: 1fr;
+                /* 1 col if very small */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Reuse existing Nav -->
+    <nav id="sticky-nav" class="sticky-nav visible"> <!-- Always visible here -->
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#Departments">Departments</a></li>
+            <li><a href="index.html#Qbank">Q-Bank</a></li>
+            <li><a href="index.html#Library">Library</a></li>
+        </ul>
+    </nav>
+
+    <main class="dept-container">
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <h1 id="dept-title">Departments</h1>
+            <p style="color: rgba(255,255,255,0.5);">Explore resource materials by department</p>
+        </header>
+
+        <!-- 1. Department Selector -->
+        <div id="dept-selector" class="dept-selector">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- 2. Semester Selector -->
+        <div id="semester-buttons" class="semester-bar">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- 3. Dynamic Content -->
+        <div id="semester-content">
+            <!-- Content loads here -->
+            <p style="text-align: center; margin-top: 50px;">Loading resources...</p>
+        </div>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-credits">
+            <p class="credits-text"><strong>b1t Academics</strong></p>
+            <p class="copyright-text">&copy; <span id="year"></span> &nbsp;b1tranger.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Load Data and Logic -->
+    <script src="js/departments-data.js"></script>
+    <script src="js/departments.js"></script>
+
+</body>
+
+</html>
