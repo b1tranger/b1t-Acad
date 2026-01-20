@@ -45,10 +45,10 @@
 
         .dept-tab {
             padding: 0.75rem 1rem;
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: var(--secondary-color);
+            border: 1px solid var(--border-color);
             border-radius: 9999px;
-            color: rgba(255, 255, 255, 0.7);
+            color: var(--text-color);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -85,8 +85,8 @@
 
         .semester-btn {
             background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
             padding: 0.75rem 0.5rem;
             border-radius: 0.5rem;
             cursor: pointer;
@@ -98,12 +98,13 @@
         }
 
         .semester-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--hover-overlay);
         }
 
         .semester-btn.active {
             background: #38a169;
             /* Green-500 */
+            color: white;
             border-color: #48bb78;
             font-weight: bold;
             box-shadow: 0 4px 6px rgba(56, 161, 105, 0.3);
@@ -118,7 +119,7 @@
         .semester-title {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
-            color: white;
+            color: var(--text-color);
         }
 
         .drive-btn {
@@ -165,8 +166,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background-color: #2d3748;
-            color: white;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
             padding: 1.5rem;
             /* Reduced slightly */
             border-radius: 1rem;
@@ -180,8 +181,13 @@
 
         .course-button:hover {
             background-color: #4a5568;
+            color: white !important;
             transform: translateY(-5px);
             box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-button:hover .course-code {
+            color: rgba(255, 255, 255, 0.8) !important;
         }
 
         .others-btn {
@@ -260,6 +266,45 @@
                 padding: 0.5rem;
                 font-size: 0.85rem;
             }
+
+            /* Mobile Home Button */
+            .mobile-home-btn {
+                display: flex !important;
+                /* Show on mobile */
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-home-btn {
+                display: none !important;
+                /* Hide on desktop */
+            }
+        }
+
+        .mobile-home-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            border-radius: 50%;
+            display: none;
+            /* Hidden by default (desktop) */
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            text-decoration: none;
+            z-index: 3000;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-home-btn:hover {
+            background-color: var(--accent-color);
+            color: white;
+            transform: scale(1.1);
         }
 
         @media (max-width: 400px) {
@@ -275,6 +320,12 @@
 
 <body>
 
+    <button id="menu-toggle" class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
     <!-- Reuse existing Nav -->
     <nav id="sticky-nav" class="sticky-nav visible"> <!-- Always visible here -->
         <ul>
@@ -285,11 +336,13 @@
         </ul>
     </nav>
 
+    <div id="overlay" class="overlay"></div>
+
     <main class="dept-container">
 
         <header style="text-align: center; margin-bottom: 3rem;">
             <h1 id="dept-title">Departments</h1>
-            <p style="color: rgba(255,255,255,0.5);">Explore resource materials by department</p>
+            <p style="color: var(--text-content);">Explore resource materials by department</p>
         </header>
 
         <!-- 1. Department Selector -->
@@ -322,8 +375,19 @@
     </script>
 
     <!-- Load Data and Logic -->
+    <!-- Theme Switcher -->
+    <button id="theme-toggle" aria-label="Toggle Theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Mobile Home Button -->
+    <a href="index.html" class="mobile-home-btn" aria-label="Go to Home">
+        <i class="fas fa-home"></i>
+    </a>
+
     <script src="js/departments-data.js"></script>
     <script src="js/departments.js"></script>
+    <script src="js/theme.js"></script>
 
 </body>
 

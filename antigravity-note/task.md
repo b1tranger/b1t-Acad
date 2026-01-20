@@ -1,14 +1,34 @@
 # Task: Refactor Departments Architecture
 
-- [ ] Explore existing structure <!-- id: 0 -->
-    - [ ] Read `index.html` <!-- id: 1 -->
-    - [ ] List `D1` directory contents <!-- id: 2 -->
-    - [ ] Read one of the semester pages (e.g., `D1/CSE/S01.html` if it exists) <!-- id: 3 -->
-- [ ] Create Implementation Plan <!-- id: 4 -->
-- [ ] Create `Departments.html` <!-- id: 5 -->
-    - [ ] Implement semester selector <!-- id: 6 -->
-    - [ ] Implement dynamic content loading <!-- id: 7 -->
-- [ ] Modify `index.html` <!-- id: 8 -->
-    - [ ] Replace selector with department list <!-- id: 9 -->
-    - [ ] Link departments to `Departments.html` with query params (e.g., `?dept=CSE`) <!-- id: 10 -->
-- [ ] Verify changes <!-- id: 11 -->
+- [x] Explore existing structure <!-- id: 0 -->
+    - [x] Read `index.html` <!-- id: 1 -->
+    - [x] List `D1` directory contents <!-- id: 2 -->
+    - [x] Read one of the semester pages (e.g., `D1/CSE/S01.html` if it exists) <!-- id: 3 -->
+- [x] Create Implementation Plan <!-- id: 4 -->
+- [x] Create `Departments.html` <!-- id: 5 -->
+    - [x] Implement semester selector <!-- id: 6 -->
+    - [x] Implement dynamic content loading <!-- id: 7 -->
+- [x] Modify `index.html` <!-- id: 8 -->
+    - [x] Replace selector with department list <!-- id: 9 -->
+    - [x] Link departments to `Departments.html` with query params (e.g., `?dept=CSE`) <!-- id: 10 -->
+- [x] Verify changes <!-- id: 11 -->
+- [x] Refine Departments <!-- id: 12 -->
+    - [x] Migrate CE data <!-- id: 13 -->
+    - [x] Migrate IT data <!-- id: 14 -->
+    - [x] Add BBA placeholder <!-- id: 15 -->
+    - [x] Improve mobile responsiveness <!-- id: 16 -->
+    - [x] Grid Refactor & Overflow Fix <!-- id: 17 -->
+    - [x] Archive old files <!-- id: 18 -->
+- [x] Move miscellaneous pages to `misc/` <!-- id: 19 -->
+    - [x] Create `misc/` folder and move files <!-- id: 20 -->
+    - [x] Update links in `index.html` <!-- id: 21 -->
+    - [x] Update resource paths (CSS/JS/Img) in moved files <!-- id: 22 -->
+- [x] Refactor CSS <!-- id: 23 -->
+    - [x] Merge `new.style.css` and `css/styles.css` into `style.css` <!-- id: 24 -->
+    - [x] Update HTML links to use `style.css` <!-- id: 25 -->
+    - [x] Comment out redundant code in old CSS files <!-- id: 26 -->
+- [ ] Implement Theme Switcher <!-- id: 27 -->
+    - [ ] Define CSS variables for Dark and Gray themes <!-- id: 28 -->
+    - [ ] Add theme switcher icon to HTML <!-- id: 29 -->
+    - [ ] Implement JS for toggling and persistence <!-- id: 30 -->
+    - [ ] Move "b1t scheduler" to sidebar on mobile <!-- id: 31 -->

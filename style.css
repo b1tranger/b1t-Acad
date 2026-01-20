@@ -1,21 +1,107 @@
-/* --- Basic Setup & Dark Theme --- */
+﻿/* --- Basic Setup & Dark Theme (Default) --- */
 :root {
+  /* Default (Dark) Colors */
   --bg-color: #121212;
   --primary-color: #1e1e1e;
   --secondary-color: #2a2a2a;
   --text-color: #e0e0e0;
+  /* Main text */
+  --text-content: #b0b0b0;
+  /* Paragraphs/secondary text */
   --accent-color: #007bff;
-  /* --border-color: #444; */
-}
+  --border-color: #444;
+  --hover-btn-bg: #2d3748;
+  --hover-btn-text: #fff;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  /* Darken hover effect for better contrast (especially in light themes) */
+  --hover-overlay: rgba(0, 0, 0, 0.2);
+  /* Darken hover effect for better contrast (especially in light themes) */
+  --hover-overlay: rgba(0, 0, 0, 0.2);
 
-/* Color Palette */
-:root {
+  /* Red Palette (Constant across themes usually, but defined here) */
   --primary-red: #d92027;
   --hover-red: #b31a20;
   --light-bg: #ffffff;
-  --text-dark: #333333;
   --text-light: #ffffff;
-  --border-color: #eeeeee;
+}
+
+/* --- Gray Theme Variables --- */
+[data-theme="gray"] {
+  --bg-color: #e3e3e3;
+  /* Grayish white background - darker than pure white */
+  --primary-color: #f0f0f0;
+  /* Light gray for cards/sections */
+  --secondary-color: #dcdcdc;
+  /* Slightly darker for inputs/elements */
+  --text-color: #1a1a1a;
+  /* Dark text for contrast */
+  --text-content: #333333;
+  /* Darker text for content paragraphs */
+  --accent-color: #0069d9;
+  /* Slightly darker blue for better contrast on light bg */
+  --border-color: #bfbfbf;
+  /* Visible gray border */
+  --hover-btn-bg: #808080;
+  /* Significantly darker gray for hover */
+  --hover-btn-text: #000;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --text-light: #1a1a1a !important;
+  /* Force light text utility to be dark in light theme if needed */
+}
+
+/* --- Theme Switcher Button --- */
+/* --- Theme Switcher Button --- */
+#theme-toggle {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  /* RIGHT-MOST corner as requested */
+  z-index: 4000;
+  padding: 0.8rem;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: var(--accent-color);
+  color: #fff;
+  /* Always white on hover for high contrast against accent */
+}
+
+/* --- Mobile Responsiveness for Floating Elements --- */
+@media (max-width: 768px) {
+
+  /* Hide the floating scheduler button on mobile */
+  #floating-button {
+    display: none !important;
+  }
+
+  #floating-button-nav {
+    display: block !important;
+  }
+
+  /* Make sure the sidebar link is visible (it might be hidden by default if desktop styles hide it) */
+  .mobile-scheduler-link {
+    display: block !important;
+  }
+
+  /* Adjust theme toggle position on mobile */
+  #theme-toggle {
+    right: 20px;
+    /* Keep it in the corner */
+    top: 20px;
+  }
 }
 
 /* --- Smooth Scrolling Behavior --- */
@@ -140,12 +226,12 @@ body {
 .search-label {
   display: block;
   margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-content);
 }
 
 .search-hint {
   margin-top: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-content);
 }
 
 /* Changed .search-bar to .search-input to match new HTML and JS */
@@ -189,10 +275,12 @@ body {
   width: 100%;
   max-height: 350px;
   overflow-y: auto;
-  background-color: #2a2a2a;
-  border: 1px solid #444;
+  max-height: 350px;
+  overflow-y: auto;
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px var(--shadow-color);
   z-index: 1000;
   text-align: left;
 }
@@ -200,7 +288,7 @@ body {
 .result-item {
   padding: 12px 15px;
   cursor: pointer;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid var(--border-color);
   transition: background-color 0.2s ease;
 }
 
@@ -217,7 +305,7 @@ body {
   font-weight: bold;
   font-size: 1rem;
   margin-bottom: 4px;
-  color: #e0e0e0;
+  color: var(--text-color);
 }
 
 .result-item:hover .result-title,
@@ -228,15 +316,14 @@ body {
 .result-code,
 .result-dept {
   font-size: 0.85rem;
-  color: #aaa;
+  color: var(--text-content);
   margin-right: 15px;
 }
 
 .result-item:hover .result-code,
 .result-item:hover .result-dept,
-.result-item.active .result-code,
 .result-item.active .result-dept {
-  color: #f0f0f0;
+  color: var(--hover-btn-text);
 }
 
 .highlight {
@@ -275,8 +362,11 @@ body {
 }
 
 .grid-button:hover {
-  background-color: var(--secondary-color);
+  background-color: var(--hover-btn-bg);
+  /* Use the darker hover variable */
   transform: translateY(-5px);
+  filter: brightness(0.9);
+  /* Additional dimming for "darker effect" */
 }
 
 /* ======== ADD THESE NEW STYLES TO THE END OF YOUR CSS FILE ======== */
@@ -313,7 +403,7 @@ body {
 .content-section p {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #b0b0b0;
+  color: var(--text-content);
 }
 
 /* Alternate background colors for sections to distinguish them */
@@ -643,8 +733,8 @@ body.no-scroll {
   display: none;
   position: absolute;
   width: 100%;
-  background-color: #2a2a2a;
-  border: 1px solid #444;
+  background-color: var(--primary-color);
+  border: 1px solid var(--border-color);
   border-radius: 10px;
   margin-top: 0.5rem;
   z-index: 100;
@@ -745,7 +835,7 @@ body.no-scroll {
 }
 
 .info-section__title {
-  color: rgba(240, 248, 255, 0.65);
+  color: var(--text-content);
   font-size: 1.5rem;
   font-weight: 500;
   margin-bottom: 2rem;
@@ -768,8 +858,8 @@ body.no-scroll {
 
 .info-nav-link {
   /* Common styles for all navigation buttons */
-  background-color: rgba(87, 87, 87, 0.562);
-  color: #fff;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   height: 60px;
   width: 160px;
   /* A wider width for longer text */
@@ -828,7 +918,7 @@ body.no-scroll {
 }
 
 .resources-section__title {
-  color: rgba(240, 248, 255, 0.85);
+  color: var(--text-content);
   font-size: 1.5rem;
   font-weight: 500;
   margin: 0;
@@ -839,7 +929,7 @@ body.no-scroll {
 }
 
 .resources-section__subtitle a {
-  color: rgba(240, 248, 255, 0.65);
+  color: var(--text-content);
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.2s ease;
@@ -866,8 +956,8 @@ body.no-scroll {
 
 .resources-nav-link {
   /* Common styles for all navigation links */
-  background-color: rgba(87, 87, 87, 0.562);
-  color: #fff;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
   width: 160px;
   min-height: 60px;
   /* Use min-height for flexibility */
@@ -932,7 +1022,7 @@ body.no-scroll {
 }
 
 .blog-nav-link {
-  color: #ffffff;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 500;
@@ -973,7 +1063,7 @@ body.no-scroll {
   width: 100%;
   background-color: var(--primary-color);
   /* Uses your existing dark theme color */
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-content);
   padding: 2.5rem 1.5rem;
   margin-top: 4rem;
   /* Adds space above the footer */
@@ -998,7 +1088,7 @@ body.no-scroll {
 
 .footer-heading {
   font-size: 1.2rem;
-  color: #fff;
+  color: var(--text-color);
   margin: 0 0 0.25rem 0;
 }
 
@@ -1017,7 +1107,7 @@ body.no-scroll {
 }
 
 .social-links a {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-content);
   font-size: 2rem;
   /* Controls the size of the icons */
   text-decoration: none;
@@ -1025,7 +1115,7 @@ body.no-scroll {
 }
 
 .social-links a:hover {
-  color: #fff;
+  color: var(--text-color);
   transform: scale(1.1);
 }
 
@@ -1037,7 +1127,7 @@ body.no-scroll {
 }
 
 .credits-text strong {
-  color: #fff;
+  color: var(--text-color);
 }
 
 .credits-text a {
@@ -1054,7 +1144,7 @@ body.no-scroll {
 
 .copyright-text {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-content);
   margin: 0;
 }
 
@@ -2495,8 +2585,8 @@ now Browse Curated Resources*/
   left: 20px; */
   bottom: 65px;
   right: 65px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--accent-color);
+  color: #fff;
   padding: 8px 10px;
   /* border-radius: 50%; */
   text-decoration: none;
@@ -2570,8 +2660,8 @@ now Browse Curated Resources*/
   bottom: 60px;
   right: 110px;
   padding: 20px 20px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--accent-color);
+  color: #fff;
   border: none;
   /* border-radius: 5px; */
   cursor: pointer;
@@ -2596,16 +2686,24 @@ now Browse Curated Resources*/
 }
 
 .scroll-button:hover {
-  background-color: #0056b3;
+  background-color: var(--accent-color);
   transform: scale(1.1);
+  filter: brightness(0.9);
 }
 
 .scroll-button.visible {
   opacity: 1;
 }
 
+/* Fix arrow hover color */
+.go-to-top-button:hover .arrow {
+  border-color: #fff !important;
+  /* Force white on hover for contrast against accent color */
+}
+
 .arrow {
-  border: solid white;
+  border: solid currentColor;
+  /* Use text color (white) */
   border-width: 0 3px 3px 0;
   display: inline-block;
   padding: 3px;
@@ -2615,7 +2713,7 @@ now Browse Curated Resources*/
 .arrow-circle {
   width: 24px;
   height: 24px;
-  border: 2px solid white;
+  border: 2px solid currentColor;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2641,9 +2739,10 @@ now Browse Curated Resources*/
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: #333;
+  width: 100%;
+  background-color: var(--secondary-color);
   /* Example background, adjust as needed */
-  color: white;
+  color: var(--text-color);
   text-align: center;
   padding: 10px 0px 15px 0px;
   /* Add some padding to prevent text from touching edges */
@@ -2676,7 +2775,7 @@ now Browse Curated Resources*/
 .navbar-5 a {
   float: right;
   display: block;
-  color: #f2f2f2;
+  color: var(--text-color);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -2689,7 +2788,7 @@ now Browse Curated Resources*/
 }
 
 .navbar-5 a.active {
-  background-color: #197dd5;
+  background-color: var(--accent-color);
   color: white;
 }
 
@@ -2850,4 +2949,94 @@ now Browse Curated Resources*/
   .randomBS-2 {
     display: none;
   }
+. s i t e - f o o t e r  
+   b a c k g r o u n d - c o l o r :   r g b a ( 0 ,   0 ,   0 ,   0 . 3 ) ;   p a d d i n g :   2 r e m   0 ;   w i d t h :   1 0 0 % ;   m a r g i n - t o p :   a u t o ;    
+ / *  
+ - - -  
+ G r a y  
+ T h e m e  
+ R e f i n e m e n t s  
+ f o r  
+ I n d e x  
+ P a g e  
+ - - -  
+ * /  
+ 
+[data-theme="gray"] .grid-button:hover {
+    color: white !important;
 }
+
+[data-theme="gray"] #info .info-nav-link:hover,
+[data-theme="gray"] #info .info-nav-link-a:hover {
+    background-color: #333;
+    color: white;
+}
+
+[data-theme="gray"] #Qbank a:not(.link-hover-a):not(.link-hover-a-3):hover,
+[data-theme="gray"] #Departments a:not(.grid-button):not(.link-hover-a):hover,
+[data-theme="gray"] .info-section a.info-nav-link:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* Upload Section Refinements */
+[data-theme="gray"] .upload-section {
+    background-color: #e0e0e0; /* Lighter background */
+}
+
+[data-theme="gray"] .upload-title,
+[data-theme="gray"] .upload-section h3,
+[data-theme="gray"] .upload-section p {
+    color: #333 !important;
+}
+
+[data-theme="gray"] .upload-section p small,
+[data-theme="gray"] .upload-section p .link-hover-a-2 {
+    color: #333 !important; /* Instructions text */
+}
+
+[data-theme="gray"] .btn-primary:hover {
+    filter: brightness(1.2); /* Lighter on hover */
+}
+
+/* ECA & Library Refinements */
+[data-theme="gray"] .resource-link, 
+[data-theme="gray"] .resources-nav-link {
+    transition: all 0.3s ease;
+}
+
+[data-theme="gray"] .resource-link:hover, 
+[data-theme="gray"] .resources-nav-link:hover {
+    background-color: #333;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* Exceptions for colored buttons */
+[data-theme="gray"] .resource-link[style*="background-color: green"]:hover,
+[data-theme="gray"] .resource-link[style*="background-color: #0285ff"]:hover,
+[data-theme="gray"] .resource-link[style*="background-color: #C034AA"]:hover,
+[data-theme="gray"] .resource-link[style*="box-shadow"]:hover,
+[data-theme="gray"] .resources-nav-link[style*="box-shadow"]:hover {
+    /* Keep original hover behavior or just add shadow */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    /* For ones with specific colors, we generally want to keep them but maybe darken/lighten. 
+       The generic rule above overwrites background-color, so we need to reset it 
+       or use !important in HTML (which exists). 
+       The HTML has inline styles, so those usually win unless !important is used here.
+       But the request says "remains as is" for color, but add box-shadow. 
+       Since HTML inline style > CSS class (without !important), color shouldn"t change 
+       unless we force it. The generic rule above DOES NOT have !important so inline wins.
+       So specific colored buttons should keep their color. 
+    */
+    background-color: initial; /* Let inline style win, effectively */
+    color: white; /* Usually these buttons have white text */
+}
+
+/* About Section Refinements */
+[data-theme="gray"] #About .info-nav-link:hover,
+[data-theme="gray"] #About .info-nav-link-a:hover {
+    background-color: #1a1a1a;
+    color: white;
+}
+

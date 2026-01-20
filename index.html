@@ -21,30 +21,48 @@
 
 
     /* Floating Button Styles */
+
     #floating-button {
-      position: fixed;
       top: 2rem;
-      right: 2rem;
+      right: 1.5rem;
+    }
+
+    #floating-button-nav {
+      display: none;
+      top: 14rem;
+      left: 2rem;
+    }
+
+    #floating-button,
+    #floating-button-nav {
+      position: fixed;
+      /* top: 2rem; */
+      /* right: 2rem; */
       z-index: 4000;
       padding: 1rem;
       border-radius: 9999px;
       /* full round */
-      background-color: #4a5568;
+      background-color: var(--secondary-color);
       /* gray-700 */
-      color: #e2e8f0;
+      color: var(--text-color);
       /* gray-200 */
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color);
       text-decoration: none;
       transition: all 0.3s ease-in-out;
       animation: float 3s ease-in-out infinite;
+      border: 1px solid var(--border-color);
+      /* Added border for better contrast */
     }
 
-    #floating-button:hover {
-      background-color: #2d3748;
-      /* gray-800 */
+    #floating-button:hover,
+    #floating-button-nav:hover {
+      background-color: var(--hover-btn-bg);
+      color: var(--hover-btn-text);
+      border-color: var(--accent-color);
     }
 
-    #floating-button:focus {
+    #floating-button:focus,
+    #floating-button-nav:focus {
       outline: none;
       box-shadow: 0 0 0 3px rgba(96, 105, 119, 0.6);
     }
@@ -100,26 +118,40 @@
   </button>
 
   <nav id="sticky-nav" class="sticky-nav">
+
+    <!-- The Floating Button -->
+    <span>
+      <a href="https://b1tsched.netlify.app/" target="_blank" id="floating-button-nav">
+        b1t Scheduler
+      </a>
+    </span>
     <ul>
       <li><a href="#info">Info</a></li>
+      <!-- <li><a href="https://b1tsched.netlify.app/" target="_blank" style="border: 1px solid black;">b1t Scheduler<br><span style="font-size: small;text-align: center;">[ Project ]</span></a></li> -->
       <li><a href="#Qbank">Question Bank</a></li>
       <li><a href="#Departments">Departments</a></li>
       <li><a href="#Donate">Donate</a></li>
       <li><a href="#ECA">ECA</a></li>
       <li><a href="#Library">Library</a></li>
-      <li><a href="misc/blog.html">Blog</a></li>
-      <li><a href="misc/tutorial.html">Tutorial</a></li>
+      <!-- <li><a href="misc/blog.html">Blog</a></li> -->
+      <!-- <li><a href="misc/tutorial.html">Tutorial</a></li> -->
       <li><a href="#About">About</a></li>
+
     </ul>
+
   </nav>
 
 
 
+  <!-- Theme Switcher -->
+  <button id="theme-toggle" aria-label="Toggle Theme">
+    <i class="fas fa-moon"></i>
+  </button>
 
 
 
   <!-- The Floating Button -->
-  <a href="https://b1tsched.netlify.app/" target="_blank" id="floating-button">
+  <a href="https://b1tsched.netlify.app/" target="_blank" id="floating-button" style="margin-right: 4rem;">
     b1t Scheduler
   </a>
 
@@ -135,7 +167,7 @@
       <h1 class="logo">b1t Academics</h1>
 
     </header>
-    <div style="margin-top: -20px;margin-bottom: 30px;color: rgba(255, 255, 255, 0.342);">
+    <div style="margin-top: -20px;margin-bottom: 30px;color: var(--text-content);">
       <p>Unofficial Resources Archiver<br>for UITS</p>
     </div>
     <section class="search-section">
@@ -145,10 +177,11 @@
           placeholder="Search Courses by title, acronym, or code" autocomplete="off">
         <div class="search-results"></div>
       </div>
-      <p class="search-hint" style="color: rgba(255, 255, 255, 0.342);">
+      <p class="search-hint" style="color: var(--text-content);">
         <!-- <small>(use " Dept: <i>Name</i>" for filtering)</small> -->
         <small>To see detailed resources, visit
-          <a href="#Departments" style="color: white;" class="link-hover-a">Departments</a></small>
+          <a href="#Departments" style="color: var(--accent-color); font-weight: bold;"
+            class="link-hover-a">Departments</a></small>
       </p>
     </section>
 
@@ -159,21 +192,19 @@
       <a href="#Donate" class="grid-button">Donate</a>
       <a href="#ECA" class="grid-button">ECA</a>
       <a href="#Library" class="grid-button">Library</a>
-      <a href="misc/blog.html" class="grid-button">Blog</a>
 
-      <a href="misc/tutorial.html" class="grid-button">Tutorial</a>
       <a href="#About" class="grid-button">About</a>
     </section>
     <br>
     <!-- This invisible element marks the point where the button should disappear -->
     <div id="hide-marker"></div>
     <!-- <span style="position: relative;"> -->
-    <p style="text-align: center;color: rgba(250, 235, 215, 0.315);">Design inspired from <a
+    <p style="text-align: center;color: var(--text-content);">Design inspired from <a
         href="https://notebot.netlify.app/" target="_blank"
-        style="color: rgba(255, 255, 255, 0.534);">https://notebot.netlify.app/</a></p>
+        style="color: var(--accent-color);">https://notebot.netlify.app/</a></p>
 
     <p style="text-align: center;margin-top: 20px;"><a href="https://ouits-res.netlify.app/" target="_blank"
-        style="color: white;" class="link-hover-a">Go to portal</a></p>
+        style="color: var(--accent-color);" class="link-hover-a">Go to portal</a></p>
     <!-- </span> -->
   </main>
 
@@ -647,6 +678,8 @@
     &#8593;
   </a>
   <script src="js/search-courses.js"></script>
+  <script src="js/departments.js"></script>
+  <script src="js/theme.js"></script>
 
   <script>
     // Place this inside your existing DOMContentLoaded script block
@@ -696,32 +729,7 @@
         window.addEventListener('scroll', handleScroll);
       }
 
-      // --- NEW: Logic for Mobile Side Menu ---
-      const menuToggle = document.getElementById('menu-toggle');
-      const mobileNav = document.getElementById('sticky-nav'); // We reuse the same nav
-      const overlay = document.getElementById('overlay');
-      const navLinks = mobileNav.querySelectorAll('a');
 
-      if (menuToggle && mobileNav && overlay) {
-        // Function to open or close the menu
-        const toggleMenu = () => {
-          mobileNav.classList.toggle('open');
-          overlay.classList.toggle('active');
-          document.body.classList.toggle('no-scroll');
-        };
-
-        menuToggle.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', toggleMenu);
-
-        // Close menu when a link is clicked
-        navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            if (mobileNav.classList.contains('open')) {
-              toggleMenu();
-            }
-          });
-        });
-      }
     });
   </script>
 

@@ -43,3 +43,22 @@ I can see that there are a lot of css files in my project. Can you make necessar
 But please compile @styles.css@new.style.css  files into one style.css. Comment out the unnecessary css code at the very end of each file. 
 
 Again, do not remove any css file, and instead of removing unnecessary codes, just comment them out as I have requested.
+
+---
+
+can you a theme switcher to the website? cosider the current theme as "dark theme" and the theme to switch as "gray theme". I am not calling is "light theme" because I want the white-ish theme to have a darker tone than pure eye-blinging white.  Make a small icon to highlight the theme switcher at the top-right corner, right beside the element "b1t scheduler". for mobile displays, make it so the element "b1t scheduler" appears in the side bar instead of on the top right.
+
+---
+
+1. "b1t scheduler" is still visible on mobile screen resolution. 
+2. many texts are not contrasting well with the background. In fact, the texts should be darker when the background is lighter. 
+3. the icons at the bottom "about" section need to be darker as well.
+4. hover effects in the buttons make the already light buttons, more light. It almost blends. into the background. "go to top" button's arrow icon at the bottom-right corner should also change when hovering.
+
+
+---
+
+1. "b1t Scheduler" does disappear in mobile screen resolution, but doesn't appear in the sidebar, which is id="sticky-nav" section.
+2. buttons in other sections aside from ""#info" should have darker effect upon hover. Curently it makes it even lighter.
+3. the theme switcher should be at the top-right-most corner, instead of "b1t Scheduler"
+4. id="goToTopBtn" element's arrow-up icon doesn't change color when hoverred over
