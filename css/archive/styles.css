@@ -1,3 +1,4 @@
+/*
 .TG-overview {
   color: white;
   max-width: 500px;
@@ -83,10 +84,10 @@
 }
 
 
-/* ----------------------------------------------------- */
+/* ----------------------------------------------------- * /
 .hidden-link {
   display: none;
-  /* background-color: rgba(255, 255, 255, 0.342); */
+  /* background-color: rgba(255, 255, 255, 0.342); * /
   display: block;
   height: 40px;
   position: static;
@@ -99,8 +100,8 @@
   margin-left: auto;
   margin-right: auto;
   border-radius: 15px;
-  /* box-shadow: 1px 1px 10px black; */
-  /* border: 2px solid black; */
+  /* box-shadow: 1px 1px 10px black; * /
+  /* border: 2px solid black; * /
 }
 
 .hidden-link p {
@@ -111,14 +112,14 @@
 }
 
 .hidden-link p a {
-  /* text-decoration: underline; */
+  /* text-decoration: underline; * /
   color: #ffffff48;
 }
 
 .footer-container {
   width: 90%;
   max-width: 500px;
-  /* margin-top: 100px; */
+  /* margin-top: 100px; * /
   margin: 0 auto;
 
 }
@@ -130,8 +131,8 @@
   padding: 0.5rem;
   text-shadow: 1px 2px 2px #000000;
   transition: transform 0.3s ease;
-  /* display: flex; */
-  /* justify-content: center; */
+  /* display: flex; * /
+  /* justify-content: center; * /
 
 }
 
@@ -153,7 +154,7 @@
   text-shadow: 0px 2px 1px black;
   display: flex;
   justify-content: center;
-  /* padding: 5px; */
+  /* padding: 5px; * /
 
 }
 
@@ -174,7 +175,7 @@
 }
 
 .end-credits div p {
-  /* color: rgb(254, 254, 254); */
+  /* color: rgb(254, 254, 254); * /
   width: 80%;
   max-width: 550px;
   font-size: 1rem;
@@ -186,7 +187,7 @@
   width: 95%;
   max-width: 500px;
   font-size: 1rem;
-  /* font-style: italic; */
+  /* font-style: italic; * /
   text-shadow: 0px 2px 1px black;
   margin: auto;
   display: flex;
@@ -196,7 +197,7 @@
 
 
 
-/* ---------------------------------------------------- */
+/* ---------------------------------------------------- * /
 
 
 html {
@@ -204,7 +205,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* https://stackoverflow.com/questions/10853881/how-to-remove-underline-from-a-link-in-html*/
+/* https://stackoverflow.com/questions/10853881/how-to-remove-underline-from-a-link-in-html* /
 
 a {
   text-decoration: none;
@@ -220,8 +221,8 @@ a {
 
 
 
-/*    .topnav3     */
-/* FOR BLOGGER IFRAME HEADER */
+/*    .topnav3     * /
+/* FOR BLOGGER IFRAME HEADER * /
 
 .topnav-3 {
   overflow: hidden;
@@ -234,11 +235,11 @@ a {
 
 
 
-/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  * /
 
 
-/* TOP BAR CSS [ 1 ] */
-/* Reset margin and font */
+/* TOP BAR CSS [ 1 ] * /
+/* Reset margin and font * /
 body {
   background-color: #FAF9F6;
   margin: 0;
@@ -252,12 +253,12 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-} */
+} * /
 
-/* -------------------------------------------------------------- */
+/* -------------------------------------------------------------- * /
 
 
-/* Navigation bar container */
+/* Navigation bar container * /
 .topnav-1 {
   display: flex;
   justify-content: flex-end;
@@ -272,10 +273,10 @@ body {
 
 }
 
-/* Navigation links */
+/* Navigation links * /
 
 
-/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- * /
 .dropdown-content div.navigation1,
 .dropdown-content div.navigation2,
 .dropdown-content div.navigation3,
@@ -296,7 +297,7 @@ body {
   color: rgb(255, 255, 255);
 }
 
-/* ----------------------------------------------------------- */
+/* ----------------------------------------------------------- * /
 
 
 
@@ -323,11 +324,11 @@ body {
   width: 100%;
   font-size: small;
   position: relative;
-  /* Ensure proper stacking context */
+  /* Ensure proper stacking context * /
   z-index: 100;
-  /* Higher z-index for the navbar */
+  /* Higher z-index for the navbar * /
   overflow: visible !important;
-  /* Critical: allows dropdowns to extend outside */
+  /* Critical: allows dropdowns to extend outside * /
 
 }
 
@@ -346,7 +347,7 @@ body {
 }
 
 
-/* Hover effect */
+/* Hover effect * /
 .topnav-1 a:hover,
 .topnav-2 a:hover {
   background-color: #BBE1FA;
@@ -355,7 +356,7 @@ body {
 
 
 
-/* Active link style */
+/* Active link style * /
 .topnav-1 a.active-1,
 .topnav-2 a.active-1 {
   background-color: #197dd500;
@@ -364,7 +365,7 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-/* Small text within links */
+/* Small text within links * /
 .topnav-1 small,
 .topnav-2 small {
   display: block;
@@ -380,18 +381,18 @@ body {
 
 
 
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
 
 
-/* Container for the dropdown */
+/* Container for the dropdown * /
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Button styling */
+/* Button styling * /
 .dropbtn {
   background-color: #4caf4f00;
   color: white;
@@ -399,8 +400,8 @@ body {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  /* border-radius: 4px; */
-  /* font-size: large; */
+  /* border-radius: 4px; * /
+  /* font-size: large; * /
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
   -webkit-tap-highlight-color: transparent;
@@ -415,29 +416,29 @@ body {
 /* .dropbtn:hover {
   background-color: #197dd5;
   color: rgb(255, 255, 255);
-} */
+} * /
 
-/* The dropdown content (hidden by default) */
+/* The dropdown content (hidden by default) * /
 .dropdown-content {
   min-height: 100px;
   display: none;
   position: absolute;
   right: 0;
-  /* Align to the right side of the button */
+  /* Align to the right side of the button * /
   left: auto;
-  /* Override default left alignment */
+  /* Override default left alignment * /
   background-color: #00000000;
   color: #000000;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  /* z-index: 1; */
+  /* z-index: 1; * /
   border-radius: 4px;
   overflow-y: scroll;
 
 
 }
 
-/* Style for the links inside the dropdown */
+/* Style for the links inside the dropdown * /
 .dropdown-content a {
   margin: 5px;
   color: rgb(255, 255, 255);
@@ -447,12 +448,12 @@ body {
   text-align: left;
 }
 
-/* Change color on hover */
+/* Change color on hover * /
 .dropdown-content a:hover,
 .dropdown-content a:active {
   background-color: #BBE1FA;
   color: #ffffff;
-  /* z-index: 2; */
+  /* z-index: 2; * /
 }
 
 .dropdown-content div:hover {
@@ -466,28 +467,28 @@ body {
   display: block;
 }
 
-/* Change the background color of the dropdown button when hovering */
+/* Change the background color of the dropdown button when hovering * /
 .dropdown:hover .dropbtn {
   background-color: #2478ff;
 }
 
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
 
-/*blog windows css [ 2 ]*/
+/*blog windows css [ 2 ]* /
 
-/* Hide scrollbars for Chrome, Safari and Opera */
+/* Hide scrollbars for Chrome, Safari and Opera * /
 
 .notice-iframe {
   scroll-margin-top: 50vh;
   width: 100%;
   height: 50vh;
-  /* top: -200px !important; */
-  /* overflow: hidden; */
-  /* animation: alternate; */
+  /* top: -200px !important; * /
+  /* overflow: hidden; * /
+  /* animation: alternate; * /
   border: none;
-  /* transform: scaleY(-500px); */
+  /* transform: scaleY(-500px); * /
 }
 
 .top-bar-2 {
@@ -517,14 +518,14 @@ body {
   top: -125px;
   left: 0;
   pointer-events: none;
-  /* Prevents interaction with the iframe */
+  /* Prevents interaction with the iframe * /
 }
 
-/* SCROLL TEXT (MARQUEE IS OLD) */
+/* SCROLL TEXT (MARQUEE IS OLD) * /
 
 .scroll-container {
   height: 100px;
-  /* Visible area */
+  /* Visible area * /
   overflow: clip;
   position: relative;
 }
@@ -547,11 +548,11 @@ body {
 }
 
 
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
 
-/* IMG SCROLL */
+/* IMG SCROLL * /
 
 .img-container {
   z-index: 1;
@@ -566,12 +567,12 @@ body {
   position: relative;
   background-color: white;
 
-  /* Custom scrollbar */
+  /* Custom scrollbar * /
   scrollbar-width: thin;
   scrollbar-color: #445f9d #f1f1f1;
 }
 
-/* For Chrome, Edge, and Safari */
+/* For Chrome, Edge, and Safari * /
 .img-container::-webkit-scrollbar {
   width: 5px;
 }
@@ -590,18 +591,18 @@ body {
   background: #37498a;
 }
 
-/* The image itself */
+/* The image itself * /
 .img-container img {
   width: 100%;
   display: block;
 }
 
-/* Smooth scroll effect */
+/* Smooth scroll effect * /
 .img-container {
   scroll-behavior: smooth;
 }
 
-/* Scroll indicator - optional */
+/* Scroll indicator - optional * /
 .scroll-indicator {
   text-align: center;
   padding: 10px;
@@ -615,11 +616,11 @@ body {
 }
 
 
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
 
-/*View More*/
+/*View More* /
 
 
 .view-more-link-2 {
@@ -648,9 +649,9 @@ body {
 
 }
 
-/* Overlay to prevent iframe interaction */
+/* Overlay to prevent iframe interaction * /
 .overlay-2 {
-  /* float: right; */
+  /* float: right; * /
   position: absolute;
   top: 0;
   left: 0;
@@ -660,16 +661,16 @@ body {
   z-index: -1;
 }
 
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
-/* ----------GOOGLE DRIVE IFRAME [ 4 ] to ARCHIVE-------------------  */
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
+/* ----------GOOGLE DRIVE IFRAME [ 4 ] to ARCHIVE-------------------  * /
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
 
 
 
 /* HIGHLIGHTS SECTION [ 5 ] 
-now Browse Curated Resources*/
+now Browse Curated Resources* /
 
 .semester-heading {
   margin-top: 20px !important;
@@ -694,7 +695,7 @@ now Browse Curated Resources*/
   flex-direction: column;
   flex-wrap: wrap;
 
-  /* background-color: #1B262C; */
+  /* background-color: #1B262C; * /
   background-color: #213448;
   border-radius: 15px;
   margin-top: 25px;
@@ -726,9 +727,9 @@ now Browse Curated Resources*/
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 20px;
   margin-top: -5px;
-  /* text-align: center; */
+  /* text-align: center; * /
   /* justify-content: center;
-  display: flex; */
+  display: flex; * /
 }
 
 .resources-table-5 {
@@ -746,25 +747,25 @@ now Browse Curated Resources*/
   background-color: #00000044;
   border-radius: 8px;
   padding: 0;
-  /* Remove padding from td */
+  /* Remove padding from td * /
   transition: background-color 0.3s ease;
   text-align: center;
-  /* Center the content */
+  /* Center the content * /
 }
 
 .resources-table-5 td:hover {
   background-color: rgba(42, 81, 181, 0.694);
 }
 
-/* FOR CLICKABLE BUTTON DIV */
+/* FOR CLICKABLE BUTTON DIV * /
 
 .resources-table-5 td {
 
-  /* max-width: 250px; */
+  /* max-width: 250px; * /
 }
 
 .resources-table-5 .cell-link {
-  /* max-width: 200px; */
+  /* max-width: 200px; * /
   margin: auto;
   color: #ffffffba;
   text-decoration: none;
@@ -775,7 +776,7 @@ now Browse Curated Resources*/
   width: 100%;
   box-sizing: border-box;
 
-  /* Disable mobile tap highlight */
+  /* Disable mobile tap highlight * /
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -788,17 +789,17 @@ now Browse Curated Resources*/
 
 
 
-/* Add rules for all link states to maintain the same color */
+/* Add rules for all link states to maintain the same color * /
 .resources-table-5 .cell-link:link,
 .resources-table-5 .cell-link:visited,
 .resources-table-5 .cell-link:active,
 .resources-table-5 .cell-link:focus {
   color: #ffffffba;
-  /* Keep the same color for all states */
+  /* Keep the same color for all states * /
   outline: none;
 }
 
-/* Only change color on hover */
+/* Only change color on hover * /
 .resources-table-5 .cell-link:hover {
   color: #ffffff;
 }
@@ -837,16 +838,16 @@ now Browse Curated Resources*/
   }
 }
 
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
 
 
-/* HOME BUTTON */
+/* HOME BUTTON * /
 /* .home-button {
   bottom: 65px;
   right: 20px;
-} */
+} * /
 
 .home-button {
   z-index: 100;
@@ -858,7 +859,7 @@ now Browse Curated Resources*/
   /* top: 20px;
   left: 20px;
   bottom: 0px;
-  right: 0px; */
+  right: 0px; * /
 
   background-color: #007bff;
   color: white;
@@ -873,7 +874,7 @@ now Browse Curated Resources*/
   justify-content: center;
   transition: background-color 0.3s, transform 0.2s;
 
-  /* Disable mobile tap highlight */
+  /* Disable mobile tap highlight * /
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -887,13 +888,13 @@ now Browse Curated Resources*/
 
 
 
-/* Add rules for all link states to maintain the same color */
+/* Add rules for all link states to maintain the same color * /
 .home-button:link,
 .home-button:visited,
 .home-button:active,
 .home-button:focus {
   color: #ffffff;
-  /* Keep the same color for all states */
+  /* Keep the same color for all states * /
   outline: none;
 }
 
@@ -908,11 +909,11 @@ now Browse Curated Resources*/
   height: 30px;
 }
 
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
 
-/* BACK BUTTON */
+/* BACK BUTTON * /
 
 
 
@@ -920,10 +921,10 @@ now Browse Curated Resources*/
 /* .back-icon {
   bottom: 65px;
   right: 65px;
-} */
+} * /
 
 .back-btn-container {
-  /* display: none; */
+  /* display: none; * /
   display: flex;
   justify-content: flex-end;
   margin-bottom: -100px;
@@ -933,7 +934,7 @@ now Browse Curated Resources*/
 }
 
 .notice-iframe:hover .back-btn-container {
-  /* display: block; */
+  /* display: block; * /
 }
 
 .back-icon {
@@ -941,13 +942,13 @@ now Browse Curated Resources*/
   z-index: 1;
   position: fixed;
   /* top: 70px;
-  left: 20px; */
+  left: 20px; * /
   bottom: 65px;
   right: 65px;
   background-color: #007bff;
   color: white;
   padding: 8px 10px;
-  /* border-radius: 50%; */
+  /* border-radius: 50%; * /
   text-decoration: none;
   font-size: 30px;
   display: flex;
@@ -956,14 +957,14 @@ now Browse Curated Resources*/
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
 
   width: 20px;
-  /* Fixed width */
+  /* Fixed width * /
   height: 25px;
-  /* Fixed height */
+  /* Fixed height * /
   line-height: 50px;
-  /* Centering the icon */
+  /* Centering the icon * /
   border-radius: 50%;
 
-  /* Disable mobile tap highlight */
+  /* Disable mobile tap highlight * /
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -977,13 +978,13 @@ now Browse Curated Resources*/
 
 
 
-/* Add rules for all link states to maintain the same color */
+/* Add rules for all link states to maintain the same color * /
 .back-icon:link,
 .back-icon:visited,
 .back-icon:active,
 .back-icon:focus {
   color: #ffffff;
-  /* Keep the same color for all states */
+  /* Keep the same color for all states * /
   outline: none;
 }
 
@@ -992,16 +993,16 @@ now Browse Curated Resources*/
   transform: scale(1.1);
 }
 
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
 
-/* SCROLL UP OR DOWN BUTTON */
+/* SCROLL UP OR DOWN BUTTON * /
 
 /* .scroll-button {
   bottom: 10px;
   right: 10px;
-} */
+} * /
 .scroll-button {
   z-index: 100;
 
@@ -1009,7 +1010,7 @@ now Browse Curated Resources*/
   bottom: 10px;
   right: 10px;
   /* top: 120px;
-  left: 20px; */
+  left: 20px; * /
   bottom: 0px;
   right: 0px;
   width: 20px;
@@ -1022,7 +1023,7 @@ now Browse Curated Resources*/
   background-color: #007bff;
   color: white;
   border: none;
-  /* border-radius: 5px; */
+  /* border-radius: 5px; * /
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1037,7 +1038,7 @@ now Browse Curated Resources*/
   -webkit-user-select: none;
   -moz-tap-highlight-color: transparent;
   -moz-touch-callout: none;
-  /* -webkit-user-select: none; */
+  /* -webkit-user-select: none; * /
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -1079,11 +1080,11 @@ now Browse Curated Resources*/
   transform: rotate(45deg);
 }
 
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
-/* -----------------------------------------------------------------  */
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
+/* -----------------------------------------------------------------  * /
 
-/*BOTTOM BAR CSS*/
+/*BOTTOM BAR CSS* /
 
 .navbar-5 {
   position: fixed;
@@ -1091,24 +1092,24 @@ now Browse Curated Resources*/
   left: 0;
   width: 100%;
   background-color: #333;
-  /* Example background, adjust as needed */
+  /* Example background, adjust as needed * /
   color: white;
   text-align: center;
   padding: 10px 0px 15px 0px;
-  /* Add some padding to prevent text from touching edges */
+  /* Add some padding to prevent text from touching edges * /
   box-sizing: border-box;
-  /* Crucial for responsive sizing with padding */
+  /* Crucial for responsive sizing with padding * /
   z-index: 1000;
-  /* Ensure it stays on top of other content */
+  /* Ensure it stays on top of other content * /
 }
 
 .navbar-5 p {
   margin: 0;
-  /* Remove default paragraph margin */
+  /* Remove default paragraph margin * /
   white-space: normal;
-  /* Allow text to wrap naturally */
+  /* Allow text to wrap naturally * /
   word-wrap: break-word;
-  /* Ensure long words break */
+  /* Ensure long words break * /
 }
 
 
@@ -1119,7 +1120,7 @@ now Browse Curated Resources*/
   bottom: 0;
   width: 100%;
   z-index: 1000;
-} */
+} * /
 
 
 .navbar-5 a {
@@ -1147,7 +1148,7 @@ now Browse Curated Resources*/
   margin-bottom: 30px;
 }
 
-/* responsive design */
+/* responsive design * /
 
 
 /* @media (max-width: 500px) {
@@ -1169,7 +1170,7 @@ now Browse Curated Resources*/
   }
 
 
-} */
+} * /
 .randomBS-2 {
   display: block;
   display: flex;
@@ -1198,14 +1199,14 @@ now Browse Curated Resources*/
   max-width: 600px;
 }
 
-/* Media query for smaller screens */
+/* Media query for smaller screens * /
 @media screen and (max-width: 650px) {
 
   .TG-overview .link-grid .grid-links a {
-    /* grid-template-columns: repeat(auto-fill, minmax(50px, 3fr)); */
+    /* grid-template-columns: repeat(auto-fill, minmax(50px, 3fr)); * /
     max-width: 20px !important;
     text-wrap: wrap;
-    /* word-break: break-all; */
+    /* word-break: break-all; * /
     word-wrap: break-word;
   }
 
@@ -1221,17 +1222,17 @@ now Browse Curated Resources*/
   }
 
   .img-container {
-    /* align-items: center; */
+    /* align-items: center; * /
     height: 25vh;
   }
 
   .img-container img {
-    /* width: 150% !important; */
-    /* margin-right: -15px; */
+    /* width: 150% !important; * /
+    /* margin-right: -15px; * /
   }
 
   .bottom-border-block {
-    /* background-color: #333; */
+    /* background-color: #333; * /
     background-color: #333;
     display: block;
     width: 100%;
@@ -1290,7 +1291,7 @@ now Browse Curated Resources*/
 
   .randomBS {
     display: block !important;
-    /* margin-bottom: 100px !important; */
+    /* margin-bottom: 100px !important; * /
     display: flex !important;
     justify-content: center !important;
 
@@ -1300,3 +1301,4 @@ now Browse Curated Resources*/
     display: none;
   }
 }
+*/

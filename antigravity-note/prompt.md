@@ -38,3 +38,8 @@ move this files into "misc" folder, and make necessary changes to paths inside l
 
 ---
 
+I can see that there are a lot of css files in my project. Can you make necessary changes so there are no redundancy in the css code? I am not asking you to reduce the amout of css files. Just make it so there are no duplicates overlapping. 
+
+But please compile @styles.css@new.style.css  files into one style.css. Comment out the unnecessary css code at the very end of each file. 
+
+Again, do not remove any css file, and instead of removing unnecessary codes, just comment them out as I have requested.

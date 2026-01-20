@@ -1,14 +1,15 @@
-/* --- Basic Setup & Dark Theme --- */
+/*
+/* --- Basic Setup & Dark Theme --- * /
 :root {
     --bg-color: #121212;
     --primary-color: #1e1e1e;
     --secondary-color: #2a2a2a;
     --text-color: #e0e0e0;
     --accent-color: #007bff;
-    /* --border-color: #444; */
+    /* --border-color: #444; * /
 }
 
-/* Color Palette */
+/* Color Palette * /
 :root {
     --primary-red: #d92027;
     --hover-red: #b31a20;
@@ -18,11 +19,11 @@
     --border-color: #eeeeee;
 }
 
-/* --- Smooth Scrolling Behavior --- */
+/* --- Smooth Scrolling Behavior --- * /
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
-    /* Offset for fixed nav to prevent content from being hidden */
+    /* Offset for fixed nav to prevent content from being hidden * /
 }
 
 
@@ -32,26 +33,26 @@ html {
     box-sizing: border-box;
     overflow-wrap: break-word;
     word-break: break-word;
-    /* overflow-y: auto; */
-    /* font-size: 2vw; */
-    /* Often used as a fallback for broader support */
+    /* overflow-y: auto; * /
+    /* font-size: 2vw; * /
+    /* Often used as a fallback for broader support * /
 }
 
-/* Replace it with this block */
+/* Replace it with this block * /
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     display: flex;
     flex-direction: column;
-    /* This is the main fix */
+    /* This is the main fix * /
     align-items: center;
-    /* This now centers content horizontally */
+    /* This now centers content horizontally * /
     min-height: 100vh;
     padding: 1rem;
 }
 
-/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- * /
 
 
 .link-hover-a {}
@@ -73,19 +74,19 @@ body {
 }
 
 .link-hover-a-4:hover{
-    /* link for freemediaheckyeah */
+    /* link for freemediaheckyeah * /
     transition: 0.3s ease;
     background-color: #48797F !important;
 }
 
 .link-hover-a-5:hover{
-    /* link for freemediaheckyeah */
+    /* link for freemediaheckyeah * /
     transition: 0.3s ease;
     background-color: #009400 !important;
 }
 
 .link-hover-a-6:hover{
-    /* link for freemediaheckyeah */
+    /* link for freemediaheckyeah * /
     transition: 0.3s ease;
     background-color: #017df0 !important;
 }
@@ -104,7 +105,7 @@ body {
 
 
 
-/* --------------------------------------------------------------- */
+/* --------------------------------------------------------------- * /
 
 
 
@@ -114,17 +115,17 @@ body {
 
 
 
-/* --- Main Container --- */
+/* --- Main Container --- * /
 .container {
     width: 100%;
     max-width: 800px;
     text-align: center;
     height: 100vh;
     margin-top: 10vh;
-    /* margin-bottom: 10rem; */
+    /* margin-bottom: 10rem; * /
 }
 
-/* --- Logo --- */
+/* --- Logo --- * /
 .logo {
     font-size: 2.5rem;
     font-weight: 600;
@@ -132,7 +133,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* --- Modified Search Bar Section --- */
+/* --- Modified Search Bar Section --- * /
 .search-section {
     margin-bottom: 2.5rem;
 }
@@ -148,7 +149,7 @@ body {
     color: rgba(255, 255, 255, 0.5);
 }
 
-/* Changed .search-bar to .search-input to match new HTML and JS */
+/* Changed .search-bar to .search-input to match new HTML and JS * /
 .search-input {
     width: 100%;
     max-width: 500px;
@@ -158,7 +159,7 @@ body {
     background-color: var(--secondary-color);
     border: 1px solid var(--border-color);
     border-radius: 50px;
-    /* Pill shape */
+    /* Pill shape * /
     outline: none;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -172,7 +173,7 @@ body {
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
-/* --- Search Container & Results --- */
+/* --- Search Container & Results --- * /
 .search-container {
     position: relative;
     max-width: 500px;
@@ -252,7 +253,7 @@ body {
     text-align: center;
 }
 
-/* --- Button Grid Layout --- */
+/* --- Button Grid Layout --- * /
 .button-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
@@ -279,25 +280,25 @@ body {
     transform: translateY(-5px);
 }
 
-/* ======== ADD THESE NEW STYLES TO THE END OF YOUR CSS FILE ======== */
+/* ======== ADD THESE NEW STYLES TO THE END OF YOUR CSS FILE ======== * /
 
 
-/* --- Content Sections --- */
+/* --- Content Sections --- * /
 .content-wrapper {
     width: 100%;
 }
 
 .content-section {
-    /* height: 100vh; */
+    /* height: 100vh; * /
     min-height: 100dvh;
-    /* margin-top: 10vh; */
+    /* margin-top: 10vh; * /
     padding: 5rem 2rem;
     max-width: 900px;
     margin: 0 auto;
     margin-top: 20rem;
-    /* min-height: 40vh; */
-    /* padding: 2rem; */
-    /* Give sections some height */
+    /* min-height: 40vh; * /
+    /* padding: 2rem; * /
+    /* Give sections some height * /
     text-align: left;
 }
 
@@ -316,35 +317,35 @@ body {
     color: #b0b0b0;
 }
 
-/* Alternate background colors for sections to distinguish them */
+/* Alternate background colors for sections to distinguish them * /
 .content-section:nth-of-type(even) {
     background-color: var(--primary-color);
 }
 
 
-/* --- Sticky Navigation Bar --- */
+/* --- Sticky Navigation Bar --- * /
 .sticky-nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: rgba(30, 30, 30, 0.85);
-    /* Semi-transparent background */
+    /* Semi-transparent background * /
     backdrop-filter: blur(10px);
-    /* Frosted glass effect */
+    /* Frosted glass effect * /
     -webkit-backdrop-filter: blur(10px);
     padding: 0.5rem 0;
     z-index: 2000;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 
-    /* Initially hidden and off-screen */
+    /* Initially hidden and off-screen * /
     visibility: hidden;
     opacity: 0;
     transform: translateY(-100%);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 }
 
-/* The state when the nav should be visible */
+/* The state when the nav should be visible * /
 .sticky-nav.visible {
     visibility: visible;
     opacity: 1;
@@ -374,19 +375,19 @@ body {
     color: #fff;
 }
 
-/* ========================================================== */
-/* ===== ADD THESE NEW STYLES TO THE END OF YOUR CSS FILE ===== */
-/* ========================================================== */
+/* ========================================================== * /
+/* ===== ADD THESE NEW STYLES TO THE END OF YOUR CSS FILE ===== * /
+/* ========================================================== * /
 
-/* Prevent scrolling when the mobile menu is open */
+/* Prevent scrolling when the mobile menu is open * /
 body.no-scroll {
     overflow: hidden;
 }
 
-/* --- Mobile Menu Toggle (Hamburger Button) --- */
+/* --- Mobile Menu Toggle (Hamburger Button) --- * /
 .menu-toggle {
     display: none;
-    /* Hidden on desktop */
+    /* Hidden on desktop * /
     position: fixed;
     top: 20px;
     left: 20px;
@@ -396,7 +397,7 @@ body.no-scroll {
     border: 1px solid var(--border-color);
     border-radius: 8px;
     z-index: 3001;
-    /* Must be on top of everything */
+    /* Must be on top of everything * /
     cursor: pointer;
 }
 
@@ -409,7 +410,7 @@ body.no-scroll {
     transition: all 0.3s ease-in-out;
 }
 
-/* --- Overlay --- */
+/* --- Overlay --- * /
 .overlay {
     position: fixed;
     top: 0;
@@ -418,7 +419,7 @@ body.no-scroll {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
     z-index: 2999;
-    /* Below menu, above content */
+    /* Below menu, above content * /
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -430,7 +431,7 @@ body.no-scroll {
 }
 
 
-/* Styling for the Upload Section */
+/* Styling for the Upload Section * /
 
 .upload-section {
     background-color: #3a3a3a;
@@ -449,14 +450,14 @@ body.no-scroll {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    /* Allows cards to wrap on smaller screens */
+    /* Allows cards to wrap on smaller screens * /
     gap: 2rem;
-    /* Creates space between the cards */
+    /* Creates space between the cards * /
     margin-bottom: 1.5rem;
 }
 
 .upload-card {
-    /* Common styles for all cards */
+    /* Common styles for all cards * /
     color: #ffffff;
     border-radius: 10px;
     box-shadow: 1px 2px 10px #000000;
@@ -464,16 +465,16 @@ body.no-scroll {
     font-size: medium;
     text-decoration: none;
 
-    /* Flexbox for centering content inside the card */
+    /* Flexbox for centering content inside the card * /
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     width: 160px;
-    /* A fixed width can work well here */
+    /* A fixed width can work well here * /
     height: 160px;
-    /* A fixed height for consistency */
+    /* A fixed height for consistency * /
     padding: 1rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -494,14 +495,14 @@ body.no-scroll {
     line-height: 1.2;
 }
 
-/* Modifier classes for unique background colors */
+/* Modifier classes for unique background colors * /
 .upload-card--questions {
     background-color: #a5ca88;
 }
 
 /* .upload-card--blood {
     background-color: #fff8f8a1;
-} */
+} * /
 
 .upload-card--notes {
     background-color: #3282B8;
@@ -517,7 +518,7 @@ body.no-scroll {
     margin: 0;
 }
 
-/* Home Section Buttons */
+/* Home Section Buttons * /
 .cta-buttons {
     margin-top: 30px;
 }
@@ -550,10 +551,10 @@ body.no-scroll {
 }
 
 
-/* Main Content Area */
+/* Main Content Area * /
 .content {
     flex-grow: 1;
-    /* padding: 20px; */
+    /* padding: 20px; * /
     overflow-y: hidden;
 }
 
@@ -579,14 +580,14 @@ body.no-scroll {
 }
 
 
-/* ================================================================= */
-/* ===== STYLES FOR SEMESTER BROWSER & SEARCH SECTIONS ===== */
-/* ================================================================= */
+/* ================================================================= * /
+/* ===== STYLES FOR SEMESTER BROWSER & SEARCH SECTIONS ===== * /
+/* ================================================================= * /
 
-/* Reusable container for content sections */
+/* Reusable container for content sections * /
 .content-block {
     max-width: 800px;
-    /* `5rem auto` provides top/bottom spacing and centers the block */
+    /* `5rem auto` provides top/bottom spacing and centers the block * /
     margin: 5rem auto;
     padding: 0 1rem;
     text-align: center;
@@ -617,7 +618,7 @@ body.no-scroll {
 }
 
 
-/* --- Custom Dropdown Styles --- */
+/* --- Custom Dropdown Styles --- * /
 .custom-dropdown {
     position: relative;
     max-width: 500px;
@@ -666,7 +667,7 @@ body.no-scroll {
 }
 
 
-/* --- Reset Button --- */
+/* --- Reset Button --- * /
 .reset-button {
     background: none;
     border: 1px solid var(--border-color);
@@ -682,21 +683,21 @@ body.no-scroll {
     border-color: #666;
 }
 
-/* --- JS Populated Elements --- */
+/* --- JS Populated Elements --- * /
 .semester-list {
-    /* Add any styles needed for the generated semester list */
+    /* Add any styles needed for the generated semester list * /
     margin-top: 1.5rem;
 }
 
 .drive-link-display {
-    /* Add any styles needed for the drive link paragraph */
+    /* Add any styles needed for the drive link paragraph * /
     margin-top: 1rem;
     color: var(--accent-color);
 }
 
-/* ========================================================= */
-/* ===== NEW STYLES FOR DYNAMICALLY CREATED BUTTONS ===== */
-/* ========================================================= */
+/* ========================================================= * /
+/* ===== NEW STYLES FOR DYNAMICALLY CREATED BUTTONS ===== * /
+/* ========================================================= * /
 
 .semester-list {
     display: flex;
@@ -706,7 +707,7 @@ body.no-scroll {
     margin-top: 1.5rem;
 }
 
-/* Find the .semester-button class in your CSS and add the text-decoration property */
+/* Find the .semester-button class in your CSS and add the text-decoration property * /
 
 .semester-button {
     background-color: var(--secondary-color);
@@ -718,7 +719,7 @@ body.no-scroll {
     font-size: 0.9rem;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     text-decoration: none;
-    /* <-- ADD THIS LINE */
+    /* <-- ADD THIS LINE * /
 }
 
 .semester-button:hover {
@@ -726,7 +727,7 @@ body.no-scroll {
     border-color: #666;
 }
 
-/* Style for the selected/active semester button */
+/* Style for the selected/active semester button * /
 .semester-button.active {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
@@ -734,9 +735,9 @@ body.no-scroll {
     font-weight: bold;
 }
 
-/* ========================================= */
-/* ===== STYLES FOR GENERAL INFO SECTION ===== */
-/* ========================================= */
+/* ========================================= * /
+/* ===== STYLES FOR GENERAL INFO SECTION ===== * /
+/* ========================================= * /
 
 .info-section {
     margin-top: 100px;
@@ -752,32 +753,32 @@ body.no-scroll {
 }
 
 .info-nav-list {
-    /* Resets for the list */
+    /* Resets for the list * /
     list-style: none;
     padding: 0;
     margin: 0;
 
-    /* Flexbox for the grid layout */
+    /* Flexbox for the grid layout * /
     display: flex;
     flex-wrap: wrap;
-    /* Allows buttons to wrap to the next line on smaller screens */
+    /* Allows buttons to wrap to the next line on smaller screens * /
     justify-content: center;
     gap: 15px;
-    /* Creates consistent space between buttons */
+    /* Creates consistent space between buttons * /
 }
 
 .info-nav-link {
-    /* Common styles for all navigation buttons */
+    /* Common styles for all navigation buttons * /
     background-color: rgba(87, 87, 87, 0.562);
     color: #fff;
     height: 60px;
     width: 160px;
-    /* A wider width for longer text */
+    /* A wider width for longer text * /
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
 
-    /* Flexbox to perfectly center the text inside the button */
+    /* Flexbox to perfectly center the text inside the button * /
     display: flex;
     align-items: center;
     justify-content: center;
@@ -793,18 +794,18 @@ body.no-scroll {
 }
 
 .info-nav-link-a {
-    /* Common styles for all navigation buttons */
+    /* Common styles for all navigation buttons * /
     box-shadow: 0 0 10px white;
     background-color: white;
     color: black;
     height: 60px;
     width: 160px;
-    /* A wider width for longer text */
+    /* A wider width for longer text * /
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
 
-    /* Flexbox to perfectly center the text inside the button */
+    /* Flexbox to perfectly center the text inside the button * /
     display: flex;
     align-items: center;
     justify-content: center;
@@ -818,9 +819,9 @@ body.no-scroll {
     transform: translateY(-3px);
 }
 
-/* ================================================ */
-/* ===== STYLES FOR INTERESTS & RESOURCES SECTION ===== */
-/* ================================================ */
+/* ================================================ * /
+/* ===== STYLES FOR INTERESTS & RESOURCES SECTION ===== * /
+/* ================================================ * /
 
 .resources-section {
     text-align: center;
@@ -850,34 +851,34 @@ body.no-scroll {
 }
 
 .resources-nav-list {
-    /* Resets for the list */
+    /* Resets for the list * /
     list-style: none;
     padding: 0;
     margin: 0;
 
-    /* Flexbox for the grid layout */
+    /* Flexbox for the grid layout * /
     display: flex;
     flex-wrap: wrap;
-    /* Allows buttons to wrap on smaller screens */
+    /* Allows buttons to wrap on smaller screens * /
     justify-content: center;
     gap: 15px;
-    /* Creates space between buttons */
+    /* Creates space between buttons * /
 }
 
 .resources-nav-link {
-    /* Common styles for all navigation links */
+    /* Common styles for all navigation links * /
     background-color: rgba(87, 87, 87, 0.562);
     color: #fff;
     width: 160px;
     min-height: 60px;
-    /* Use min-height for flexibility */
+    /* Use min-height for flexibility * /
     padding: 0.5rem;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
     line-height: 1.3;
 
-    /* Flexbox to perfectly center the text vertically */
+    /* Flexbox to perfectly center the text vertically * /
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -896,13 +897,13 @@ body.no-scroll {
     opacity: 0.8;
     font-size: 0.75rem;
     margin-top: 4px;
-    /* Adds a little space between the two lines of text */
+    /* Adds a little space between the two lines of text * /
 }
 
 
-/* ===================================== */
-/* ===== STYLES FOR BLOG SECTION ===== */
-/* ===================================== */
+/* ===================================== * /
+/* ===== STYLES FOR BLOG SECTION ===== * /
+/* ===================================== * /
 
 .blog-section {
     text-align: center;
@@ -917,18 +918,18 @@ body.no-scroll {
 }
 
 .blog-nav-list {
-    /* Resets for the list */
+    /* Resets for the list * /
     list-style: none;
     padding: 0;
     margin: 0;
 
-    /* Flexbox for layout */
+    /* Flexbox for layout * /
     display: flex;
     flex-wrap: wrap;
-    /* Allows links to wrap on smaller screens */
+    /* Allows links to wrap on smaller screens * /
     justify-content: center;
     gap: 1.5rem 2.5rem;
-    /* Vertical and horizontal gap */
+    /* Vertical and horizontal gap * /
 }
 
 .blog-nav-link {
@@ -942,7 +943,7 @@ body.no-scroll {
     transition: color 0.2s ease;
 }
 
-/* Creates an animated underline effect on hover */
+/* Creates an animated underline effect on hover * /
 .blog-nav-link::after {
     content: '';
     position: absolute;
@@ -958,30 +959,30 @@ body.no-scroll {
 
 .blog-nav-link:hover {
     color: var(--text-color);
-    /* Ensures text color stays bright */
+    /* Ensures text color stays bright * /
 }
 
 .blog-nav-link:hover::after {
     transform: scaleX(1);
 }
 
-/* ================================== */
-/* ===== STYLES FOR SITE FOOTER ===== */
-/* ================================== */
+/* ================================== * /
+/* ===== STYLES FOR SITE FOOTER ===== * /
+/* ================================== * /
 
 .site-footer {
     width: 100%;
     background-color: var(--primary-color);
-    /* Uses your existing dark theme color */
+    /* Uses your existing dark theme color * /
     color: rgba(255, 255, 255, 0.6);
     padding: 2.5rem 1.5rem;
     margin-top: 4rem;
-    /* Adds space above the footer */
+    /* Adds space above the footer * /
 
-    /* Flexbox for layout */
+    /* Flexbox for layout * /
     display: flex;
     flex-wrap: wrap;
-    /* Allows sections to stack on small screens */
+    /* Allows sections to stack on small screens * /
     justify-content: space-around;
     align-items: center;
     gap: 2rem;
@@ -991,9 +992,9 @@ body.no-scroll {
 .footer-socials,
 .footer-credits {
     flex: 1;
-    /* Allows both sections to share space */
+    /* Allows both sections to share space * /
     min-width: 300px;
-    /* Prevents them from getting too squished */
+    /* Prevents them from getting too squished * /
 }
 
 .footer-heading {
@@ -1019,7 +1020,7 @@ body.no-scroll {
 .social-links a {
     color: rgba(255, 255, 255, 0.7);
     font-size: 2rem;
-    /* Controls the size of the icons */
+    /* Controls the size of the icons * /
     text-decoration: none;
     transition: color 0.2s ease, transform 0.2s ease;
 }
@@ -1042,7 +1043,7 @@ body.no-scroll {
 
 .credits-text a {
     color: #2edc17;
-    /* Bright green color from original style */
+    /* Bright green color from original style * /
     font-size: 0.8rem;
     text-decoration: none;
     font-weight: bold;
@@ -1058,15 +1059,15 @@ body.no-scroll {
     margin: 0;
 }
 
-/* ========================================= */
-/* ===== STYLES FOR NOTICE VIEWER SECTION ===== */
-/* ========================================= */
+/* ========================================= * /
+/* ===== STYLES FOR NOTICE VIEWER SECTION ===== * /
+/* ========================================= * /
 
 .notice-viewer-section {
     max-width: 1200px;
-    /* A wider container is better for iframe content */
+    /* A wider container is better for iframe content * /
     margin: 4rem auto;
-    /* Adds space above/below and centers the section */
+    /* Adds space above/below and centers the section * /
     padding: 0 1rem;
 }
 
@@ -1076,7 +1077,7 @@ body.no-scroll {
     align-items: center;
     margin-bottom: 1.5rem;
     flex-wrap: wrap;
-    /* Allows items to wrap on small screens */
+    /* Allows items to wrap on small screens * /
     gap: 1rem;
 }
 
@@ -1109,43 +1110,43 @@ body.no-scroll {
 .notice-iframe {
     width: 100%;
     height: 80vh;
-    /* Sets the height to 80% of the viewport's height */
+    /* Sets the height to 80% of the viewport's height * /
     border: 1px solid var(--border-color);
     border-radius: 8px;
     background-color: #fff;
-    /* A fallback background while the iframe loads */
+    /* A fallback background while the iframe loads * /
 }
 
-/* =============================== */
-/* ===== STYLES FOR MAP SECTION ===== */
-/* =============================== */
+/* =============================== * /
+/* ===== STYLES FOR MAP SECTION ===== * /
+/* =============================== * /
 
 .map-section {
-    /* Controls the overall width and centering of the map component */
+    /* Controls the overall width and centering of the map component * /
     max-width: 90%;
     margin: 50px auto;
 }
 
 .map-figure {
-    /* Creates the thick, dark frame around the iframe */
+    /* Creates the thick, dark frame around the iframe * /
     background-color: #333333d5;
     border: 15px solid #333333d5;
     border-radius: 15px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);
 
-    /* Resets default figure margins */
+    /* Resets default figure margins * /
     margin: 0;
     padding: 0;
 }
 
 .map-caption {
-    /* Styles the link container above the map */
+    /* Styles the link container above the map * /
     max-width: 300px;
     background-color: #333;
     padding: 10px;
     border-radius: 15px;
     margin: 0 auto 15px auto;
-    /* Centers the caption and adds space below it */
+    /* Centers the caption and adds space below it * /
     text-align: center;
 }
 
@@ -1162,16 +1163,16 @@ body.no-scroll {
 
 .map-iframe {
     display: block;
-    /* Removes bottom space under the iframe */
+    /* Removes bottom space under the iframe * /
     width: 100%;
     height: 450px;
     border: 0;
-    /* Removes the default iframe border */
+    /* Removes the default iframe border * /
 }
 
-/* ============================================ */
-/* ===== STYLES FOR CURATED RESOURCES SECTION ===== */
-/* ============================================ */
+/* ============================================ * /
+/* ===== STYLES FOR CURATED RESOURCES SECTION ===== * /
+/* ============================================ * /
 
 .curated-resources {
     margin-top: 100px;
@@ -1187,38 +1188,38 @@ body.no-scroll {
 }
 
 .resource-list {
-    /* Resets for the list */
+    /* Resets for the list * /
     list-style: none;
     padding: 0;
     margin: 0;
 
-    /* Flexbox for the grid layout */
+    /* Flexbox for the grid layout * /
     display: flex;
     flex-wrap: wrap;
-    /* Allows buttons to wrap to the next line */
+    /* Allows buttons to wrap to the next line * /
     justify-content: center;
     gap: 15px;
-    /* Creates consistent space between buttons */
+    /* Creates consistent space between buttons * /
 }
 
 .resource-link {
-    /* Common styles for all resource buttons */
+    /* Common styles for all resource buttons * /
     background-color: rgba(87, 87, 87, 0.562);
     color: #fff;
     height: 60px;
     width: 160px;
-    /* A more appropriate width for longer text */
+    /* A more appropriate width for longer text * /
     padding: 0.5rem;
     border-radius: 8px;
     text-decoration: none;
     font-weight: 500;
 
-    /* Flexbox to perfectly center the text inside the button */
+    /* Flexbox to perfectly center the text inside the button * /
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    /* Handles text that wraps to a new line */
+    /* Handles text that wraps to a new line * /
 
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -1228,43 +1229,43 @@ body.no-scroll {
     transform: translateY(-3px);
 }
 
-/* ================================== */
-/* ===== STYLES FOR GO TO TOP BUTTON ===== */
-/* ================================== */
+/* ================================== * /
+/* ===== STYLES FOR GO TO TOP BUTTON ===== * /
+/* ================================== * /
 
 .go-to-top-button {
-    /* Positioning */
+    /* Positioning * /
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
 
-    /* Styling */
+    /* Styling * /
     width: 50px;
     height: 50px;
     background-color: var(--secondary-color);
     color: var(--text-color);
     border: 1px solid var(--border-color);
     border-radius: 50%;
-    /* Makes it a circle */
+    /* Makes it a circle * /
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
 
-    /* Centering the arrow inside */
+    /* Centering the arrow inside * /
     display: flex;
     justify-content: center;
     align-items: center;
 
-    /* Visibility & Transitions */
+    /* Visibility & Transitions * /
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
 }
 
-/* This class will be added by JavaScript to show the button */
+/* This class will be added by JavaScript to show the button * /
 .go-to-top-button.visible {
     opacity: 1;
     visibility: visible;
@@ -1276,9 +1277,9 @@ body.no-scroll {
     transform: translateY(-3px);
 }
 
-/* ======================================================= */
-/* ===== UPDATED STYLES FOR SCROLLING BLOG PREVIEW ===== */
-/* ======================================================= */
+/* ======================================================= * /
+/* ===== UPDATED STYLES FOR SCROLLING BLOG PREVIEW ===== * /
+/* ======================================================= * /
 
 .blog-preview {
     width: 90%;
@@ -1303,25 +1304,25 @@ body.no-scroll {
 .blog-preview__figure {
     position: relative;
     margin: 0;
-    /* This is the visible height of the iframe container */
+    /* This is the visible height of the iframe container * /
     height: 450px;
     border-radius: 12px;
     overflow: hidden;
-    /* This is crucial, it crops the oversized iframe */
+    /* This is crucial, it crops the oversized iframe * /
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .blog-preview__iframe {
     display: block;
     width: 100%;
-    /* Make the iframe much taller than its container to have content to scroll */
+    /* Make the iframe much taller than its container to have content to scroll * /
     height: 2000px;
     border: none;
-    /* Link the animation to the iframe */
+    /* Link the animation to the iframe * /
     animation: auto-scroll 40s linear infinite alternate;
 }
 
-/* Pause the animation when the user hovers over the preview */
+/* Pause the animation when the user hovers over the preview * /
 .blog-preview__figure:hover .blog-preview__iframe {
     animation-play-state: paused;
 }
@@ -1357,39 +1358,39 @@ body.no-scroll {
 }
 
 
-/* ================================== */
-/* ===== STYLES FOR GO BACK BUTTON ===== */
-/* ================================== */
+/* ================================== * /
+/* ===== STYLES FOR GO BACK BUTTON ===== * /
+/* ================================== * /
 
 .go-back-button {
-    /* Positioning */
+    /* Positioning * /
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
 
-    /* Styling */
+    /* Styling * /
     width: 50px;
     height: 50px;
     background-color: var(--secondary-color);
     color: var(--text-color);
     border: 1px solid var(--border-color);
     border-radius: 50%;
-    /* Makes it a circle */
+    /* Makes it a circle * /
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     font-size: 1.5rem;
     font-weight: bold;
     cursor: pointer;
 
-    /* Centering the arrow inside */
+    /* Centering the arrow inside * /
     display: flex;
     justify-content: center;
     align-items: center;
 
-    /* Hidden by default, shown by JavaScript */
+    /* Hidden by default, shown by JavaScript * /
     display: none;
 
-    /* Transitions for hover effect */
+    /* Transitions for hover effect * /
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
@@ -1398,49 +1399,49 @@ body.no-scroll {
     transform: scale(1.05);
 }
 
-/* ======================================================= */
-/* ===== UPDATED STYLES FOR SCROLLING BLOG PREVIEW ===== */
-/* ======================================================= */
+/* ======================================================= * /
+/* ===== UPDATED STYLES FOR SCROLLING BLOG PREVIEW ===== * /
+/* ======================================================= * /
 
-/* Define the scrolling animation */
+/* Define the scrolling animation * /
 @keyframes auto-scroll {
     0% {
-        /* Start at the top */
+        /* Start at the top * /
         transform: translateY(0);
     }
 
     100% {
-        /* End at the bottom. This value should be (iframe height - figure height) */
-        /* 2000px - 450px = 1550px */
+        /* End at the bottom. This value should be (iframe height - figure height) * /
+        /* 2000px - 450px = 1550px * /
         transform: translateY(-1550px);
     }
 }
 
 
-/* ================================================ */
-/* ===== RESPONSIVE FIX FOR SITE FOOTER ===== */
-/* ================================================ */
+/* ================================================ * /
+/* ===== RESPONSIVE FIX FOR SITE FOOTER ===== * /
+/* ================================================ * /
 
 @media (max-width: 768px) {
     .site-footer {
-        /* Stack the footer sections vertically on smaller screens */
+        /* Stack the footer sections vertically on smaller screens * /
         flex-direction: column;
     }
 
-    /* Ensure text in both sections is centered in the stacked layout */
+    /* Ensure text in both sections is centered in the stacked layout * /
     .footer-socials,
     .footer-credits {
         text-align: center;
     }
 }
 
-/* --- Media Query for Mobile Screens --- */
+/* --- Media Query for Mobile Screens --- * /
 @media (max-width: 768px) {
 
     .cta-buttons {
         display: flex;
         flex-direction: column;
-        /* Stack buttons vertically */
+        /* Stack buttons vertically * /
         align-items: center;
     }
 
@@ -1456,7 +1457,7 @@ body.no-scroll {
     }
 
     #About {
-        /* padding-bottom: 70rem; */
+        /* padding-bottom: 70rem; * /
     }
 
     .footer-socials,
@@ -1464,14 +1465,14 @@ body.no-scroll {
         min-width: 150px;
     }
 
-    /* Show the hamburger menu */
+    /* Show the hamburger menu * /
     .menu-toggle {
         display: block;
     }
 
-    /* Repurpose the sticky-nav to be the slide-in side menu */
+    /* Repurpose the sticky-nav to be the slide-in side menu * /
     .sticky-nav {
-        /* Reset desktop styles */
+        /* Reset desktop styles * /
         transform: translateY(0);
         visibility: visible;
         opacity: 1;
@@ -1480,26 +1481,26 @@ body.no-scroll {
         background-color: var(--primary-color);
         backdrop-filter: none;
 
-        /* New side menu styles */
+        /* New side menu styles * /
         position: fixed;
         left: 0;
         top: 0;
         width: 280px;
-        /* Width of the side menu */
+        /* Width of the side menu * /
         height: 100%;
         z-index: 3000;
         transition: transform 0.3s ease-in-out;
         transform: translateX(-100%);
-        /* Start off-screen to the left */
+        /* Start off-screen to the left * /
     }
 
-    /* State for when the menu is open */
+    /* State for when the menu is open * /
     .sticky-nav.open {
         transform: translateX(0);
         box-shadow: 5px 0 15px rgba(0, 0, 0, 0.5);
     }
 
-    /* Override the desktop 'visible' class on mobile */
+    /* Override the desktop 'visible' class on mobile * /
     .sticky-nav.visible {
         transform: translateX(-100%);
     }
@@ -1508,7 +1509,7 @@ body.no-scroll {
         transform: translateX(0);
     }
 
-    /* Style the links for a vertical layout */
+    /* Style the links for a vertical layout * /
     .sticky-nav ul {
         flex-direction: column;
         align-items: flex-start;
@@ -1528,7 +1529,7 @@ body.no-scroll {
     }
 }
 
-/* --- Responsive Adjustments --- */
+/* --- Responsive Adjustments --- * /
 @media (max-width: 480px) {
     .logo {
         font-size: 2rem;
@@ -1544,3 +1545,4 @@ body.no-scroll {
         border-radius: 12px;
     }
 }
+*/
