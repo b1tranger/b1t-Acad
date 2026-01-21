@@ -1060,13 +1060,13 @@ body.no-scroll {
 /* ================================== */
 
 .site-footer {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 2rem 0;
   width: 100%;
-  background-color: var(--primary-color);
-  /* Uses your existing dark theme color */
+  margin-top: auto;
+
+  /* --- Original Layout & Text Styles --- */
   color: var(--text-content);
-  padding: 2.5rem 1.5rem;
-  margin-top: 4rem;
-  /* Adds space above the footer */
 
   /* Flexbox for layout */
   display: flex;
@@ -1513,7 +1513,13 @@ body.no-scroll {
 
 @media (max-width: 768px) {
   .site-footer {
-    /* Stack the footer sections vertically on smaller screens */
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2rem 0;
+    width: 100%;
+    margin-top: auto;
+
+
+    /* --- Gray Theme Refinements for Index Page --- */
     flex-direction: column;
   }
 
@@ -2280,7 +2286,7 @@ body.no-scroll {
   transition: background-color 0.3s;
 }
 
-.view-more-link-2:hover-2 {
+.view-more-link-2:hover {
   background-color: #004c99;
 }
 
@@ -2949,77 +2955,76 @@ now Browse Curated Resources*/
   .randomBS-2 {
     display: none;
   }
-. s i t e - f o o t e r  
-   b a c k g r o u n d - c o l o r :   r g b a ( 0 ,   0 ,   0 ,   0 . 3 ) ;   p a d d i n g :   2 r e m   0 ;   w i d t h :   1 0 0 % ;   m a r g i n - t o p :   a u t o ;    
- / *  
- - - -  
- G r a y  
- T h e m e  
- R e f i n e m e n t s  
- f o r  
- I n d e x  
- P a g e  
- - - -  
- * /  
- 
-[data-theme="gray"] .grid-button:hover {
+
+  .site-footer {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 2rem 0;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  /*  ---  Gray  Theme  Refinements  for  Index  Page  ---  */
+  [data-theme="gray"] .grid-button:hover {
     color: white !important;
-}
+  }
 
-[data-theme="gray"] #info .info-nav-link:hover,
-[data-theme="gray"] #info .info-nav-link-a:hover {
+  [data-theme="gray"] #info .info-nav-link:hover,
+  [data-theme="gray"] #info .info-nav-link-a:hover {
     background-color: #333;
     color: white;
-}
+  }
 
-[data-theme="gray"] #Qbank a:not(.link-hover-a):not(.link-hover-a-3):hover,
-[data-theme="gray"] #Departments a:not(.grid-button):not(.link-hover-a):hover,
-[data-theme="gray"] .info-section a.info-nav-link:hover {
+  [data-theme="gray"] #Qbank a:not(.link-hover-a):not(.link-hover-a-3):hover,
+  [data-theme="gray"] #Departments a:not(.grid-button):not(.link-hover-a):hover,
+  [data-theme="gray"] .info-section a.info-nav-link:hover {
     background-color: #333;
     color: white;
-}
+  }
 
-/* Upload Section Refinements */
-[data-theme="gray"] .upload-section {
-    background-color: #e0e0e0; /* Lighter background */
-}
+  /* Upload Section Refinements */
+  [data-theme="gray"] .upload-section {
+    background-color: #e0e0e0;
+    /* Lighter background */
+  }
 
-[data-theme="gray"] .upload-title,
-[data-theme="gray"] .upload-section h3,
-[data-theme="gray"] .upload-section p {
+  [data-theme="gray"] .upload-title,
+  [data-theme="gray"] .upload-section h3,
+  [data-theme="gray"] .upload-section p {
     color: #333 !important;
-}
+  }
 
-[data-theme="gray"] .upload-section p small,
-[data-theme="gray"] .upload-section p .link-hover-a-2 {
-    color: #333 !important; /* Instructions text */
-}
+  [data-theme="gray"] .upload-section p small,
+  [data-theme="gray"] .upload-section p .link-hover-a-2 {
+    color: #333 !important;
+    /* Instructions text */
+  }
 
-[data-theme="gray"] .btn-primary:hover {
-    filter: brightness(1.2); /* Lighter on hover */
-}
+  [data-theme="gray"] .btn-primary:hover {
+    filter: brightness(1.2);
+    /* Lighter on hover */
+  }
 
-/* ECA & Library Refinements */
-[data-theme="gray"] .resource-link, 
-[data-theme="gray"] .resources-nav-link {
+  /* ECA & Library Refinements */
+  [data-theme="gray"] .resource-link,
+  [data-theme="gray"] .resources-nav-link {
     transition: all 0.3s ease;
-}
+  }
 
-[data-theme="gray"] .resource-link:hover, 
-[data-theme="gray"] .resources-nav-link:hover {
+  [data-theme="gray"] .resource-link:hover,
+  [data-theme="gray"] .resources-nav-link:hover {
     background-color: #333;
     color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
 
-/* Exceptions for colored buttons */
-[data-theme="gray"] .resource-link[style*="background-color: green"]:hover,
-[data-theme="gray"] .resource-link[style*="background-color: #0285ff"]:hover,
-[data-theme="gray"] .resource-link[style*="background-color: #C034AA"]:hover,
-[data-theme="gray"] .resource-link[style*="box-shadow"]:hover,
-[data-theme="gray"] .resources-nav-link[style*="box-shadow"]:hover {
+  /* Exceptions for colored buttons */
+  [data-theme="gray"] .resource-link[style*="background-color: green"]:hover,
+  [data-theme="gray"] .resource-link[style*="background-color: #0285ff"]:hover,
+  [data-theme="gray"] .resource-link[style*="background-color: #C034AA"]:hover,
+  [data-theme="gray"] .resource-link[style*="box-shadow"]:hover,
+  [data-theme="gray"] .resources-nav-link[style*="box-shadow"]:hover {
     /* Keep original hover behavior or just add shadow */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     /* For ones with specific colors, we generally want to keep them but maybe darken/lighten. 
        The generic rule above overwrites background-color, so we need to reset it 
        or use !important in HTML (which exists). 
@@ -3029,14 +3034,31 @@ now Browse Curated Resources*/
        unless we force it. The generic rule above DOES NOT have !important so inline wins.
        So specific colored buttons should keep their color. 
     */
-    background-color: initial; /* Let inline style win, effectively */
-    color: white; /* Usually these buttons have white text */
-}
+    background-color: initial;
+    /* Let inline style win, effectively */
+    color: white;
+    /* Usually these buttons have white text */
+  }
 
-/* About Section Refinements */
-[data-theme="gray"] #About .info-nav-link:hover,
-[data-theme="gray"] #About .info-nav-link-a:hover {
+  /* About Section Refinements */
+  [data-theme="gray"] #About .info-nav-link-a:hover {
     background-color: #1a1a1a;
     color: white;
-}
+  }
 
+  /* Sticky Nav Refinements for Gray Theme */
+  [data-theme="gray"] .sticky-nav {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="gray"] .sticky-nav ul li a {
+    color: #555;
+    /* Lighter font color (dark gray) as requested */
+  }
+
+  [data-theme="gray"] .sticky-nav ul li a:hover {
+    background-color: #e0e0e0;
+    color: #000;
+  }
+}
