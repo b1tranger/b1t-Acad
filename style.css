@@ -68,6 +68,77 @@
   [data-theme="gray"] #floating-button-nav {
     color: #000;
   }
+
+  /* --- Upload Section (Blood Donation etc.) Lighter Background --- */
+  [data-theme="gray"] .upload-section {
+    background-color: #e0e0e0;
+  }
+
+  [data-theme="gray"] .upload-title,
+  [data-theme="gray"] .upload-section h3,
+  [data-theme="gray"] .upload-section p {
+    color: #333;
+  }
+
+  [data-theme="gray"] .upload-section .link-hover-a,
+  [data-theme="gray"] .upload-section .link-hover-a-2 {
+    color: #1a1a1a;
+  }
+
+  [data-theme="gray"] .upload-section .link-hover-a:hover {
+    color: #007bff !important;
+  }
+
+  /* --- Content Section Text Contrast --- */
+  [data-theme="gray"] .content-section p {
+    color: #333;
+  }
+
+  [data-theme="gray"] .content-section a[style*="color: white"],
+  [data-theme="gray"] .content-section a[style*="color:white"] {
+    color: #1a1a1a !important;
+  }
+
+  [data-theme="gray"] .content-section a[style*="color: white"]:hover,
+  [data-theme="gray"] .content-section a[style*="color:white"]:hover {
+    color: #007bff !important;
+  }
+
+  /* --- Info Nav Link Improvements --- */
+  [data-theme="gray"] .info-nav-link,
+  [data-theme="gray"] .info-nav-link-a {
+    color: #333;
+    border-color: #bbb;
+  }
+
+  [data-theme="gray"] .info-nav-link:hover,
+  [data-theme="gray"] .info-nav-link-a:hover {
+    background-color: #333;
+    color: #fff;
+  }
+
+  /* --- Resource Links Improvements --- */
+  [data-theme="gray"] .resource-link,
+  [data-theme="gray"] .resources-nav-link {
+    color: #333;
+    border-color: #bbb;
+  }
+
+  [data-theme="gray"] .resource-link:hover,
+  [data-theme="gray"] .resources-nav-link:hover {
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* --- Grid Button Improvements --- */
+  [data-theme="gray"] .grid-button {
+    color: #333;
+  }
+
+  [data-theme="gray"] .grid-button:hover {
+    color: #fff;
+  }
 }
 
 /* --- Theme Switcher Button --- */
