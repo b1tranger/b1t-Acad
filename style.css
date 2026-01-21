@@ -49,6 +49,27 @@
   /* Force light text utility to be dark in light theme if needed */
 }
 
+/* --- Gray Theme Sticky Nav for Desktop Only --- */
+@media (min-width: 769px) {
+  [data-theme="gray"] .sticky-nav {
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="gray"] .sticky-nav ul li a {
+    color: #000;
+  }
+
+  [data-theme="gray"] .sticky-nav ul li a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+  }
+
+  [data-theme="gray"] #floating-button-nav {
+    color: #000;
+  }
+}
+
 /* --- Theme Switcher Button --- */
 /* --- Theme Switcher Button --- */
 #theme-toggle {
