@@ -65,7 +65,7 @@
     color: #fff;
   }
 
-  [data-theme="gray"] #floating-button-nav {
+  [data-theme="gray"] #floating-button-nav, #floating-button-nav-2 {
     color: #000;
   }
 
@@ -179,7 +179,7 @@
     display: none !important;
   }
 
-  #floating-button-nav {
+  #floating-button-nav, #floating-button-nav-2 {
     display: block !important;
   }
 
