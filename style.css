@@ -723,8 +723,11 @@ body.no-scroll {
 
 .btn-primary {
   background-color: var(--primary-red);
-  color: var(--text-light);
+  /* color: var(--text-light); */
+  color: white;
 }
+
+
 
 .btn-secondary {
   background-color: var(--light-bg);
@@ -950,6 +953,7 @@ body.no-scroll {
 
 .info-nav-link {
   /* Common styles for all navigation buttons */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.37);
   background-color: var(--secondary-color);
   color: var(--text-color);
   height: 60px;
@@ -1176,6 +1180,10 @@ body.no-scroll {
   /* Allows both sections to share space */
   min-width: 300px;
   /* Prevents them from getting too squished */
+  /* padding:2rem; */
+}
+.footer-credits {
+  padding:2rem;
 }
 
 .footer-heading {
@@ -1362,6 +1370,7 @@ body.no-scroll {
 }
 
 .curated-resources__title {
+  
   color: rgba(240, 248, 255, 0.65);
   font-size: 1.5rem;
   font-weight: 500;
@@ -1385,6 +1394,7 @@ body.no-scroll {
 
 .resource-link {
   /* Common styles for all resource buttons */
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.37);
   background-color: rgba(87, 87, 87, 0.562);
   color: #fff;
   height: 60px;

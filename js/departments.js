@@ -71,14 +71,19 @@ document.addEventListener('DOMContentLoaded', () => {
     let html = `
       <header class="semester-header">
         <h2 class="semester-title">${semData.title}</h2>
+              <div class="syllabus-container">
+        <img src="${semData.syllabus_image}" alt="${semData.title} List" class="syllabus-img">
+      </div>
         <a href="${semData.drive_link}" target="_blank" class="drive-btn">
           <i class="fa-brands fa-google-drive"></i>&nbsp; Open Full Drive
         </a>
+        <br><br>
+        <div style="display:flex;justify-content:center;">
+        <p style="font-size:14px;background-color:yellow;color:black;width:fit-content;display:flex;justify-content:center;padding:8px;box-shadow:0 5px 10px black;font-weight:bold;" >(refer to "Others" folder for Note Archive)</p>
+        </div>
       </header>
 
-      <div class="syllabus-container">
-        <img src="${semData.syllabus_image}" alt="${semData.title} List" class="syllabus-img">
-      </div>
+
 
       <section id="courses" class="content-section" style="min-height: auto;">
         <h2 style="text-align: center; margin-bottom: 30px;">Course Materials</h2>
