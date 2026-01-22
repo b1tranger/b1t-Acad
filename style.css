@@ -233,7 +233,7 @@ body {
 
 
 .link-hover-a {
-  background-color: #fcfcfc;
+  /* background-color: #fcfcfc; */
   color: rgb(0, 0, 0);
   padding: 2px;
   }
