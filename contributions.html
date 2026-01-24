@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>b1t Academics: Credits & Acknowledgements</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Credits Page Specific Styles */
+        .credits-container {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .credits-intro {
+            color: var(--text-content);
+            width: 95%;
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+        }
+
+        .contributor-section h3 {
+            text-align: left;
+            color: var(--text-color);
+            padding-bottom: 8px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+
+        .contributor-section h3.uits-border {
+            border-bottom: 2px solid #3498db;
+        }
+
+        .contributor-section h3.friends-border {
+            border-bottom: 2px solid #2ecc71;
+        }
+
+        .contributor-section h3.ai-border {
+            border-bottom: 2px solid #9b59b6;
+        }
+
+        .contributor-list {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 40px;
+            text-align: left;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .contributor-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .contributor-item:last-child {
+            border-bottom: none;
+        }
+
+        .contributor-item:nth-child(odd) {
+            background-color: var(--secondary-color);
+        }
+
+        .contributor-item:nth-child(even) {
+            background-color: var(--primary-color);
+        }
+
+        .contributor-name {
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        .contributor-role {
+            color: var(--text-content);
+            font-size: 0.9em;
+        }
+
+        .contributor-role a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .contributor-role a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="menu-toggle" class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="sticky-nav" class="sticky-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="References.html">References</a></li>
+            <li><a href="misc/university_projects.html">Projects</a></li>
+            <li><a href="contributions.html" class="active">Credits</a></li>
+        </ul>
+    </nav>
+
+    <!-- Theme Switcher -->
+    <button id="theme-toggle" aria-label="Toggle Theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div id="overlay" class="overlay"></div>
+
+    <main class="container">
+        <header>
+            <h1 class="logo">Credits & Acknowledgements</h1>
+        </header>
+        <div style="margin-top: -20px;margin-bottom: 30px;color: var(--text-content);">
+            <p>Thank you to everyone who made this project possible</p>
+        </div>
+    </main>
+
+    <div class="content-wrapper">
+        <section id="credits" class="content-section" style="margin-top: 0;">
+
+            <div class="credits-container">
+                <p class="credits-intro">
+                    This project was made possible by the invaluable contributions and support from the following
+                    individuals and services.
+                </p>
+
+                <!-- UITS Contributors -->
+                <div class="contributor-section">
+                    <h3 class="uits-border">UITS Contributors</h3>
+                    <ul class="contributor-list">
+                        <li class="contributor-item">
+                            <span class="contributor-name">Akib Reza</span><br>
+                            <small class="contributor-role">Advisor, Contributor | <a
+                                    href="https://www.facebook.com/alpha.akibx" target="_blank">@facebook</a>, <a
+                                    href="https://github.com/AkibReza" target="_blank">@github</a>, <a
+                                    href="https://www.linkedin.com/in/akib-reza-893061352/"
+                                    target="_blank">@linkedin</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Ashrafuzzaman Sohan</span><br>
+                            <small class="contributor-role">Guide, Suggested File Structure, UI Decisions, Management |
+                                <a href="https://uits.edu.bd/library-personnel/" target="_blank">@UITS</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Fahad Rahman</span><br>
+                            <small class="contributor-role">Contributed Premium Content | <a
+                                    href="https://www.facebook.com/fahad.rahamn69" target="_blank">@facebook</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Jobair Ahammed Tusher</span><br>
+                            <small class="contributor-role">Advisor, Contributor of Initial Resources | <a
+                                    href="https://uits.edu.bd/faculty-members-of-cse/" target="_blank">@UITS</a>, <a
+                                    href="https://bd.linkedin.com/in/jobairahammed"
+                                    target="_blank">@linkedin</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Kazi Md. Azhar Uddin Abeer</span><br>
+                            <small class="contributor-role">Showed Netlify hosting, set "ouits-res.netlify.app" | <a
+                                    href="https://4xrhd.rf.gd/?i=1" target="_blank">@website</a>, <a
+                                    href="https://github.com/4xrhd" target="_blank">@github</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Md Kamruzzaman Shishir</span><br>
+                            <small class="contributor-role">Guide, Collaborator, Helped with Redesign | <a
+                                    href="https://mkshishir.pages.dev/" target="_blank">@website</a>, <a
+                                    href="https://www.facebook.com/muhammad.shishir.75" target="_blank">@facebook</a>,
+                                <a href="https://github.com/MuhammadShishir" target="_blank">@github</a>, <a
+                                    href="https://www.linkedin.com/in/md-kamruzzaman-shishir/"
+                                    target="_blank">@linkedin</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Md. Muhaiminul Islam (Maheem)</span><br>
+                            <small class="contributor-role">Advisor, Contributor | <a
+                                    href="https://www.facebook.com/muhaiminul.islam.103772"
+                                    target="_blank">@facebook</a>,
+                                <a href="https://github.com/Maheem0" target="_blank">@github</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Mr. Al-Imtiaz</span><br>
+                            <small class="contributor-role">Advisor, Suggested Redesign | <a
+                                    href="https://uits.edu.bd/faculty-members-of-cse/" target="_blank">@UITS</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Mrinmoy Biswas Akash</span><br>
+                            <small class="contributor-role">Advisor, Contributor | <a
+                                    href="https://uits.edu.bd/faculty-members-of-cse/" target="_blank">@UITS</a>, <a
+                                    href="https://github.com/mrinmoy29a" target="_blank">@github</a>, <a
+                                    href="https://www.linkedin.com/in/mrinmoy-biswas-230b9b72/"
+                                    target="_blank">@linkedin</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Sabbir Howlader</span><br>
+                            <small class="contributor-role">Suggested Current File Structure | <a
+                                    href="https://uits.edu.bd/faculty-members-of-cse/" target="_blank">@UITS</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Saima Siddique Tashfia</span><br>
+                            <small class="contributor-role">Advisor, Suggested Features and Improvements | <a
+                                    href="https://uits.edu.bd/faculty-members-of-cse/" target="_blank">@UITS</a>, <a
+                                    href="https://www.linkedin.com/in/saima-siddique-tashfia-ce022/"
+                                    target="_blank">@linkedin</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Selim Reza</span><br>
+                            <small class="contributor-role">Critic, Advisor, Contributor | <a
+                                    href="https://www.facebook.com/srreza1999" target="_blank">@facebook</a>, <a
+                                    href="https://github.com/selim-reza-UITS" target="_blank">@github</a>, <a
+                                    href="https://www.linkedin.com/in/selim-reza-a38a37318"
+                                    target="_blank">@linkedin</a></small>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Friends & Collaborators -->
+                <div class="contributor-section">
+                    <h3 class="friends-border">Friends & Collaborators</h3>
+                    <ul class="contributor-list">
+                        <li class="contributor-item">
+                            <span class="contributor-name">cristal</span><br>
+                            <small class="contributor-role">Major Collaborator | <a
+                                    href="https://github.com/cristal-node" target="_blank">@github</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">MD SajidHasan</span><br>
+                            <small class="contributor-role">Critic, Contributor | <a
+                                    href="https://www.facebook.com/md.sajidhasan.94402"
+                                    target="_blank">@facebook</a></small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Shabib Ahmed</span><br>
+                            <small class="contributor-role">Critic, Suggested background graphics | <a
+                                    href="https://www.facebook.com/shabib.shabib.735"
+                                    target="_blank">@facebook</a></small>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- AI Assistance -->
+                <div class="contributor-section">
+                    <h3 class="ai-border">AI Assistance</h3>
+                    <ul class="contributor-list">
+                        <li class="contributor-item">
+                            <span class="contributor-name">Google Gemini</span><br>
+                            <small class="contributor-role">This Credit section</small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">OpenAI ChatGPT</span><br>
+                            <small class="contributor-role">Learning and Debugging</small>
+                        </li>
+                        <li class="contributor-item">
+                            <span class="contributor-name">Anthropic Claude</span><br>
+                            <small class="contributor-role">Semester Selector, and FAQ Drop Down</small>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="About" class="content-section">
+            <div align="center">
+                <img src="images/Vegeta-in-the-Rain-(GIF)-By-BlackShadowX306.gif" alt="animated" width="80%"
+                    style="box-shadow: 10px 10px 50px;margin-top: 50px;margin-bottom: 50px;border-radius: 20px;max-width: 400px;">
+            </div>
+
+            <footer class="site-footer">
+                <div class="footer-socials">
+                    <h3 class="footer-heading">Join our Socials</h3>
+                    <p class="footer-subheading">for Updates and Feedback</p>
+                    <ul class="social-links">
+                        <li>
+                            <a href="https://discord.gg/BdmArz6FHY" target="_blank" aria-label="Discord">
+                                <i class="fa-brands fa-discord"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/s/oUITS_ORnU" target="_blank" aria-label="Telegram">
+                                <i class="fa-brands fa-telegram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://facebook.com/groups/1074592960836263/" target="_blank"
+                                aria-label="Facebook">
+                                <i class="fa-brands fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/oU1TS" target="_blank" aria-label="Github">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="footer-credits">
+                    <p class="credits-text">
+                        <strong>UNOFFICIAL</strong> Online Resources Archiver for UITS.
+                        This project is licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0"
+                            target="_blank">Apache License 2.0</a>.
+                        You may use, modify, and distribute its contents, but you must provide attribution and include
+                        the
+                        original license.
+                    </p>
+                    <p class="copyright-text">
+                        Copyright &copy; 2024–<span id="year"></span> &nbsp;b1tranger.
+                    </p>
+                    <script>
+                        document.getElementById("year").textContent = new Date().getFullYear();
+                    </script>
+                </div>
+            </footer>
+
+            <div style="display: flex;justify-content: center;margin-top: 50px;">
+                <p style="text-align: center;"><a style="color: var(--accent-color);"
+                        href="https://b1tranger.gitbook.io/archive/documentations/web-dev/b1t-academics"
+                        target="_blank">Read
+                        Documentation</a> <i class="fa-solid fa-book"></i></p>
+            </div>
+        </section>
+
+    </div>
+
+    <a href="#" id="goToTopBtn" class="go-to-top-button" aria-label="Go to top of page">
+        &#8593;
+    </a>
+
+    <script src="js/theme.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Go to top button
+            const goToTopBtn = document.getElementById('goToTopBtn');
+            if (goToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        goToTopBtn.classList.add('visible');
+                    } else {
+                        goToTopBtn.classList.remove('visible');
+                    }
+                });
+            }
+
+            // Desktop Sticky Nav
+            const desktopNav = document.getElementById('sticky-nav');
+            if (desktopNav) {
+                const handleScroll = () => {
+                    if (window.innerWidth > 768) {
+                        if (window.scrollY > 200) {
+                            desktopNav.classList.add('visible');
+                        } else {
+                            desktopNav.classList.remove('visible');
+                        }
+                    }
+                };
+                window.addEventListener('scroll', handleScroll);
+            }
+
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const overlay = document.getElementById('overlay');
+            const stickyNav = document.getElementById('sticky-nav');
+
+            if (menuToggle && overlay && stickyNav) {
+                menuToggle.addEventListener('click', () => {
+                    document.body.classList.toggle('no-scroll');
+                    overlay.classList.toggle('active');
+                    stickyNav.classList.toggle('visible');
+                });
+
+                overlay.addEventListener('click', () => {
+                    document.body.classList.remove('no-scroll');
+                    overlay.classList.remove('active');
+                    stickyNav.classList.remove('visible');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
