@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="../css/faq.tooltip.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        td {
+            min-width: 200px;
+        }
+
         .project-link {
             background-color: lightblue;
             border-radius: 5px;
@@ -35,10 +39,106 @@
             margin-top: 5vh !important;
             margin-bottom: 2rem !important;
         }
+
+        /* University Accordion Styles */
+        .university-accordion {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .accordion-item {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: var(--primary-color);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--secondary-color);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            background-color: var(--hover-btn-bg);
+        }
+
+        .university-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .accordion-icon {
+            font-size: 0.8rem;
+            color: var(--text-content);
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 18px;
+            background-color: var(--primary-color);
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 600px;
+            padding: 18px;
+        }
+
+        .resource-category {
+            margin-bottom: 15px;
+        }
+
+        .resource-category:last-child {
+            margin-bottom: 0;
+        }
+
+        .resource-category h4 {
+            font-size: 0.95rem;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .accordion-content .link-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .accordion-content .link-group a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .accordion-content .link-group a:hover {
+            color: var(--accent-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            .accordion-header {}
+        }
     </style>
 </head>
 
-<body>
+<body style="overflow-x: hidden;">
     <button id="menu-toggle" class="menu-toggle">
         <span></span>
         <span></span>
@@ -85,209 +185,276 @@
 
                 <div class="university-resources" style="margin-bottom: 50px;padding-left: 10px;padding-right: 10px;">
 
-                    <div class="table-container"
+                    <div class="university-accordion"
                         style="padding-top: 20px;padding-bottom: 20px;padding-left: 10px;padding-right: 10px;">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>University</th>
-                                    <th>Official Resources</th>
-                                    <th>Student Projects</th>
-                                </tr>
-                            </thead>
-                            <tbody>
 
-                                <tr>
-                                    <td>UITS</td>
-                                    <td>-</td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://ouits-res.netlify.app/" target="_blank"
-                                                style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">oU1TS
-                                                Portal</a>
-                                            <a href="https://ou1ts.netlify.app/wiki" target="_blank"
-                                                style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">oU1TS
-                                                Wiki</a>
-                                            <a href="https://bd-ou1ts.netlify.app/" target="_blank"
-                                                style="background-color: #961414;border-radius: 5px;padding: 5px;text-align: center;color: white;">Blood
-                                                Donation Network 🩸</a>
-                                        </div>
-                                    </td>
-                                </tr>
+                        <!-- AIUB -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">AIUB</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Official Resources</h4>
+                                    <div class="link-group">
+                                        <a href="https://www.aiub.edu/faculties/fst/ug-course-catalog"
+                                            target="_blank">Course Catalogue</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                <tr>
-                                    <td>UIU</td>
-                                    <td>-</td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://uiulinks.vercel.app/" target="_blank"
-                                                style="background-color: rgb(232, 235, 72);border-radius: 5px;padding: 5px;text-align: center;color: #000000;">UIU
-                                                Resource Hub</a>
-                                            <a href="https://nurulalamador.github.io/UIUQuestionBank/" target="_blank"
-                                                style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">UIU
-                                                Question Bank</a><small> + <a href="https://uiuqb.vercel.app/"
-                                                    target="_blank">mirror</a></small>
+                        <!-- AUST -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">AUST</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Official Resources</h4>
+                                    <div class="link-group">
+                                        <a href="https://aust.edu/library/e_resources" target="_blank">E Resources</a>
+                                        <a href="https://onlinelibrary.wiley.com/action/showPublications"
+                                            target="_blank">E Books</a>
+                                        <a href="https://www.scopus.com/home.uri" target="_blank">Scopus</a>
+                                        <a href="https://www.turnitin.com/" target="_blank">Turnitin</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                            <a href="https://uiu-section-selector.vercel.app/" target="_blank"
-                                                style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">UIU
-                                                Section Selector</a> <small><a
-                                                    href="https://github.com/TahsinFaiyaz30/UIU-Section-Selector"
-                                                    target="_blank">(repo)</a></small>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>DIU</td>
-                                    <td>
+                        <!-- BRACU -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">BRACU</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Official Resources</h4>
+                                    <div class="link-group">
+                                        <a href="https://library.bracu.ac.bd/" target="_blank">Library</a>
+                                        <a href="https://www.bracu.ac.bd/students" target="_blank">Student
+                                            Facilities</a>
+                                    </div>
+                                </div>
+                                <div class="resource-category">
+                                    <h4>Student Projects</h4>
+                                    <div class="link-group">
+                                        <a href="https://gangupnow.com/" target="_blank">Gang Up</a>
+                                        <a href="https://homies-unlocked.itzmrz.xyz/"
+                                            target="_blank">HomiesUnlocked<br><small>(combined routine)</small></a>
+                                        <a href="https://routine-id.itzmrz.xyz" target="_blank">Routine ID Generator</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <!-- BUTEX -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">BUTEX</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Student Projects</h4>
+                                    <div class="link-group">
+                                        <a href="https://notebot.netlify.app/" target="_blank"
+                                            style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">notebot</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DIU -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">DIU</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Official Resources</h4>
+                                    <div class="link-group">
                                         <p style="margin-top: -2px;margin-bottom: -2px;">
                                             <a href="https://elearn.daffodilvarsity.edu.bd/" target="_blank">Blended
                                                 Learning Center</a><br><small>(fork of moodle)</small>
                                         </p>
-
-                                    </td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://diuqbank.com/" target="_blank"
+                                    </div>
+                                </div>
+                                <div class="resource-category">
+                                    <h4>Student Projects</h4>
+                                    <div class="link-group">
+                                        <a href="https://diuqbank.com/" target="_blank"
+                                            style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">DIU
+                                            Question Bank</a>
+                                        <p style="margin-top: -2px;margin-bottom: -2px;">
+                                            <a href="https://routine.zohirrayhan.me/" target="_blank"
                                                 style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">DIU
-                                                Question Bank</a>
-                                            <p style="margin-top: -2px;margin-bottom: -2px;">
-                                                <a href="https://routine.zohirrayhan.me/" target="_blank"
-                                                    style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">DIU
-                                                    Routine
-                                                    Scrapper</a>+
-                                                <small><a
-                                                        href="https://play.google.com/store/apps/details?id=com.zohirrayhan.routinescrapper"
-                                                        target="_blank">PlayStore</a>
-                                                </small>
-                                            </p>
+                                                Routine Scrapper</a>+
+                                            <small><a
+                                                    href="https://play.google.com/store/apps/details?id=com.zohirrayhan.routinescrapper"
+                                                    target="_blank">PlayStore</a></small>
+                                        </p>
+                                        <a href="https://aiproctor.daffodilglobal.ai/" target="_blank"
+                                            style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">DIU
+                                            Smart Proctor</a>
+                                        <a href="https://play.google.com/store/apps/details?id=com.ccv4huvi.bazardorv6"
+                                            target="_blank"
+                                            style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">বাজারদর</a><small>(Now,
+                                            a govt. project)</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                            <a href="https://aiproctor.daffodilglobal.ai/" target="_blank"
-                                                style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">DIU
-                                                Smart Proctor</a>
-                                            <a href="https://play.google.com/store/apps/details?id=com.ccv4huvi.bazardorv6"
-                                                target="_blank"
-                                                style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">বাজারদর</a><small>(Now,
-                                                a govt. project)</small>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>BUTEX</td>
-                                    <td>-</td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://notebot.netlify.app/" target="_blank"
-                                                style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">notebot</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>BRACU</td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://library.bracu.ac.bd/" target="_blank">Library</a>
-                                            <a href="https://www.bracu.ac.bd/students" target="_blank">Student
-                                                Facilities</a>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://gangupnow.com/" target="_blank">Gang Up</a>
-                                            <a href="https://homies-unlocked.itzmrz.xyz/"
-                                                target="_blank">HomiesUnlocked<br><small>(combined
-                                                    routine)</small></a>
-                                            <a href="https://routine-id.itzmrz.xyz" target="_blank">Routine ID
-                                                Generator</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>IUT</td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://www.iutoic-dhaka.edu/e-resources" target="_blank">E
-                                                Resources</a>
-                                            <a href="http://103.82.172.44:8080/xmlui/handle/123456789/58"
-                                                target="_blank"
-                                                style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">Question
-                                                Bank</a>
-                                        </div>
-                                    </td>
-                                    <td>-</td>
-                                </tr>
-                                <tr>
-                                    <td>AUST</td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://aust.edu/library/e_resources" target="_blank">E
-                                                Resources</a>
-                                            <a href="https://onlinelibrary.wiley.com/action/showPublications"
-                                                target="_blank">E Books</a>
-                                            <a href="https://www.scopus.com/home.uri" target="_blank">Scopus</a>
-                                            <a href="https://www.turnitin.com/" target="_blank">Turnitin</a>
-                                        </div>
-                                    </td>
-                                    <td>-</td>
-                                </tr>
-                                <tr>
-                                    <td>NSU</td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://www.northsouth.edu/archive.html"
-                                                target="_blank">Archive</a>
-                                            <a href="https://library.northsouth.edu/" target="_blank">Library</a>
-                                        </div>
-                                    </td>
-                                    <td>-</td>
-                                </tr>
+                        <!-- IUB -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">IUB</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Official Resources</h4>
+                                    <div class="link-group">
+                                        <a href="https://ar.iub.edu.bd/" target="_blank">Academic Repository</a>
+                                        <a href="https://library.iub.edu.bd/" target="_blank">Library & E-Resources</a>
+                                        <a href="https://iub.ac.bd/directory" target="_blank">Directory</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                <tr>
-                                    <td>SEU</td>
-                                    <td>
-                                        <div class="feature-list" style="max-width: 300px;">
-                                            <span class="feature-title">UCAM Dashboard Features:</span>
-                                            <ul>
-                                                <li>Student Info</li>
-                                                <li>Course Registration</li>
-                                                <li>CG Overview</li>
-                                                <li>Routine</li>
-                                                <li>Advisor</li>
-                                                <li>Payment System</li>
-                                            </ul>
-                                        </div>
-                                    </td>
-                                    <td>-</td>
-                                </tr>
-                                <tr>
-                                    <td>IUB</td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://ar.iub.edu.bd/" target="_blank">Academic Repository</a>
-                                            <a href="https://library.iub.edu.bd/" target="_blank">Library &
-                                                E-Resources</a>
-                                            <a href="https://iub.ac.bd/directory" target="_blank">Directory</a>
-                                        </div>
-                                    </td>
-                                    <td>-</td>
-                                </tr>
-                                <tr>
-                                    <td>AIUB</td>
-                                    <td>
-                                        <div class="link-group">
-                                            <a href="https://www.aiub.edu/faculties/fst/ug-course-catalog">Course
-                                                Catalogue</a>
-                                        </div>
-                                    </td>
-                                    <td>-</td>
-                                </tr>
-                                <tr>
-                                    <td>SUST</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <!-- IUT -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">IUT</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Official Resources</h4>
+                                    <div class="link-group">
+                                        <a href="https://www.iutoic-dhaka.edu/e-resources" target="_blank">E
+                                            Resources</a>
+                                        <a href="http://103.82.172.44:8080/xmlui/handle/123456789/58" target="_blank"
+                                            style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">Question
+                                            Bank</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NSU -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">NSU</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Official Resources</h4>
+                                    <div class="link-group">
+                                        <a href="https://www.northsouth.edu/archive.html" target="_blank">Archive</a>
+                                        <a href="https://library.northsouth.edu/" target="_blank">Library</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SEU -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">SEU</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Official Resources</h4>
+                                    <div class="feature-list" style="max-width: 300px;">
+                                        <span class="feature-title">UCAM Dashboard Features:</span>
+                                        <ul>
+                                            <li>Student Info</li>
+                                            <li>Course Registration</li>
+                                            <li>CG Overview</li>
+                                            <li>Routine</li>
+                                            <li>Advisor</li>
+                                            <li>Payment System</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SUST -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">SUST</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <p style="color: var(--text-content); font-style: italic;">No resources available
+                                        yet.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- UIU -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">UIU</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Student Projects</h4>
+                                    <div class="link-group">
+                                        <a href="https://uiulinks.vercel.app/" target="_blank"
+                                            style="background-color: rgb(232, 235, 72);border-radius: 5px;padding: 5px;text-align: center;color: #000000;">UIU
+                                            Resource Hub</a>
+                                        <a href="https://nurulalamador.github.io/UIUQuestionBank/" target="_blank"
+                                            style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">UIU
+                                            Question Bank</a><small> + <a href="https://uiuqb.vercel.app/"
+                                                target="_blank">mirror</a></small>
+                                        <a href="https://uiu-section-selector.vercel.app/" target="_blank"
+                                            style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">UIU
+                                            Section Selector</a> <small><a
+                                                href="https://github.com/TahsinFaiyaz30/UIU-Section-Selector"
+                                                target="_blank">(repo)</a></small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- UITS -->
+                        <div class="accordion-item">
+                            <button class="accordion-header">
+                                <span class="university-name">UITS</span>
+                                <span class="accordion-icon">▼</span>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="resource-category">
+                                    <h4>Student Projects</h4>
+                                    <div class="link-group">
+                                        <a href="https://ouits-res.netlify.app/" target="_blank"
+                                            style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">oU1TS
+                                            Portal</a>
+                                        <a href="https://ou1ts.netlify.app/wiki" target="_blank"
+                                            style="background-color: lightblue;border-radius: 5px;padding: 5px;text-align: center;color: #000000;">oU1TS
+                                            Wiki</a>
+                                        <a href="https://bd-ou1ts.netlify.app/" target="_blank"
+                                            style="background-color: #961414;border-radius: 5px;padding: 5px;text-align: center;color: white;">Blood
+                                            Donation Network 🩸</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -367,6 +534,14 @@
         });
 
         document.addEventListener('DOMContentLoaded', () => {
+            // University Accordion functionality
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', function () {
+                    const accordionItem = this.closest('.accordion-item');
+                    accordionItem.classList.toggle('active');
+                });
+            });
+
             // Go to top button
             const goToTopBtn = document.getElementById('goToTopBtn');
             if (goToTopBtn) {

@@ -62,3 +62,35 @@ User added a reusable class for project link styling:
 User moved Blended Learning Center to Official Resources column and added:
 - DIU Smart Proctor
 - বাজারদর (now a govt. project)
+
+---
+
+## Changes Made (2026-01-25) - Accordion Dropdown
+
+### 6. Replaced Table with Accordion Dropdown
+- Converted the `table-container` table format to an accordion-style dropdown menu
+- Only university names are visible initially; clicking expands to show resources
+- Universities sorted alphabetically: AIUB, AUST, BRACU, BUTEX, DIU, IUB, IUT, NSU, SEU, SUST, UIU, UITS
+
+### 7. Added Accordion CSS
+```css
+.university-accordion { display: flex; flex-direction: column; gap: 8px; }
+.accordion-item { border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden; }
+.accordion-header { width: 100%; padding: 14px 18px; display: flex; justify-content: space-between; cursor: pointer; }
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+.accordion-item.active .accordion-content { max-height: 600px; padding: 18px; }
+.accordion-item.active .accordion-icon { transform: rotate(180deg); }
+```
+
+### 8. Added Accordion JavaScript
+```javascript
+document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', function() {
+        this.closest('.accordion-item').classList.toggle('active');
+    });
+});
+```
+
+### 9. Preserved Inline Styles
+- Kept existing inline styles on Student Projects links (lightblue, yellow, red backgrounds)
+- Resources now grouped under "Official Resources" and "Student Projects" headings within each accordion
