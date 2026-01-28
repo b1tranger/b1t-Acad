@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submissions - oU1TS Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Category Page Layout */
+        .category-page {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f0f1a 0%, #1a1a2e 50%, #16213e 100%);
+            padding: 2rem;
+        }
+
+        /* Header Section */
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 2rem 2.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            flex-wrap: wrap;
+        }
+
+        .category-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f57c00, #ffb74d, #ff9800);
+        }
+
+        .category-header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(245, 124, 0, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.25rem;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            color: #e0e6ed;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            z-index: 1;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateX(-3px);
+        }
+
+        .back-btn i {
+            font-size: 0.85rem;
+            transition: transform 0.3s ease;
+        }
+
+        .back-btn:hover i {
+            transform: translateX(-3px);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+            position: relative;
+        }
+
+        .category-icon::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 21px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .category-info {
+            flex: 1;
+            min-width: 200px;
+            z-index: 1;
+        }
+
+        .category-info h1 {
+            color: #ffffff;
+            font-size: 1.85rem;
+            font-weight: 700;
+            margin: 0 0 0.35rem 0;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-info p {
+            color: #a8b4c4;
+            font-size: 1rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .project-list {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Header */
+        @media (max-width: 768px) {
+            .category-page {
+                padding: 1rem;
+            }
+
+            .category-header {
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+
+            .category-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.4rem;
+                border-radius: 14px;
+            }
+
+            .category-info h1 {
+                font-size: 1.4rem;
+            }
+
+            .category-info p {
+                font-size: 0.9rem;
+            }
+
+            .back-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .category-header {
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .category-header::after {
+                display: none;
+            }
+
+            .back-btn {
+                order: -1;
+            }
+        }
+
+        /* Tab Buttons */
+        .tab-container {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            color: #a0a0a0;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.25);
+            color: #e0e6ed;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, rgba(100, 181, 246, 0.2), rgba(66, 165, 245, 0.15));
+            border-color: #64b5f6;
+            color: #64b5f6;
+        }
+
+        .tab-btn i {
+            font-size: 1.1rem;
+        }
+
+        .tab-btn .count-badge {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 0.25rem;
+        }
+
+        .tab-btn.active .count-badge {
+            background: rgba(100, 181, 246, 0.3);
+        }
+
+        /* Submissions Grid */
+        .submissions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem 0;
+        }
+
+        .submission-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .submission-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(100, 181, 246, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .submission-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #64b5f6, #42a5f5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .submission-name {
+            color: #e0e6ed;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .submission-email {
+            color: #64b5f6;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
+            word-break: break-all;
+        }
+
+        .submission-id {
+            color: #a0a0a0;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .submission-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            color: #64b5f6;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: #a0a0a0;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* States */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px dashed rgba(255, 255, 255, 0.15);
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            color: #64b5f6;
+            margin-bottom: 1.5rem;
+        }
+
+        .empty-state h3 {
+            color: #e0e6ed;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .empty-state p {
+            color: #a0a0a0;
+            font-size: 1rem;
+            max-width: 400px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+        }
+
+        .submit-resource-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .submit-resource-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(100, 181, 246, 0.4);
+        }
+
+        .page-description {
+            background: rgba(100, 181, 246, 0.1);
+            border: 1px solid rgba(100, 181, 246, 0.2);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .page-description i {
+            color: #64b5f6;
+            font-size: 1.5rem;
+        }
+
+        .page-description p {
+            color: #e0e6ed;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .reference-footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .reference-footer p {
+            color: #a0a0a0;
+            font-size: 0.85rem;
+        }
+
+        .reference-footer a {
+            color: #64b5f6;
+            text-decoration: none;
+        }
+
+        .reference-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            max-width: 700px;
+            width: 100%;
+            max-height: 85vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            color: #e0e6ed;
+            font-size: 1.25rem;
+            margin: 0;
+        }
+
+        .modal-header .submitter-info-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .modal-header .mini-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .modal-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #e0e6ed;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            overflow-y: auto;
+        }
+
+        .submission-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .submission-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(100, 181, 246, 0.3);
+        }
+
+        .submission-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .submission-detail-title {
+            color: #e0e6ed;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .submission-type-badge {
+            display: inline-block;
+            background: rgba(100, 181, 246, 0.2);
+            color: #64b5f6;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .submission-details-text {
+            color: #c0c0c0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .submission-files {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .file-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #64b5f6;
+            font-size: 0.85rem;
+            text-decoration: none;
+            padding: 0.5rem 0.75rem;
+            background: rgba(100, 181, 246, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            word-break: break-all;
+        }
+
+        .file-link:hover {
+            background: rgba(100, 181, 246, 0.2);
+            color: #90caf9;
+        }
+
+        .file-link i {
+            flex-shrink: 0;
+        }
+
+        /* Department badge in modal */
+        .dept-batch-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(129, 199, 132, 0.15);
+            color: #81c784;
+            font-size: 0.8rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .dept-batch-badge i {
+            font-size: 0.75rem;
+        }
+
+        /* Question vs Note color variations */
+        .question-theme .submission-type-badge {
+            background: rgba(255, 183, 77, 0.2);
+            color: #ffb74d;
+        }
+
+        .note-theme .submission-type-badge {
+            background: rgba(129, 199, 132, 0.2);
+            color: #81c784;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="category-page">
+        <header class="category-header">
+            <a href="index.html" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back
+            </a>
+            <div class="category-icon" style="background: linear-gradient(135deg, #fff3e0, #ffe0b2);">
+                <i class="fa-solid fa-cloud-arrow-up" style="color: #f57c00;"></i>
+            </div>
+            <div class="category-info">
+                <h1>Submissions</h1>
+                <p>Questions and Notes submitted by students</p>
+            </div>
+        </header>
+
+        <div class="project-list">
+            <div class="page-description">
+                <i class="fa-solid fa-circle-info"></i>
+                <p>This page showcases questions and notes submitted by students. Toggle between submissions using the buttons below to view different contributions from the community.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="tab-container">
+                <button class="tab-btn active" id="questions-tab" onclick="switchTab('questions')">
+                    <i class="fa-solid fa-circle-question"></i>
+                    Question Submissions
+                    <span class="count-badge" id="questions-count">0</span>
+                </button>
+                <button class="tab-btn" id="notes-tab" onclick="switchTab('notes')">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Note Submissions
+                    <span class="count-badge" id="notes-count">0</span>
+                </button>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading-state" class="empty-state">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                <h3>Loading Submissions...</h3>
+                <p>Fetching data from the community submissions.</p>
+            </div>
+
+            <!-- Empty State -->
+            <div id="empty-state" class="empty-state" style="display: none;">
+                <i class="fa-solid fa-inbox"></i>
+                <h3>No Submissions Yet</h3>
+                <p>No submissions found for this category. Be the first to contribute!</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-state" class="empty-state" style="display: none;">
+                <i class="fa-solid fa-exclamation-triangle"></i>
+                <h3>Unable to Load Submissions</h3>
+                <p>There was an error fetching the submissions list. Please try again later.</p>
+            </div>
+
+            <!-- Submissions Grid -->
+            <div id="submissions-grid" class="submissions-grid" style="display: none;"></div>
+
+            <!-- Modal for showing details -->
+            <div id="details-modal" class="modal-overlay">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="submitter-info-header">
+                            <div id="modal-avatar" class="mini-avatar"></div>
+                            <div>
+                                <h2 id="modal-name">Student Name</h2>
+                                <span id="modal-email" style="color: #64b5f6; font-size: 0.85rem;"></span>
+                            </div>
+                        </div>
+                        <button class="modal-close" onclick="closeModal()">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal-body">
+                        <!-- Submissions populated dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="reference-footer">
+                <p>Community submissions from UITS students</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Google Sheet Configuration
+        const QUESTIONS_SHEET_ID = '10TTUKqZg5wtax_Jf5RdAbPFescYe2AtKpfFIzafrrQ8';
+        const NOTES_SHEET_ID = '1oeAa9gqFRiGMFUj62GoIgUNKj8fAwAjOnJH0BvssV1E';
+
+        const QUESTIONS_SHEET_URL = `https://docs.google.com/spreadsheets/d/${QUESTIONS_SHEET_ID}/gviz/tq?tqx=out:json`;
+        const NOTES_SHEET_URL = `https://docs.google.com/spreadsheets/d/${NOTES_SHEET_ID}/gviz/tq?tqx=out:json`;
+
+        // Column indices (0-based) - adjust based on actual sheet structure
+        // Questions: "Email Address", "Student Name", "Student ID/Edu Mail", "Department - Batch", "Question Details", "Upload Questions Here"
+        const Q_COL_EMAIL = 1;
+        const Q_COL_NAME = 2;
+        const Q_COL_STUDENT_ID = 3;
+        const Q_COL_DEPT_BATCH = 4;
+        const Q_COL_DETAILS = 5;
+        const Q_COL_FILES = 6;
+
+        // Notes: "Email Address", "Student Name", "Student ID/Edu Mail", "Department - Batch", "Note Details", "Upload Notes here"
+        const N_COL_EMAIL = 1;
+        const N_COL_NAME = 2;
+        const N_COL_STUDENT_ID = 3;
+        const N_COL_DEPT_BATCH = 4;
+        const N_COL_DETAILS = 5;
+        const N_COL_FILES = 6;
+
+        // State
+        let currentTab = 'questions';
+        let questionsData = new Map();
+        let notesData = new Map();
+        let questionsLoaded = false;
+        let notesLoaded = false;
+
+        // DOM Elements
+        const loadingState = document.getElementById('loading-state');
+        const emptyState = document.getElementById('empty-state');
+        const errorState = document.getElementById('error-state');
+        const submissionsGrid = document.getElementById('submissions-grid');
+
+        // Avatar colors
+        const colors = [
+            ['#64b5f6', '#42a5f5'], // Blue
+            ['#81c784', '#66bb6a'], // Green
+            ['#ffb74d', '#ffa726'], // Orange
+            ['#ba68c8', '#ab47bc'], // Purple
+            ['#4dd0e1', '#26c6da'], // Cyan
+            ['#f06292', '#ec407a'], // Pink
+            ['#aed581', '#9ccc65'], // Light Green
+            ['#ff8a65', '#ff7043'], // Deep Orange
+        ];
+
+        function getAvatarColors(name) {
+            const colorIndex = name.length % colors.length;
+            return colors[colorIndex];
+        }
+
+        function getInitials(name) {
+            return name
+                .split(' ')
+                .filter(word => word.length > 0)
+                .map(word => word[0])
+                .join('')
+                .substring(0, 2)
+                .toUpperCase() || '?';
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Parse Google Drive file links
+        function parseFileLinks(fileCell) {
+            if (!fileCell) return [];
+            
+            const text = String(fileCell);
+            const links = [];
+            
+            // Match Google Drive URLs
+            const urlRegex = /https?:\/\/[^\s,]+/g;
+            const matches = text.match(urlRegex);
+            
+            if (matches) {
+                matches.forEach((url, index) => {
+                    links.push({
+                        url: url.trim(),
+                        name: `File ${index + 1}`
+                    });
+                });
+            }
+            
+            return links;
+        }
+
+        // Fetch Questions
+        async function fetchQuestions() {
+            if (questionsLoaded) return;
+            
+            try {
+                const response = await fetch(QUESTIONS_SHEET_URL);
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                const text = await response.text();
+                
+                if (!text.includes('google.visualization.Query.setResponse')) {
+                    throw new Error('Invalid response format');
+                }
+                
+                const jsonString = text.substring(text.indexOf('(') + 1, text.lastIndexOf(')'));
+                const data = JSON.parse(jsonString);
+                
+                if (data.status === 'error') {
+                    throw new Error(data.errors?.[0]?.message || 'Sheet error');
+                }
+                
+                if (!data.table || !data.table.rows) {
+                    questionsData = new Map();
+                    questionsLoaded = true;
+                    updateCount('questions', 0);
+                    return;
+                }
+
+                const submitterMap = new Map();
+                
+                data.table.rows.forEach(row => {
+                    if (!row.c) return;
+                    
+                    const nameCell = row.c[Q_COL_NAME];
+                    if (!nameCell || !nameCell.v) return;
+                    
+                    const name = String(nameCell.v).trim();
+                    if (!name || name === '' || name.toLowerCase() === 'student name') return;
+                    
+                    const email = row.c[Q_COL_EMAIL]?.v ? String(row.c[Q_COL_EMAIL].v) : '';
+                    const studentId = row.c[Q_COL_STUDENT_ID]?.v ? String(row.c[Q_COL_STUDENT_ID].v) : '';
+                    const deptBatch = row.c[Q_COL_DEPT_BATCH]?.v ? String(row.c[Q_COL_DEPT_BATCH].v) : '';
+                    const details = row.c[Q_COL_DETAILS]?.v ? String(row.c[Q_COL_DETAILS].v) : '';
+                    const filesRaw = row.c[Q_COL_FILES]?.v ? String(row.c[Q_COL_FILES].v) : '';
+                    
+                    const files = parseFileLinks(filesRaw);
+                    
+                    const submission = {
+                        deptBatch,
+                        details,
+                        files
+                    };
+                    
+                    if (submitterMap.has(name)) {
+                        const submitter = submitterMap.get(name);
+                        submitter.count++;
+                        submitter.submissions.push(submission);
+                    } else {
+                        submitterMap.set(name, {
+                            name,
+                            email,
+                            studentId,
+                            count: 1,
+                            submissions: [submission]
+                        });
+                    }
+                });
+
+                questionsData = submitterMap;
+                questionsLoaded = true;
+                updateCount('questions', submitterMap.size);
+                
+            } catch (error) {
+                console.error('Error fetching questions:', error);
+                questionsLoaded = true;
+                questionsData = new Map();
+            }
+        }
+
+        // Fetch Notes
+        async function fetchNotes() {
+            if (notesLoaded) return;
+            
+            try {
+                const response = await fetch(NOTES_SHEET_URL);
+                
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                
+                const text = await response.text();
+                
+                if (!text.includes('google.visualization.Query.setResponse')) {
+                    throw new Error('Invalid response format');
+                }
+                
+                const jsonString = text.substring(text.indexOf('(') + 1, text.lastIndexOf(')'));
+                const data = JSON.parse(jsonString);
+                
+                if (data.status === 'error') {
+                    throw new Error(data.errors?.[0]?.message || 'Sheet error');
+                }
+                
+                if (!data.table || !data.table.rows) {
+                    notesData = new Map();
+                    notesLoaded = true;
+                    updateCount('notes', 0);
+                    return;
+                }
+
+                const submitterMap = new Map();
+                
+                data.table.rows.forEach(row => {
+                    if (!row.c) return;
+                    
+                    const nameCell = row.c[N_COL_NAME];
+                    if (!nameCell || !nameCell.v) return;
+                    
+                    const name = String(nameCell.v).trim();
+                    if (!name || name === '' || name.toLowerCase() === 'student name') return;
+                    
+                    const email = row.c[N_COL_EMAIL]?.v ? String(row.c[N_COL_EMAIL].v) : '';
+                    const studentId = row.c[N_COL_STUDENT_ID]?.v ? String(row.c[N_COL_STUDENT_ID].v) : '';
+                    const deptBatch = row.c[N_COL_DEPT_BATCH]?.v ? String(row.c[N_COL_DEPT_BATCH].v) : '';
+                    const details = row.c[N_COL_DETAILS]?.v ? String(row.c[N_COL_DETAILS].v) : '';
+                    const filesRaw = row.c[N_COL_FILES]?.v ? String(row.c[N_COL_FILES].v) : '';
+                    
+                    const files = parseFileLinks(filesRaw);
+                    
+                    const submission = {
+                        deptBatch,
+                        details,
+                        files
+                    };
+                    
+                    if (submitterMap.has(name)) {
+                        const submitter = submitterMap.get(name);
+                        submitter.count++;
+                        submitter.submissions.push(submission);
+                    } else {
+                        submitterMap.set(name, {
+                            name,
+                            email,
+                            studentId,
+                            count: 1,
+                            submissions: [submission]
+                        });
+                    }
+                });
+
+                notesData = submitterMap;
+                notesLoaded = true;
+                updateCount('notes', submitterMap.size);
+                
+            } catch (error) {
+                console.error('Error fetching notes:', error);
+                notesLoaded = true;
+                notesData = new Map();
+            }
+        }
+
+        function updateCount(type, count) {
+            document.getElementById(`${type}-count`).textContent = count;
+        }
+
+        function switchTab(tab) {
+            currentTab = tab;
+            
+            // Update tab buttons
+            document.getElementById('questions-tab').classList.toggle('active', tab === 'questions');
+            document.getElementById('notes-tab').classList.toggle('active', tab === 'notes');
+            
+            renderCurrentTab();
+        }
+
+        async function renderCurrentTab() {
+            showLoading();
+            
+            if (currentTab === 'questions') {
+                await fetchQuestions();
+                renderSubmissions(questionsData, 'question');
+            } else {
+                await fetchNotes();
+                renderSubmissions(notesData, 'note');
+            }
+        }
+
+        function renderSubmissions(dataMap, type) {
+            if (dataMap.size === 0) {
+                showEmptyState();
+                return;
+            }
+
+            loadingState.style.display = 'none';
+            emptyState.style.display = 'none';
+            errorState.style.display = 'none';
+            submissionsGrid.style.display = 'grid';
+
+            const submitters = Array.from(dataMap.values())
+                .sort((a, b) => b.count - a.count);
+
+            submissionsGrid.innerHTML = submitters.map(submitter => {
+                const initials = getInitials(submitter.name);
+                const [color1, color2] = getAvatarColors(submitter.name);
+                const subtitle = submitter.studentId || 'UITS Student';
+                const typeLabel = type === 'question' ? 'Question' : 'Note';
+                const pluralLabel = submitter.count === 1 ? typeLabel : `${typeLabel}s`;
+
+                return `
+                    <div class="submission-card" onclick="openModal('${escapeHtml(submitter.name).replace(/'/g, "\\'")}', '${type}')">
+                        <div class="submission-avatar" style="background: linear-gradient(135deg, ${color1}, ${color2});">
+                            ${initials}
+                        </div>
+                        <div class="submission-name">${escapeHtml(submitter.name)}</div>
+                        ${submitter.email ? `<div class="submission-email">${escapeHtml(submitter.email)}</div>` : ''}
+                        <div class="submission-id">${escapeHtml(subtitle)}</div>
+                        <div class="submission-stats">
+                            <div class="stat-item">
+                                <span class="stat-value">${submitter.count}</span>
+                                <span class="stat-label">${pluralLabel}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function showLoading() {
+            loadingState.style.display = 'flex';
+            loadingState.style.flexDirection = 'column';
+            emptyState.style.display = 'none';
+            errorState.style.display = 'none';
+            submissionsGrid.style.display = 'none';
+        }
+
+        function showEmptyState() {
+            loadingState.style.display = 'none';
+            emptyState.style.display = 'flex';
+            emptyState.style.flexDirection = 'column';
+            errorState.style.display = 'none';
+            submissionsGrid.style.display = 'none';
+        }
+
+        function showErrorState() {
+            loadingState.style.display = 'none';
+            emptyState.style.display = 'none';
+            errorState.style.display = 'flex';
+            errorState.style.flexDirection = 'column';
+            submissionsGrid.style.display = 'none';
+        }
+
+        // Modal functions
+        function openModal(submitterName, type) {
+            const dataMap = type === 'question' ? questionsData : notesData;
+            const submitter = dataMap.get(submitterName);
+            if (!submitter) return;
+
+            const modal = document.getElementById('details-modal');
+            const modalName = document.getElementById('modal-name');
+            const modalEmail = document.getElementById('modal-email');
+            const modalAvatar = document.getElementById('modal-avatar');
+            const modalBody = document.getElementById('modal-body');
+
+            // Set submitter info
+            modalName.textContent = submitter.name;
+            modalEmail.textContent = submitter.email || '';
+
+            // Set avatar
+            const initials = getInitials(submitter.name);
+            const [color1, color2] = getAvatarColors(submitter.name);
+
+            modalAvatar.textContent = initials;
+            modalAvatar.style.background = `linear-gradient(135deg, ${color1}, ${color2})`;
+
+            // Set theme class
+            const themeClass = type === 'question' ? 'question-theme' : 'note-theme';
+            const typeLabel = type === 'question' ? 'Question' : 'Note';
+            const detailsLabel = type === 'question' ? 'Question Details' : 'Note Details';
+            const filesLabel = type === 'question' ? 'Upload Questions Here' : 'Upload Notes here';
+
+            // Render submissions
+            modalBody.innerHTML = submitter.submissions
+                .map((sub, index) => `
+                    <div class="submission-item ${themeClass}">
+                        <div class="submission-detail-title">${typeLabel} ${index + 1}</div>
+                        ${sub.deptBatch ? `
+                            <div class="dept-batch-badge">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                ${escapeHtml(sub.deptBatch)}
+                            </div>
+                        ` : ''}
+                        ${sub.details ? `
+                            <div class="submission-details-text">
+                                <strong>${detailsLabel}:</strong><br>
+                                ${escapeHtml(sub.details)}
+                            </div>
+                        ` : ''}
+                        ${sub.files.length > 0 ? `
+                            <div class="submission-files">
+                                <strong style="color: #a0a0a0; font-size: 0.85rem; margin-bottom: 0.5rem; display: block;">${filesLabel}:</strong>
+                                ${sub.files.map((file, fileIndex) => `
+                                    <a href="${escapeHtml(file.url)}" target="_blank" class="file-link">
+                                        <i class="fa-solid fa-file-arrow-down"></i>
+                                        File ${fileIndex + 1}
+                                    </a>
+                                `).join('')}
+                            </div>
+                        ` : '<p style="color: #a0a0a0; font-size: 0.85rem;">No files attached.</p>'}
+                    </div>
+                `).join('') || '<p style="color: #a0a0a0; text-align: center;">No submission details available.</p>';
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('details-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on overlay click
+        document.getElementById('details-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
+
+        // Initialize - fetch both in parallel, render questions first
+        async function init() {
+            // Fetch both sheets in parallel
+            await Promise.all([fetchQuestions(), fetchNotes()]);
+            
+            // Render the current tab (questions by default)
+            renderCurrentTab();
+        }
+
+        init();
+    </script>
+</body>
+
+</html>
