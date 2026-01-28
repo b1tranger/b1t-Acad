@@ -34,12 +34,12 @@ Clicking a card opens a modal popup showing:
 ## Google Sheets Configuration
 
 ### Question Uploads Sheet
-- **Sheet ID**: `10TTUKqZg5wtax_Jf5RdAbPFescYe2AtKpfFIzafrrQ8`
-- **URL**: [Google Sheet Link](https://docs.google.com/spreadsheets/d/10TTUKqZg5wtax_Jf5RdAbPFescYe2AtKpfFIzafrrQ8/edit?usp=sharing)
+- **Sheet ID**: `---`
+- **URL**: Google Sheet Link
 
 ### Note Uploads Sheet
-- **Sheet ID**: `1oeAa9gqFRiGMFUj62GoIgUNKj8fAwAjOnJH0BvssV1E`
-- **URL**: [Google Sheet Link](https://docs.google.com/spreadsheets/d/1oeAa9gqFRiGMFUj62GoIgUNKj8fAwAjOnJH0BvssV1E/edit?usp=sharing)
+- **Sheet ID**: `---`
+- **URL**: Google Sheet Link
 
 ### Column Mapping (0-indexed)
 
