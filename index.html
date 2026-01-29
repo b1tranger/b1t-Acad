@@ -105,6 +105,88 @@
         animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
       }
     }
+
+    /* Drive Dropdown Styles */
+    .drive-dropdown {
+      margin-bottom: 1.5rem;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .drive-dropdown-toggle {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1.25rem;
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .drive-dropdown-toggle:hover {
+      background-color: var(--hover-btn-bg);
+      border-color: var(--accent-color);
+    }
+
+    .dropdown-arrow {
+      transition: transform 0.3s ease;
+    }
+
+    .drive-dropdown.open .dropdown-arrow {
+      transform: rotate(180deg);
+    }
+
+    .drive-dropdown-content {
+      display: none;
+      flex-direction: column;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      background-color: var(--secondary-color);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .drive-dropdown.open .drive-dropdown-content {
+      display: flex;
+    }
+
+    .dropdown-folder-link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.6rem 0.75rem;
+      color: var(--text-color);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .dropdown-folder-link:hover {
+      background-color: var(--hover-btn-bg);
+      color: var(--accent-color);
+    }
+
+    .dropdown-folder-link i {
+      color: #fbbf24;
+    }
+
+    .dropdown-folder-link:hover i {
+      color: var(--accent-color);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 
 
@@ -556,6 +638,35 @@
         <h2 class="curated-resources__title">oU1TS Drive</h2>
         <p>Browser resources as it was meant to be:<br><b class="link-hover-a">everything in
             one link</b><br><br></p>
+
+        <!-- Dropdown for Drive Folders -->
+        <div class="drive-dropdown">
+          <button class="drive-dropdown-toggle" onclick="this.parentElement.classList.toggle('open')">
+            <span>📂 Quick Access Folders</span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </button>
+          <div class="drive-dropdown-content">
+            <a href="https://drive.google.com/drive/folders/1XRC2vY3vOUd6S2XClCa6aO2KsV8-kv_3" target="_blank" class="dropdown-folder-link">
+              <i class="fas fa-folder"></i> 1. Info-Guides
+            </a>
+            <a href="https://drive.google.com/drive/folders/1n29sfMaCF_S4ffbjudBBSGBd6Q7l3Sqp" target="_blank" class="dropdown-folder-link">
+              <i class="fas fa-folder"></i> 2. Departments ⭐
+            </a>
+            <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="dropdown-folder-link">
+              <i class="fas fa-folder"></i> 3. oU1TS Qbank
+            </a>
+            <a href="https://drive.google.com/drive/folders/1E_FYLX-RMFZEqeZHn0Nms2OUSJmLXUQH" target="_blank" class="dropdown-folder-link">
+              <i class="fas fa-folder"></i> 4. Elective Courses
+            </a>
+            <a href="https://drive.google.com/drive/folders/1hTWa-Z7gV3GaUUMJhT2KPasmq5L1ha3p" target="_blank" class="dropdown-folder-link">
+              <i class="fas fa-folder"></i> 5. Skills Dev Resources
+            </a>
+            <a href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL" target="_blank" class="dropdown-folder-link" style="border-top: 1px solid var(--border-color); margin-top: 0.5rem; padding-top: 0.75rem;">
+              <i class="fas fa-external-link-alt"></i> Open Full Drive
+            </a>
+          </div>
+        </div>
+
         <nav class="resource-nav">
           <ul class="resource-list">
             <li>
