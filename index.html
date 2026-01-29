@@ -184,8 +184,15 @@
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* QBank Nested Folder Browser Styles */
@@ -346,6 +353,95 @@
       color: #1a1a1a;
       border-style: solid;
     }
+
+    /* Submission Highlight with Arrow Animation */
+    .submission-highlight {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 1.5rem auto;
+      position: relative;
+    }
+
+    .pointing-arrow {
+      font-size: 2rem;
+      animation: bounce-arrow 1s ease-in-out infinite;
+      margin-bottom: 0.5rem;
+    }
+
+    .pointing-arrow span {
+      display: inline-block;
+      filter: drop-shadow(0 0 8px rgba(255, 153, 0, 0.8));
+    }
+
+    @keyframes bounce-arrow {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .submission-btn-wrapper {
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .submission-cta {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff9900, #ff6600);
+      color: white !important;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 15px rgba(255, 153, 0, 0.5), 0 0 20px rgba(255, 153, 0, 0.3);
+      transition: all 0.3s ease;
+      animation: glow-pulse 2s ease-in-out infinite;
+      border: 2px solid transparent;
+    }
+
+    .submission-cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(255, 153, 0, 0.7), 0 0 30px rgba(255, 153, 0, 0.5);
+      background: linear-gradient(135deg, #ffaa22, #ff7711);
+    }
+
+    @keyframes glow-pulse {
+
+      0%,
+      100% {
+        box-shadow: 0 4px 15px rgba(255, 153, 0, 0.5), 0 0 20px rgba(255, 153, 0, 0.3);
+      }
+
+      50% {
+        box-shadow: 0 4px 25px rgba(255, 153, 0, 0.8), 0 0 35px rgba(255, 153, 0, 0.5);
+      }
+    }
+
+    .click-prompt {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      animation: fade-in-out 2s ease-in-out infinite;
+    }
+
+    @keyframes fade-in-out {
+
+      0%,
+      100% {
+        opacity: 0.6;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
   </style>
 
 
@@ -377,7 +473,8 @@
       <!-- <li><a href="misc/tutorial.html">Tutorial</a></li> -->
       <li><a href="#About">About</a></li>
       <br><br>
-      <li><a href="https://ouits-res.netlify.app/" target="_blank" style="border: 1px solid black;display: none;" id="floating-button-nav-2">oU1TS
+      <li><a href="https://ouits-res.netlify.app/" target="_blank" style="border: 1px solid black;display: none;"
+          id="floating-button-nav-2">oU1TS
           Portal<br><span style="font-size: small;text-align: center;">[ Project ]</span></a></li>
 
     </ul>
@@ -470,8 +567,8 @@
       <nav class="info-nav">
         <ul class="info-nav-list">
           <li>
-            <a href="https://drive.google.com/drive/folders/1XRC2vY3vOUd6S2XClCa6aO2KsV8-kv_3"
-              class="info-nav-link" target="_blank">Notice Archive</a>
+            <a href="https://drive.google.com/drive/folders/1XRC2vY3vOUd6S2XClCa6aO2KsV8-kv_3" class="info-nav-link"
+              target="_blank">Notice Archive</a>
           </li>
           <!-- <li>
             <a href="#class-routine" class="info-nav-link">Class Routine</a>
@@ -549,14 +646,22 @@
               <i class="fas fa-chevron-right folder-arrow"></i>
             </button>
             <div class="qbank-subfolders">
-              <a href="https://drive.google.com/drive/folders/1zDTV1rFgRg-Le-GuYRIILJiL08Hm3627" target="_blank" class="qbank-link">q.cse.s01</a>
-              <a href="https://drive.google.com/drive/folders/1xx1mXlK45XaBSe8SJHgkh9kf2h5WsGf2" target="_blank" class="qbank-link">q.cse.s02</a>
-              <a href="https://drive.google.com/drive/folders/1kCk-cujSGyMzaN-NW_IThnWhbQ1bfn_a" target="_blank" class="qbank-link">q.cse.s03</a>
-              <a href="https://drive.google.com/drive/folders/1n4XCvXgC5YhnblQjVraWAncM3kjqSgLq" target="_blank" class="qbank-link">q.cse.s04</a>
-              <a href="https://drive.google.com/drive/folders/1LNlADCqqkvZSzhNEiLmM5Rv0yyeCBAZS" target="_blank" class="qbank-link">q.cse.s05</a>
-              <a href="https://drive.google.com/drive/folders/11J12g_bmFSSZKASHN8sIkudzgnDHGkpt" target="_blank" class="qbank-link">q.cse.s06</a>
-              <a href="https://drive.google.com/drive/folders/1Lw5hXkM3zmZSjBXPgg_XA9xbzyqqshV4" target="_blank" class="qbank-link">q.cse.s07</a>
-              <a href="https://drive.google.com/drive/folders/1UPOToPRUSLUyOzmlSgp9H_8TST62RZPj" target="_blank" class="qbank-link">q.cse.s08</a>
+              <a href="https://drive.google.com/drive/folders/1zDTV1rFgRg-Le-GuYRIILJiL08Hm3627" target="_blank"
+                class="qbank-link">q.cse.s01</a>
+              <a href="https://drive.google.com/drive/folders/1xx1mXlK45XaBSe8SJHgkh9kf2h5WsGf2" target="_blank"
+                class="qbank-link">q.cse.s02</a>
+              <a href="https://drive.google.com/drive/folders/1kCk-cujSGyMzaN-NW_IThnWhbQ1bfn_a" target="_blank"
+                class="qbank-link">q.cse.s03</a>
+              <a href="https://drive.google.com/drive/folders/1n4XCvXgC5YhnblQjVraWAncM3kjqSgLq" target="_blank"
+                class="qbank-link">q.cse.s04</a>
+              <a href="https://drive.google.com/drive/folders/1LNlADCqqkvZSzhNEiLmM5Rv0yyeCBAZS" target="_blank"
+                class="qbank-link">q.cse.s05</a>
+              <a href="https://drive.google.com/drive/folders/11J12g_bmFSSZKASHN8sIkudzgnDHGkpt" target="_blank"
+                class="qbank-link">q.cse.s06</a>
+              <a href="https://drive.google.com/drive/folders/1Lw5hXkM3zmZSjBXPgg_XA9xbzyqqshV4" target="_blank"
+                class="qbank-link">q.cse.s07</a>
+              <a href="https://drive.google.com/drive/folders/1UPOToPRUSLUyOzmlSgp9H_8TST62RZPj" target="_blank"
+                class="qbank-link">q.cse.s08</a>
             </div>
           </div>
           <!-- CE Questions -->
@@ -566,14 +671,24 @@
               <i class="fas fa-chevron-right folder-arrow"></i>
             </button>
             <div class="qbank-subfolders">
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.ce.s01</a>
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.ce.s02</a>
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.ce.s03</a>
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.ce.s04</a>
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.ce.s05</a>
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.ce.s06</a>
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.ce.s07</a>
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.ce.s08</a>
+              <a href="https://drive.google.com/drive/u/1/folders/1Zh-85bd1j2_QW9oQTxWWzRqTyiu_QH0m" target="_blank"
+                class="qbank-link">// go to drive</a>
+              <!-- <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.ce.s01</a>
+              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.ce.s02</a>
+              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.ce.s03</a>
+              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.ce.s04</a>
+              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.ce.s05</a>
+              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.ce.s06</a>
+              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.ce.s07</a>
+              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.ce.s08</a> -->
             </div>
           </div>
           <!-- IT Questions -->
@@ -583,10 +698,16 @@
               <i class="fas fa-chevron-right folder-arrow"></i>
             </button>
             <div class="qbank-subfolders">
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.it.s01</a>
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.it.s02</a>
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.it.s03</a>
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">q.it.s04</a>
+              <a href="https://drive.google.com/drive/folders/1dhyUuRHp7frqzmdJNbN8zwJGxUkXbrAp?usp=drive_link"
+                target="_blank" class="qbank-link">// go to drive</a>
+              <!-- <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.it.s01</a>
+              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.it.s02</a>
+              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.it.s03</a>
+              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+                class="qbank-link">q.it.s04</a> -->
             </div>
           </div>
           <!-- Others -->
@@ -596,17 +717,23 @@
               <i class="fas fa-chevron-right folder-arrow"></i>
             </button>
             <div class="qbank-subfolders">
-              <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-link">Miscellaneous</a>
+              <a href="https://drive.google.com/drive/folders/15Z37rhnQbalAqe-9fdbetPI0rvyl8NCB?usp=drive_link"
+                target="_blank" class="qbank-link">[Archived Questions]</a>
+              <a href="https://drive.google.com/drive/folders/1whQG-iO_RMRiKuLCLcUzOMskfAb7YWPj?usp=drive_link"
+                target="_blank" class="qbank-link">AIUB community</a>
+              <a href="https://drive.google.com/drive/folders/1ZlT1BBqMXm8dst7mM2KUfY0wRibcuUx8?usp=drive_link"
+                target="_blank" class="qbank-link">IUT CHEM 4241</a>
             </div>
           </div>
           <!-- Open Full QBank -->
-          <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="qbank-full-link">
+          <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+            class="qbank-full-link">
             <i class="fas fa-external-link-alt"></i> Open Full QBank in Drive
           </a>
         </div>
       </div>
 
-      <nav class="resources-nav">
+      <!-- <nav class="resources-nav">
         <ul class="resources-nav-list">
           <li>
             <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD?usp=drive_link"
@@ -614,23 +741,40 @@
           </li>
 
         </ul>
-      </nav>
+      </nav> -->
 
       <p style="margin-top: 5rem;">Consider donating your questions &#40;PDF / Image&#41; after your Exams to keep the
-        QBank alive. <a href="#Donate" style="color: white;" class="link-hover-a">Go to Donation Section</a> .</p>
+        QBank alive. </p>
       <br>
+      <p
+        style="margin: auto;text-align: center;background-color: #6596ff;width: fit-content;padding: 5px;border-radius: 5px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);">
+        <a href="#Donate" style="color: white;text-decoration:none" class="link-hover-a">Go to Donation Section</a>
+      </p>
+      <br>
+      <div class="submission-highlight">
+
+        <p class="submission-btn-wrapper">
+          <a href="submission.html" class="submission-cta link-hover-a">See Submission</a>
+        </p>
+        <div class="pointing-arrow">
+          <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👆</span>
+        </div>
+        <!-- <p class="click-prompt">Click here to view submissions!</p> -->
+
+      </div>
+
       <p>Also try the <a href="#course-search" style="color: white;" class="link-hover-a">Search bar at the top</a>
         or browse the
         <a href="#semester-browser" style="color: white;" class="link-hover-a">Department Folders</a> to find your
         questions.
       </p>
 
-      <br><br><br><br><br><br><br><br><br>
+      <br>
       <p style="color: rgba(255, 255, 255, 0.212);">This section is under work. Expect to see a Google Drive folder with
         shortcuts to the
         Question Folders of each
-        course (added until CSE-S05). Or a comprehensive website similar to <a href="https://diuqbank.com/"
-          target="_blank" style="color: rgba(255, 255, 255, 0.534);" class="link-hover-a-3">https://diuqbank.com/</a> .
+        course. Or a comprehensive website similar to <a href="https://diuqbank.com/" target="_blank"
+          style="color: rgba(255, 255, 255, 0.534);" class="link-hover-a-3">https://diuqbank.com/</a> .
       </p>
     </section>
 
@@ -712,11 +856,35 @@
           </a>
 
         </div>
+        <div style="width: 60%;max-width: 400px;margin: 3rem auto;">
+          <hr style="border-color: rgba(255, 255, 255, 0.233);">
+        </div>
         <div style="width: 80%;margin: auto;text-align: left;">
-          <p># Instructions:
+          <!-- Highlighted Submission Button with Arrow -->
+          <div class="submission-highlight">
+
+            <p class="submission-btn-wrapper">
+              <a href="submission.html" class="submission-cta link-hover-a">See Submission</a>
+            </p>
+            <div class="pointing-arrow">
+              <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👆</span>
+            </div>
+            <!-- <p class="click-prompt">Click here to view submissions!</p> -->
+            <br>
+            <p
+              style="margin: auto;text-align: center;background-color: #3bbb08;width: fit-content;padding: 5px;border-radius: 5px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);">
+              <a href="submission.html" style="color: white;text-decoration:none" class="link-hover-a">Go to
+                Departments</a>
+            </p>
+          </div>
+
+
+
+          <!-- <br> -->
+          <!-- <p># Instructions:
           <ul style="padding-left: 30px;list-style-type:decimal-leading-zero;">
-            <li style="padding: 5px;">If you want to see your uploads &rarr; <a
-                href="submission.html" class="link-hover-a-2"> See_Submissions</a></li>
+            <li style="padding: 5px;">If you want to see your uploads &rarr; <a href="submission.html"
+                class="link-hover-a-2"> See_Submissions</a></li>
             <li style="padding: 5px;">Your submissions will be organized in the <a href="Departments.html"
                 class="link-hover-a-2">Departments</a> and moved to the "old" folder in the submissions.</li>
             <li style="padding: 5px;">How File Sharing Works <span
@@ -728,7 +896,7 @@
               </ul>
             </li>
           </ul>
-          </p>
+          </p> -->
         </div>
 
 
@@ -876,22 +1044,29 @@
             <i class="fas fa-chevron-down dropdown-arrow"></i>
           </button>
           <div class="drive-dropdown-content">
-            <a href="https://drive.google.com/drive/folders/1XRC2vY3vOUd6S2XClCa6aO2KsV8-kv_3" target="_blank" class="dropdown-folder-link">
+            <a href="https://drive.google.com/drive/folders/1XRC2vY3vOUd6S2XClCa6aO2KsV8-kv_3" target="_blank"
+              class="dropdown-folder-link">
               <i class="fas fa-folder"></i> 1. Info-Guides
             </a>
-            <a href="https://drive.google.com/drive/folders/1n29sfMaCF_S4ffbjudBBSGBd6Q7l3Sqp" target="_blank" class="dropdown-folder-link">
+            <a href="https://drive.google.com/drive/folders/1n29sfMaCF_S4ffbjudBBSGBd6Q7l3Sqp" target="_blank"
+              class="dropdown-folder-link">
               <i class="fas fa-folder"></i> 2. Departments ⭐
             </a>
-            <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank" class="dropdown-folder-link">
+            <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+              class="dropdown-folder-link">
               <i class="fas fa-folder"></i> 3. oU1TS Qbank
             </a>
-            <a href="https://drive.google.com/drive/folders/1E_FYLX-RMFZEqeZHn0Nms2OUSJmLXUQH" target="_blank" class="dropdown-folder-link">
+            <a href="https://drive.google.com/drive/folders/1E_FYLX-RMFZEqeZHn0Nms2OUSJmLXUQH" target="_blank"
+              class="dropdown-folder-link">
               <i class="fas fa-folder"></i> 4. Elective Courses
             </a>
-            <a href="https://drive.google.com/drive/folders/1hTWa-Z7gV3GaUUMJhT2KPasmq5L1ha3p" target="_blank" class="dropdown-folder-link">
+            <a href="https://drive.google.com/drive/folders/1hTWa-Z7gV3GaUUMJhT2KPasmq5L1ha3p" target="_blank"
+              class="dropdown-folder-link">
               <i class="fas fa-folder"></i> 5. Skills Dev Resources
             </a>
-            <a href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL" target="_blank" class="dropdown-folder-link" style="border-top: 1px solid var(--border-color); margin-top: 0.5rem; padding-top: 0.75rem;">
+            <a href="https://drive.google.com/drive/folders/1g93wCOUo4x0qvhNk_HHUb8Ozv_KuSLmL" target="_blank"
+              class="dropdown-folder-link"
+              style="border-top: 1px solid var(--border-color); margin-top: 0.5rem; padding-top: 0.75rem;">
               <i class="fas fa-external-link-alt"></i> Open Full Drive
             </a>
           </div>
@@ -1132,4 +1307,3 @@
 
 
 </html>
-

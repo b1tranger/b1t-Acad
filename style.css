@@ -240,7 +240,7 @@ body {
 
 
   .link-hover-a:hover {
-    color: rgb(39, 107, 255) !important;
+    color: rgba(0, 0, 0, 0.534) !important;
     font-weight:bold;
     transition: 0.3s ease;
     transform: translateY(-3px);
