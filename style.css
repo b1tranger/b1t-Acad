@@ -251,12 +251,12 @@ body {
 [data-theme="gray"] .sectionFAQs a {
   /* color: black; */
   background-color: rgba(0, 0, 0, 0.151);
-  transition: 5.5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
 
 .sectionFAQs:hover,
 [data-theme="gray"] .sectionFAQs:hover {
-
+  background-color: black;
   transform: translateY(-3px);
 }
 
