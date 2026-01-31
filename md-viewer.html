@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>b1t Academics: Document Viewer</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- GitHub Markdown CSS for styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown.min.css">
+    <style>
+        .container {
+            height: auto !important;
+            margin-top: 5vh !important;
+            margin-bottom: 2rem !important;
+        }
+
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+            background-color: var(--primary-color);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Dark mode adjustments for GitHub markdown */
+        [data-theme="dark"] .markdown-body {
+            color: #c9d1d9;
+            background-color: #0d1117;
+        }
+
+        [data-theme="dark"] .markdown-body h1,
+        [data-theme="dark"] .markdown-body h2,
+        [data-theme="dark"] .markdown-body h3,
+        [data-theme="dark"] .markdown-body h4,
+        [data-theme="dark"] .markdown-body h5,
+        [data-theme="dark"] .markdown-body h6 {
+            color: #c9d1d9;
+            border-bottom-color: #21262d;
+        }
+
+        [data-theme="dark"] .markdown-body a {
+            color: #58a6ff;
+        }
+
+        [data-theme="dark"] .markdown-body code {
+            background-color: rgba(110, 118, 129, 0.4);
+            color: #c9d1d9;
+        }
+
+        [data-theme="dark"] .markdown-body pre {
+            background-color: #161b22;
+        }
+
+        [data-theme="dark"] .markdown-body blockquote {
+            color: #8b949e;
+            border-left-color: #3b434b;
+        }
+
+        [data-theme="dark"] .markdown-body table tr {
+            background-color: #0d1117;
+            border-top-color: #21262d;
+        }
+
+        [data-theme="dark"] .markdown-body table tr:nth-child(2n) {
+            background-color: #161b22;
+        }
+
+        [data-theme="dark"] .markdown-body table th,
+        [data-theme="dark"] .markdown-body table td {
+            border-color: #30363d;
+        }
+
+        [data-theme="dark"] .markdown-body hr {
+            background-color: #21262d;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .back-link i {
+            margin-right: 8px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: var(--text-content);
+        }
+
+        .error {
+            text-align: center;
+            padding: 50px;
+            color: #e74c3c;
+        }
+
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 10px 15px;
+            background-color: var(--secondary-color);
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .file-info i {
+            color: var(--accent-color);
+        }
+
+        .file-name {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 767px) {
+            .markdown-body {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body style="overflow-x: hidden;">
+    <button id="menu-toggle" class="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="sticky-nav" class="sticky-nav">
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../References.html">References</a></li>
+            <li><a href="university_projects.html">Projects</a></li>
+            <li><a href="../contributions.html">Credits</a></li>
+        </ul>
+    </nav>
+
+    <!-- Theme Switcher -->
+    <button id="theme-toggle" aria-label="Toggle Theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div id="overlay" class="overlay"></div>
+
+    <main class="container">
+        <header>
+            <h1 class="logo">Document Viewer</h1>
+        </header>
+    </main>
+
+    <div class="content-wrapper" style="padding: 0 20px; margin-bottom: 50px;">
+        <a href="javascript:history.back()" class="back-link">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+        
+        <div id="file-info" class="file-info" style="display: none;">
+            <i class="fas fa-file-alt"></i>
+            <span id="file-name" class="file-name"></span>
+        </div>
+
+        <div id="loading" class="loading">
+            <i class="fas fa-spinner fa-spin fa-2x"></i>
+            <p>Loading document...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            <i class="fas fa-exclamation-triangle fa-2x"></i>
+            <p id="error-message">Failed to load document.</p>
+        </div>
+
+        <article id="content" class="markdown-body" style="display: none;"></article>
+    </div>
+
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    
+    <script>
+        // Get the file parameter from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const filePath = urlParams.get('file');
+
+        const loadingEl = document.getElementById('loading');
+        const errorEl = document.getElementById('error');
+        const errorMsgEl = document.getElementById('error-message');
+        const contentEl = document.getElementById('content');
+        const fileInfoEl = document.getElementById('file-info');
+        const fileNameEl = document.getElementById('file-name');
+
+        if (!filePath) {
+            loadingEl.style.display = 'none';
+            errorEl.style.display = 'block';
+            errorMsgEl.textContent = 'No file specified. Please provide a file parameter.';
+        } else {
+            // Extract filename for display
+            const fileName = filePath.split('/').pop();
+            fileNameEl.textContent = fileName;
+            document.title = `${fileName} - b1t Academics`;
+
+            // Fetch and render the markdown file
+            fetch(filePath)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Configure marked options
+                    marked.setOptions({
+                        breaks: true,
+                        gfm: true,
+                        headerIds: true,
+                        mangle: false
+                    });
+
+                    // Render markdown to HTML
+                    contentEl.innerHTML = marked.parse(markdown);
+                    
+                    // Show content, hide loading
+                    loadingEl.style.display = 'none';
+                    fileInfoEl.style.display = 'flex';
+                    contentEl.style.display = 'block';
+
+                    // Make external links open in new tab
+                    contentEl.querySelectorAll('a').forEach(link => {
+                        if (link.href && !link.href.startsWith(window.location.origin)) {
+                            link.setAttribute('target', '_blank');
+                            link.setAttribute('rel', 'noopener noreferrer');
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading markdown:', error);
+                    loadingEl.style.display = 'none';
+                    errorEl.style.display = 'block';
+                    errorMsgEl.textContent = `Failed to load document: ${error.message}`;
+                });
+        }
+    </script>
+
+    <script src="../js/theme.js"></script>
+</body>
+
+</html>
