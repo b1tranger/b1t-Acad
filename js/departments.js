@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-      <section id="courses" class="content-section" style="min-height: auto;">
+      <section id="courses" class="content-section" style="min-height: auto; margin-top: -1.9rem;">
         <h2 style="text-align: center; margin-bottom: 30px;">Course Materials</h2>
         <div class="course-card-container">
     `;
