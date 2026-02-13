@@ -426,7 +426,7 @@
     // Example: 'https://b1t-acad-backend.vercel.app'
     //
     // Leave as empty string '' to show the config banner.
-    const API_BASE = '';
+    const API_BASE = 'https://b1t-acad-backend.vercel.app';
 
     // ══════════════════════════════════════════════════════════════
     // ===== DOM REFERENCES =====
@@ -478,6 +478,15 @@
      * Shows loading spinner while fetching, error state on failure.
      */
     async function fetchNotices() {
+      // Guard: don't attempt fetch if backend URL isn't configured
+      if (!API_BASE) {
+        configBanner.style.display = 'block';
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'flex';
+        errorMsg.textContent = 'Backend API URL not configured. Set API_BASE in the script.';
+        return;
+      }
+
       // Show loading, hide error
       loadingEl.style.display = 'flex';
       errorEl.style.display = 'none';
