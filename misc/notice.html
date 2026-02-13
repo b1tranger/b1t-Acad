@@ -23,6 +23,7 @@
 
     .notice-app__header {
       display: flex;
+
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
@@ -36,6 +37,7 @@
 
     .notice-header-links {
       display: flex;
+
       gap: 1rem;
       align-items: center;
     }
@@ -101,6 +103,12 @@
       overflow-y: auto;
       max-height: 60vh;
       flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .notice-list {
+        max-height: 30vh;
+      }
     }
 
     .notice-list__item {
@@ -523,7 +531,7 @@
           link.href = '#';
           link.innerHTML = `
             <i class="fas fa-file-pdf"></i>
-            <span>Notice #${notice.id}</span>
+            <span>${notice.title || 'Notice'} (#${notice.id})</span>
           `;
 
           // Click handler: load this notice's PDF into the viewer
