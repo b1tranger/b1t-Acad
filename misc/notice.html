@@ -531,8 +531,9 @@
           link.href = '#';
           link.innerHTML = `
             <i class="fas fa-file-pdf"></i>
-            <span>${notice.title || 'Notice'} (#${notice.id})</span>
+            <span>(#${notice.id})</span>
           `;
+          // <span>${notice.title || 'Notice'} (#${notice.id})</span>
 
           // Click handler: load this notice's PDF into the viewer
           link.addEventListener('click', (e) => {
