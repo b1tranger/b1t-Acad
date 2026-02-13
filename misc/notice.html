@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notice Viewer — b1t Academics</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    .content-section {
+      margin-top: 1rem;
+    }
+
+    /* ─── Notice Viewer Layout ─────────────────────────────────── */
+
+    .notice-app {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem;
+    }
+
+    .notice-app__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .notice-app__header h2 {
+      margin: 0;
+    }
+
+    .notice-header-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .notice-header-links a {
+      color: var(--accent-color, #ff7b00);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s ease;
+    }
+
+    .notice-header-links a:hover {
+      color: #ffaa44;
+      text-decoration: underline;
+    }
+
+    /* ─── Main Content Area (list + viewer) ───────────────────── */
+
+    .notice-layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 1.5rem;
+      min-height: 70vh;
+    }
+
+    @media (max-width: 768px) {
+      .notice-layout {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+    }
+
+    /* ─── Notice List Panel ───────────────────────────────────── */
+
+    .notice-list-panel {
+      background-color: var(--secondary-color, #1a1a2e);
+      border: 1px solid var(--border-color, #333);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .notice-list-panel__title {
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-bottom: 1px solid var(--border-color, #333);
+      color: var(--text-color, #f5f5f5);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .notice-list-panel__title i {
+      color: var(--accent-color, #ff7b00);
+    }
+
+    .notice-list {
+      list-style: none;
+      margin: 0;
+      padding: 0.5rem;
+      overflow-y: auto;
+      max-height: 60vh;
+      flex: 1;
+    }
+
+    .notice-list__item {
+      padding: 0;
+      margin: 0;
+    }
+
+    .notice-list__link {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1rem;
+      color: var(--text-color, #e0e0e0);
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .notice-list__link:hover {
+      background-color: var(--hover-btn-bg, #333);
+      color: var(--accent-color, #ff7b00);
+      border-color: var(--accent-color, #ff7b00);
+      padding-left: 1.2rem;
+    }
+
+    .notice-list__link.active {
+      background-color: rgba(255, 123, 0, 0.15);
+      color: var(--accent-color, #ff7b00);
+      border-color: var(--accent-color, #ff7b00);
+      font-weight: 600;
+    }
+
+    .notice-list__link i {
+      color: #ff9f43;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* ─── Loading & Error States ──────────────────────────────── */
+
+    .notice-list__status {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      text-align: center;
+      color: var(--text-content, rgba(255, 255, 255, 0.6));
+      gap: 0.75rem;
+    }
+
+    .notice-list__status i {
+      font-size: 1.5rem;
+      color: var(--accent-color, #ff7b00);
+    }
+
+    .spinner {
+      width: 28px;
+      height: 28px;
+      border: 3px solid rgba(255, 123, 0, 0.2);
+      border-top-color: #ff7b00;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .retry-btn {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      background-color: var(--accent-color, #ff7b00);
+      color: #1a1a1a;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+
+    .retry-btn:hover {
+      background-color: #ffaa44;
+      transform: scale(1.05);
+    }
+
+    /* ─── PDF Viewer Panel ────────────────────────────────────── */
+
+    .pdf-viewer-panel {
+      background-color: var(--secondary-color, #1a1a2e);
+      border: 1px solid var(--border-color, #333);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 500px;
+    }
+
+    .pdf-viewer__toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid var(--border-color, #333);
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pdf-viewer__title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text-color, #f5f5f5);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .pdf-viewer__title i {
+      color: #e74c3c;
+    }
+
+    .pdf-viewer__actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .pdf-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border-color, #555);
+      border-radius: 6px;
+      background-color: transparent;
+      color: var(--text-color, #e0e0e0);
+      cursor: pointer;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .pdf-action-btn:hover {
+      background-color: var(--accent-color, #ff7b00);
+      color: #1a1a1a;
+      border-color: var(--accent-color, #ff7b00);
+    }
+
+    .pdf-action-btn.download-btn {
+      background-color: rgba(255, 123, 0, 0.15);
+      border-color: var(--accent-color, #ff7b00);
+      color: var(--accent-color, #ff7b00);
+    }
+
+    .pdf-action-btn.download-btn:hover {
+      background-color: var(--accent-color, #ff7b00);
+      color: #1a1a1a;
+    }
+
+    .pdf-viewer__frame {
+      flex: 1;
+      width: 100%;
+      border: none;
+      min-height: 500px;
+      background-color: #2a2a2a;
+    }
+
+    .pdf-viewer__placeholder {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-content, rgba(255, 255, 255, 0.4));
+      gap: 1rem;
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .pdf-viewer__placeholder i {
+      font-size: 3rem;
+      color: rgba(255, 123, 0, 0.3);
+    }
+
+    .pdf-viewer__placeholder p {
+      font-size: 1rem;
+      max-width: 300px;
+    }
+
+    /* ─── Config Banner ──────────────────────────────────────── */
+
+    .config-banner {
+      background: linear-gradient(135deg, rgba(255, 123, 0, 0.1), rgba(255, 123, 0, 0.05));
+      border: 1px dashed var(--accent-color, #ff7b00);
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      display: none;
+      /* Shown via JS when API URL is not configured */
+    }
+
+    .config-banner p {
+      color: var(--text-color, #f5f5f5);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .config-banner code {
+      background-color: rgba(0, 0, 0, 0.3);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="content-wrapper">
+    <section id="info" class="content-section">
+
+      <div class="notice-app">
+
+        <!-- Header -->
+        <div class="notice-app__header">
+          <h2>📋 Notice Viewer</h2>
+          <div class="notice-header-links">
+            <a href="javascript:history.back()">&#8592; Back</a>
+            <a href="https://ucam.uits.edu.bd/Security/LogIn.aspx" target="_blank">
+              Visit UCAM Portal &#8599;
+            </a>
+          </div>
+        </div>
+
+        <!-- Config Banner (shown when API isn't set up yet) -->
+        <div class="config-banner" id="config-banner">
+          <p>
+            <i class="fas fa-info-circle" style="color: #ff7b00;"></i>
+            <strong>Setup Required:</strong> The backend API URL is not configured yet.
+            Update the <code>API_BASE</code> variable in this page's script after deploying the Vercel backend.
+          </p>
+        </div>
+
+        <!-- Main Layout: List + Viewer -->
+        <div class="notice-layout">
+
+          <!-- Left Panel: Notice List -->
+          <div class="notice-list-panel">
+            <div class="notice-list-panel__title">
+              <i class="fas fa-list"></i>
+              Recent Notices
+            </div>
+            <ul class="notice-list" id="notice-list">
+              <!-- Loading state (shown initially) -->
+              <li class="notice-list__status" id="notice-loading">
+                <div class="spinner"></div>
+                <span>Loading notices...</span>
+              </li>
+              <!-- Error state (hidden initially) -->
+              <li class="notice-list__status" id="notice-error" style="display: none;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span id="notice-error-msg">Failed to load notices.</span>
+                <button class="retry-btn" onclick="fetchNotices()">
+                  <i class="fas fa-redo"></i> Retry
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Right Panel: PDF Viewer -->
+          <div class="pdf-viewer-panel">
+            <div class="pdf-viewer__toolbar">
+              <span class="pdf-viewer__title">
+                <i class="fas fa-file-pdf"></i>
+                <span id="pdf-title">No notice selected</span>
+              </span>
+              <div class="pdf-viewer__actions" id="pdf-actions" style="display: none;">
+                <a class="pdf-action-btn" id="pdf-open-btn" href="#" target="_blank" title="Open in new tab">
+                  <i class="fas fa-external-link-alt"></i> Open
+                </a>
+                <a class="pdf-action-btn download-btn" id="pdf-download-btn" href="#" download title="Download PDF">
+                  <i class="fas fa-download"></i> Download
+                </a>
+              </div>
+            </div>
+
+            <!-- Placeholder (shown when no PDF is selected) -->
+            <div class="pdf-viewer__placeholder" id="pdf-placeholder">
+              <i class="fas fa-file-pdf"></i>
+              <p>Select a notice from the list to view its PDF here.</p>
+            </div>
+
+            <!-- Iframe for PDF rendering (hidden initially) -->
+            <iframe class="pdf-viewer__frame" id="pdf-frame" style="display: none;" title="PDF Viewer"></iframe>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+  </div>
+
+
+  <!-- Go Back Button -->
+  <button id="goBackBtn" class="go-back-button" aria-label="Go back to the previous page" title="Go Back">
+    &#8592;
+  </button>
+
+  <script>
+    // ══════════════════════════════════════════════════════════════
+    // ===== CONFIGURATION =====
+    // ══════════════════════════════════════════════════════════════
+
+    // IMPORTANT: Replace this with your actual Vercel deployment URL
+    // after deploying the b1t-acad-backend project.
+    //
+    // Example: 'https://b1t-acad-backend.vercel.app'
+    //
+    // Leave as empty string '' to show the config banner.
+    const API_BASE = '';
+
+    // ══════════════════════════════════════════════════════════════
+    // ===== DOM REFERENCES =====
+    // ══════════════════════════════════════════════════════════════
+
+    const noticeList = document.getElementById('notice-list');
+    const loadingEl = document.getElementById('notice-loading');
+    const errorEl = document.getElementById('notice-error');
+    const errorMsg = document.getElementById('notice-error-msg');
+    const pdfFrame = document.getElementById('pdf-frame');
+    const pdfPlaceholder = document.getElementById('pdf-placeholder');
+    const pdfTitle = document.getElementById('pdf-title');
+    const pdfActions = document.getElementById('pdf-actions');
+    const pdfOpenBtn = document.getElementById('pdf-open-btn');
+    const pdfDownloadBtn = document.getElementById('pdf-download-btn');
+    const configBanner = document.getElementById('config-banner');
+
+    // ══════════════════════════════════════════════════════════════
+    // ===== INITIALIZATION =====
+    // ══════════════════════════════════════════════════════════════
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Show config banner if API_BASE is not set
+      if (!API_BASE) {
+        configBanner.style.display = 'block';
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'flex';
+        errorMsg.textContent = 'Backend API URL not configured.';
+        return;
+      }
+
+      // Fetch notices from the backend
+      fetchNotices();
+
+      // Go Back button logic
+      const goBackBtn = document.getElementById('goBackBtn');
+      if (goBackBtn && history.length > 1) {
+        goBackBtn.style.display = 'flex';
+        goBackBtn.addEventListener('click', () => history.back());
+      }
+    });
+
+    // ══════════════════════════════════════════════════════════════
+    // ===== FETCH NOTICES =====
+    // ══════════════════════════════════════════════════════════════
+
+    /**
+     * Calls the backend /api/notices endpoint and populates the list.
+     * Shows loading spinner while fetching, error state on failure.
+     */
+    async function fetchNotices() {
+      // Show loading, hide error
+      loadingEl.style.display = 'flex';
+      errorEl.style.display = 'none';
+
+      // Clear any existing notice items (keep loading/error elements)
+      const existingItems = noticeList.querySelectorAll('.notice-list__item');
+      existingItems.forEach(item => item.remove());
+
+      try {
+        const response = await fetch(`${API_BASE}/api/notices`);
+
+        if (!response.ok) {
+          throw new Error(`Server returned ${response.status}`);
+        }
+
+        const data = await response.json();
+
+        // Hide loading
+        loadingEl.style.display = 'none';
+
+        if (!data.notices || data.notices.length === 0) {
+          errorEl.style.display = 'flex';
+          errorMsg.textContent = 'No notices found.';
+          return;
+        }
+
+        // Render each notice as a list item
+        data.notices.forEach((notice, index) => {
+          const li = document.createElement('li');
+          li.className = 'notice-list__item';
+
+          const link = document.createElement('a');
+          link.className = 'notice-list__link';
+          link.href = '#';
+          link.innerHTML = `
+            <i class="fas fa-file-pdf"></i>
+            <span>Notice #${notice.id}</span>
+          `;
+
+          // Click handler: load this notice's PDF into the viewer
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            selectNotice(notice.id, link);
+          });
+
+          li.appendChild(link);
+          noticeList.appendChild(li);
+
+          // Auto-select the first (most recent) notice
+          if (index === 0) {
+            selectNotice(notice.id, link);
+          }
+        });
+
+      } catch (error) {
+        // Show error state
+        loadingEl.style.display = 'none';
+        errorEl.style.display = 'flex';
+        errorMsg.textContent = `Failed to load notices: ${error.message}`;
+        console.error('Fetch notices error:', error);
+      }
+    }
+
+    // ══════════════════════════════════════════════════════════════
+    // ===== SELECT & DISPLAY NOTICE =====
+    // ══════════════════════════════════════════════════════════════
+
+    /**
+     * Loads a specific notice PDF into the viewer panel.
+     *
+     * @param {number} id - The notice findingID
+     * @param {HTMLElement} clickedLink - The list link that was clicked
+     */
+    function selectNotice(id, clickedLink) {
+      // Update active state in the list
+      const allLinks = noticeList.querySelectorAll('.notice-list__link');
+      allLinks.forEach(link => link.classList.remove('active'));
+      clickedLink.classList.add('active');
+
+      // Build the PDF proxy URL
+      const pdfUrl = `${API_BASE}/api/pdf?id=${id}`;
+
+      // Update the toolbar
+      pdfTitle.textContent = `Notice #${id}`;
+      pdfActions.style.display = 'flex';
+      pdfOpenBtn.href = pdfUrl;
+      pdfDownloadBtn.href = pdfUrl;
+      pdfDownloadBtn.download = `notice-${id}.pdf`;
+
+      // Show the iframe, hide placeholder
+      pdfPlaceholder.style.display = 'none';
+      pdfFrame.style.display = 'block';
+      pdfFrame.src = pdfUrl;
+    }
+  </script>
+
+</body>
+
+</html>
