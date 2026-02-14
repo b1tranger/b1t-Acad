@@ -29,6 +29,11 @@
 -   **🎨 Dynamic Theming**: Fully responsive UI with support for **Dark Mode** (default) and a high-contrast **Gray/Light Mode**.
 -   **🤝 Community Contribution**: built-in forms for students to donate notes, questions, and even blood (via BDN integration).
 
+## Tech Stack
+(Wappalyzer)<br>
+<img width="493" height="428" alt="image" src="https://github.com/user-attachments/assets/f80f631b-2ded-4ea5-ab1a-a086174ccd8b" />
+
+
 ## 🚀 Getting Started
 
 This is a static web site built with vanilla HTML, CSS, and JavaScript. No complex build steps required.
