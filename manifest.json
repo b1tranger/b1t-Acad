@@ -1,0 +1,27 @@
+{
+    "name": "b1t Academics",
+    "short_name": "b1t Acad",
+    "description": "Unofficial Resources Archiver for UITS",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#0f0f1a",
+    "theme_color": "#1a1a2e",
+    "icons": [
+        {
+            "src": "images/icons/OSL-Logo-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "images/icons/OSL-Logo-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ],
+    "orientation": "portrait",
+    "categories": ["education"],
+    "lang": "en-US"
+}

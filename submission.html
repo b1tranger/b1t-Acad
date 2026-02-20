@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Submissions - oU1TS Portal</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="images/icons/OSL-Logo-192.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
@@ -446,6 +451,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -628,7 +634,20 @@
         <div class="project-list">
             <div class="page-description">
                 <i class="fa-solid fa-circle-info"></i>
-                <p>This page showcases questions and notes submitted by students. Toggle between submissions using the buttons below to view different contributions from the community.</p>
+                <p>This page showcases questions and notes submitted by students. Toggle between submissions using the
+                    buttons below to view different contributions from the community.</p>
+            </div>
+
+            <!-- Notification Actions -->
+            <div class="notif-actions" style="margin-bottom: 1.5rem;">
+                <button class="notif-enable-btn" id="notif-enable-btn" onclick="handleEnableNotifications()">
+                    <i class="fa-solid fa-bell"></i>
+                    <span id="notif-btn-text">Enable Notifications</span>
+                </button>
+                <button class="recent-bell-btn" onclick="showRecentSubmissionsPanel(questionsData, notesData)">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    Recent Submissions
+                </button>
             </div>
 
             <!-- Tab Buttons -->
@@ -696,6 +715,7 @@
         </div>
     </div>
 
+    <script src="js/pwa.js"></script>
     <script>
         // Google Sheet Configuration
         const QUESTIONS_SHEET_ID = '10TTUKqZg5wtax_Jf5RdAbPFescYe2AtKpfFIzafrrQ8';
@@ -770,14 +790,14 @@
         // Parse Google Drive file links
         function parseFileLinks(fileCell) {
             if (!fileCell) return [];
-            
+
             const text = String(fileCell);
             const links = [];
-            
+
             // Match Google Drive URLs
             const urlRegex = /https?:\/\/[^\s,]+/g;
             const matches = text.match(urlRegex);
-            
+
             if (matches) {
                 matches.forEach((url, index) => {
                     links.push({
@@ -786,34 +806,34 @@
                     });
                 });
             }
-            
+
             return links;
         }
 
         // Fetch Questions
         async function fetchQuestions() {
             if (questionsLoaded) return;
-            
+
             try {
                 const response = await fetch(QUESTIONS_SHEET_URL);
-                
+
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                
+
                 const text = await response.text();
-                
+
                 if (!text.includes('google.visualization.Query.setResponse')) {
                     throw new Error('Invalid response format');
                 }
-                
+
                 const jsonString = text.substring(text.indexOf('(') + 1, text.lastIndexOf(')'));
                 const data = JSON.parse(jsonString);
-                
+
                 if (data.status === 'error') {
                     throw new Error(data.errors?.[0]?.message || 'Sheet error');
                 }
-                
+
                 if (!data.table || !data.table.rows) {
                     questionsData = new Map();
                     questionsLoaded = true;
@@ -822,30 +842,30 @@
                 }
 
                 const submitterMap = new Map();
-                
+
                 data.table.rows.forEach(row => {
                     if (!row.c) return;
-                    
+
                     const nameCell = row.c[Q_COL_NAME];
                     if (!nameCell || !nameCell.v) return;
-                    
+
                     const name = String(nameCell.v).trim();
                     if (!name || name === '' || name.toLowerCase() === 'student name') return;
-                    
+
                     const email = row.c[Q_COL_EMAIL]?.v ? String(row.c[Q_COL_EMAIL].v) : '';
                     const studentId = row.c[Q_COL_STUDENT_ID]?.v ? String(row.c[Q_COL_STUDENT_ID].v) : '';
                     const deptBatch = row.c[Q_COL_DEPT_BATCH]?.v ? String(row.c[Q_COL_DEPT_BATCH].v) : '';
                     const details = row.c[Q_COL_DETAILS]?.v ? String(row.c[Q_COL_DETAILS].v) : '';
                     const filesRaw = row.c[Q_COL_FILES]?.v ? String(row.c[Q_COL_FILES].v) : '';
-                    
+
                     const files = parseFileLinks(filesRaw);
-                    
+
                     const submission = {
                         deptBatch,
                         details,
                         files
                     };
-                    
+
                     if (submitterMap.has(name)) {
                         const submitter = submitterMap.get(name);
                         submitter.count++;
@@ -864,7 +884,7 @@
                 questionsData = submitterMap;
                 questionsLoaded = true;
                 updateCount('questions', submitterMap.size);
-                
+
             } catch (error) {
                 console.error('Error fetching questions:', error);
                 questionsLoaded = true;
@@ -875,27 +895,27 @@
         // Fetch Notes
         async function fetchNotes() {
             if (notesLoaded) return;
-            
+
             try {
                 const response = await fetch(NOTES_SHEET_URL);
-                
+
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
-                
+
                 const text = await response.text();
-                
+
                 if (!text.includes('google.visualization.Query.setResponse')) {
                     throw new Error('Invalid response format');
                 }
-                
+
                 const jsonString = text.substring(text.indexOf('(') + 1, text.lastIndexOf(')'));
                 const data = JSON.parse(jsonString);
-                
+
                 if (data.status === 'error') {
                     throw new Error(data.errors?.[0]?.message || 'Sheet error');
                 }
-                
+
                 if (!data.table || !data.table.rows) {
                     notesData = new Map();
                     notesLoaded = true;
@@ -904,30 +924,30 @@
                 }
 
                 const submitterMap = new Map();
-                
+
                 data.table.rows.forEach(row => {
                     if (!row.c) return;
-                    
+
                     const nameCell = row.c[N_COL_NAME];
                     if (!nameCell || !nameCell.v) return;
-                    
+
                     const name = String(nameCell.v).trim();
                     if (!name || name === '' || name.toLowerCase() === 'student name') return;
-                    
+
                     const email = row.c[N_COL_EMAIL]?.v ? String(row.c[N_COL_EMAIL].v) : '';
                     const studentId = row.c[N_COL_STUDENT_ID]?.v ? String(row.c[N_COL_STUDENT_ID].v) : '';
                     const deptBatch = row.c[N_COL_DEPT_BATCH]?.v ? String(row.c[N_COL_DEPT_BATCH].v) : '';
                     const details = row.c[N_COL_DETAILS]?.v ? String(row.c[N_COL_DETAILS].v) : '';
                     const filesRaw = row.c[N_COL_FILES]?.v ? String(row.c[N_COL_FILES].v) : '';
-                    
+
                     const files = parseFileLinks(filesRaw);
-                    
+
                     const submission = {
                         deptBatch,
                         details,
                         files
                     };
-                    
+
                     if (submitterMap.has(name)) {
                         const submitter = submitterMap.get(name);
                         submitter.count++;
@@ -946,7 +966,7 @@
                 notesData = submitterMap;
                 notesLoaded = true;
                 updateCount('notes', submitterMap.size);
-                
+
             } catch (error) {
                 console.error('Error fetching notes:', error);
                 notesLoaded = true;
@@ -960,17 +980,17 @@
 
         function switchTab(tab) {
             currentTab = tab;
-            
+
             // Update tab buttons
             document.getElementById('questions-tab').classList.toggle('active', tab === 'questions');
             document.getElementById('notes-tab').classList.toggle('active', tab === 'notes');
-            
+
             renderCurrentTab();
         }
 
         async function renderCurrentTab() {
             showLoading();
-            
+
             if (currentTab === 'questions') {
                 await fetchQuestions();
                 renderSubmissions(questionsData, 'question');
@@ -1115,26 +1135,57 @@
         }
 
         // Close modal on overlay click
-        document.getElementById('details-modal').addEventListener('click', function(e) {
+        document.getElementById('details-modal').addEventListener('click', function (e) {
             if (e.target === this) {
                 closeModal();
             }
         });
 
         // Close modal on Escape key
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') {
                 closeModal();
             }
         });
 
+        // Handle enable notifications button
+        async function handleEnableNotifications() {
+            const granted = await requestNotificationPermission();
+            updateNotifButton(granted);
+        }
+
+        function updateNotifButton(granted) {
+            const btn = document.getElementById('notif-enable-btn');
+            const text = document.getElementById('notif-btn-text');
+            if (granted) {
+                btn.classList.add('granted');
+                text.textContent = 'Notifications Enabled';
+                btn.querySelector('i').className = 'fa-solid fa-bell';
+            }
+        }
+
         // Initialize - fetch both in parallel, render questions first
         async function init() {
             // Fetch both sheets in parallel
             await Promise.all([fetchQuestions(), fetchNotes()]);
-            
+
             // Render the current tab (questions by default)
             renderCurrentTab();
+
+            // PWA: Check for new submissions & send notification
+            if (typeof checkForNewSubmissions === 'function') {
+                await checkForNewSubmissions(questionsData, notesData);
+            }
+
+            // PWA: Auto-open recent panel if redirected from notification click
+            if (typeof checkShowRecentParam === 'function') {
+                checkShowRecentParam(questionsData, notesData);
+            }
+
+            // Update notification button state
+            if ('Notification' in window && Notification.permission === 'granted') {
+                updateNotifButton(true);
+            }
         }
 
         init();
