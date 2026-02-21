@@ -29,6 +29,7 @@ b1t Academics is an unofficial resource centralization platform for UITS univers
 - **Departmental Navigation** - Custom-built nested folder browser UI pointing to curated Google Drive folders for CSE, CE, IT, etc.
 - **Dynamic Routing** - Displays relevant course lists and materials dynamically (e.g., `?dept=CSE`) without needing separate HTML pages.
 - **Community Submissions** - View and submit questions or notes using Google Forms/Sheets integration. Submissions display dynamically via JSON API.
+- **Text-Based Visitor Counter** - Integrates `api.counterapi.dev` to securely display true page visits as plain text without requiring heavy image badges or cookies.
 - **PWA Capabilities** - Installable Progressive Web App with offline caching strategies and smart notifications.
 - **Smart Notification System** - LocalStorage-based polling that triggers a consolidated browser alert for new submissions without spam.
 - **Recent Submissions Drawer** - A sleek, dark-themed panel for quickly reviewing the 10 most recent uploads across both Questions and Notes.
@@ -62,6 +63,7 @@ b1t Academics is an unofficial resource centralization platform for UITS univers
 | **Google Sheets API** | Decentralized database | Community submissions data fetched via JSON API endpoint (`google.visualization.Query`) |
 | **Google Forms** | Data entry | Used for submitting new Questions and Notes safely |
 | **Google Drive** | Resource hosting | Hosts PDFs and resources linked in the Departmental Query Banks |
+| **CounterAPI** | Analytics | `api.counterapi.dev` provides a free JSON endpoint to display the total site visit count securely |
 
 ### Hosting
 | Platform | Purpose | Details |
@@ -218,6 +220,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 5.1 | 2026-02-21 | Smart Notifications | Added a consolidated polling notification strategy for new community submissions. |
 | 5.2 | 2026-02-21 | Documentation Overhaul | Restructured and updated comprehensive project documentation in `DOCUMENTATION.md`. |
 | 5.3 | 2026-02-21 | SPA Routing Implementation | Converted the landing page to a Single Page Application using `spa.js` and hash routing to navigate sections (e.g., `#Qbank`) seamlessly without page reloads. |
+| 5.4 | 2026-02-21 | Visitor Counter | Implemented a secure, text-based total visitor counter using `api.counterapi.dev` mapped with a delayed loader to track genuine engagement. |
 
 ---
 
