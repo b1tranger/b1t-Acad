@@ -1,54 +1,208 @@
-# b1t Academics - Project Documentation
+# b1t Academics - Complete Project Documentation
 
-## 1. Overview
-**b1t Academics** (Unofficial Resources Archiver for UITS) is a fast, client-side web application designed to centralize academic resources, previous year question banks, departmental information, and community-driven submissions for UITS students. 
-
-The platform is designed to be highly accessible and relies primarily on static hosting (Netlify) connected to decentralized databases (like Google Sheets for community submissions) rather than maintaining a custom backend server.
+> **Unofficial Resources Archiver for UITS** - A fast, client-side web application designed to centralize academic resources, previous year question banks, departmental information, community-driven submissions, and notices for UITS students.
 
 ---
 
-## 2. Core Features & Architecture
+## Table of Contents
 
-### 🌐 Frontend & UI
-- **Tech Stack**: Vanilla HTML5, CSS3, and JavaScript.
-- **Theming**: Core dark-mode aesthetic with a seamless theme toggler (`#theme-toggle`).
-- **Navigation**: Sticky top navigation bar and a floating action button linking to the **b1t Scheduler** tool.
-- **Modularity**: Separation of concerns across `index.html` (Landing), `Departments.html` (Filtering), `submission.html` (Community data), and `misc/notice.html` (Notices).
-
-### 📚 Question Bank & Departments
-- **QBank Navigation**: A custom-built nested folder browser UI pointing to curated Google Drive folders (organized by CSE, CE, IT, etc.).
-- **Dynamic Routing**: `Departments.html` uses URL parameters (e.g., `?dept=CSE`) to dynamically load and display relevant course lists and materials without requiring separate HTML pages for each department.
-
-### 📝 Community Submissions (`submission.html`)
-- **Serverless Architecture**: Submissions (Questions and Notes) are crowd-sourced via Google Forms and stored in Google Sheets.
-- **Data Fetching**: The site fetches the sheet data in real-time as JSON using the `google.visualization.Query` endpoint.
-- **Dynamic Rendering**: Displays categorized submissions with visual grouping, avatar generation based on student names, and modal popups for viewing file links.
+1. [Project Overview](#project-overview)
+2. [Technology Stack (Detailed)](#technology-stack-detailed)
+3. [Architecture](#architecture)
+4. [Project Structure](#project-structure)
+5. [JavaScript Modules](#javascript-modules)
+6. [Styling System](#styling-system)
+7. [Data Model & Integration](#data-model--integration)
+8. [Recent Changes & PWA](#recent-changes--pwa)
+9. [Additional Resources](#additional-resources)
 
 ---
 
-## 3. Recent Changes
+## Project Overview
+
+### Description
+b1t Academics is an unofficial resource centralization platform for UITS university students. It provides easy access to curated department-specific query banks, community-driven questions and notes, official notices, and scheduling tools.
+
+### Key Features
+- **Departmental Navigation** - Custom-built nested folder browser UI pointing to curated Google Drive folders for CSE, CE, IT, etc.
+- **Dynamic Routing** - Displays relevant course lists and materials dynamically (e.g., `?dept=CSE`) without needing separate HTML pages.
+- **Community Submissions** - View and submit questions or notes using Google Forms/Sheets integration. Submissions display dynamically via JSON API.
+- **PWA Capabilities** - Installable Progressive Web App with offline caching strategies and smart notifications.
+- **Smart Notification System** - LocalStorage-based polling that triggers a consolidated browser alert for new submissions without spam.
+- **Recent Submissions Drawer** - A sleek, dark-themed panel for quickly reviewing the 10 most recent uploads across both Questions and Notes.
+- **Notices System** - Easy viewing of official University notices with dynamic PDF viewer integration.
+- **Dark Theme Mode** - Built-in dark-mode aesthetic with a seamless theme toggler.
+- **Serverless Architecture** - Primarily static hosting relying on client-side JS and decentralized databases (Google Sheets/Drive) rather than custom servers.
+
+### Technology Stack (Summary)
+| Category | Technology |
+|----------|------------|
+| Frontend | HTML5, CSS3, Vanilla JavaScript |
+| Backend/Database | Google Sheets API, Google Forms |
+| Icons | Font Awesome 6.5 |
+| Hosting | Netlify |
+| PWA System | Service Worker, Cache API, Notifications API |
+
+---
+
+## Technology Stack (Detailed)
+
+### Frontend Technologies
+| Technology | Version | Purpose | Delivery |
+|-----------|---------|---------|----------|
+| **HTML5** | — | Page structure, semantic markup | Native |
+| **CSS3** | — | Styling, layouts, responsive design, CSS custom variables | Native |
+| **Vanilla JavaScript (ES6+)** | — | Application logic, DOM manipulation, data fetching | Native |
+
+### Integrations & APIs
+| Service | Purpose | Details |
+|---------|---------|----------|
+| **Google Sheets API** | Decentralized database | Community submissions data fetched via JSON API endpoint (`google.visualization.Query`) |
+| **Google Forms** | Data entry | Used for submitting new Questions and Notes safely |
+| **Google Drive** | Resource hosting | Hosts PDFs and resources linked in the Departmental Query Banks |
+
+### Hosting
+| Platform | Purpose | Details |
+|---------|---------|----------|
+| **Netlify** | Static Hosting | Fast global CDN serving HTML, CSS, JS |
+
+---
+
+## Architecture
+
+### Application Flow
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                 index.html (Landing Page)                   │
+└─────────────────────────┬───────────────────────────────────┘
+                          │
+         ┌────────────────┴────────────────┐
+         ▼                                 ▼
+┌─────────────────┐               ┌─────────────────┐
+│ Departments.html│               │ submission.html │
+│ (?dept=...)     │               │                 │
+└────────┬────────┘               └────────┬────────┘
+         │                                 │
+         ▼                                 ▼
+┌─────────────────┐               ┌─────────────────┐
+│ Google Drive    │               │ Google Sheets   │
+│ (PDF Resources) │               │ (JSON Data API) │
+└─────────────────┘               └─────────────────┘
+```
+
+---
+
+## Project Structure
+
+```text
+b1t-Acad/
+│
+├── index.html                    # Main landing page
+├── Departments.html              # Dynamic department resource viewer
+├── submission.html               # Community notes & questions
+├── manifest.json                 # PWA install manifest
+├── sw.js                         # Service worker for offline caching
+├── README.md                     # Quick start guide
+│
+├── css/                          # Stylesheets
+│   ├── (Various CSS modules for distinct components)
+│
+├── js/                           # JavaScript modules
+│   ├── departments.js            # Department logic & rendering
+│   ├── departments-data.js       # JSON mapping of all courses/drives
+│   ├── search-courses.js         # Realtime search indexing logic
+│   ├── pwa.js                    # PWA registration & Notification polling
+│   ├── theme.js                  # Dark mode toggling logic
+│   └── archive-link.js           # Redirect handlers for ancient links
+│
+├── doc/                          # Documentation
+│   └── DOCUMENTATION.md          # Complete project documentation (this file)
+│
+├── images/                       # Logo assets and UI generic images
+│   └── icons/                    # PWA masks (192x192, 512x512)
+│
+└── misc/                         # Auxiliary pages
+    ├── notice.html               # UCAM Notices Viewer
+    └── (Other mini-tools)
+```
+
+---
+
+## JavaScript Modules
+
+### 1. `js/pwa.js`
+**Purpose:** Handles PWA initialization and the smart notification system.
+- Registers the service worker (`sw.js`).
+- Implements `checkForNewSubmissions()`: Polls Google Sheets and compares row counts against a LocalStorage snapshot (`pwa_submission_snapshot`).
+- Fires a consolidated browser Notification and updates LocalStorage to prevent spam.
+- Manages the UI/UX for the "Recent Submissions" sliding panel.
+
+### 2. `sw.js` (Root)
+**Purpose:** Service Worker.
+- Employs a **Network-First** strategy to prioritize fresh dynamic content from the network, but caches assets so they still load quickly offline.
+- Handles `notificationclick` events, focusing the browser tab and triggering the UI to open the Recent Submissions panel (`?showRecent=true`).
+
+### 3. `js/departments*.js`
+**Purpose:** Parses the structure of the Google Drive query banks.
+- `departments-data.js`: Holds static definitions and mappings mapping department IDs to their Google Drive folder strings and course structures.
+- `departments.js`: Contains UI DOM manipulation logic to render the folder view dynamically based on URL params.
+
+### 4. `js/theme.js`
+**Purpose:** Dark/Light mode preferences.
+- Checks local storage for user's aesthetic choice.
+- Applies class adjustments to the `<body>`.
+
+### 5. `js/search-courses.js`
+**Purpose:** Provides a rapid filtering function for long lists of courses.
+- Triggers on input events in the search bar.
+- Uses strict substring matching to hide/show list elements.
+
+---
+
+## Styling System
+
+The application styling is heavily componentized but avoids heavy CSS frameworks in favor of vanilla CSS custom properties (variables) for theme management. 
+
+- **Variables:** Defined in `:root` scope (colors, padding, border-radius) and overwritten via a `.light-mode` class toggled by `js/theme.js`.
+- **Layout:** Extensive use of CSS Grid and Flexbox for responsive, mobile-first design.
+- **Modals:** Centralized styling for panels, dropdowns, and popup dialogues (e.g., the PDF Viewer modal and Recent Submissions panel).
+
+---
+
+## Data Model & Integration
+
+Because `b1t-Acad` uses a serverless architecture without Firebase/Firestore, data is managed via Google integrations:
+
+| Component | Integration Method | Security Model |
+|-----------|--------------------|----------------|
+| **Reading Submissions** | Google Sheets (`gviz/tq?tqx=out:json`) | Read-only accessible via public sheet sharing. |
+| **Writing Submissions** | Google Forms | Write-only form submission. Impossible to natively edit/delete other users' posts via the web client. |
+| **Resource Links / Files** | Google Drive Folders | View-only link sharing configured directly in Drive by the core Admin team. |
+
+---
+
+## Recent Changes & PWA
 
 > [!NOTE]
 > **Progressive Web App (PWA) Integration & Smart Notifications**
-> The platform has been upgraded to act as a native application installation with intelligent community alerts.
+> The platform has recently been upgraded to act as a native application installation with intelligent community alerts.
 
-### A. PWA Installability
-- **`manifest.json` Added**: The app now features a web manifest defining `b1t Academics`, allowing students to install the site directly to their mobile home screens or desktop applications.
-- **Service Worker (`sw.js`)**: Implemented a lightweight, robust **Network-First** caching strategy. This ensures crucial pages load incredibly fast and work offline, while still prioritizing the latest dynamic content (like new questions) from the network.
+### Installability
+- **Manifest**: The `manifest.json` provides branding so users can "Add to Homescreen".
+- **Offline Reliability**: The `sw.js` script allows the CSS/JS to be cached resiliently.
 
-### B. Consolidated Notification System (`js/pwa.js`)
-Since the site uses Google Sheets instead of a server push database (like Firebase Realtime DB), a custom polling Notification strategy was implemented:
-- **Polling + Snapshots**: Whenever a student opens `submission.html`, the script fetches the latest submissions and compares them against a LocalStorage snapshot (`pwa_submission_snapshot`).
-- **Anti-Spam Concept**: Instead of firing 10 individual notifications for 10 new questions, the system triggers **one consolidated browser action** (e.g., *"3 new submissions added!"*).
-- **Recent Submissions Drawer**: Clicking the notification (or the new in-page `Recent Submissions` button) slides out a sleek, dark-themed panel. This panel dynamically merges both `Questions` and `Notes`, displaying the **10 most recent** uploads tagged clearly with "NEW" badges.
-- **Permissions Handling**: A non-intrusive "Enable Notifications 🔔" interface is built right into the submission page.
+### Consolidated Notification System
+Since the site uses Google Sheets instead of a server push database, a custom polling Notification strategy is active in `submission.html` via `pwa.js`:
+1. Whenever a student opens the page, it polls the latest row counts from Google Sheets.
+2. It compares it against an offline snapshot.
+3. If there are new insertions, a **single consolidated notification** appears rather than individual popups for every item.
+4. Clicking the notification dynamically opens a "Recent Submissions" sidebar showing a beautifully integrated view of the top 10 most recent posts (combining both Questions and Notes).
 
 ---
 
-## 4. Directory Structure
-- `/`: Core HTML files (`index.html`, `Departments.html`, `submission.html`), `manifest.json`, `sw.js`.
-- `/css/`: Stylesheets modularized for various components.
-- `/js/`: Client-side logic including `pwa.js` (notifications & Service worker registration) and `theme.js`.
-- `/images/`: Assets, social previews, and PWA masking icons (`192x192` & `512x512`).
-- `/misc/`: Auxiliary pages (Notices, Student Portal, Campus tools).
-- `/doc/`: Project documentation.
+## Additional Resources
+
+- **Main URL**: [b1t Academics](https://b1tacad.netlify.app/)
+- **Bug Reports**: Open an issue on the GitHub repository or contact the admin directly.
+- **Related Project**: Integrates seamlessly via the Floating Action Button with [b1t-Sched](https://b1tsched.netlify.app/), the task management system.
