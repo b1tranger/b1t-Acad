@@ -3219,11 +3219,11 @@ now Browse Curated Resources*/
   border-radius: 50px;
   background-color: var(--secondary-color);
   color: var(--text-color);
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--accent-color);
   cursor: pointer;
-  box-shadow: 0 4px 6px var(--shadow-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
   align-items: center;
@@ -3231,9 +3231,11 @@ now Browse Curated Resources*/
 }
 
 #spa-back-btn:hover {
-  background-color: var(--hover-btn-bg);
+  background-color: var(--accent-color);
+  color: #1a1a1a;
   border-color: var(--accent-color);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 123, 0, 0.3);
 }
 
 #spa-back-btn i {
@@ -3254,10 +3256,13 @@ now Browse Curated Resources*/
 [data-theme="gray"] #spa-back-btn {
   background-color: #f0f0f0;
   color: #1a1a1a;
-  border-color: #bfbfbf;
+  border: 1px solid #bfbfbf;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="gray"] #spa-back-btn:hover {
   background-color: #dcdcdc;
+  color: #1a1a1a;
   border-color: var(--accent-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
