@@ -1,5 +1,5 @@
 // Service Worker for b1t Academics PWA
-const CACHE_NAME = 'b1t-acad-cache-v1';
+const CACHE_NAME = 'b1t-acad-cache-v2';
 
 // Install — minimal pre-caching, rely on network-first for freshness
 self.addEventListener('install', (event) => {

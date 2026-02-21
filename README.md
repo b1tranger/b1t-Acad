@@ -7,8 +7,8 @@
   <p><strong>Unofficial Resources Archiver for UITS Students</strong></p>
   <h3>
     <a href="https://b1tacad.netlify.app/" target="_blank">🌐 Live Website</a> 
-    <span> | </span>
-    <a href="https://b1tranger.gitbook.io/archive/documentations/web-dev/b1t-academics" target="_blank">📚 Documentation</a>
+    <span> | </span><a href="doc\DOCUMENTATION.md" target="_blank">📚 Documentation</a>
+    <span> | </span><a href="https://b1tranger.gitbook.io/archive/documentations/web-dev/b1t-academics" target="_blank">📚 gitbook</a>
   </h3>
 </div>
 
