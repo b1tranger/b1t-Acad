@@ -14,7 +14,8 @@
 6. [Styling System](#styling-system)
 7. [Data Model & Integration](#data-model--integration)
 8. [Recent Changes & PWA](#recent-changes--pwa)
-9. [Additional Resources](#additional-resources)
+9. [Version History](#version-history)
+10. [Additional Resources](#additional-resources)
 
 ---
 
@@ -24,6 +25,7 @@
 b1t Academics is an unofficial resource centralization platform for UITS university students. It provides easy access to curated department-specific query banks, community-driven questions and notes, official notices, and scheduling tools.
 
 ### Key Features
+- **Single Page Application (SPA) Routing** - Seamless navigation between sections (e.g., `#info`, `#Qbank`) on the landing page without full page reloads, using native URL hashing.
 - **Departmental Navigation** - Custom-built nested folder browser UI pointing to curated Google Drive folders for CSE, CE, IT, etc.
 - **Dynamic Routing** - Displays relevant course lists and materials dynamically (e.g., `?dept=CSE`) without needing separate HTML pages.
 - **Community Submissions** - View and submit questions or notes using Google Forms/Sheets integration. Submissions display dynamically via JSON API.
@@ -109,6 +111,7 @@ b1t-Acad/
 │   ├── (Various CSS modules for distinct components)
 │
 ├── js/                           # JavaScript modules
+│   ├── spa.js                    # SPA hash routing logic
 │   ├── departments.js            # Department logic & rendering
 │   ├── departments-data.js       # JSON mapping of all courses/drives
 │   ├── search-courses.js         # Realtime search indexing logic
@@ -153,7 +156,13 @@ b1t-Acad/
 - Checks local storage for user's aesthetic choice.
 - Applies class adjustments to the `<body>`.
 
-### 5. `js/search-courses.js`
+### 5. `js/spa.js`
+**Purpose:** Manages Single Page Application routing via URL hashes.
+- Listens to the window `hashchange` event.
+- Displays specific target sections (like `#Qbank`) while hiding the main page list and vice versa.
+- Displays a dedicated "Back to Home" floating button over sub-sections.
+
+### 6. `js/search-courses.js`
 **Purpose:** Provides a rapid filtering function for long lists of courses.
 - Triggers on input events in the search bar.
 - Uses strict substring matching to hide/show list elements.
@@ -198,6 +207,17 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 2. It compares it against an offline snapshot.
 3. If there are new insertions, a **single consolidated notification** appears rather than individual popups for every item.
 4. Clicking the notification dynamically opens a "Recent Submissions" sidebar showing a beautifully integrated view of the top 10 most recent posts (combining both Questions and Notes).
+
+---
+
+## Version History
+
+| Version | Date | Update | Description |
+|---------|------|--------|-------------|
+| 5.0 | 2026-02-21 | PWA Integration | Upgraded the platform to a native installable application with offline capabilities. |
+| 5.1 | 2026-02-21 | Smart Notifications | Added a consolidated polling notification strategy for new community submissions. |
+| 5.2 | 2026-02-21 | Documentation Overhaul | Restructured and updated comprehensive project documentation in `DOCUMENTATION.md`. |
+| 5.3 | 2026-02-21 | SPA Routing Implementation | Converted the landing page to a Single Page Application using `spa.js` and hash routing to navigate sections (e.g., `#Qbank`) seamlessly without page reloads. |
 
 ---
 

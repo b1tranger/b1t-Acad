@@ -510,7 +510,8 @@ body {
   padding: 5rem 2rem;
   max-width: 900px;
   margin: 0 auto;
-  margin-top: 20rem;
+  margin-top: 2rem;
+  /* margin-top: 20rem; */
   /* min-height: 40vh; */
   /* padding: 2rem; */
   /* Give sections some height */
@@ -3203,4 +3204,60 @@ now Browse Curated Resources*/
     background-color: #e0e0e0;
     color: #000;
   }
+}
+
+/* ========================================= */
+/* ===== SPA Back Button Styles ============ */
+/* ========================================= */
+#spa-back-btn {
+  display: none;
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 4000;
+  padding: 0.8rem 1.2rem;
+  border-radius: 50px;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#spa-back-btn:hover {
+  background-color: var(--hover-btn-bg);
+  border-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+#spa-back-btn i {
+  margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+  #spa-back-btn {
+    top: auto;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(5%);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Light theme support */
+[data-theme="gray"] #spa-back-btn {
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+  border-color: #bfbfbf;
+}
+
+[data-theme="gray"] #spa-back-btn:hover {
+  background-color: #dcdcdc;
+  border-color: var(--accent-color);
 }
