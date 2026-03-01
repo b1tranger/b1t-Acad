@@ -569,7 +569,7 @@
       </span>
     </div>
     <script>
-      // Load the hit counter after a 10-second delay 
+      // Load the hit counter after a 30-second delay 
       // This prevents counting users who immediately bounce/close the website
       setTimeout(async () => {
         const badge = document.getElementById('visitor-badge');
@@ -583,17 +583,17 @@
 
             // Format number neatly (e.g. 1,234)
             const formattedCount = Number(data.count).toLocaleString();
-            countTextElement.textContent = `Total Visits: ${formattedCount}`;
+            countTextElement.innerHTML = `Total Visits: ${formattedCount}`;
 
             // Fade in the badge
             badge.style.opacity = '1';
           } catch (error) {
-            countTextElement.textContent = "Visits unavailable";
+            countTextElement.innerHTML = `<span title="Adblockers or browser privacy settings may block the visit counter.">Visits unavailable (Adblock?)</span>`;
             badge.style.opacity = '1';
-            console.error("Failed to fetch visitor count:", error);
+            console.error("Failed to fetch visitor count. This is often caused by adblockers, privacy extensions, or strict browser settings blocking tracking APIs.", error);
           }
         }
-      }, 60000);
+      }, 30000);
     </script>
     <br><br><br>
     <!-- </span> -->
