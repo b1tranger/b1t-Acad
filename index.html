@@ -882,7 +882,7 @@
             <span class="upload-card-text">Upload<br>Notes</span>
           </a>
 
-          <a href="https://forms.gle/zouhKqXSh8MaLFKf7" target="_blank" class="upload-card upload-card--temp">
+          <a href="#" id="btn-anon-share" class="upload-card upload-card--temp">
             <img src="images/Section-Logo/logo (10).webp" class="upload-card-image" alt="Temporary Uploads Icon"
               style="margin-left: 0;">
             <span class="upload-card-text">Anon File<br>Sharing</span>
@@ -906,7 +906,7 @@
             <br>
             <p
               style="margin: auto;text-align: center;background-color: #3bbb08;width: fit-content;padding: 5px;border-radius: 5px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);">
-              <a href="submission.html" style="color: white;text-decoration:none" class="link-hover-a">Go to
+              <a href="#Departments" style="color: white;text-decoration:none" class="link-hover-a">Go to
                 Departments</a>
             </p>
           </div>
@@ -1335,8 +1335,86 @@
     adjustSections();
   </script> -->
 
+
+  <!-- Anon File Sharing Modals -->
+  <!-- 1. Recent Uploads Modal -->
+  <div id="anon-recent-modal" class="modal anon-modal-overlay" style="display: none; z-index: 1000000;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">
+          <i class="fas fa-history"></i> Recent Uploads
+        </h2>
+        <button id="close-anon-recent-modal" class="btn btn-icon"
+          style="color: white; border: none; background: transparent; cursor: pointer; font-size: 1.5rem;">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body" style="background-color: #212529; color: white; border-radius: 8px;">
+        <div id="anon-recent-list" class="anon-recent-list" style="max-height: 400px; overflow-y: auto;">
+          <!-- Items injected by anon-share.js -->
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: center;">
+        <button id="anon-upload-new-btn" class="btn btn-primary"
+          style="width: 100%; max-width: 300px; padding: 12px; font-weight: bold;">
+          <i class="fas fa-upload"></i> Upload New File
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Editor Modal for Uploading -->
+  <div id="anon-editor-modal" class="modal anon-modal-overlay" style="display: none; z-index: 1000000;">
+    <div class="modal-content" style="max-width: 600px;">
+      <div class="modal-header">
+        <h2 class="modal-title">
+          <i class="fas fa-file-upload"></i> Upload & Share
+        </h2>
+        <button id="close-anon-editor-modal" class="btn btn-icon"
+          style="color: white; border: none; background: transparent; cursor: pointer; font-size: 1.5rem;">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+      </div>
+      <div class="modal-body" style="background-color: #212529; padding: 15px; color: white;">
+
+        <div id="anon-upload-error" class="message"
+          style="display: none; margin-bottom: 10px; padding: 10px; border-radius: 4px;"></div>
+
+        <p class="upload-instruction" style="font-size: 0.85rem; color: #a0a0a0; margin-bottom: 15px;">
+          <i class="fas fa-info-circle"></i> Use the uploader for files up to 200MB. Links will be generated in the text
+          box below.
+        </p>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+          <button id="anon-trigger-upload-btn" class="btn btn-secondary" style="flex: 1; padding: 10px;">
+            <i class="fas fa-paperclip"></i> Attach File
+          </button>
+          <input type="file" id="anon-file-input" style="display: none;">
+        </div>
+
+        <div id="anon-fileio-fallback"
+          style="display: none; background: rgba(255,183,77,0.1); color: #ffb74d; padding: 10px; border-radius: 4px; font-size: 0.85rem; margin-bottom: 15px;">
+          <i class="fas fa-exclamation-triangle"></i> Upload failed. Try uploading your file directly at <a
+            href="https://file.io" target="_blank" style="color: #64b5f6;">file.io</a> and paste the link below.
+        </div>
+
+        <textarea id="anon-textarea" class="form-input form-textarea"
+          placeholder="Write your notes here or describe your files..."
+          style="width: 100%; min-height: 200px; resize: vertical; margin-bottom: 15px; background: #2a2d32; color: #fff; border: 1px solid #444; padding: 10px; font-family: monospace; border-radius: 5px;"></textarea>
+
+      </div>
+      <div class="modal-footer" style="justify-content: flex-end;">
+        <button id="anon-share-submit-btn" class="btn btn-primary"
+          style="background: #3bbb08; padding: 10px 20px; font-weight: bold;">
+          <i class="fas fa-share-alt"></i> Paste in Google Forms
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script src="js/pwa.js"></script>
   <script src="js/spa.js"></script>
+  <script src="js/anon-share.js"></script>
 </body>
 
 

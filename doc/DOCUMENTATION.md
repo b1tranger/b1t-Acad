@@ -33,6 +33,7 @@ b1t Academics is an unofficial resource centralization platform for UITS univers
 - **PWA Capabilities** - Installable Progressive Web App with offline caching strategies and smart notifications.
 - **Smart Notification System** - LocalStorage-based polling that triggers a consolidated browser alert for new submissions without spam.
 - **Recent Submissions Drawer** - A sleek, dark-themed panel for quickly reviewing the 10 most recent uploads across both Questions and Notes. Now features live-refresh capabilities and precise timestamp-based sorting.
+- **Anon File Sharing** - An integrated modal experience for anonymously uploading files (up to 200MB) via `Catbox.moe` and `Tmpfiles.org` temporary links, and sharing those links to the community directly through the platform.
 - **Notices System** - Easy viewing of official University notices with dynamic PDF viewer integration.
 - **Dark Theme Mode** - Built-in dark-mode aesthetic with a seamless theme toggler.
 - **Serverless Architecture** - Primarily static hosting relying on client-side JS and decentralized databases (Google Sheets/Drive) rather than custom servers.
@@ -119,6 +120,7 @@ b1t-Acad/
 │   ├── search-courses.js         # Realtime search indexing logic
 │   ├── pwa.js                    # PWA registration & Notification polling
 │   ├── theme.js                  # Dark mode toggling logic
+│   ├── anon-share.js             # Anonymous file sharing & CSV parser
 │   └── archive-link.js           # Redirect handlers for ancient links
 │
 ├── doc/                          # Documentation
@@ -169,6 +171,13 @@ b1t-Acad/
 - Triggers on input events in the search bar.
 - Uses strict substring matching to hide/show list elements.
 
+### 7. `js/anon-share.js`
+**Purpose:** Manages the Anonymous File Sharing modal system.
+- Fetches and parses live data from Google Sheets using a custom **CSV parser**.
+- Integrates with Tmpfiles and Catbox APIs for temporary file hosting.
+- Implements a "Linkify" engine to make raw URLs in submissions clickable.
+- Handles the "Copy-to-Clipboard & Redirect" workflow for Google Form submissions.
+
 ---
 
 ## Styling System
@@ -189,6 +198,7 @@ Because `b1t-Acad` uses a serverless architecture without Firebase/Firestore, da
 |-----------|--------------------|----------------|
 | **Reading Submissions** | Google Sheets (`gviz/tq?tqx=out:json`) | Read-only accessible via public sheet sharing. |
 | **Writing Submissions** | Google Forms | Write-only form submission. Impossible to natively edit/delete other users' posts via the web client. |
+| **Anon File Sharing** | Google Sheets (`pub?output=csv`) | Uses a custom JS parser to handle published CSV data from a decentralized source. |
 | **Resource Links / Files** | Google Drive Folders | View-only link sharing configured directly in Drive by the core Admin team. |
 
 ---
@@ -222,6 +232,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 5.3 | 2026-02-21 | SPA Routing Implementation | Converted the landing page to a Single Page Application using `spa.js` and hash routing to navigate sections (e.g., `#Qbank`) seamlessly without page reloads. |
 | 5.4 | 2026-02-21 | Visitor Counter | Implemented a secure, text-based total visitor counter using `api.counterapi.dev` mapped with a delayed loader to track genuine engagement. |
 | 5.5 | 2026-03-04 | Submission UI & Refresh Fix | Fixed Recent Submissions sorting and caching issues using Google Sheets timestamp parsing. Added a dedicated "Make Submission" redirection button. |
+| 5.6 | 2026-03-04 | Anon File Sharing | Added an integrated Anonymous File Sharing modal with Catbox/Tmpfiles upload support, CSV data parsing, and a Linkify engine for clickable links. |
 
 ---
 
