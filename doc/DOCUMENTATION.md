@@ -28,11 +28,11 @@ b1t Academics is an unofficial resource centralization platform for UITS univers
 - **Single Page Application (SPA) Routing** - Seamless navigation between sections (e.g., `#info`, `#Qbank`) on the landing page without full page reloads, using native URL hashing.
 - **Departmental Navigation** - Custom-built nested folder browser UI pointing to curated Google Drive folders for CSE, CE, IT, etc.
 - **Dynamic Routing** - Displays relevant course lists and materials dynamically (e.g., `?dept=CSE`) without needing separate HTML pages.
-- **Community Submissions** - View and submit questions or notes using Google Forms/Sheets integration. Submissions display dynamically via JSON API.
+- **Community Submissions** - View and submit questions or notes using Google Forms/Sheets integration. Submissions display dynamically via JSON API. Includes a persistent "Make Submission" action button for easy contribution.
 - **Text-Based Visitor Counter** - Integrates `api.counterapi.dev` to securely display true page visits as plain text without requiring heavy image badges or cookies.
 - **PWA Capabilities** - Installable Progressive Web App with offline caching strategies and smart notifications.
 - **Smart Notification System** - LocalStorage-based polling that triggers a consolidated browser alert for new submissions without spam.
-- **Recent Submissions Drawer** - A sleek, dark-themed panel for quickly reviewing the 10 most recent uploads across both Questions and Notes.
+- **Recent Submissions Drawer** - A sleek, dark-themed panel for quickly reviewing the 10 most recent uploads across both Questions and Notes. Now features live-refresh capabilities and precise timestamp-based sorting.
 - **Notices System** - Easy viewing of official University notices with dynamic PDF viewer integration.
 - **Dark Theme Mode** - Built-in dark-mode aesthetic with a seamless theme toggler.
 - **Serverless Architecture** - Primarily static hosting relying on client-side JS and decentralized databases (Google Sheets/Drive) rather than custom servers.
@@ -208,7 +208,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 1. Whenever a student opens the page, it polls the latest row counts from Google Sheets.
 2. It compares it against an offline snapshot.
 3. If there are new insertions, a **single consolidated notification** appears rather than individual popups for every item.
-4. Clicking the notification dynamically opens a "Recent Submissions" sidebar showing a beautifully integrated view of the top 10 most recent posts (combining both Questions and Notes).
+4. Clicking the notification or the "Recent Submissions" button (which features a live-refresh state) dynamically opens a sidebar showing the top 10 most recent posts, perfectly sorted by submission time.
 
 ---
 
@@ -221,6 +221,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 5.2 | 2026-02-21 | Documentation Overhaul | Restructured and updated comprehensive project documentation in `DOCUMENTATION.md`. |
 | 5.3 | 2026-02-21 | SPA Routing Implementation | Converted the landing page to a Single Page Application using `spa.js` and hash routing to navigate sections (e.g., `#Qbank`) seamlessly without page reloads. |
 | 5.4 | 2026-02-21 | Visitor Counter | Implemented a secure, text-based total visitor counter using `api.counterapi.dev` mapped with a delayed loader to track genuine engagement. |
+| 5.5 | 2026-03-04 | Submission UI & Refresh Fix | Fixed Recent Submissions sorting and caching issues using Google Sheets timestamp parsing. Added a dedicated "Make Submission" redirection button. |
 
 ---
 

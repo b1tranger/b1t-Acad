@@ -43,6 +43,7 @@ function buildSubmissionList(questionsMap, notesMap) {
                     name: submitter.name,
                     details: sub.details || '',
                     deptBatch: sub.deptBatch || '',
+                    timestamp: sub.timestamp || 0,
                     key: `q|${submitter.name}|${sub.details || ''}`
                 });
             });
@@ -57,6 +58,7 @@ function buildSubmissionList(questionsMap, notesMap) {
                     name: submitter.name,
                     details: sub.details || '',
                     deptBatch: sub.deptBatch || '',
+                    timestamp: sub.timestamp || 0,
                     key: `n|${submitter.name}|${sub.details || ''}`
                 });
             });
@@ -121,8 +123,11 @@ function showRecentSubmissionsPanel(questionsMap, notesMap) {
 
     const allSubmissions = buildSubmissionList(questionsMap, notesMap);
 
-    // Take the last 10 (most recent = end of list, since sheets append rows)
-    const recent = allSubmissions.slice(-10).reverse();
+    // Explicitly sort by timestamp descending
+    allSubmissions.sort((a, b) => b.timestamp - a.timestamp);
+
+    // Take the last 10 (most recent = start of list due to sort)
+    const recent = allSubmissions.slice(0, 10);
 
     if (recent.length === 0) return;
 

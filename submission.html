@@ -644,10 +644,15 @@
                     <i class="fa-solid fa-bell"></i>
                     <span id="notif-btn-text">Enable Notifications</span>
                 </button>
-                <button class="recent-bell-btn" onclick="showRecentSubmissionsPanel(questionsData, notesData)">
+                <button class="recent-bell-btn" id="recent-bell-btn" onclick="handleShowRecentSubmissions()">
                     <i class="fa-solid fa-clock-rotate-left"></i>
-                    Recent Submissions
+                    <span id="recent-bell-text">Recent Submissions</span>
                 </button>
+                <a href="https://b1tacad.netlify.app/#Donate" class="submit-resource-btn"
+                    style="padding: 0.6rem 1.15rem; font-size: 0.85rem;">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Make Submission
+                </a>
             </div>
 
             <!-- Tab Buttons -->
@@ -787,6 +792,27 @@
             return div.innerHTML;
         }
 
+        // Parse Google Visualization Date strings (e.g. "Date(2023, 10, 5, 14, 30, 0)")
+        function parseGoogleDate(cell) {
+            if (!cell) return 0;
+            if (cell.v && typeof cell.v === 'string' && cell.v.startsWith('Date')) {
+                try {
+                    const match = cell.v.match(/Date\((.*?)\)/);
+                    if (match) {
+                        const parts = match[1].split(',').map(n => parseInt(n.trim() || 0));
+                        return new Date(parts[0], parts[1], parts[2] || 1, parts[3] || 0, parts[4] || 0, parts[5] || 0).getTime();
+                    }
+                } catch (e) {
+                    console.error('Date parse error', e);
+                }
+            }
+            if (cell.f) {
+                const parsed = new Date(cell.f).getTime();
+                if (!isNaN(parsed)) return parsed;
+            }
+            return 0; // fallback
+        }
+
         // Parse Google Drive file links
         function parseFileLinks(fileCell) {
             if (!fileCell) return [];
@@ -811,11 +837,12 @@
         }
 
         // Fetch Questions
-        async function fetchQuestions() {
-            if (questionsLoaded) return;
+        async function fetchQuestions(forceRefresh = false) {
+            if (questionsLoaded && !forceRefresh) return;
+            const url = forceRefresh ? `${QUESTIONS_SHEET_URL}&_=${Date.now()}` : QUESTIONS_SHEET_URL;
 
             try {
-                const response = await fetch(QUESTIONS_SHEET_URL);
+                const response = await fetch(url);
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -859,11 +886,13 @@
                     const filesRaw = row.c[Q_COL_FILES]?.v ? String(row.c[Q_COL_FILES].v) : '';
 
                     const files = parseFileLinks(filesRaw);
+                    const timestamp = parseGoogleDate(row.c[0]);
 
                     const submission = {
                         deptBatch,
                         details,
-                        files
+                        files,
+                        timestamp
                     };
 
                     if (submitterMap.has(name)) {
@@ -893,11 +922,12 @@
         }
 
         // Fetch Notes
-        async function fetchNotes() {
-            if (notesLoaded) return;
+        async function fetchNotes(forceRefresh = false) {
+            if (notesLoaded && !forceRefresh) return;
+            const url = forceRefresh ? `${NOTES_SHEET_URL}&_=${Date.now()}` : NOTES_SHEET_URL;
 
             try {
-                const response = await fetch(NOTES_SHEET_URL);
+                const response = await fetch(url);
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -941,11 +971,13 @@
                     const filesRaw = row.c[N_COL_FILES]?.v ? String(row.c[N_COL_FILES].v) : '';
 
                     const files = parseFileLinks(filesRaw);
+                    const timestamp = parseGoogleDate(row.c[0]);
 
                     const submission = {
                         deptBatch,
                         details,
-                        files
+                        files,
+                        timestamp
                     };
 
                     if (submitterMap.has(name)) {
@@ -1162,6 +1194,37 @@
                 text.textContent = 'Notifications Enabled';
                 btn.querySelector('i').className = 'fa-solid fa-bell';
             }
+        }
+
+        async function handleShowRecentSubmissions() {
+            const btn = document.getElementById('recent-bell-btn');
+            const text = document.getElementById('recent-bell-text');
+            const icon = btn.querySelector('i');
+
+            // Set loading state
+            btn.style.pointerEvents = 'none';
+            btn.style.opacity = '0.7';
+            icon.className = 'fa-solid fa-spinner fa-spin';
+            text.textContent = 'Refreshing...';
+
+            try {
+                // Force refresh both sheets
+                await Promise.all([fetchQuestions(true), fetchNotes(true)]);
+
+                // Re-render current tab to reflect new data
+                renderCurrentTab();
+            } catch (err) {
+                console.error("Error refreshing submissions:", err);
+            } finally {
+                // Reset loading state
+                btn.style.pointerEvents = '';
+                btn.style.opacity = '1';
+                icon.className = 'fa-solid fa-clock-rotate-left';
+                text.textContent = 'Recent Submissions';
+            }
+
+            // Show panel
+            showRecentSubmissionsPanel(questionsData, notesData);
         }
 
         // Initialize - fetch both in parallel, render questions first
