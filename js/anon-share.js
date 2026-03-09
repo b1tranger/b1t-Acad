@@ -48,12 +48,39 @@ const AnonShareManager = {
                 }
                 .anon-recent-details {
                   font-size: 0.9rem; color: #ccc; margin-bottom: 5px; word-break: break-word; white-space: pre-wrap;
+                  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;
                 }
                 .anon-recent-badge {
                   background: #333; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; color: #fff;
                 }
                 .anon-recent-dept {
                   font-size: 0.75rem; color: #888;
+                }
+
+                /* PDF Sliding Modal CSS */
+                .pdf-anon-modal {
+                  position: fixed; bottom: 0; left: 0; width: 100%; height: 100%;
+                  background: rgba(0,0,0,0.5); display: flex; align-items: flex-end; justify-content: center;
+                  z-index: 1000001; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+                }
+                .pdf-anon-modal.show {
+                  opacity: 1; pointer-events: auto;
+                }
+                .pdf-modal-content {
+                  background: #212529; width: 100%; max-width: 800px; height: 75vh;
+                  border-radius: 12px 12px 0 0; display: flex; flex-direction: column-reverse;
+                  transform: translateY(100%); transition: transform 0.3s ease;
+                  box-shadow: 0 -4px 15px rgba(0,0,0,0.5);
+                }
+                .pdf-anon-modal.show .pdf-modal-content {
+                  transform: translateY(0);
+                }
+                .pdf-modal-header {
+                  display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;
+                  border-bottom: 1px solid #333; color: white;
+                }
+                .pdf-modal-body {
+                  flex: 1; overflow: hidden; background: #fff; border-radius: 0;
                 }
             `;
             document.head.appendChild(style);
@@ -86,6 +113,33 @@ const AnonShareManager = {
                 if (e.target === overlay) this.closeAllModals();
             });
         });
+
+        // PDF Guide Modal Events
+        const openPdfBtn = document.getElementById('open-guide-pdf');
+        const pdfModal = document.getElementById('pdf-preview-modal');
+        const closePdfBtn = document.getElementById('close-pdf-modal');
+        const pdfIframe = document.getElementById('pdf-iframe');
+        const pdfDownloadBtn = document.getElementById('pdf-download-btn');
+
+        if (openPdfBtn && pdfModal) {
+            openPdfBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const pdfUrl = openPdfBtn.getAttribute('data-pdf');
+                pdfIframe.src = `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`;
+                pdfDownloadBtn.href = pdfUrl;
+                pdfModal.classList.add('show');
+            });
+
+            const closePdf = () => {
+                pdfModal.classList.remove('show');
+                setTimeout(() => { pdfIframe.src = ''; }, 300);
+            };
+
+            if (closePdfBtn) closePdfBtn.addEventListener('click', closePdf);
+            pdfModal.addEventListener('click', (e) => {
+                if (e.target === pdfModal) closePdf();
+            });
+        }
 
         // "Upload New File" Button
         const uploadNewBtn = document.getElementById('anon-upload-new-btn');
@@ -257,12 +311,36 @@ const AnonShareManager = {
 
     linkify(text) {
         if (!text) return '';
-        // Match URLs, avoiding trailing characters like comma or parenthesis
-        const urlRegex = /(https?:\/\/[^\s,)]+)/g;
-        return text.replace(urlRegex, function (url) {
-            // Provide a clickable link
-            return `<a href="${url.replace(/"/g, '&quot;')}" target="_blank" style="color: #64b5f6; text-decoration: underline;">${url}</a>`;
+
+        // 1. Match Markdown links [Title](http(s)://...)
+        const mdLinkRegex = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+        let html = text.replace(mdLinkRegex, (match, titleText, urlText) => {
+            let shortTitle = titleText;
+
+            // Truncate based on terms or length
+            const words = shortTitle.split(/\s+/);
+            if (words.length > 4) {
+                shortTitle = words.slice(0, 4).join(' ') + '...';
+            } else if (shortTitle.length > 30) {
+                shortTitle = shortTitle.substring(0, 30) + '...';
+            }
+
+            return `<a href="${urlText.replace(/"/g, '&quot;')}" target="_blank" style="color: #64b5f6; text-decoration: underline;"><i class="fas fa-link"></i> ${shortTitle}</a>`;
         });
+
+        // 2. Match lone URLs that haven't been wrapped in <a> yet
+        const urlRegex = /(<a\s+[^>]*>.*?<\/a>)|(https?:\/\/[^\s<)]+)/g;
+        html = html.replace(urlRegex, (match, aTag, loneUrl) => {
+            if (aTag) return aTag; // skip existing links
+
+            let displayUrl = loneUrl;
+            if (displayUrl.length > 35) {
+                displayUrl = displayUrl.substring(0, 35) + '...';
+            }
+            return `<a href="${loneUrl.replace(/"/g, '&quot;')}" target="_blank" style="color: #64b5f6; text-decoration: underline;"><i class="fas fa-link"></i> ${displayUrl}</a>`;
+        });
+
+        return html;
     },
 
     // ──────────────────────────────────────────────
