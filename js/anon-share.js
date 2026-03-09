@@ -125,14 +125,24 @@ const AnonShareManager = {
             openPdfBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const pdfUrl = openPdfBtn.getAttribute('data-pdf');
-                pdfIframe.src = `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`;
-                pdfDownloadBtn.href = pdfUrl;
-                pdfModal.classList.add('show');
+                
+                // Set display flex first so transition works
+                pdfModal.style.display = 'flex';
+                
+                // Need a tiny timeout to allow display change to take effect before opacity transition
+                setTimeout(() => {
+                    pdfIframe.src = `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`;
+                    pdfDownloadBtn.href = pdfUrl;
+                    pdfModal.classList.add('show');
+                }, 10);
             });
-
+            
             const closePdf = () => {
                 pdfModal.classList.remove('show');
-                setTimeout(() => { pdfIframe.src = ''; }, 300);
+                setTimeout(() => { 
+                    pdfIframe.src = ''; 
+                    pdfModal.style.display = 'none'; // hide completely after transition
+                }, 300);
             };
 
             if (closePdfBtn) closePdfBtn.addEventListener('click', closePdf);

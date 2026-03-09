@@ -1353,7 +1353,9 @@
         style="background: rgba(100, 181, 246, 0.1); color: #64b5f6; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-size: 0.85rem; border: 1px solid rgba(100, 181, 246, 0.2);margin:10px">
         <i class="fas fa-info-circle"></i> <strong>Note:</strong> You only need to paste the link in the form after
         you upload using this interface. File.io is only the backup option if it does not work!<br><br>Please refer to
-        the guide: <a href="#" id="open-guide-pdf" data-pdf="https://github.com/user-attachments/files/25736866/2.Anon.File.Sharing.Guide.pdf" style="color: #ffffff; text-decoration: underline; cursor: pointer;">GUIDE.pdf</a>
+        the guide: <a href="#" id="open-guide-pdf"
+          data-pdf="https://github.com/user-attachments/files/25736866/2.Anon.File.Sharing.Guide.pdf"
+          style="color: #ffffff; text-decoration: underline; cursor: pointer;">GUIDE.pdf</a>
       </div>
       <div class="modal-body" style="background-color: #212529; color: white; border-radius: 8px; padding: 15px;">
         <div id="anon-recent-list" class="anon-recent-list" style="max-height: 400px; overflow-y: auto;">
@@ -1370,15 +1372,18 @@
   </div>
 
   <!-- PDF Preview Modal -->
-  <div id="pdf-preview-modal" class="pdf-anon-modal">
+  <div id="pdf-preview-modal" class="pdf-anon-modal" style="display: none;">
     <div class="pdf-modal-content">
       <div class="pdf-modal-header">
-        <h3 style="margin:0; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;"><i class="fas fa-file-pdf"></i> Guide Preview</h3>
+        <h3 style="margin:0; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;"><i
+            class="fas fa-file-pdf"></i> Guide Preview</h3>
         <div>
-          <a id="pdf-download-btn" href="#" target="_blank" class="btn btn-icon" style="color: white; margin-right: 15px; text-decoration: none;" title="Open Full Screen / Download">
+          <a id="pdf-download-btn" href="#" target="_blank" class="btn btn-icon"
+            style="color: white; margin-right: 15px; text-decoration: none;" title="Open Full Screen / Download">
             <i class="fas fa-external-link-alt"></i>
           </a>
-          <button id="close-pdf-modal" class="btn btn-icon" style="color: white; border: none; background: transparent; cursor: pointer; font-size: 1.5rem;">
+          <button id="close-pdf-modal" class="btn btn-icon"
+            style="color: white; border: none; background: transparent; cursor: pointer; font-size: 1.5rem;">
             <i class="fas fa-times"></i>
           </button>
         </div>
