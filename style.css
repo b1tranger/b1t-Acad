@@ -268,7 +268,7 @@ body {
 
 
 .link-hover-a:hover {
-  color: rgba(0, 0, 0, 0.534) !important;
+  color: rgb(102, 143, 255) !important;
   font-weight: bold;
   transition: 0.3s ease;
   transform: translateY(-3px);
