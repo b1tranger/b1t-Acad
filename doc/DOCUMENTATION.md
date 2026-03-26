@@ -35,6 +35,7 @@ b1t Academics is an unofficial resource centralization platform for UITS univers
 - **Recent Submissions Drawer** - A sleek, dark-themed panel for quickly reviewing the 10 most recent uploads across both Questions and Notes. Now features live-refresh capabilities and precise timestamp-based sorting.
 - **Anon File Sharing** - An integrated modal experience for anonymously uploading files (up to 200MB) via `Catbox.moe` and `Tmpfiles.org` temporary links, and sharing those links to the community directly through the platform.
 - **Notices System** - Easy viewing of official University notices with dynamic PDF viewer integration.
+- **Support & Mentorship Integration** - Embedded SupportKori widget and persistent floating action buttons to seamlessly book 1-on-1 Academic Support & CSE Mentorship sessions or donate directly through the platform.
 - **Dark Theme Mode** - Built-in dark-mode aesthetic with a seamless theme toggler.
 - **Serverless Architecture** - Primarily static hosting relying on client-side JS and decentralized databases (Google Sheets/Drive) rather than custom servers.
 
@@ -233,6 +234,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 5.4 | 2026-02-21 | Visitor Counter | Implemented a secure, text-based total visitor counter using `api.counterapi.dev` mapped with a delayed loader to track genuine engagement. |
 | 5.5 | 2026-03-04 | Submission UI & Refresh Fix | Fixed Recent Submissions sorting and caching issues using Google Sheets timestamp parsing. Added a dedicated "Make Submission" redirection button. |
 | 5.6 | 2026-03-04 | Anon File Sharing | Added an integrated Anonymous File Sharing modal with Catbox/Tmpfiles upload support, CSV data parsing, and a Linkify engine for clickable links. |
+| 5.7 | 2026-03-26 | SupportKori & Mentorship | Integrated SupportKori persistent button and widget modal. Added an "Academic Support & CSE Mentorship" service block to the General Information section with an interactive, animated booking button. |
 
 ---
 
