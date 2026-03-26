@@ -42,6 +42,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Scroll to top of the new page
                 window.scrollTo(0, 0);
+            } else if (targetSection && targetSection.closest('.content-section')) {
+                // Target is inside a content section (e.g., #book-session inside #info)
+                const parentSection = targetSection.closest('.content-section');
+                
+                if (homeSection) homeSection.style.display = 'none';
+                if (contentWrapper) contentWrapper.style.display = 'block';
+                parentSection.style.display = 'block';
+                if (backBtn) backBtn.style.display = 'flex';
+
+                // Set Document Title
+                const sectionTitle = parentSection.querySelector('h2');
+                if (sectionTitle) {
+                    document.title = `${sectionTitle.textContent} - b1t Academics`;
+                }
+
+                // Scroll down to the nested element after layout renders
+                setTimeout(() => {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
             } else {
                 // Invalid hash or internal fragment on home page (like #course-search)
                 if (homeSection) homeSection.style.display = 'block';
