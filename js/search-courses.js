@@ -48,7 +48,7 @@ const courses = [
     { code: "CSE0612223", title: "Data Communication - DC", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1G5HhXeaaESsUUzvshJI_-UFpQOSMZL-s?usp=drive_link" },
     { code: "CSE0611215 + CSE0611216", title: "Digital Logic Design (+lab) - DLD", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/11rhTTRViSz-mhOVCV0uwtDgBimN5GO8B?usp=drive_link" },
     { code: "CSE0612215 + CSE0612216", title: "Database Management System (+Lab) - DBMS", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1WbxkGhlKC84ps7r2Ekqs0-Pggq9twvGT?usp=drive_link" },
-    { code: "CSE0613211 + CSE0613212", title: "Data Structures and Algorithms 1 - DSA1", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1pmKWdksSPezGZdPct2gAydYctKFJMvpI?usp=drive_link" },
+    { code: "CSE0613211 + CSE0613212", title: "Data Structures and Algorithms 1 (+lab) - DSA1", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1pmKWdksSPezGZdPct2gAydYctKFJMvpI?usp=drive_link" },
     // 
     // 
     // [ CE ] { code: "", title: "", department: "Dept: CE", driveLink: "" },
@@ -69,11 +69,11 @@ const courses = [
     { code: "MATH0542213", title: "Probability & Statistics", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Ou6ti0_B90QeHr55-cyJsIWcpha4o_LZ?usp=sharing" },
     { code: "GED0411311/GED113", title: "Financial and Managerial Accounting - FMA", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1achIW_ZkLk7SUTcCBIamg7CHvvl2yeSb?usp=drive_link" },
     { code: "MAT265", title: "Complex Variables, Fourier Analysis and Laplace Transform - CVFALT", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1WVfboSGhSvmWjYBU23s2Bk79JX7SyoI2?usp=drive_link" },
-    { code: "CSE251 + CSE252", title: "Data Structures and Algorithms 2 - DSA2", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1ZR__njpWSwOeJNhgX1t5eWrIzfmoO0fI?usp=drive_link" },
+    { code: "CSE251 + CSE252", title: "Data Structures and Algorithms 2 (+lab) - DSA2", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1ZR__njpWSwOeJNhgX1t5eWrIzfmoO0fI?usp=drive_link" },
     { code: "CSE208", title: "Internet Programming Lab - IP", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1yidd6DDh7Oy-D9DTHR3iQApWCXQ9lH39?usp=drive_link" },
     { code: "CSE217", title: "Linear Algebra, Probability and Statistics for Engineers - LAPSE", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1wFrG_OxI7-BzFHadiAX9aFJRPVH0_TgW?usp=drive_link" },
     { code: "CSE213", title: "Theory of Computation - ToC", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Lk_dkegB5YNBlQpYrOIcUP0KYS7e-oo0?usp=drive_link" },
-    { code: "EEE0714211 + EEE0714212", title: "EDC - Electronic Devices and Circuits", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1dLr18ZBIpOTFleZYS3hjiMu3O_ZxBtIC?usp=drive_link" },
+    { code: "EEE0714211 + EEE0714212", title: "Electronic Devices and Circuits (+lab) - EDC", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1dLr18ZBIpOTFleZYS3hjiMu3O_ZxBtIC?usp=drive_link" },
     //
     // [ CE ] { code: "", title: "", department: "Dept: CE", driveLink: "" },
     //
@@ -114,7 +114,7 @@ const courses = [
     { code: "CSE357 + CSE358", title: "Computer Graphics and Multimedia (+Lab) - CG", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/138zkPmC6GXxJOPXdUb3zj4-tdqIT_ix9?usp=drive_link" },
     { code: "GED 115", title: "Industrial and Operation Management - IOM", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1YstV74bC9Vy9VAkfCTpqILzA0jL2DYXd?usp=drive_link" },
     { code: "CSE359 + CSE360", title: "Microprocessors and Microcontrollers (+Lab) - MM", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1snMh8qTLGLy5eqR5FBTVFhDAJYNITBqu?usp=drive_link" },
-    { code: "CSE355 + CSE356", title: "Software Engineering and System Analysis - SESA", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Sk3cJwYA0slESsWxa0Xvllerh40iTP-1?usp=drive_link" },
+    { code: "CSE355 + CSE356", title: "Software Engineering and System Analysis (+lab) - SESA", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Sk3cJwYA0slESsWxa0Xvllerh40iTP-1?usp=drive_link" },
     //
     // [ CE ] { code: "", title: "", department: "Dept: CE", driveLink: "" },
     //
