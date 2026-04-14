@@ -91,7 +91,7 @@ const courses = [
     //
     // [ CSE ] { code: "", title: "", department: "Dept: CSE", driveLink: "" },
     //
-    { code: "CSE0611304/CSE304", title: "Linux Programming Lab", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1W6XrFTrUiOLuCSJb-NlUNLbTd-bIwazd?usp=sharing"},
+    { code: "CSE0611304/CSE304", title: "Linux Programming Lab", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1W6XrFTrUiOLuCSJb-NlUNLbTd-bIwazd?usp=sharing" },
     { code: "CSE204", title: "Advanced Problem Solving Strategies Lab", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/11hNDmHjWV1QPRzaQ6KWblWiUUKnPs5-0?usp=drive_link" },
     { code: "CSE311 + CSE312", title: "Artificial Intelligence (+lab) - AI", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1j1Os8LHGAgfOl1gbJjiqWWy05kmsk4Mk?usp=drive_link" },
     { code: "CSE313 + CSE314", title: "Computer Networks (+Lab) - CN", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1ziNG4HDSQVDz0gR8qU1OMbtVW8EPeVRM?usp=drive_link" },
@@ -137,8 +137,8 @@ const courses = [
     { code: "CSE411 + CSE412", title: "Operating Systems (+Lab) - OS", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1cF2I1OdDpi-TMSOnD8sMg7mUR3w4wgxp?usp=drive_link" },
     { code: "CSE418", title: "Scientific Research and Methodologies", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1HrgdXqI1i0iN6Wrh1JIWa7NUyTpeL30P?usp=drive_link" },
     { code: "CSE413", title: "Simulation and Modeling Lab", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1C8j93IMJ7U6zUANlAH2nUeLhE12j5PYi?usp=drive_link" },
-    { code: "CSE416", title: "Software Project Design and Development", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1BDXFHdEjoJEwyeGBkbbS2ZzNgJ9Zub-s?usp=drive_link" },
-    
+    { code: "CSE416", title: "Software Project Design and Development - SPDD", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1BDXFHdEjoJEwyeGBkbbS2ZzNgJ9Zub-s?usp=drive_link" },
+
     //
     // [ CE ]
     //
