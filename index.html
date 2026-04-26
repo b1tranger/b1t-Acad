@@ -483,6 +483,121 @@
         opacity: 1;
       }
     }
+
+    /* FAQ Tooltip Styles */
+    .faq-tooltip-container {
+      position: relative;
+      display: inline-block;
+      margin-left: 10px;
+      vertical-align: middle;
+      cursor: help;
+    }
+
+    .faq-icon {
+      color: var(--accent-color);
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      opacity: 0.7;
+    }
+
+    .faq-tooltip-container:hover .faq-icon {
+      transform: scale(1.2);
+      opacity: 1;
+      color: #fff;
+    }
+
+    .faq-tooltip-content {
+      visibility: hidden;
+      min-width: 400px;
+      max-width: 600px;
+      /* width: 90%; */
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      text-align: left;
+      border-radius: 15px;
+      padding: 1.5rem;
+      position: absolute;
+      z-index: 1000;
+      top: 140%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--border-color);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      pointer-events: none;
+      backdrop-filter: blur(10px);
+    }
+
+    .faq-tooltip-container:hover .faq-tooltip-content {
+      visibility: visible;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+
+    .faq-tooltip-content::after {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -10px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: transparent transparent var(--secondary-color) transparent;
+    }
+
+    .faq-tooltip-content p {
+      margin-bottom: 1rem;
+      color: var(--text-content) !important;
+      font-size: 0.9rem !important;
+    }
+
+    .faq-tooltip-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-tooltip-content strong {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .faq-tooltip-content a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 1px dashed var(--accent-color);
+    }
+
+    .faq-tooltip-content a:hover {
+      border-bottom-style: solid;
+    }
+
+    @media (max-width: 768px) {
+      .faq-tooltip-content {
+        min-width: 280px;
+        max-width: 85vw;
+        max-height: 350px;
+        overflow-y: auto;
+        left: auto;
+        right: -20px;
+        transform: translateY(-10px);
+        scrollbar-width: thin;
+        scrollbar-color: var(--accent-color) var(--secondary-color);
+      }
+
+      .faq-tooltip-container:hover .faq-tooltip-content {
+        transform: translateY(0);
+      }
+
+      .faq-tooltip-content::after {
+        left: auto;
+        right: 25px;
+        margin-left: 0;
+      }
+    }
   </style>
 
 
@@ -979,7 +1094,25 @@
       <h2>Donate Resources</h2>
       <section id="upload-section" class="upload-section">
 
-        <h3 class="upload-title">Feeling generous?</h3>
+        <h3 class="upload-title">
+          Feeling generous?
+          <span class="faq-tooltip-container">
+            <i class="fa-solid fa-circle-question faq-icon"></i>
+            <div class="faq-tooltip-content">
+              <p>Let me introduce you to a concept known as <strong>"Re-constructed"</strong> questions.</p>
+              <p>Reconstructed questions in exams—often termed "recalled" or "reconstructed" recalls—are exam questions
+                recreated by students based on memory after taking the test.</p>
+              <p>These are vital for preparing for professional exams, as they help identify recurring concepts and
+                patterns, even if exact values or wording differ.</p>
+              <p>When a faculty takes away the exam question after the exam, do not worry. If you remember anything
+                about the question, consider sharing that as well. We can re-construct it and keep it archived.</p>
+              <p>Before exam, what the students need is not a full-fledged question bank, rather, a hint to what they
+                would be tested with.</p>
+              <p>See this file as an example: <a href="https://tinyurl.com/2rvcxbkz" target="_blank">Question</a></p>
+              <p>Format: <a href="https://tinyurl.com/fsk7jryd" target="_blank">txt</a></p>
+            </div>
+          </span>
+        </h3>
 
         <div class="upload-grid">
 
