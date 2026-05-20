@@ -162,6 +162,6 @@ const departmentNameMap = {
   "EEE": "Electrical & Electronic Engineering",
   "ENGLISH": "English",
   "LAW": "Law",
-  "PHARMACY": "Pharmacy",
-  "SOCIALWORK": "Social Work"
+  "PHARMA": "Pharmacy",
+  "SOCIAL": "Social Work"
 };

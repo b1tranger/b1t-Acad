@@ -322,12 +322,12 @@ const departmentsData = {
         "info_link": "https://drive.google.com/drive/folders/1O8-TWqaeJPAOzBnmAOQEH9gUDtQoQHoz?usp=drive_link",
         "semesters": {}
     },
-    "PHARMACY": {
+    "PHARMA": {
         "full_name": "Pharmacy",
         "info_link": "https://drive.google.com/drive/folders/1PrfJswXjWxoIxGrFrpC79foFWFKBuQGg?usp=drive_link",
         "semesters": {}
     },
-    "SOCIALWORK": {
+    "SOCIAL": {
         "full_name": "Social Work",
         "info_link": "https://drive.google.com/drive/folders/1m9Zy6HeBR-YNLLiGEF1TfgVy1HHVAc7O?usp=drive_link",
         "semesters": {}
