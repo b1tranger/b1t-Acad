@@ -598,6 +598,52 @@
         margin-left: 0;
       }
     }
+
+    /* Glitch Transition Effect */
+    @keyframes glitch-text {
+      0% {
+        opacity: 1;
+        transform: translate(0);
+        text-shadow: none;
+      }
+      15% {
+        opacity: 0.8;
+        transform: translate(-3px, 2px);
+        text-shadow: 2px -1px 0 #ff00c1, -2px 1px 0 #00fff0;
+      }
+      30% {
+        opacity: 0;
+        transform: translate(3px, -2px);
+        text-shadow: -2px 1px 0 #ff00c1, 2px -1px 0 #00fff0;
+      }
+      45% {
+        opacity: 0;
+      }
+      60% {
+        opacity: 0.8;
+        transform: translate(-1px, -1px);
+        text-shadow: 1px -2px 0 #ff00c1, -1px 2px 0 #00fff0;
+      }
+      75% {
+        opacity: 0.9;
+        transform: translate(2px, 1px);
+        text-shadow: -2px -2px 0 #ff00c1, 2px 2px 0 #00fff0;
+      }
+      90% {
+        opacity: 0.95;
+        transform: translate(-1px, 2px);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(0);
+        text-shadow: none;
+      }
+    }
+
+    .glitch-active {
+      animation: glitch-text 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      display: inline-block;
+    }
   </style>
 
 
@@ -673,11 +719,11 @@
 
   <main class="container">
     <header>
-      <h1 class="logo">b1t Academics</h1>
+      <h1 id="main-logo-heading" class="logo">b1t Academics</h1>
 
     </header>
     <div style="margin-top: -20px;margin-bottom: 30px;color: var(--text-content);">
-      <p>Unofficial Resources Archiver<br>for UITS</p>
+      <p id="main-logo-subtext">Unofficial Resources Archiver<br>for UITS</p>
     </div>
     <section class="search-section">
       <div class="search-container">
@@ -1797,6 +1843,80 @@
       const modal = document.getElementById("supportKoriModal");
       if (event.target === modal) {
         modal.style.display = "none";
+      }
+    });
+  </script>
+
+  <script>
+    // Glitch transition and text swap logic (first-time only, tracked via cookies)
+    document.addEventListener('DOMContentLoaded', () => {
+      // Helper function to read a cookie
+      function getCookie(name) {
+        const matches = document.cookie.match(new RegExp(
+          "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+      }
+
+      // Helper function to set a cookie
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax";
+      }
+
+      // Check if the effect has already run
+      if (!getCookie('gaus_website_effect_run')) {
+        const heading = document.getElementById('main-logo-heading');
+        const subtext = document.getElementById('main-logo-subtext');
+
+        if (heading && subtext) {
+          // Stay 3s after load before triggering
+          setTimeout(() => {
+            // Step 1: Trigger the glitch transition
+            heading.classList.add('glitch-active');
+            subtext.classList.add('glitch-active');
+
+            // Set cookie so it won't run again on subsequent visits
+            setCookie('gaus_website_effect_run', 'true', 365);
+
+            // Step 2: Swap the text midway through the glitch (at 220ms, when opacity is 0)
+            setTimeout(() => {
+              heading.textContent = 'Gaus এর Website';
+              subtext.innerHTML = 'বড়ভাইরা এ নামে ভালো চিনে আরকি';
+            }, 220);
+
+            // Step 3: Remove the glitch class after animation completes (600ms)
+            setTimeout(() => {
+              heading.classList.remove('glitch-active');
+              subtext.classList.remove('glitch-active');
+            }, 600);
+
+            // Step 4: Revert back after 10s of displaying the changed text (10s from now)
+            setTimeout(() => {
+              // Trigger glitch again for the revert
+              heading.classList.add('glitch-active');
+              subtext.classList.add('glitch-active');
+
+              // Swap back to original text midway through the glitch (at 220ms)
+              setTimeout(() => {
+                heading.textContent = 'b1t Academics';
+                subtext.innerHTML = 'Unofficial Resources Archiver<br>for UITS';
+              }, 220);
+
+              // Remove the glitch class after animation completes
+              setTimeout(() => {
+                heading.classList.remove('glitch-active');
+                subtext.classList.remove('glitch-active');
+              }, 600);
+            }, 10000); // 10 seconds of swap state
+
+          }, 3000); // 3 seconds delay after page load
+        }
       }
     });
   </script>
