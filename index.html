@@ -365,10 +365,6 @@
       font-size: 0.85rem;
     }
 
-    .qbank-link.folder::before {
-      content: "📁";
-    }
-
     .qbank-link:hover {
       background-color: #333;
       color: #ff7b00;
@@ -986,6 +982,49 @@
             </div>
           </div>
           <!-- Others -->
+          <div class="qbank-folder">
+            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
+              <i class="fas fa-folder"></i> Others
+              <i class="fas fa-chevron-right folder-arrow"></i>
+            </button>
+            <div class="qbank-subfolders">
+              <a href="https://drive.google.com/drive/folders/15Z37rhnQbalAqe-9fdbetPI0rvyl8NCB?usp=drive_link"
+                target="_blank" class="qbank-link folder">[Archived Questions]</a>
+              <a href="https://drive.google.com/drive/folders/1whQG-iO_RMRiKuLCLcUzOMskfAb7YWPj?usp=drive_link"
+                target="_blank" class="qbank-link folder">AIUB community</a>
+              <a href="https://drive.google.com/drive/folders/1ZlT1BBqMXm8dst7mM2KUfY0wRibcuUx8?usp=drive_link"
+                target="_blank" class="qbank-link folder">IUT CHEM 4241</a>
+              <a href="https://drive.google.com/file/d/1XzhAVHOwnAMHYyCXVuxqKOTQv-gwcaAq/view?usp=drivesdk"
+                target="_blank" class="qbank-link">de-thi-2019.pdf</a>
+            </div>
+          </div>
+          <!-- Open Full QBank -->
+          <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+            class="qbank-full-link">
+            <i class="fas fa-external-link-alt"></i> Open Full QBank in Drive
+          </a>
+        </div>
+      </div>
+
+      <!-- <nav class="resources-nav">
+        <ul class="resources-nav-list">
+          <li>
+            <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD?usp=drive_link"
+              class="resource-link" target="_blank">Questions @GDrive</a>
+          </li>
+
+        </ul>
+      </nav> -->
+
+      <p style="margin-top: 5rem;">Consider donating your questions &#40;PDF / Image&#41; after your Exams to keep the
+        QBank alive. </p>
+      <br><br>
+      <p class="submission-btn-wrapper">
+        <a href="#Donate"
+          style="background: linear-gradient(135deg, #3aa2e7, #1a5be9);box-shadow: 0 6px 25px rgba(57, 111, 211, 0.7), 0 0 30px rgba(255, 153, 0, 0.5);"
+          class="submission-cta ">Go to Donation Section</a>
+      </p>
+      <br>
       <div class="submission-highlight">
 
         <p class="submission-btn-wrapper">
