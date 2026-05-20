@@ -33,7 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const semesters = Object.keys(deptData.semesters).sort(); // S01, S02...
 
   if (semesters.length === 0) {
-    contentContainer.innerHTML = '<p style="text-align:center; color: #a0aec0; margin-top: 2rem;">No resources available for this department yet.</p>';
+    let html = `
+      <header class="semester-header">
+        <h2 class="semester-title">${deptData.full_name}</h2>
+    `;
+    if (deptData.info_link) {
+      html += `
+        <a href="${deptData.info_link}" target="_blank" class="drive-btn info-btn">
+          <i class="fa-solid fa-circle-info"></i>&nbsp; Departmental Info
+        </a>
+      `;
+    }
+    html += `
+      </header>
+      <p style="text-align:center; color: #a0aec0; margin-top: 2rem;">No resources available for this department yet.</p>
+    `;
+    contentContainer.innerHTML = html;
     return;
   }
 
@@ -77,6 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="${semData.drive_link}" target="_blank" class="drive-btn">
           <i class="fa-brands fa-google-drive"></i>&nbsp; Open Full Drive
         </a>
+        ${deptData.info_link ? `
+        <a href="${deptData.info_link}" target="_blank" class="drive-btn info-btn" style="margin-left: 10px;">
+          <i class="fa-solid fa-circle-info"></i>&nbsp; Departmental Info
+        </a>
+        ` : ''}
         <br><br>
         <div style="display:flex;justify-content:center;">
         <p style="font-size:14px;background-color:yellow;color:black;width:fit-content;display:flex;justify-content:center;padding:8px;box-shadow:0 5px 10px black;font-weight:bold;" >(refer to "Others" folder for Note Archive)</p>
@@ -136,5 +156,12 @@ document.addEventListener('DOMContentLoaded', () => {
 const departmentNameMap = {
   "CSE": "Computer Science & Engineering",
   "CE": "Civil Engineering",
-  "IT": "Information Technology"
+  "IT": "Information Technology",
+  "BBA": "Business Administration",
+  "ECE": "Electrical & Computer Engineering",
+  "EEE": "Electrical & Electronic Engineering",
+  "ENGLISH": "English",
+  "LAW": "Law",
+  "PHARMACY": "Pharmacy",
+  "SOCIALWORK": "Social Work"
 };
