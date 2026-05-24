@@ -65,7 +65,7 @@ const departmentsData = {
                     { "title": "CN", "code": "CSE313/314", "link": "https://drive.google.com/drive/folders/1ziNG4HDSQVDz0gR8qU1OMbtVW8EPeVRM?usp=drive_link", "icon": "fa-network-wired" },
                     { "title": "Computer Architecture", "code": "CSE319", "link": "https://drive.google.com/drive/folders/1-vcckXJirsjVUnA_BfztCVSKkKFSQnLx?usp=drive_link", "icon": "fa-server" },
                     { "title": "Linux Programming", "code": "CSE0611304/CSE304", "link": "https://drive.google.com/drive/folders/1W6XrFTrUiOLuCSJb-NlUNLbTd-bIwazd?usp=sharing", "icon": "fa-code" },
-                    { "title": "Accounting", "code": "GED0411311/CSE204", "link": "https://drive.google.com/drive/folders/11hNDmHjWV1QPRzaQ6KWblWiUUKnPs5-0?usp=drive_link", "icon": "fa-fax" },
+                    { "title": "Accounting", "code": "GED0411311/CSE204", "link": "https://drive.google.com/drive/u/1/folders/1achIW_ZkLk7SUTcCBIamg7CHvvl2yeSb", "icon": "fa-fax" },
                     { "title": "Project Design", "code": "CSE0613316/CSE416", "link": "https://drive.google.com/drive/folders/1BDXFHdEjoJEwyeGBkbbS2ZzNgJ9Zub-s?usp=drive_link", "icon": "fa-project-diagram" },
                     { "title": "Theory of Computation", "code": "CSE0611319/CSE213", "link": "https://drive.google.com/drive/folders/1Lk_dkegB5YNBlQpYrOIcUP0KYS7e-oo0?usp=drive_link", "icon": "fa-calculator" },
                     { "title": "Probability & Statistics", "code": "MATH0542213", "link": "https://drive.google.com/drive/folders/1Ou6ti0_B90QeHr55-cyJsIWcpha4o_LZ?usp=sharing", "icon": "fa-chart-simple" }
