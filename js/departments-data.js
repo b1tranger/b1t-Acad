@@ -68,7 +68,7 @@ const departmentsData = {
                     { "title": "Accounting", "code": "GED0411311/CSE204", "link": "https://drive.google.com/drive/u/1/folders/1achIW_ZkLk7SUTcCBIamg7CHvvl2yeSb", "icon": "fa-fax" },
                     { "title": "Project Design", "code": "CSE0613316/CSE416", "link": "https://drive.google.com/drive/folders/1BDXFHdEjoJEwyeGBkbbS2ZzNgJ9Zub-s?usp=drive_link", "icon": "fa-project-diagram" },
                     { "title": "Theory of Computation", "code": "CSE0611319/CSE213", "link": "https://drive.google.com/drive/folders/1Lk_dkegB5YNBlQpYrOIcUP0KYS7e-oo0?usp=drive_link", "icon": "fa-calculator" },
-                    { "title": "Probability & Statistics", "code": "MATH0542213", "link": "https://drive.google.com/drive/folders/1Ou6ti0_B90QeHr55-cyJsIWcpha4o_LZ?usp=sharing", "icon": "fa-chart-simple" }
+                    { "title": "Probability & Statistics", "code": "MATH0542213", "link": "https://drive.google.com/drive/folders/1p1Pm7lHPWORr_uQqyWag8Mp6BQKIHoAm?usp=drive_link", "icon": "fa-chart-simple" }
                 ]
             },
             "S06": {

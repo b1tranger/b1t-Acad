@@ -66,7 +66,7 @@ const courses = [
     //
     // [ CSE ] { code: "", title: "", department: "Dept: CSE", driveLink: "" },
     //
-    { code: "MATH0542213", title: "Probability & Statistics", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1Ou6ti0_B90QeHr55-cyJsIWcpha4o_LZ?usp=sharing" },
+    { code: "MATH0542213", title: "Probability & Statistics - PS", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1p1Pm7lHPWORr_uQqyWag8Mp6BQKIHoAm?usp=drive_link" },
     { code: "GED0411311/GED113", title: "Financial and Managerial Accounting - FMA", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1achIW_ZkLk7SUTcCBIamg7CHvvl2yeSb?usp=drive_link" },
     { code: "MAT265", title: "Complex Variables, Fourier Analysis and Laplace Transform - CVFALT", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1WVfboSGhSvmWjYBU23s2Bk79JX7SyoI2?usp=drive_link" },
     { code: "CSE251 + CSE252", title: "Data Structures and Algorithms 2 (+lab) - DSA2", department: "Dept: CSE", driveLink: "https://drive.google.com/drive/folders/1ZR__njpWSwOeJNhgX1t5eWrIzfmoO0fI?usp=drive_link" },
