@@ -30,84 +30,104 @@
             width: 100%;
         }
 
-        /* Department Selector (Tabs) - GRID */
-        .dept-selector {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            /* Responsive Grid */
-            gap: 1rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            /* Limit width to keep it centered and nice */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .dept-tab {
-            padding: 0.75rem 1rem;
-            background-color: var(--secondary-color);
-            border: 1px solid var(--border-color);
-            border-radius: 9999px;
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .dept-tab:hover,
-        .dept-tab.active {
-            background-color: #3182ce;
-            /* Blue-500 equivalent */
-            color: white;
-            border-color: #63b3ed;
-            box-shadow: 0 4px 6px rgba(49, 130, 206, 0.3);
-        }
-
-        /* Semester Selection Bar - GRID */
-        .semester-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            /* Responsive Grid */
-            gap: 0.8rem;
-            margin-bottom: 3rem;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 1.5rem;
-            /* Uniform padding */
-            border-radius: 1rem;
+        /* Selection Controls Container */
+        .controls-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            max-width: 500px;
+            margin: 0 auto 2.5rem auto;
             width: 100%;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 0 1rem;
             box-sizing: border-box;
         }
 
-        .semester-btn {
-            background: transparent;
-            border: 1px solid var(--border-color);
-            color: var(--text-color);
-            padding: 0.75rem 0.5rem;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-size: 0.95rem;
-            text-align: center;
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
             width: 100%;
-            /* Fill grid cell */
         }
 
-        .semester-btn:hover {
-            background: var(--hover-overlay);
+        .control-label {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-content);
+            margin-left: 0.25rem;
         }
 
-        .semester-btn.active {
-            background: #38a169;
-            /* Green-500 */
-            color: white;
-            border-color: #48bb78;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(56, 161, 105, 0.3);
+        .custom-select-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .custom-select {
+            width: 100%;
+            padding: 0.85rem 2.5rem 0.85rem 1.25rem;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            border: 1px solid var(--border-color);
+            border-radius: 0.75rem;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .custom-select option {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        .custom-select:hover {
+            border-color: #3182ce;
+        }
+
+        .custom-select:focus {
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.25);
+        }
+
+        .custom-select-wrapper::after {
+            content: "\f078"; /* fa-chevron-down */
+            font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
+            font-weight: 900;
+            position: absolute;
+            right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-content);
+            pointer-events: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .custom-select-wrapper:hover::after,
+        .custom-select-wrapper:focus-within::after {
+            color: #3182ce;
+        }
+
+        /* Department Info Button layout */
+        .info-btn-wrapper {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin: 0.25rem 0;
+        }
+
+        .info-btn-wrapper .drive-btn {
+            margin-top: 0;
+            width: 100%;
+            text-align: center;
+            padding: 0.85rem 1rem;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(49, 130, 206, 0.15);
         }
 
         /* Dynamic Content Container */
@@ -239,20 +259,6 @@
                 font-size: 2rem;
             }
 
-            /* Stack selector grids more densely on mobile */
-            .dept-selector {
-                grid-template-columns: repeat(2, 1fr);
-                /* 2 cols */
-                max-width: 100%;
-            }
-
-            .semester-bar {
-                grid-template-columns: repeat(2, 1fr);
-                /* 2 cols */
-                padding: 1rem;
-                gap: 0.5rem;
-            }
-
             .course-card-container {
                 grid-template-columns: repeat(2, 1fr);
                 /* Ensure 2 cols */
@@ -268,11 +274,6 @@
             .course-button i {
                 font-size: 1.5rem !important;
                 /* Force smaller icon */
-            }
-
-            .dept-tab {
-                padding: 0.5rem;
-                font-size: 0.85rem;
             }
 
             /* Mobile Home Button */
@@ -353,14 +354,32 @@
             <p style="color: var(--text-content);">Explore resource materials by department</p>
         </header>
 
-        <!-- 1. Department Selector -->
-        <div id="dept-selector" class="dept-selector">
-            <!-- Populated by JS -->
-        </div>
+        <!-- Selection Controls -->
+        <div class="controls-container">
+            <!-- Department Dropdown Selection -->
+            <div class="control-group">
+                <label for="dept-select" class="control-label">Select Department</label>
+                <div class="custom-select-wrapper">
+                    <select id="dept-select" class="custom-select">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+            </div>
 
-        <!-- 2. Semester Selector -->
-        <div id="semester-buttons" class="semester-bar">
-            <!-- Populated by JS -->
+            <!-- Departmental Info Button -->
+            <div id="dept-info-wrapper" class="info-btn-wrapper" style="display: none;">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Semester Dropdown Selection -->
+            <div class="control-group" id="semester-select-group">
+                <label for="semester-select" class="control-label">Select Semester</label>
+                <div class="custom-select-wrapper">
+                    <select id="semester-select" class="custom-select">
+                        <!-- Populated by JS -->
+                    </select>
+                </div>
+            </div>
         </div>
 
         <!-- 3. Dynamic Content -->

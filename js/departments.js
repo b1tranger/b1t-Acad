@@ -15,36 +15,50 @@ document.addEventListener('DOMContentLoaded', () => {
     deptTitleEl.textContent = deptData.full_name;
   }
 
-  // --- 2. Setup Department Selector (Tabs) ---
-  const deptSelectorContainer = document.getElementById('dept-selector');
-  if (deptSelectorContainer) {
+  // --- 2. Setup Department Selector (Dropdown) ---
+  const deptSelectEl = document.getElementById('dept-select');
+  if (deptSelectEl) {
     validDepts.forEach(dept => {
-      const a = document.createElement('a');
-      a.href = `?dept=${dept}`;
-      a.className = `dept-tab ${dept === currentDept ? 'active' : ''}`;
-      a.textContent = dept;
-      deptSelectorContainer.appendChild(a);
+      const option = document.createElement('option');
+      option.value = dept;
+      option.textContent = `${dept} - ${departmentNameMap[dept] || dept}`;
+      option.selected = (dept === currentDept);
+      deptSelectEl.appendChild(option);
+    });
+
+    deptSelectEl.addEventListener('change', (e) => {
+      window.location.search = `?dept=${e.target.value}`;
     });
   }
 
-  // --- 3. Setup Semester Buttons ---
-  const semesterContainer = document.getElementById('semester-buttons');
-  const contentContainer = document.getElementById('semester-content');
-  const semesters = Object.keys(deptData.semesters).sort(); // S01, S02...
-
-  if (semesters.length === 0) {
-    let html = `
-      <header class="semester-header">
-        <h2 class="semester-title">${deptData.full_name}</h2>
-    `;
+  // --- 3. Setup Departmental Info Button ---
+  const deptInfoWrapper = document.getElementById('dept-info-wrapper');
+  if (deptInfoWrapper) {
     if (deptData.info_link) {
-      html += `
+      deptInfoWrapper.innerHTML = `
         <a href="${deptData.info_link}" target="_blank" class="drive-btn info-btn">
           <i class="fa-solid fa-circle-info"></i>&nbsp; Departmental Info
         </a>
       `;
+      deptInfoWrapper.style.display = 'flex';
+    } else {
+      deptInfoWrapper.style.display = 'none';
     }
-    html += `
+  }
+
+  // --- 4. Setup Semester Selector (Dropdown) ---
+  const semesterSelectGroup = document.getElementById('semester-select-group');
+  const semesterSelectEl = document.getElementById('semester-select');
+  const contentContainer = document.getElementById('semester-content');
+  const semesters = Object.keys(deptData.semesters || {}).sort(); // S01, S02...
+
+  if (semesters.length === 0) {
+    if (semesterSelectGroup) {
+      semesterSelectGroup.style.display = 'none';
+    }
+    let html = `
+      <header class="semester-header">
+        <h2 class="semester-title">${deptData.full_name}</h2>
       </header>
       <p style="text-align:center; color: #a0aec0; margin-top: 2rem;">No resources available for this department yet.</p>
     `;
@@ -52,15 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // Create Buttons
-  semesters.forEach((sem, index) => {
-    const btn = document.createElement('button');
-    btn.className = 'semester-btn';
-    btn.textContent = `Semester ${sem.replace('S', '')}`; // "Semester 01"
-    btn.onclick = () => loadSemester(sem);
-    if (index === 0) btn.classList.add('active'); // Default to first
-    semesterContainer.appendChild(btn);
-  });
+  if (semesterSelectGroup && semesterSelectEl) {
+    semesterSelectGroup.style.display = 'flex';
+    semesterSelectEl.innerHTML = '';
+    semesters.forEach(sem => {
+      const option = document.createElement('option');
+      option.value = sem;
+      option.textContent = `Semester ${sem.replace('S', '')}`; // "Semester 01"
+      semesterSelectEl.appendChild(option);
+    });
+
+    semesterSelectEl.addEventListener('change', (e) => {
+      loadSemester(e.target.value);
+    });
+  }
 
   // Load first semester by default
   loadSemester(semesters[0]);
@@ -68,15 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Helper: Load Semester Content ---
   function loadSemester(semKey) {
-    // 1. Update Active Level on Buttons
-    document.querySelectorAll('.semester-btn').forEach(b => {
-      // Simple text check or ID check. Text content matching is enough here.
-      if (b.textContent.includes(semKey.replace('S', ''))) {
-        b.classList.add('active');
-      } else {
-        b.classList.remove('active');
-      }
-    });
+    // 1. Sync select element value if available
+    if (semesterSelectEl) {
+      semesterSelectEl.value = semKey;
+    }
 
     const semData = deptData.semesters[semKey];
     if (!semData) return;
@@ -92,11 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <a href="${semData.drive_link}" target="_blank" class="drive-btn">
           <i class="fa-brands fa-google-drive"></i>&nbsp; Open Full Drive
         </a>
-        ${deptData.info_link ? `
-        <a href="${deptData.info_link}" target="_blank" class="drive-btn info-btn" style="margin-left: 10px;">
-          <i class="fa-solid fa-circle-info"></i>&nbsp; Departmental Info
-        </a>
-        ` : ''}
         <br><br>
         <div style="display:flex;justify-content:center;">
         <p style="font-size:14px;background-color:yellow;color:black;width:fit-content;display:flex;justify-content:center;padding:8px;box-shadow:0 5px 10px black;font-weight:bold;" >(refer to "Others" folder for Note Archive)</p>

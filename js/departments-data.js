@@ -118,7 +118,7 @@ const departmentsData = {
             "S01": {
                 "title": "Semester 01",
                 "drive_link": "https://drive.google.com/drive/folders/1Q4-tnRaIoLjZenzEZTRs-35OgqV54l9W?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1755280062/CE_Semester_1_ikrfqv.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280062/CE_Semester_1_ikrfqv.webp",
                 "courses": [
                     { "title": "Eng. Chemistry", "code": "CHEM 0531175/176", "link": "#", "icon": "fa-flask" },
                     { "title": "DICM", "code": "MATH 0541153", "link": "#", "icon": "fa-calculator" },
@@ -130,7 +130,7 @@ const departmentsData = {
             "S02": {
                 "title": "Semester 02",
                 "drive_link": "https://drive.google.com/drive/folders/1gAajNJtRo3up6dpnP-R3cTx0trNikJVP?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1755280061/CE_Semester_2_e9gfpb.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280061/CE_Semester_2_e9gfpb.webp",
                 "courses": [
                     { "title": "Surveying", "code": "CE 0732103/106", "link": "#", "icon": "fa-map-marked-alt" },
                     { "title": "FEE", "code": "EEE 0713241", "link": "#", "icon": "fa-bolt" },
@@ -145,7 +145,7 @@ const departmentsData = {
             "S03": {
                 "title": "Semester 03",
                 "drive_link": "https://drive.google.com/drive/folders/1XecebUV1rScSMpO0TUbnVoPUWKS8bJAH?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1755280062/CE_Semester_3_vm5sav.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280062/CE_Semester_3_vm5sav.webp",
                 "courses": [
                     { "title": "Prog. Lab", "code": "CSE 0611252", "link": "#", "icon": "fa-laptop-code" },
                     { "title": "Eng. Materials", "code": "CE 0732201/204", "link": "https://drive.google.com/drive/folders/1iA-RrhyPl_UPvcTKP8Y1fDxodIesz_qm?usp=drive_link", "icon": "fa-cubes" },
@@ -159,7 +159,7 @@ const departmentsData = {
             "S04": {
                 "title": "Semester 04",
                 "drive_link": "https://drive.google.com/drive/folders/1R3AkpHgDgB2FiHS-gXxPTV7eljZJRknm?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1755280063/CE_Semester_4_h3jkuz.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280063/CE_Semester_4_h3jkuz.webp",
                 "courses": [
                     { "title": "Surveying", "code": "CE 103", "link": "https://drive.google.com/drive/folders/1zrbZoiQTFJtEc6LapNM57G-q2rYiaBGm?usp=drive_link", "icon": "fa-map-marked-alt" },
                     { "title": "Numerical Methods", "code": "CE 209", "link": "https://drive.google.com/drive/folders/1D5uVsUzUqWofF5RxiJoQF3muZsB06utg?usp=drive_link", "icon": "fa-calculator" },
@@ -171,25 +171,25 @@ const departmentsData = {
             "S05": {
                 "title": "Semester 05",
                 "drive_link": "https://drive.google.com/drive/folders/1_fx4sCES5sL1YeWEI0cSQd850j6Zhkre?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1755280062/CE_Semester_5_do3ul4.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280062/CE_Semester_5_do3ul4.webp",
                 "courses": []
             },
             "S06": {
                 "title": "Semester 06",
                 "drive_link": "https://drive.google.com/drive/folders/1_jlvvJXUVnh0HDQp4VR-xhYtTHryj20C?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1755280062/CE_Semester_6_mspvan.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280062/CE_Semester_6_mspvan.webp",
                 "courses": []
             },
             "S07": {
                 "title": "Semester 07",
                 "drive_link": "https://drive.google.com/drive/folders/1_hTSpADeXWoHnm90pzbsO7lpZQKAlHkb?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1755280061/CE_Semester_7_sosxyv.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280061/CE_Semester_7_sosxyv.webp",
                 "courses": []
             },
             "S08": {
                 "title": "Semester 08",
                 "drive_link": "https://drive.google.com/drive/folders/1_cWZ_73eWMo4n_WK_DWPlQMoGxTRQWk2?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1755280062/CE_Semester_8_bdpngy.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280062/CE_Semester_8_bdpngy.webp",
                 "courses": []
             }
         }
@@ -201,7 +201,7 @@ const departmentsData = {
             "S01": {
                 "title": "Semester 01",
                 "drive_link": "https://drive.google.com/drive/folders/1r-Qp49VLzzGDqIso1kGznlhjC-4RBJkS?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1753384245/1_vlgtfe.jpg",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1753384245/1_vlgtfe.jpg",
                 "courses": [
                     { "title": "SPL", "code": "IT06131101/102", "link": "https://drive.google.com/drive/folders/1lvD3ag40cC7qQX2JKjQIeijJReUsLii2?usp=drive_link", "icon": "fa-code" },
                     { "title": "English", "code": "GED04111101/102", "link": "https://drive.google.com/drive/folders/1c05xGHCVoZxpDErVJEgWv4LqKMOQkBpr?usp=drive_link", "icon": "fa-language" },
@@ -213,7 +213,7 @@ const departmentsData = {
             "S02": {
                 "title": "Semester 02",
                 "drive_link": "https://drive.google.com/drive/folders/1UtPBdDFhes_lRM-5e5W_rVgBlupLxksy?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1753384244/2a_qzc8td.jpg",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1753384244/2a_qzc8td.jpg",
                 "courses": [
                     { "title": "OOP", "code": "IT06131201/202", "link": "https://drive.google.com/drive/folders/1rCZQPnogT0fEFYcvqsCl5a0FKLa5pX5_?usp=drive_link", "icon": "fa-laptop-code" },
                     { "title": "SESA", "code": "IT06131203/204", "link": "https://drive.google.com/drive/folders/1hh5Z9joXH-EH_GJ_qE2zyOxDY87wWRvY?usp=drive_link", "icon": "fa-microchip" },
@@ -227,7 +227,7 @@ const departmentsData = {
             "S03": {
                 "title": "Semester 03",
                 "drive_link": "https://drive.google.com/drive/folders/1kJyegUsocJcEE7KS1S1mhnJ8gc1zjQt4?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1753384244/3_mbxjev.jpg",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1753384244/3_mbxjev.jpg",
                 "courses": [
                     { "title": "DSA 1", "code": "IT06112101/102", "link": "https://drive.google.com/drive/folders/15uhXCN238KBfvLDUJ_-qtUVucoSIVwww?usp=drive_link", "icon": "fa-sitemap" },
                     { "title": "DLD", "code": "IT06112103/104", "link": "https://drive.google.com/drive/folders/1MQivUlAxWhxUieJiunBCqqbGNFbR2dBM?usp=drive_link", "icon": "fa-microchip" },
@@ -240,7 +240,7 @@ const departmentsData = {
             "S04": {
                 "title": "Semester 04",
                 "drive_link": "https://drive.google.com/drive/folders/1EL-F3GmNcQR8VQwd_s1vCgSFpmwdYNGz?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1753384245/4_qvbnxp.jpg",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1753384245/4_qvbnxp.jpg",
                 "courses": [
                     { "title": "DSA 2", "code": "IT06112201/202", "link": "https://drive.google.com/drive/folders/1oDQ-21CDwJ-JWQgijkv44pZCi7V_1csX?usp=drive_link", "icon": "fa-sitemap" },
                     { "title": "Software Arch.", "code": "IT06132203/204", "link": "https://drive.google.com/drive/folders/1aw0hTHVV0bWforpofy0NWVl61Y846pB9?usp=drive_link", "icon": "fa-layer-group" },
@@ -253,7 +253,7 @@ const departmentsData = {
             "S05": {
                 "title": "Semester 05",
                 "drive_link": "https://drive.google.com/drive/folders/1F9IruR65Go65ZhDIS7R1AGzv3rv1ABbq?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1753384244/5_cubiio.jpg",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1753384244/5_cubiio.jpg",
                 "courses": [
                     { "title": "SQA", "code": "IT06133101/102", "link": "https://drive.google.com/drive/folders/1JkRmqtu4oNaZbZ9pEQ_oniAygv8k8C37?usp=drive_link", "icon": "fa-check-double" },
                     { "title": "Data Comm", "code": "IT06123103/104", "link": "https://drive.google.com/drive/folders/1deJl54gufmHKMsQIKtwW3yzNYwLnsRrW?usp=drive_link", "icon": "fa-network-wired" },
@@ -264,7 +264,7 @@ const departmentsData = {
             "S06": {
                 "title": "Semester 06",
                 "drive_link": "https://drive.google.com/drive/folders/1fNZRyLz9jiRC3nr1iruERoE3rqDt5r-2?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1753384245/6_smymxc.jpg",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1753384245/6_smymxc.jpg",
                 "courses": [
                     { "title": "Software Sec.", "code": "IT06133201/202", "link": "https://drive.google.com/drive/folders/1r0-LI3oldebpfpuogGOIY1SKTAPpbUx-?usp=drive_link", "icon": "fa-shield-alt" },
                     { "title": "AI", "code": "IT06193203/204", "link": "https://drive.google.com/drive/folders/1KHPvVipP4r_ul8iLuP0pDJxBfVexQRf5?usp=drive_link", "icon": "fa-brain" },
@@ -276,7 +276,7 @@ const departmentsData = {
             "S07": {
                 "title": "Semester 07",
                 "drive_link": "https://drive.google.com/drive/folders/1h6ffnF1C_eTFVKw85R3ucDUZ_wyCa3F4?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1753384245/7_qsnpx9.jpg",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1753384245/7_qsnpx9.jpg",
                 "courses": [
                     { "title": "Microprocessor", "code": "IT06114101/102", "link": "https://drive.google.com/drive/folders/15zS7pKp0EpRCUNZ73aJgBLCYI0ASuuk0?usp=drive_link", "icon": "fa-memory" },
                     { "title": "OS", "code": "IT06134103/104", "link": "https://drive.google.com/drive/folders/1WdyKqlgfYCtWVJ5FmdzPKAoKOxixVGWc?usp=drive_link", "icon": "fa-desktop" },
@@ -289,7 +289,7 @@ const departmentsData = {
             "S08": {
                 "title": "Semester 08",
                 "drive_link": "https://drive.google.com/drive/folders/12R7BprAh8qVgq7-_PKjM7l6vOH-ZcOWB?usp=drive_link",
-                "syllabus_image": "https://res.cloudinary.com/djsa2kkyu/image/upload/v1753384245/8_ghcekw.jpg",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1753384245/8_ghcekw.jpg",
                 "courses": [
                     { "title": "Soft. Proj. Mgmt.", "code": "IT06134201/202", "link": "https://drive.google.com/drive/folders/1pCaqOC0FTi7bBRbm5cIugXF9ckydcaHD?usp=drive_link", "icon": "fa-tasks" },
                     { "title": "Industrial", "code": "IT06134204", "link": "https://drive.google.com/drive/folders/19Qt-bBwM5TrLU-M4QMEahnShYABtzXeX?usp=drive_link", "icon": "fa-industry" }
