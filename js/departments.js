@@ -15,19 +15,35 @@ document.addEventListener('DOMContentLoaded', () => {
     deptTitleEl.textContent = deptData.full_name;
   }
 
-  // --- 2. Setup Department Selector (Dropdown) ---
-  const deptSelectEl = document.getElementById('dept-select');
-  if (deptSelectEl) {
-    validDepts.forEach(dept => {
-      const option = document.createElement('option');
-      option.value = dept;
-      option.textContent = `${dept} - ${departmentNameMap[dept] || dept}`;
-      option.selected = (dept === currentDept);
-      deptSelectEl.appendChild(option);
+  // --- 2. Setup Department Selector (Dropdown Grid) ---
+  const deptDropdown = document.getElementById('dept-dropdown');
+  const deptSelectedText = document.getElementById('dept-selected-text');
+  const deptGrid = document.getElementById('dept-grid');
+
+  if (deptDropdown && deptSelectedText && deptGrid) {
+    deptSelectedText.textContent = `${currentDept} - ${departmentNameMap[currentDept] || currentDept}`;
+
+    // Toggle dropdown
+    const trigger = deptDropdown.querySelector('.dropdown-trigger');
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const semDropdown = document.getElementById('semester-dropdown');
+      if (semDropdown) semDropdown.classList.remove('active');
+      deptDropdown.classList.toggle('active');
     });
 
-    deptSelectEl.addEventListener('change', (e) => {
-      window.location.search = `?dept=${e.target.value}`;
+    // Populate grid
+    validDepts.forEach(dept => {
+      const cell = document.createElement('div');
+      cell.className = `grid-cell ${dept === currentDept ? 'active' : ''}`;
+      cell.textContent = dept;
+      cell.title = departmentNameMap[dept] || dept;
+
+      cell.addEventListener('click', () => {
+        window.location.search = `?dept=${dept}`;
+      });
+
+      deptGrid.appendChild(cell);
     });
   }
 
@@ -46,9 +62,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 4. Setup Semester Selector (Dropdown) ---
+  // --- 4. Setup Semester Selector (Dropdown Grid) ---
   const semesterSelectGroup = document.getElementById('semester-select-group');
-  const semesterSelectEl = document.getElementById('semester-select');
+  const semesterDropdown = document.getElementById('semester-dropdown');
+  const semesterSelectedText = document.getElementById('semester-selected-text');
+  const semesterGrid = document.getElementById('semester-grid');
   const contentContainer = document.getElementById('semester-content');
   const semesters = Object.keys(deptData.semesters || {}).sort(); // S01, S02...
 
@@ -66,20 +84,47 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  if (semesterSelectGroup && semesterSelectEl) {
+  if (semesterSelectGroup && semesterDropdown && semesterSelectedText && semesterGrid) {
     semesterSelectGroup.style.display = 'flex';
-    semesterSelectEl.innerHTML = '';
-    semesters.forEach(sem => {
-      const option = document.createElement('option');
-      option.value = sem;
-      option.textContent = `Semester ${sem.replace('S', '')}`; // "Semester 01"
-      semesterSelectEl.appendChild(option);
+    semesterGrid.innerHTML = '';
+
+    // Toggle dropdown
+    const trigger = semesterDropdown.querySelector('.dropdown-trigger');
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (deptDropdown) deptDropdown.classList.remove('active');
+      semesterDropdown.classList.toggle('active');
     });
 
-    semesterSelectEl.addEventListener('change', (e) => {
-      loadSemester(e.target.value);
+    // Populate grid
+    semesters.forEach(sem => {
+      const semNum = sem.replace('S', ''); // e.g. "01"
+      const cell = document.createElement('div');
+      cell.className = 'grid-cell';
+      cell.textContent = semNum;
+      cell.dataset.value = sem;
+      cell.title = `Semester ${semNum}`;
+
+      cell.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        semesterGrid.querySelectorAll('.grid-cell').forEach(c => c.classList.remove('active'));
+        cell.classList.add('active');
+
+        semesterSelectedText.textContent = `Semester ${semNum}`;
+        loadSemester(sem);
+        semesterDropdown.classList.remove('active');
+      });
+
+      semesterGrid.appendChild(cell);
     });
   }
+
+  // Close dropdowns on click outside
+  document.addEventListener('click', () => {
+    if (deptDropdown) deptDropdown.classList.remove('active');
+    if (semesterDropdown) semesterDropdown.classList.remove('active');
+  });
 
   // Load first semester by default
   loadSemester(semesters[0]);
@@ -87,9 +132,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Helper: Load Semester Content ---
   function loadSemester(semKey) {
-    // 1. Sync select element value if available
-    if (semesterSelectEl) {
-      semesterSelectEl.value = semKey;
+    // 1. Sync custom dropdown display & active state on grid cells
+    const semNum = semKey.replace('S', '');
+    const semesterSelectedText = document.getElementById('semester-selected-text');
+    if (semesterSelectedText) {
+      semesterSelectedText.textContent = `Semester ${semNum}`;
+    }
+
+    const semesterGrid = document.getElementById('semester-grid');
+    if (semesterGrid) {
+      semesterGrid.querySelectorAll('.grid-cell').forEach(cell => {
+        if (cell.dataset.value === semKey) {
+          cell.classList.add('active');
+        } else {
+          cell.classList.remove('active');
+        }
+      });
     }
 
     const semData = deptData.semesters[semKey];
@@ -108,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </a>
         <br><br>
         <div style="display:flex;justify-content:center;">
-        <p style="font-size:14px;background-color:yellow;color:black;width:fit-content;display:flex;justify-content:center;padding:8px;box-shadow:0 5px 10px black;font-weight:bold;" >(refer to "Others" folder for Note Archive)</p>
+        <p style="font-size:10px;background-color:#d7d5c4ff;color:black;width:fit-content;display:flex;justify-content:center;padding:8px;box-shadow:0 5px 10px black;font-weight:bold;border-radius:10px;" >refer to "Others" folder for Note Archive</p>
         </div>
       </header>
 

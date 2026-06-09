@@ -12,6 +12,14 @@
 
     <style>
         /* Departments Page Specific Styles */
+        :root {
+            --light-highlight: rgba(255, 255, 255, 0.03);
+        }
+
+        [data-theme="gray"] {
+            --light-highlight: rgba(255, 255, 255, 0.85);
+            --shadow-color: rgba(0, 0, 0, 0.08);
+        }
         body {
             overflow-x: hidden;
             /* Prevent horizontal scroll */
@@ -56,59 +64,125 @@
             margin-left: 0.25rem;
         }
 
-        .custom-select-wrapper {
+        /* Custom Dropdown Component */
+        .custom-dropdown {
             position: relative;
             width: 100%;
         }
 
-        .custom-select {
+        .dropdown-trigger {
             width: 100%;
-            padding: 0.85rem 2.5rem 0.85rem 1.25rem;
+            padding: 0.85rem 1.25rem;
             font-size: 1rem;
             font-weight: 600;
             color: var(--text-color);
             background-color: var(--secondary-color);
             border: 1px solid var(--border-color);
             border-radius: 0.75rem;
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
             outline: none;
+            box-shadow: 4px 4px 8px var(--shadow-color), -4px -4px 8px var(--light-highlight);
         }
 
-        .custom-select option {
+        .dropdown-trigger:hover,
+        .dropdown-trigger:focus {
+            border-color: #3182ce;
+            box-shadow: 6px 6px 12px var(--shadow-color), -6px -6px 12px var(--light-highlight);
+        }
+
+        .dropdown-arrow {
+            font-size: 0.85rem;
+            color: var(--text-content);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
+        }
+
+        .custom-dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+            color: #3182ce;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 0.5rem);
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: var(--primary-color);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            padding: 1.25rem;
+            opacity: 0;
+            transform: translateY(-10px) scale(0.95);
+            pointer-events: none;
+            transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .custom-dropdown.active .dropdown-menu {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            pointer-events: auto;
+        }
+
+        /* Circular Grid for options */
+        .dropdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            justify-items: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .grid-cell {
+            width: 100%;
+            max-width: 75px;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            cursor: pointer;
             background-color: var(--secondary-color);
             color: var(--text-color);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.9rem;
+            text-align: center;
+            user-select: none;
+            box-shadow: 4px 4px 8px var(--shadow-color), -4px -4px 8px var(--light-highlight);
         }
 
-        .custom-select:hover {
+        @media (max-width: 480px) {
+            .dropdown-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.85rem;
+            }
+            .grid-cell {
+                font-size: 0.85rem;
+            }
+        }
+
+        .grid-cell:hover {
+            transform: translateY(-3px);
             border-color: #3182ce;
-        }
-
-        .custom-select:focus {
-            border-color: #3182ce;
-            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.25);
-        }
-
-        .custom-select-wrapper::after {
-            content: "\f078"; /* fa-chevron-down */
-            font-family: "Font Awesome 6 Free", "Font Awesome 5 Free";
-            font-weight: 900;
-            position: absolute;
-            right: 1.25rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-content);
-            pointer-events: none;
-            font-size: 0.85rem;
-            transition: color 0.3s ease;
-        }
-
-        .custom-select-wrapper:hover::after,
-        .custom-select-wrapper:focus-within::after {
+            box-shadow: 6px 6px 12px var(--shadow-color), -6px -6px 12px var(--light-highlight);
             color: #3182ce;
+        }
+
+        .grid-cell.active {
+            background-color: #3182ce;
+            color: white;
+            border-color: #63b3ed;
+            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.15);
+            transform: translateY(0);
         }
 
         /* Department Info Button layout */
@@ -358,11 +432,17 @@
         <div class="controls-container">
             <!-- Department Dropdown Selection -->
             <div class="control-group">
-                <label for="dept-select" class="control-label">Select Department</label>
-                <div class="custom-select-wrapper">
-                    <select id="dept-select" class="custom-select">
-                        <!-- Populated by JS -->
-                    </select>
+                <label class="control-label">Select Department</label>
+                <div class="custom-dropdown" id="dept-dropdown">
+                    <div class="dropdown-trigger" tabindex="0">
+                        <span class="selected-text" id="dept-selected-text">Select Department</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-grid" id="dept-grid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -372,12 +452,18 @@
             </div>
 
             <!-- Semester Dropdown Selection -->
-            <div class="control-group" id="semester-select-group">
-                <label for="semester-select" class="control-label">Select Semester</label>
-                <div class="custom-select-wrapper">
-                    <select id="semester-select" class="custom-select">
-                        <!-- Populated by JS -->
-                    </select>
+            <div class="control-group" id="semester-select-group" style="display: none;">
+                <label class="control-label">Select Semester</label>
+                <div class="custom-dropdown" id="semester-dropdown">
+                    <div class="dropdown-trigger" tabindex="0">
+                        <span class="selected-text" id="semester-selected-text">Select Semester</span>
+                        <i class="fas fa-chevron-down dropdown-arrow"></i>
+                    </div>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-grid" id="semester-grid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

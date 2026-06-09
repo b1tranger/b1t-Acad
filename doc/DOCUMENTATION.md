@@ -26,7 +26,7 @@ b1t Academics is an unofficial resource centralization platform for UITS univers
 
 ### Key Features
 - **Single Page Application (SPA) Routing** - Seamless navigation between sections (e.g., `#info`, `#Qbank`) on the landing page without full page reloads, using native URL hashing.
-- **Departmental Navigation** - Custom-built interface with compact dropdown selectors pointing to curated Google Drive folders for CSE, CE, IT, etc., designed to take less visual space.
+- **Departmental Navigation** - Custom-built interface featuring interactive custom dropdowns with animated transitions and a neomorphic circular grid selection, designed to optimize vertical screen space across all devices.
 - **Dynamic Routing** - Displays relevant course lists and materials dynamically (e.g., `?dept=CSE`) without needing separate HTML pages.
 - **Community Submissions** - View and submit questions or notes using Google Forms/Sheets integration. Submissions display dynamically via JSON API. Includes a persistent "Make Submission" action button for easy contribution.
 - **Text-Based Visitor Counter** - Integrates `api.counterapi.dev` to securely display true page visits as plain text without requiring heavy image badges or cookies.
@@ -245,6 +245,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 5.7 | 2026-03-26 | SupportKori & Mentorship | Integrated SupportKori persistent button and widget modal. Added an "Academic Support & CSE Mentorship" service block to the General Information section with an interactive, animated booking button. |
 | 5.8 | 2026-06-09 | Academic Calendar 2026 Viewer | Added an interactive PDF.js-based inline viewer for the local UITS Academic Calendar PDF in the general info section, complete with toggleable controls, unconstrained zooming, a floating download action button, and a manual open fallback screen. |
 | 5.9 | 2026-06-09 | Dropdown Selectors & Layout Optimization | Converted the department and semester selection grids into compact, custom-styled dropdown selectors, and relocated the "Departmental Info" button persistently above the semester selection. |
+| 6.0 | 2026-06-10 | Neomorphic Custom Dropdowns | Replaced select dropdowns with fully custom interactive selectors featuring smooth transitions, circular grid options, neomorphic protrusion effects, and multi-theme consistency. |
 
 ---
 
