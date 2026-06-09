@@ -129,7 +129,7 @@
             pointer-events: auto;
         }
 
-        /* Circular Grid for options */
+        /* Squircle Grid for options */
         .dropdown-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -143,21 +143,18 @@
             width: 100%;
             max-width: 75px;
             aspect-ratio: 1 / 1;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            font-weight: 700;
             cursor: pointer;
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-size: 0.9rem;
-            text-align: center;
             user-select: none;
-            box-shadow: 4px 4px 8px var(--shadow-color), -4px -4px 8px var(--light-highlight);
+            overflow: visible !important;
+            filter: drop-shadow(4px 4px 8px var(--shadow-color)) drop-shadow(-4px -4px 8px var(--light-highlight));
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .grid-cell .squircle-path {
+            fill: var(--secondary-color);
+            stroke: var(--border-color);
+            stroke-width: 1.5;
+            transition: fill 0.3s, stroke 0.3s;
         }
 
         @media (max-width: 480px) {
@@ -165,24 +162,38 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 0.85rem;
             }
-            .grid-cell {
-                font-size: 0.85rem;
-            }
         }
 
         .grid-cell:hover {
             transform: translateY(-3px);
-            border-color: #3182ce;
-            box-shadow: 6px 6px 12px var(--shadow-color), -6px -6px 12px var(--light-highlight);
-            color: #3182ce;
+            filter: drop-shadow(6px 6px 12px var(--shadow-color)) drop-shadow(-6px -6px 12px var(--light-highlight));
+        }
+
+        .grid-cell:hover .squircle-path {
+            stroke: #3182ce;
         }
 
         .grid-cell.active {
-            background-color: #3182ce;
-            color: white;
-            border-color: #63b3ed;
-            box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.15);
             transform: translateY(0);
+            filter: drop-shadow(2px 2px 4px var(--shadow-color)) drop-shadow(-2px -2px 4px var(--light-highlight));
+        }
+
+        .grid-cell.active .squircle-path {
+            fill: #3182ce;
+            stroke: #63b3ed;
+        }
+
+        .grid-cell-text {
+            font-family: inherit;
+            font-weight: 700;
+            fill: var(--text-color);
+            text-anchor: middle;
+            dominant-baseline: middle;
+            transition: fill 0.3s;
+        }
+
+        .grid-cell.active .grid-cell-text {
+            fill: white;
         }
 
         /* Department Info Button layout */

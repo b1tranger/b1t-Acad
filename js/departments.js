@@ -15,6 +15,31 @@ document.addEventListener('DOMContentLoaded', () => {
     deptTitleEl.textContent = deptData.full_name;
   }
 
+  // --- Helper: Create SVG Squircle Cell ---
+  function createSquircleCell(text, value, isActive, onClick) {
+    let fontSize = '3.8px';
+    if (text.length > 5) {
+      fontSize = '2.8px';
+    } else if (text.length > 3) {
+      fontSize = '3.3px';
+    }
+
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('class', `grid-cell ${isActive ? 'active' : ''}`);
+    svg.setAttribute('viewBox', '0 0 24 24');
+    if (value) {
+      svg.setAttribute('data-value', value);
+    }
+
+    svg.innerHTML = `
+      <path class="squircle-path" d="M12 3c7.2 0 9 1.8 9 9s-1.8 9 -9 9 -9 -1.8 -9 -9 1.8 -9 9 -9" stroke-width="0.5"></path>
+      <text x="12" y="12.8" class="grid-cell-text" style="font-size: ${fontSize};">${text}</text>
+    `;
+
+    svg.addEventListener('click', onClick);
+    return svg;
+  }
+
   // --- 2. Setup Department Selector (Dropdown Grid) ---
   const deptDropdown = document.getElementById('dept-dropdown');
   const deptSelectedText = document.getElementById('dept-selected-text');
@@ -34,15 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Populate grid
     validDepts.forEach(dept => {
-      const cell = document.createElement('div');
-      cell.className = `grid-cell ${dept === currentDept ? 'active' : ''}`;
-      cell.textContent = dept;
+      const cell = createSquircleCell(
+        dept,
+        null,
+        dept === currentDept,
+        () => {
+          window.location.search = `?dept=${dept}`;
+        }
+      );
       cell.title = departmentNameMap[dept] || dept;
-
-      cell.addEventListener('click', () => {
-        window.location.search = `?dept=${dept}`;
-      });
-
       deptGrid.appendChild(cell);
     });
   }
@@ -99,23 +124,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Populate grid
     semesters.forEach(sem => {
       const semNum = sem.replace('S', ''); // e.g. "01"
-      const cell = document.createElement('div');
-      cell.className = 'grid-cell';
-      cell.textContent = semNum;
-      cell.dataset.value = sem;
+      const cell = createSquircleCell(
+        semNum,
+        sem,
+        false,
+        (e) => {
+          e.stopPropagation();
+
+          semesterGrid.querySelectorAll('.grid-cell').forEach(c => c.classList.remove('active'));
+          cell.classList.add('active');
+
+          semesterSelectedText.textContent = `Semester ${semNum}`;
+          loadSemester(sem);
+          semesterDropdown.classList.remove('active');
+        }
+      );
       cell.title = `Semester ${semNum}`;
-
-      cell.addEventListener('click', (e) => {
-        e.stopPropagation();
-
-        semesterGrid.querySelectorAll('.grid-cell').forEach(c => c.classList.remove('active'));
-        cell.classList.add('active');
-
-        semesterSelectedText.textContent = `Semester ${semNum}`;
-        loadSemester(sem);
-        semesterDropdown.classList.remove('active');
-      });
-
       semesterGrid.appendChild(cell);
     });
   }
@@ -142,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const semesterGrid = document.getElementById('semester-grid');
     if (semesterGrid) {
       semesterGrid.querySelectorAll('.grid-cell').forEach(cell => {
-        if (cell.dataset.value === semKey) {
+        if (cell.getAttribute('data-value') === semKey) {
           cell.classList.add('active');
         } else {
           cell.classList.remove('active');
