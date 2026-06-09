@@ -239,7 +239,7 @@
     /* QBank Nested Folder Browser Styles */
     .qbank-browser {
       margin-bottom: 2rem;
-      max-width: 400px;
+      max-width: 450px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -252,7 +252,7 @@
       padding: 1rem 1.5rem;
       background-color: #1a1a1a;
       color: #f5f5f5;
-      border: 2px solid #ff7b00;
+      border: 2px solid #ffffff;
       border-radius: 12px;
       cursor: pointer;
       font-size: 1.1rem;
@@ -262,12 +262,12 @@
 
     .qbank-toggle:hover {
       background-color: #2a2a2a;
-      box-shadow: 0 0 15px rgba(255, 123, 0, 0.4);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
     }
 
     .qbank-arrow {
       transition: transform 0.3s ease;
-      color: #ff7b00;
+      color: #ffffff;
     }
 
     .qbank-browser.open .qbank-arrow {
@@ -281,7 +281,7 @@
       margin-top: 0.75rem;
       padding: 1rem;
       background-color: #1a1a1a;
-      border: 2px solid #ff7b00;
+      border: 2px solid #ffffff;
       border-radius: 12px;
       animation: fadeIn 0.25s ease;
     }
@@ -303,7 +303,7 @@
       padding: 0.75rem 1rem;
       background-color: #252525;
       color: #f5f5f5;
-      border: 1px solid #ff7b0080;
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 8px;
       cursor: pointer;
       font-size: 0.95rem;
@@ -314,16 +314,16 @@
 
     .qbank-folder-btn:hover {
       background-color: #333;
-      border-color: #ff7b00;
+      border-color: #ffffff;
     }
 
     .qbank-folder-btn i.fa-folder {
-      color: #ff9f43;
+      color: #ffffff;
     }
 
     .qbank-folder-btn .folder-arrow {
       margin-left: auto;
-      color: #ff7b00;
+      color: #ffffff;
       transition: transform 0.25s ease;
       font-size: 0.8rem;
     }
@@ -338,7 +338,7 @@
       gap: 0.25rem;
       padding: 0.5rem 0 0.5rem 1.5rem;
       margin-top: 0.25rem;
-      border-left: 2px solid #ff7b0050;
+      border-left: 2px solid rgba(255, 255, 255, 0.2);
       margin-left: 1rem;
       animation: fadeIn 0.2s ease;
     }
@@ -367,8 +367,8 @@
 
     .qbank-link:hover {
       background-color: #333;
-      color: #ff7b00;
-      border-color: #ff7b00;
+      color: #ffffff;
+      border-color: #ffffff;
       padding-left: 1rem;
     }
 
@@ -380,9 +380,9 @@
       margin-top: 0.75rem;
       padding: 0.75rem 1rem;
       background-color: #252525;
-      color: #ff7b00;
+      color: #ffffff;
       text-decoration: none;
-      border: 1px dashed #ff7b00;
+      border: 1px dashed #ffffff;
       border-radius: 8px;
       font-size: 0.9rem;
       font-weight: 500;
@@ -390,9 +390,282 @@
     }
 
     .qbank-full-link:hover {
-      background-color: #ff7b00;
-      color: #1a1a1a;
+      background-color: #ffffff;
+      color: #121212;
       border-style: solid;
+    }
+
+    /* Light Theme overrides */
+    [data-theme="gray"] .qbank-toggle {
+      background-color: #f5f5f5;
+      color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+
+    [data-theme="gray"] .qbank-toggle:hover {
+      background-color: #e5e5e5;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    [data-theme="gray"] .qbank-arrow {
+      color: #1a1a1a;
+    }
+
+    [data-theme="gray"] .qbank-content {
+      background-color: #f5f5f5;
+      border-color: #1a1a1a;
+    }
+
+    [data-theme="gray"] .qbank-full-link {
+      background-color: #e5e5e5;
+      color: #1a1a1a;
+      border-color: #1a1a1a;
+    }
+
+    [data-theme="gray"] .qbank-full-link:hover {
+      background-color: #1a1a1a;
+      color: #f5f5f5;
+    }
+
+    /* File Explorer Styles */
+    .file-explorer {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      animation: fadeIn 0.25s ease;
+      color: #e0e0e0;
+      width: 100%;
+    }
+
+    .explorer-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    [data-theme="gray"] .explorer-header {
+      border-bottom-color: rgba(0, 0, 0, 0.15);
+    }
+
+    .explorer-back-btn {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #ffffff;
+      padding: 0.4rem 0.6rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    [data-theme="gray"] .explorer-back-btn {
+      border-color: rgba(0, 0, 0, 0.25);
+      color: #1a1a1a;
+    }
+
+    .explorer-back-btn:hover:not(:disabled) {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: #ffffff;
+    }
+
+    [data-theme="gray"] .explorer-back-btn:hover:not(:disabled) {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-color: #1a1a1a;
+    }
+
+    .explorer-breadcrumbs {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    [data-theme="gray"] .explorer-breadcrumbs {
+      color: rgba(0, 0, 0, 0.6);
+    }
+
+    .explorer-crumb {
+      cursor: pointer;
+      transition: color 0.2s ease;
+    }
+
+    .explorer-crumb:hover {
+      color: #ffffff;
+    }
+
+    [data-theme="gray"] .explorer-crumb:hover {
+      color: #000000;
+    }
+
+    .explorer-crumb.active {
+      color: #ffffff;
+      font-weight: 600;
+      cursor: default;
+    }
+
+    [data-theme="gray"] .explorer-crumb.active {
+      color: #000000;
+    }
+
+    .explorer-crumb-sep {
+      margin: 0 0.4rem;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    [data-theme="gray"] .explorer-crumb-sep {
+      color: rgba(0, 0, 0, 0.3);
+    }
+
+    .explorer-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      max-height: 350px;
+      overflow-y: auto;
+      padding-right: 0.25rem;
+    }
+
+    /* Custom scrollbar for explorer list */
+    .explorer-list::-webkit-scrollbar {
+      width: 6px;
+    }
+    .explorer-list::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 3px;
+    }
+    [data-theme="gray"] .explorer-list::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.02);
+    }
+    .explorer-list::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 3px;
+    }
+    [data-theme="gray"] .explorer-list::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.15);
+    }
+    .explorer-list::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+    [data-theme="gray"] .explorer-list::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .explorer-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.65rem 0.85rem;
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    [data-theme="gray"] .explorer-item {
+      background-color: rgba(0, 0, 0, 0.02);
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    .explorer-item:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateX(4px);
+    }
+
+    [data-theme="gray"] .explorer-item:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+      border-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .explorer-item-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .explorer-folder-svg {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      filter: invert(1);
+      transition: filter 0.3s ease;
+    }
+
+    [data-theme="gray"] .explorer-folder-svg {
+      filter: invert(0);
+    }
+
+    .explorer-item-icon i {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    [data-theme="gray"] .explorer-item-icon i {
+      color: rgba(0, 0, 0, 0.7);
+    }
+
+    .explorer-item-icon i.pdf-icon {
+      color: #ff6b6b;
+    }
+
+    .explorer-item-icon i.image-icon {
+      color: #4db8ff;
+    }
+
+    .explorer-item-name {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      flex-grow: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    [data-theme="gray"] .explorer-item-name {
+      color: rgba(0, 0, 0, 0.9);
+    }
+
+    .explorer-item-indicator {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.4);
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    [data-theme="gray"] .explorer-item-indicator {
+      color: rgba(0, 0, 0, 0.4);
+    }
+
+    .explorer-item:hover .explorer-item-indicator {
+      transform: translateX(2px);
+      color: #ffffff;
+    }
+
+    [data-theme="gray"] .explorer-item:hover .explorer-item-indicator {
+      color: #000000;
+    }
+
+    .explorer-empty {
+      padding: 2rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.95rem;
+    }
+
+    [data-theme="gray"] .explorer-empty {
+      color: rgba(0, 0, 0, 0.4);
     }
 
     /* Submission Highlight with Arrow Animation */
@@ -650,6 +923,71 @@
     .glitch-active {
       animation: glitch-text 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
       display: inline-block;
+    }
+
+    /* White Border Aesthetics for Departments, ECA, and Library Sections */
+    #Departments .grid-button,
+    #Departments .info-nav-link,
+    #ECA .resource-link,
+    #ECA .resources-nav-link,
+    #Library .resource-link,
+    #Library .resources-nav-link,
+    #Library .drive-dropdown-toggle {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: rgba(255, 255, 255, 0.03);
+      color: #e0e0e0;
+      box-shadow: none;
+      transition: all 0.25s ease;
+    }
+
+    #Library .drive-dropdown-content {
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background-color: #1a1a1a;
+    }
+
+    #Departments .grid-button:hover,
+    #Departments .info-nav-link:hover,
+    #ECA .resource-link:hover,
+    #ECA .resources-nav-link:hover,
+    #Library .resource-link:hover,
+    #Library .resources-nav-link:hover,
+    #Library .drive-dropdown-toggle:hover {
+      border-color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+      transform: translateY(-3px);
+    }
+
+    /* Light Theme overrides for Departments, ECA, and Library buttons */
+    [data-theme="gray"] #Departments .grid-button,
+    [data-theme="gray"] #Departments .info-nav-link,
+    [data-theme="gray"] #ECA .resource-link,
+    [data-theme="gray"] #ECA .resources-nav-link,
+    [data-theme="gray"] #Library .resource-link,
+    [data-theme="gray"] #Library .resources-nav-link,
+    [data-theme="gray"] #Library .drive-dropdown-toggle {
+      border-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(0, 0, 0, 0.02);
+      color: #1a1a1a;
+    }
+
+    [data-theme="gray"] #Library .drive-dropdown-content {
+      border-color: rgba(0, 0, 0, 0.2);
+      background-color: #f5f5f5;
+    }
+
+    [data-theme="gray"] #Departments .grid-button:hover,
+    [data-theme="gray"] #Departments .info-nav-link:hover,
+    [data-theme="gray"] #ECA .resource-link:hover,
+    [data-theme="gray"] #ECA .resources-nav-link:hover,
+    [data-theme="gray"] #Library .resource-link:hover,
+    [data-theme="gray"] #Library .resources-nav-link:hover,
+    [data-theme="gray"] #Library .drive-dropdown-toggle:hover {
+      border-color: #000000;
+      background-color: rgba(0, 0, 0, 0.05);
+      color: #000000;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     }
   </style>
 
@@ -1682,6 +2020,7 @@
   <script src="js/search-courses.js"></script>
   <script src="js/departments.js"></script>
   <script src="js/theme.js"></script>
+  <script src="js/qbank-browser.js"></script>
 
   <script>
     // Place this inside your existing DOMContentLoaded script block
