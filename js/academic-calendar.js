@@ -23,6 +23,13 @@ const AcademicCalendarViewer = {
 
     init() {
         console.log('Initializing AcademicCalendarViewer...');
+        
+        // If it's a mobile viewport, do not load the PDF canvas rendering engine
+        if (window.innerWidth <= 768) {
+            console.log('Mobile viewport detected. Skipping PDF.js initialization.');
+            return;
+        }
+
         this.canvas = document.getElementById('pdf-render-canvas');
         if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
@@ -58,6 +65,47 @@ const AcademicCalendarViewer = {
                 } else {
                     toggleBtn.innerHTML = '<i class="fas fa-sliders-h"></i> Show Controls';
                 }
+            });
+        }
+
+        // Setup Drag-to-Scroll / Panning for Desktop
+        const viewport = document.querySelector('.pdf-viewer-viewport');
+        if (viewport) {
+            let isDown = false;
+            let startX, startY;
+            let scrollLeft, scrollTop;
+
+            viewport.addEventListener('mousedown', (e) => {
+                const canvas = document.getElementById('pdf-render-canvas');
+                if (canvas && (canvas.clientWidth > viewport.clientWidth || canvas.clientHeight > viewport.clientHeight)) {
+                    isDown = true;
+                    viewport.classList.add('grabbing');
+                    startX = e.pageX - viewport.offsetLeft;
+                    startY = e.pageY - viewport.offsetTop;
+                    scrollLeft = viewport.scrollLeft;
+                    scrollTop = viewport.scrollTop;
+                }
+            });
+
+            viewport.addEventListener('mouseleave', () => {
+                isDown = false;
+                viewport.classList.remove('grabbing');
+            });
+
+            viewport.addEventListener('mouseup', () => {
+                isDown = false;
+                viewport.classList.remove('grabbing');
+            });
+
+            viewport.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - viewport.offsetLeft;
+                const y = e.pageY - viewport.offsetTop;
+                const walkX = (x - startX) * 1.5;
+                const walkY = (y - startY) * 1.5;
+                viewport.scrollLeft = scrollLeft - walkX;
+                viewport.scrollTop = scrollTop - walkY;
             });
         }
 

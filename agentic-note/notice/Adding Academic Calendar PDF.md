@@ -260,3 +260,75 @@ I have updated the project documentation in [DOCUMENTATION.md](file:///c:/Users/
 3. **Version History**: Appended version **5.8 (2026-06-09)** documenting the complete implementation of the Academic Calendar PDF viewer.
 
 Please let me know if there is anything else you need!
+
+### User Input
+
+mobile viewer is bad. let's try a different approach for the mobile screen size.
+
+instead of loading the PDF, just show a "View Calendar" and "Download PDF" buttons. 
+
+and for desktop screensize, allow the users to drag and move  the zoomed in PDF viewer.
+
+*Edited relevant file*
+
+*Edited relevant file*
+
+*Edited relevant file*
+
+*Viewed [DOCUMENTATION.md](file:///c:/Users/gsmur/Documents/GitHub/%5BoU1TS%5D/b1t-Acad/doc/DOCUMENTATION.md) *
+
+*Viewed [index.html](file:///c:/Users/gsmur/Documents/GitHub/%5BoU1TS%5D/b1t-Acad/index.html) *
+
+*Edited relevant file*
+
+*Viewed [academic-calendar.js](file:///c:/Users/gsmur/Documents/GitHub/%5BoU1TS%5D/b1t-Acad/js/academic-calendar.js) *
+
+*Edited relevant file*
+
+*Viewed [style.css](file:///c:/Users/gsmur/Documents/GitHub/%5BoU1TS%5D/b1t-Acad/style.css) *
+
+*Edited relevant file*
+
+*Viewed [walkthrough.md](file:///C:/Users/gsmur/.gemini/antigravity-ide/brain/2dcd9d46-24eb-45a4-80f1-65b78fd924e1/walkthrough.md) *
+
+*Edited relevant file*
+
+### Planner Response
+
+I have completed the enhancements for the mobile layout and desktop interactive panning:
+
+### Changes Implemented:
+1. **Mobile View Optimization**:
+   - Created a dedicated mobile view container `.academic-calendar-mobile` in [index.html](file:///c:/Users/gsmur/Documents/GitHub/[oU1TS]/b1t-Acad/index.html) that features two clean, premium-styled buttons: **"View Calendar"** (opens in a new tab) and **"Download PDF"**.
+   - Set CSS media queries in [style.css](file:///c:/Users/gsmur/Documents/GitHub/[oU1TS]/b1t-Acad/style.css) to hide the desktop viewer and show the mobile view container on screens <= 768px.
+   - Updated the JavaScript in [js/academic-calendar.js](file:///c:/Users/gsmur/Documents/GitHub/[oU1TS]/b1t-Acad/js/academic-calendar.js) to detect the mobile viewport early and skip PDF.js initialization completely to save device performance and bandwidth.
+2. **Desktop Zoom Panning (Drag-to-Scroll)**:
+   - Added standard click-and-drag mouse events to the `.pdf-viewer-viewport`.
+   - Desktop users can now grab and drag the zoomed-in PDF page in all directions.
+   - Added visual feedback styles (`cursor: grab` and `cursor: grabbing` on mouse click).
+3. **Walkthrough update**:
+   - Updated [walkthrough.md](file:///C:/Users/gsmur/.gemini/antigravity-ide/brain/2dcd9d46-24eb-45a4-80f1-65b78fd924e1/walkthrough.md) with these optimizations.
+
+### User Input
+
+the loaded PDF in desktop screen cannot be moved to show the left parts of the PDF. The scrollbar shown on the bottom (horizontal scrollbar) shows scrollability on the right, but not the left, while zoomed in.
+
+*Viewed [DOCUMENTATION.md](file:///c:/Users/gsmur/Documents/GitHub/%5BoU1TS%5D/b1t-Acad/doc/DOCUMENTATION.md) *
+
+*Viewed [style.css](file:///c:/Users/gsmur/Documents/GitHub/%5BoU1TS%5D/b1t-Acad/style.css) *
+
+*Edited relevant file*
+
+*Viewed [walkthrough.md](file:///C:/Users/gsmur/.gemini/antigravity-ide/brain/2dcd9d46-24eb-45a4-80f1-65b78fd924e1/walkthrough.md) *
+
+*Edited relevant file*
+
+### Planner Response
+
+I have fixed the issue causing the left side of the zoomed PDF to be cut off and inaccessible.
+
+### The Fix:
+- **Curing the Centering Cut-off**: Changed the layout of `.pdf-viewer-viewport` in [style.css](file:///c:/Users/gsmur/Documents/GitHub/[oU1TS]/b1t-Acad/style.css) from Flexbox (`display: flex; justify-content: center;`) to inline block layout (`display: block; text-align: center;`) and set `vertical-align: top;` on the canvas wrapper. 
+- **How it works**: In Flexbox centering, overflow happens symmetrically on both left and right sides. However, browser scrollbars cannot navigate to negative coordinates (the left side), cutting it off. By using `display: block; text-align: center;`, the PDF canvas is centered when it fits, but when zoomed in beyond the viewport limits, it aligns cleanly to the left border (coordinate `0`) and scrolls/drags natively to the right, letting the user view and pan the entire document without losing the left side.
+
+I have updated [walkthrough.md](file:///C:/Users/gsmur/.gemini/antigravity-ide/brain/2dcd9d46-24eb-45a4-80f1-65b78fd924e1/walkthrough.md) with details about this layout fix. Please let me know if everything works to your liking!

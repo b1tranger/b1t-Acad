@@ -3376,9 +3376,8 @@ now Browse Curated Resources*/
   min-height: 400px;
   max-height: 650px;
   overflow: auto;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  display: block;
+  text-align: center;
   padding: 1rem;
 }
 
@@ -3405,6 +3404,7 @@ now Browse Curated Resources*/
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   background-color: #ffffff;
   display: inline-block;
+  vertical-align: top;
   line-height: 0;
 }
 
@@ -3510,5 +3510,96 @@ now Browse Curated Resources*/
 }
 
 [data-theme="gray"] .floating-download-btn {
+  color: #fff !important;
+}
+
+/* Grab cursors for zoomed viewport panning */
+.pdf-viewer-viewport {
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.pdf-viewer-viewport.grabbing {
+  cursor: grabbing !important;
+}
+
+/* Mobile viewer fallback styling */
+.academic-calendar-mobile {
+  display: none;
+  margin-top: 3rem;
+  background: var(--secondary-color);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.academic-calendar-mobile h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.calendar-mobile-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.calendar-mobile-buttons .calendar-btn {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 20px;
+  font-weight: 600;
+}
+
+.mobile-view-btn {
+  background: var(--primary-color);
+  border-color: var(--border-color);
+}
+
+.mobile-download-btn {
+  background: linear-gradient(135deg, var(--accent-color), #0056b3);
+  color: #fff !important;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+/* Hide desktop viewer and show mobile links on small screens */
+@media (max-width: 768px) {
+  .academic-calendar-container {
+    display: none !important;
+  }
+  .academic-calendar-mobile {
+    display: block !important;
+  }
+}
+
+/* Light theme support for mobile calendar view */
+[data-theme="gray"] .academic-calendar-mobile {
+  background-color: #e0e0e0;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="gray"] .academic-calendar-mobile h3 {
+  color: #1a1a1a;
+}
+
+[data-theme="gray"] .mobile-view-btn {
+  background-color: #f0f0f0;
+  color: #1a1a1a;
+  border-color: #bbb;
+}
+
+[data-theme="gray"] .mobile-view-btn:hover {
+  background-color: #dcdcdc;
+  border-color: var(--accent-color);
+}
+
+[data-theme="gray"] .mobile-download-btn {
   color: #fff !important;
 }
