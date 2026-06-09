@@ -3275,7 +3275,7 @@ now Browse Curated Resources*/
   background: var(--secondary-color);
   padding: 1.5rem;
   border-radius: 10px;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   margin-bottom: 2rem;
   box-shadow: 0 4px 15px var(--shadow-color);
   transition: background-color 0.3s ease, border-color 0.3s ease;
@@ -3287,7 +3287,7 @@ now Browse Curated Resources*/
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: 1rem;
   margin-bottom: 1rem;
 }
@@ -3302,8 +3302,19 @@ now Browse Curated Resources*/
 .calendar-controls {
   display: flex;
   align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.calendar-controls-group {
+  display: none;
+  align-items: center;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+.calendar-controls-group.visible {
+  display: inline-flex;
 }
 
 .calendar-btn {
@@ -3352,25 +3363,16 @@ now Browse Curated Resources*/
   margin: 0 4px;
 }
 
-.download-btn {
-  background: linear-gradient(135deg, var(--accent-color), #0056b3);
-  color: #fff !important;
-  border: none;
-  font-weight: 600;
-  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
-}
-
-.download-btn:hover {
-  background: linear-gradient(135deg, #0056b3, var(--accent-color));
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.5);
-  color: #fff !important;
+.pdf-viewport-wrapper {
+  position: relative;
+  width: 100%;
 }
 
 .pdf-viewer-viewport {
   position: relative;
   background-color: #1a1a1a;
   border-radius: 6px;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   min-height: 400px;
   max-height: 650px;
   overflow: auto;
@@ -3407,8 +3409,9 @@ now Browse Curated Resources*/
 }
 
 #pdf-render-canvas {
-  max-width: 100%;
-  height: auto !important;
+  display: block;
+  max-width: none;
+  max-height: none;
 }
 
 .pdf-spinner {
@@ -3437,20 +3440,43 @@ now Browse Curated Resources*/
   margin-bottom: 1rem !important;
 }
 
-.download-btn-error {
-  background: var(--primary-red);
+.floating-download-btn {
+  position: absolute;
+  bottom: 1.5rem;
+  right: 2rem;
+  z-index: 100;
+  background: linear-gradient(135deg, var(--accent-color), #0056b3);
   color: #fff !important;
   border: none;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-download-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+  background: linear-gradient(135deg, #0056b3, var(--accent-color));
+}
+
+.floating-download-btn:active {
+  transform: scale(0.98);
 }
 
 /* Light theme overrides */
 [data-theme="gray"] .academic-calendar-container {
   background-color: #e0e0e0;
-  border-color: #bbb;
+  border-color: rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="gray"] .calendar-header {
-  border-bottom-color: #bbb;
+  border-bottom-color: rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="gray"] .calendar-header h3 {
@@ -3469,13 +3495,9 @@ now Browse Curated Resources*/
   border-color: var(--accent-color);
 }
 
-[data-theme="gray"] .download-btn {
-  color: #fff !important;
-}
-
 [data-theme="gray"] .pdf-viewer-viewport {
   background-color: #f5f5f5;
-  border-color: #bbb;
+  border-color: rgba(0, 0, 0, 0.05);
 }
 
 [data-theme="gray"] .pdf-viewer-viewport::-webkit-scrollbar-track {
@@ -3485,4 +3507,8 @@ now Browse Curated Resources*/
 [data-theme="gray"] .page-indicator, 
 [data-theme="gray"] .zoom-indicator {
   color: #333;
+}
+
+[data-theme="gray"] .floating-download-btn {
+  color: #fff !important;
 }

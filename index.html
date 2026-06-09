@@ -870,43 +870,44 @@
       </nav>
       <!-- </section> -->
 
-      <!-- Academic Calendar 2026 Viewer -->
       <div class="academic-calendar-container" id="academic-calendar-section">
         <div class="calendar-header">
           <h3>Academic Calendar 2026</h3>
           <div class="calendar-controls">
-            <button id="prev-page" class="calendar-btn" title="Previous Page" disabled><i
-                class="fas fa-chevron-left"></i></button>
-            <span id="page-num-indicator" class="page-indicator">Page <span id="page-num">1</span> of <span
-                id="page-count">-</span></span>
-            <button id="next-page" class="calendar-btn" title="Next Page" disabled><i
-                class="fas fa-chevron-right"></i></button>
-            <span class="control-separator">|</span>
-            <button id="zoom-out" class="calendar-btn" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
-            <span id="zoom-percent" class="zoom-indicator">100%</span>
-            <button id="zoom-in" class="calendar-btn" title="Zoom In"><i class="fas fa-search-plus"></i></button>
-            <button id="zoom-fit" class="calendar-btn" title="Fit to Width"><i class="fas fa-arrows-alt-h"></i></button>
-            <span class="control-separator">|</span>
-            <a href="https://github.com/user-attachments/files/28764199/academic-calendar-2026-IMG_0001.pdf"
-              target="_blank" class="calendar-btn download-btn" title="Download PDF">
-              <i class="fas fa-download"></i> Download
-            </a>
+            <button id="toggle-controls-btn" class="calendar-btn toggle-controls-btn" title="Toggle Controls">
+              <i class="fas fa-sliders-h"></i> Show Controls
+            </button>
+            <div class="calendar-controls-group" id="calendar-controls-group">
+              <button id="prev-page" class="calendar-btn" title="Previous Page" disabled><i class="fas fa-chevron-left"></i></button>
+              <span id="page-num-indicator" class="page-indicator">Page <span id="page-num">1</span> of <span id="page-count">-</span></span>
+              <button id="next-page" class="calendar-btn" title="Next Page" disabled><i class="fas fa-chevron-right"></i></button>
+              <span class="control-separator">|</span>
+              <button id="zoom-out" class="calendar-btn" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+              <span id="zoom-percent" class="zoom-indicator">100%</span>
+              <button id="zoom-in" class="calendar-btn" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+              <button id="zoom-fit" class="calendar-btn" title="Fit to Width"><i class="fas fa-arrows-alt-h"></i></button>
+            </div>
           </div>
         </div>
-        <div class="pdf-viewer-viewport">
-          <div class="pdf-canvas-wrapper">
-            <canvas id="pdf-render-canvas"></canvas>
+        <div class="pdf-viewport-wrapper">
+          <div class="pdf-viewer-viewport">
+            <div class="pdf-canvas-wrapper">
+              <canvas id="pdf-render-canvas"></canvas>
+            </div>
+            <div id="pdf-loading-spinner" class="pdf-spinner">
+              <i class="fas fa-spinner fa-spin"></i> Loading Calendar...
+            </div>
+            <div id="pdf-error-message" class="pdf-error-msg" style="display: none;">
+              <p>Inline preview is unavailable on this browser/protocol.</p>
+              <a href="doc/academic-calendar-2026-IMG_0001.pdf" target="_blank" class="calendar-btn download-btn-error" style="margin-top: 1rem; border: none; background: var(--accent-color); color: #fff !important; padding: 8px 16px; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                <i class="fas fa-external-link-alt"></i> Open PDF Directly
+              </a>
+            </div>
           </div>
-          <div id="pdf-loading-spinner" class="pdf-spinner">
-            <i class="fas fa-spinner fa-spin"></i> Loading Calendar...
-          </div>
-          <div id="pdf-error-message" class="pdf-error-msg" style="display: none;">
-            <p>Failed to load the academic calendar preview.</p>
-            <a href="https://github.com/user-attachments/files/28764199/academic-calendar-2026-IMG_0001.pdf"
-              target="_blank" class="calendar-btn download-btn-error">
-              <i class="fas fa-download"></i> Download PDF Directly
-            </a>
-          </div>
+          <!-- Floating Download Button -->
+          <a id="floating-download-btn" href="doc/academic-calendar-2026-IMG_0001.pdf" target="_blank" class="floating-download-btn" title="Download PDF">
+            <i class="fas fa-download"></i> Download PDF
+          </a>
         </div>
       </div>
 

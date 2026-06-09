@@ -15,11 +15,11 @@ const AcademicCalendarViewer = {
     resizeTimeout: null,
 
     // Academic Calendar URL Configuration
-    // Option 1: Remote URL directly from GitHub user-attachments (Default)
+    // Option 1: Remote URL directly from GitHub user-attachments (Commented out)
     // pdfUrl: 'https://github.com/user-attachments/files/28764200/Academic.Calendar.2026.pdf',
 
-    // Option 2: Local fallback URL (Uncomment to use if CORS/network issues arise)
-    pdfUrl: './doc/academic-calendar-2026-IMG_0001.pdf',
+    // Option 2: Local fallback URL (Active by default globally as requested)
+    pdfUrl: 'doc/academic-calendar-2026-IMG_0001.pdf',
 
     init() {
         console.log('Initializing AcademicCalendarViewer...');
@@ -27,11 +27,9 @@ const AcademicCalendarViewer = {
         if (!this.canvas) return;
         this.ctx = this.canvas.getContext('2d');
 
-        // Update download links dynamically to match the selected pdfUrl
-        const downloadBtn = document.querySelector('#academic-calendar-section .download-btn');
-        const errorDownloadBtn = document.querySelector('#academic-calendar-section .download-btn-error');
-        if (downloadBtn) downloadBtn.href = this.pdfUrl;
-        if (errorDownloadBtn) errorDownloadBtn.href = this.pdfUrl;
+        // Update download link dynamically to match the selected pdfUrl
+        const floatingDownloadBtn = document.getElementById('floating-download-btn');
+        if (floatingDownloadBtn) floatingDownloadBtn.href = this.pdfUrl;
 
         this.setupEventListeners();
         this.loadPDF();
@@ -43,12 +41,25 @@ const AcademicCalendarViewer = {
         const zoomInBtn = document.getElementById('zoom-in');
         const zoomOutBtn = document.getElementById('zoom-out');
         const zoomFitBtn = document.getElementById('zoom-fit');
+        const toggleBtn = document.getElementById('toggle-controls-btn');
+        const controlsGroup = document.getElementById('calendar-controls-group');
 
         if (prevBtn) prevBtn.addEventListener('click', () => this.onPrevPage());
         if (nextBtn) nextBtn.addEventListener('click', () => this.onNextPage());
         if (zoomInBtn) zoomInBtn.addEventListener('click', () => this.onZoomIn());
         if (zoomOutBtn) zoomOutBtn.addEventListener('click', () => this.onZoomOut());
         if (zoomFitBtn) zoomFitBtn.addEventListener('click', () => this.onZoomFit());
+
+        if (toggleBtn && controlsGroup) {
+            toggleBtn.addEventListener('click', () => {
+                const isVisible = controlsGroup.classList.toggle('visible');
+                if (isVisible) {
+                    toggleBtn.innerHTML = '<i class="fas fa-sliders-h"></i> Hide Controls';
+                } else {
+                    toggleBtn.innerHTML = '<i class="fas fa-sliders-h"></i> Show Controls';
+                }
+            });
+        }
 
         // Handle window resize to adjust fit width dynamically
         window.addEventListener('resize', () => {
@@ -67,9 +78,14 @@ const AcademicCalendarViewer = {
 
         // Check if page is loaded via file:// protocol (local file execution)
         if (window.location.protocol === 'file:') {
-            console.log('Local file protocol detected. Falling back to native iframe viewer to bypass CORS.');
-            this.useIframeFallback();
+            console.log('Local file protocol detected. Inline preview is disabled due to browser CORS policies under file://. Showing manual download/open option.');
             if (loadingSpinner) loadingSpinner.style.display = 'none';
+            if (errorMsg) errorMsg.style.display = 'block';
+            if (this.canvas) this.canvas.style.display = 'none';
+            
+            // Hide controls toggle button since preview is not loaded
+            const toggleBtn = document.getElementById('toggle-controls-btn');
+            if (toggleBtn) toggleBtn.style.display = 'none';
             return;
         }
 
@@ -94,9 +110,14 @@ const AcademicCalendarViewer = {
                 throw new Error('pdfjsLib is not loaded');
             }
         } catch (error) {
-            console.error('Error loading PDF with PDF.js, falling back to native iframe viewer:', error);
-            this.useIframeFallback();
+            console.error('Error loading PDF with PDF.js:', error);
             if (loadingSpinner) loadingSpinner.style.display = 'none';
+            if (errorMsg) errorMsg.style.display = 'block';
+            if (this.canvas) this.canvas.style.display = 'none';
+            
+            // Hide controls toggle button
+            const toggleBtn = document.getElementById('toggle-controls-btn');
+            if (toggleBtn) toggleBtn.style.display = 'none';
         }
     },
 
@@ -212,31 +233,6 @@ const AcademicCalendarViewer = {
         }
     },
 
-    useIframeFallback() {
-        const viewport = document.querySelector('.pdf-viewer-viewport');
-        if (!viewport) return;
-
-        // Clear existing canvas wrapper and loading text
-        viewport.innerHTML = '';
-
-        // Create fallback iframe
-        const iframe = document.createElement('iframe');
-        iframe.src = this.pdfUrl;
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        iframe.style.border = 'none';
-        iframe.style.minHeight = '550px';
-        iframe.setAttribute('allowfullscreen', 'true');
-
-        viewport.appendChild(iframe);
-
-        // Hide dynamic controls that aren't functional with iframe rendering
-        const controls = document.querySelector('#academic-calendar-section .calendar-controls');
-        if (controls) {
-            const pageControls = controls.querySelectorAll('button, .page-indicator, .zoom-indicator, .control-separator');
-            pageControls.forEach(el => el.style.display = 'none');
-        }
-    }
 };
 
 // Initialize when DOM is ready

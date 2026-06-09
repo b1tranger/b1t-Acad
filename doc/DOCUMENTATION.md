@@ -26,7 +26,7 @@ b1t Academics is an unofficial resource centralization platform for UITS univers
 
 ### Key Features
 - **Single Page Application (SPA) Routing** - Seamless navigation between sections (e.g., `#info`, `#Qbank`) on the landing page without full page reloads, using native URL hashing.
-- **Departmental Navigation** - Custom-built nested folder browser UI pointing to curated Google Drive folders for CSE, CE, IT, etc.
+- **Departmental Navigation** - Custom-built interface with compact dropdown selectors pointing to curated Google Drive folders for CSE, CE, IT, etc., designed to take less visual space.
 - **Dynamic Routing** - Displays relevant course lists and materials dynamically (e.g., `?dept=CSE`) without needing separate HTML pages.
 - **Community Submissions** - View and submit questions or notes using Google Forms/Sheets integration. Submissions display dynamically via JSON API. Includes a persistent "Make Submission" action button for easy contribution.
 - **Text-Based Visitor Counter** - Integrates `api.counterapi.dev` to securely display true page visits as plain text without requiring heavy image badges or cookies.
@@ -35,6 +35,7 @@ b1t Academics is an unofficial resource centralization platform for UITS univers
 - **Recent Submissions Drawer** - A sleek, dark-themed panel for quickly reviewing the 10 most recent uploads across both Questions and Notes. Now features live-refresh capabilities and precise timestamp-based sorting.
 - **Anon File Sharing** - An integrated modal experience for anonymously uploading files (up to 200MB) via `Catbox.moe` and `Tmpfiles.org` temporary links, and sharing those links to the community directly through the platform.
 - **Notices System** - Easy viewing of official University notices with dynamic PDF viewer integration.
+- **Academic Calendar 2026 Viewer** - An inline PDF renderer utilizing PDF.js. Integrated into the general info section, it offers customized page scrolling, fit-to-width, zoom controls (drawing onto canvas scroll windows), a collapsible controls toolbar, and a bottom-right floating action download button. Automatically handles `file://` local protocol restrictions or load failures with a clean direct-open fallback layout.
 - **Support & Mentorship Integration** - Embedded SupportKori widget and persistent floating action buttons to seamlessly book 1-on-1 Academic Support & CSE Mentorship sessions or donate directly through the platform.
 - **Dark Theme Mode** - Built-in dark-mode aesthetic with a seamless theme toggler.
 - **Serverless Architecture** - Primarily static hosting relying on client-side JS and decentralized databases (Google Sheets/Drive) rather than custom servers.
@@ -152,9 +153,9 @@ b1t-Acad/
 - Handles `notificationclick` events, focusing the browser tab and triggering the UI to open the Recent Submissions panel (`?showRecent=true`).
 
 ### 3. `js/departments*.js`
-**Purpose:** Parses the structure of the Google Drive query banks.
+**Purpose:** Parses the structure of the Google Drive query banks and controls resources layout.
 - `departments-data.js`: Holds static definitions and mappings mapping department IDs to their Google Drive folder strings and course structures.
-- `departments.js`: Contains UI DOM manipulation logic to render the folder view dynamically based on URL params.
+- `departments.js`: Contains UI DOM manipulation logic to populate custom dropdown selectors, handle redirect navigation, render course lists, and manage the display of the persistent "Departmental Info" button.
 
 ### 4. `js/theme.js`
 **Purpose:** Dark/Light mode preferences.
@@ -178,6 +179,13 @@ b1t-Acad/
 - Integrates with Tmpfiles and Catbox APIs for temporary file hosting.
 - Implements a "Linkify" engine to make raw URLs in submissions clickable.
 - Handles the "Copy-to-Clipboard & Redirect" workflow for Google Form submissions.
+
+### 8. `js/academic-calendar.js`
+**Purpose:** Orchestrates the Academic Calendar PDF viewer.
+- Loads the local PDF file `doc/academic-calendar-2026-IMG_0001.pdf` dynamically via PDF.js worker threads.
+- Controls page rendering state, zoom increments, and dynamic link bindings.
+- Handles the toggle behavior of the controls toolbar.
+- Traps load failures or `file://` CORS issues to present a manual download/open fallback button, avoiding sudden download dialogs on load.
 
 ---
 
@@ -235,6 +243,8 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 5.5 | 2026-03-04 | Submission UI & Refresh Fix | Fixed Recent Submissions sorting and caching issues using Google Sheets timestamp parsing. Added a dedicated "Make Submission" redirection button. |
 | 5.6 | 2026-03-04 | Anon File Sharing | Added an integrated Anonymous File Sharing modal with Catbox/Tmpfiles upload support, CSV data parsing, and a Linkify engine for clickable links. |
 | 5.7 | 2026-03-26 | SupportKori & Mentorship | Integrated SupportKori persistent button and widget modal. Added an "Academic Support & CSE Mentorship" service block to the General Information section with an interactive, animated booking button. |
+| 5.8 | 2026-06-09 | Academic Calendar 2026 Viewer | Added an interactive PDF.js-based inline viewer for the local UITS Academic Calendar PDF in the general info section, complete with toggleable controls, unconstrained zooming, a floating download action button, and a manual open fallback screen. |
+| 5.9 | 2026-06-09 | Dropdown Selectors & Layout Optimization | Converted the department and semester selection grids into compact, custom-styled dropdown selectors, and relocated the "Departmental Info" button persistently above the semester selection. |
 
 ---
 
