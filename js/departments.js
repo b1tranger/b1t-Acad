@@ -87,6 +87,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // --- 3b. Setup Question Bank Button ---
+  const qbankInfoWrapper = document.getElementById('qbank-info-wrapper');
+  if (qbankInfoWrapper) {
+    if (deptData.qbank_link) {
+      qbankInfoWrapper.innerHTML = `
+        <a href="${deptData.qbank_link}" target="_blank" class="drive-btn qbank-btn">
+          <i class="fa-solid fa-folder-open"></i>&nbsp; Question Bank
+        </a>
+      `;
+      qbankInfoWrapper.style.display = 'flex';
+    } else {
+      qbankInfoWrapper.style.display = 'none';
+    }
+  }
+
   // --- 4. Setup Semester Selector (Dropdown Grid) ---
   const semesterSelectGroup = document.getElementById('semester-select-group');
   const semesterDropdown = document.getElementById('semester-dropdown');
@@ -103,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <header class="semester-header">
         <h2 class="semester-title">${deptData.full_name}</h2>
       </header>
-      <p style="text-align:center; color: #a0aec0; margin-top: 2rem;">No resources available for this department yet.</p>
+      <p style="text-align:center; color: #a0aec0; margin-top: 2rem;">No resources available for this department yet. Wish to contribute? Reach out to us through <a href="index.html#About" style="color: var(--accent-color); font-weight: bold; text-decoration: underline;">Socials</a></p>
     `;
     contentContainer.innerHTML = html;
     return;
@@ -169,6 +184,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Load initially selected semester
   loadSemester(initialSem);
+
+  // Scroll to semester content after 3 seconds if department has semesters
+  if (semesters.length > 0) {
+    setTimeout(() => {
+      const contentEl = document.getElementById('semester-content');
+      if (contentEl) {
+        contentEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 3000);
+  }
 
 
   // --- Helper: Load Semester Content ---

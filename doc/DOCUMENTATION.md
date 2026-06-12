@@ -246,7 +246,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 5.8 | 2026-06-09 | Academic Calendar 2026 Viewer | Added an interactive PDF.js-based inline viewer for the local UITS Academic Calendar PDF in the general info section, complete with toggleable controls, unconstrained zooming, a floating download action button, and a manual open fallback screen. |
 | 5.9 | 2026-06-09 | Dropdown Selectors & Layout Optimization | Converted the department and semester selection grids into compact, custom-styled dropdown selectors, and relocated the "Departmental Info" button persistently above the semester selection. |
 | 6.0 | 2026-06-10 | Neomorphic Custom Dropdowns | Replaced select dropdowns with fully custom interactive selectors featuring smooth transitions, squircle grid options, neomorphic protrusion effects, and multi-theme consistency. |
-| 6.1 | 2026-06-12 | Semester URL Parameter | Added support for parsing and dynamically updating the selected semester in the URL parameters (e.g. `?dept=CSE&sem=5`) to allow sharing direct links to specific semesters. |
+| 6.1 | 2026-06-12 | Semester URL Parameter & Department QBank Links | Added support for parsing and dynamically updating the selected semester in the URL parameters (e.g. `?dept=CSE&sem=5`). Added a "Question Bank" link button configuration for each department in `departments-data.js` and rendered it dynamically on the Departments page. |
 
 ---
 

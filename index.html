@@ -536,23 +536,29 @@
     .explorer-list::-webkit-scrollbar {
       width: 6px;
     }
+
     .explorer-list::-webkit-scrollbar-track {
       background: rgba(255, 255, 255, 0.02);
       border-radius: 3px;
     }
+
     [data-theme="gray"] .explorer-list::-webkit-scrollbar-track {
       background: rgba(0, 0, 0, 0.02);
     }
+
     .explorer-list::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.15);
       border-radius: 3px;
     }
+
     [data-theme="gray"] .explorer-list::-webkit-scrollbar-thumb {
       background: rgba(0, 0, 0, 0.15);
     }
+
     .explorer-list::-webkit-scrollbar-thumb:hover {
       background: rgba(255, 255, 255, 0.3);
     }
+
     [data-theme="gray"] .explorer-list::-webkit-scrollbar-thumb:hover {
       background: rgba(0, 0, 0, 0.3);
     }
@@ -1211,12 +1217,14 @@
       <!-- Mobile view container for Academic Calendar -->
       <div class="academic-calendar-mobile" id="academic-calendar-mobile">
         <h3>Academic Calendar 2026</h3>
-        <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-content);">Quickly view or download the UITS Academic Calendar for 2026.</p>
+        <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--text-content);">Quickly view or download the
+          UITS Academic Calendar for 2026.</p>
         <div class="calendar-mobile-buttons">
           <a href="doc/academic-calendar-2026-IMG_0001.pdf" target="_blank" class="calendar-btn mobile-view-btn">
             <i class="fas fa-eye"></i> View Calendar
           </a>
-          <a href="doc/academic-calendar-2026-IMG_0001.pdf" download="Academic.Calendar.2026.pdf" class="calendar-btn mobile-download-btn">
+          <a href="doc/academic-calendar-2026-IMG_0001.pdf" download="Academic.Calendar.2026.pdf"
+            class="calendar-btn mobile-download-btn">
             <i class="fas fa-download"></i> Download PDF
           </a>
         </div>
@@ -1230,14 +1238,18 @@
               <i class="fas fa-sliders-h"></i> Show Controls
             </button>
             <div class="calendar-controls-group" id="calendar-controls-group">
-              <button id="prev-page" class="calendar-btn" title="Previous Page" disabled><i class="fas fa-chevron-left"></i></button>
-              <span id="page-num-indicator" class="page-indicator">Page <span id="page-num">1</span> of <span id="page-count">-</span></span>
-              <button id="next-page" class="calendar-btn" title="Next Page" disabled><i class="fas fa-chevron-right"></i></button>
+              <button id="prev-page" class="calendar-btn" title="Previous Page" disabled><i
+                  class="fas fa-chevron-left"></i></button>
+              <span id="page-num-indicator" class="page-indicator">Page <span id="page-num">1</span> of <span
+                  id="page-count">-</span></span>
+              <button id="next-page" class="calendar-btn" title="Next Page" disabled><i
+                  class="fas fa-chevron-right"></i></button>
               <span class="control-separator">|</span>
               <button id="zoom-out" class="calendar-btn" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
               <span id="zoom-percent" class="zoom-indicator">100%</span>
               <button id="zoom-in" class="calendar-btn" title="Zoom In"><i class="fas fa-search-plus"></i></button>
-              <button id="zoom-fit" class="calendar-btn" title="Fit to Width"><i class="fas fa-arrows-alt-h"></i></button>
+              <button id="zoom-fit" class="calendar-btn" title="Fit to Width"><i
+                  class="fas fa-arrows-alt-h"></i></button>
             </div>
           </div>
         </div>
@@ -1251,13 +1263,15 @@
             </div>
             <div id="pdf-error-message" class="pdf-error-msg" style="display: none;">
               <p>Inline preview is unavailable on this browser/protocol.</p>
-              <a href="doc/academic-calendar-2026-IMG_0001.pdf" target="_blank" class="calendar-btn download-btn-error" style="margin-top: 1rem; border: none; background: var(--accent-color); color: #fff !important; padding: 8px 16px; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+              <a href="doc/academic-calendar-2026-IMG_0001.pdf" target="_blank" class="calendar-btn download-btn-error"
+                style="margin-top: 1rem; border: none; background: var(--accent-color); color: #fff !important; padding: 8px 16px; border-radius: 6px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
                 <i class="fas fa-external-link-alt"></i> Open PDF Directly
               </a>
             </div>
           </div>
           <!-- Floating Download Button -->
-          <a id="floating-download-btn" href="doc/academic-calendar-2026-IMG_0001.pdf" target="_blank" class="floating-download-btn" title="Download PDF">
+          <a id="floating-download-btn" href="doc/academic-calendar-2026-IMG_0001.pdf" target="_blank"
+            class="floating-download-btn" title="Download PDF">
             <i class="fas fa-download"></i> Download PDF
           </a>
         </div>
