@@ -150,8 +150,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (semesterDropdown) semesterDropdown.classList.remove('active');
   });
 
-  // Load first semester by default
-  loadSemester(semesters[0]);
+  // Read initial semester from URL if specified, or default to first semester
+  const semParam = params.get('sem');
+  let initialSem = semesters[0];
+  if (semParam) {
+    let normalized = semParam.trim().toUpperCase();
+    if (normalized.startsWith('S')) {
+      normalized = normalized.substring(1);
+    }
+    const num = parseInt(normalized, 10);
+    if (!isNaN(num)) {
+      const formatted = 'S' + num.toString().padStart(2, '0');
+      if (semesters.includes(formatted)) {
+        initialSem = formatted;
+      }
+    }
+  }
+
+  // Load initially selected semester
+  loadSemester(initialSem);
 
 
   // --- Helper: Load Semester Content ---
@@ -176,6 +193,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const semData = deptData.semesters[semKey];
     if (!semData) return;
+
+    // Update URL query parameters dynamically to reflect selection
+    const currentParams = new URLSearchParams(window.location.search);
+    currentParams.set('dept', currentDept);
+    const currentSem = currentParams.get('sem');
+    const targetSemNum = parseInt(semNum, 10).toString();
+    if (currentSem !== targetSemNum) {
+      currentParams.set('sem', targetSemNum);
+      const newURL = window.location.pathname + '?' + currentParams.toString();
+      window.history.replaceState(null, '', newURL);
+    }
 
     // 2. Build HTML for Content
     // Header Section (Drive Link & Image)

@@ -27,7 +27,7 @@ b1t Academics is an unofficial resource centralization platform for UITS univers
 ### Key Features
 - **Single Page Application (SPA) Routing** - Seamless navigation between sections (e.g., `#info`, `#Qbank`) on the landing page without full page reloads, using native URL hashing.
 - **Departmental Navigation** - Custom-built interface featuring interactive custom dropdowns with animated transitions and a neomorphic squircle grid selection, designed to optimize vertical screen space across all devices.
-- **Dynamic Routing** - Displays relevant course lists and materials dynamically (e.g., `?dept=CSE`) without needing separate HTML pages.
+- **Dynamic Routing** - Displays relevant course lists and materials dynamically (e.g., `?dept=CSE&sem=5`) without needing separate HTML pages. Supports direct linking to specific departments and semesters, and dynamically updates the URL parameters as the user navigates.
 - **Community Submissions** - View and submit questions or notes using Google Forms/Sheets integration. Submissions display dynamically via JSON API. Includes a persistent "Make Submission" action button for easy contribution.
 - **Text-Based Visitor Counter** - Integrates `api.counterapi.dev` to securely display true page visits as plain text without requiring heavy image badges or cookies.
 - **PWA Capabilities** - Installable Progressive Web App with offline caching strategies and smart notifications.
@@ -155,7 +155,7 @@ b1t-Acad/
 ### 3. `js/departments*.js`
 **Purpose:** Parses the structure of the Google Drive query banks and controls resources layout.
 - `departments-data.js`: Holds static definitions and mappings mapping department IDs to their Google Drive folder strings and course structures.
-- `departments.js`: Contains UI DOM manipulation logic to populate custom dropdown selectors, handle redirect navigation, render course lists, and manage the display of the persistent "Departmental Info" button.
+- `departments.js`: Contains UI DOM manipulation logic to populate custom dropdown selectors, handle redirect navigation, render course lists, manage the display of the persistent "Departmental Info" button, and dynamically update/parse department and semester query parameters (`?dept=...&sem=...`) to allow direct linking and sharing.
 
 ### 4. `js/theme.js`
 **Purpose:** Dark/Light mode preferences.
@@ -246,6 +246,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 5.8 | 2026-06-09 | Academic Calendar 2026 Viewer | Added an interactive PDF.js-based inline viewer for the local UITS Academic Calendar PDF in the general info section, complete with toggleable controls, unconstrained zooming, a floating download action button, and a manual open fallback screen. |
 | 5.9 | 2026-06-09 | Dropdown Selectors & Layout Optimization | Converted the department and semester selection grids into compact, custom-styled dropdown selectors, and relocated the "Departmental Info" button persistently above the semester selection. |
 | 6.0 | 2026-06-10 | Neomorphic Custom Dropdowns | Replaced select dropdowns with fully custom interactive selectors featuring smooth transitions, squircle grid options, neomorphic protrusion effects, and multi-theme consistency. |
+| 6.1 | 2026-06-12 | Semester URL Parameter | Added support for parsing and dynamically updating the selected semester in the URL parameters (e.g. `?dept=CSE&sem=5`) to allow sharing direct links to specific semesters. |
 
 ---
 
