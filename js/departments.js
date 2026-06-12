@@ -1,4 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
+  let tooltipObserver = null;
+  let tooltipTimeout1 = null;
+  let tooltipTimeout2 = null;
+
   const params = new URLSearchParams(window.location.search);
   const deptKey = params.get('dept') ? params.get('dept').toUpperCase() : 'CSE';
 
@@ -78,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (deptData.info_link) {
       deptInfoWrapper.innerHTML = `
         <a href="${deptData.info_link}" target="_blank" class="drive-btn info-btn">
-          <i class="fa-solid fa-circle-info"></i>&nbsp; Departmental Info
+          <i class="fa-solid fa-circle-info"></i>&nbsp;<span class="btn-text-desktop">Departmental Info</span><span class="btn-text-mobile">Info</span>
         </a>
       `;
       deptInfoWrapper.style.display = 'flex';
@@ -93,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (deptData.qbank_link) {
       qbankInfoWrapper.innerHTML = `
         <a href="${deptData.qbank_link}" target="_blank" class="drive-btn qbank-btn">
-          <i class="fa-solid fa-folder-open"></i>&nbsp; Question Bank
+          <i class="fa-solid fa-folder-open"></i>&nbsp;<span class="btn-text-desktop">Question Bank</span><span class="btn-text-mobile">Qbank</span>
         </a>
       `;
       qbankInfoWrapper.style.display = 'flex';
@@ -120,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </header>
       <p style="text-align:center; color: #a0aec0; margin-top: 2rem;">No resources available for this department yet. Wish to contribute? Reach out to us through <a href="index.html#About" style="color: var(--accent-color); font-weight: bold; text-decoration: underline;">Socials</a></p>
     `;
-    contentContainer.innerHTML = html;
+    contentContainer.innerHTML = `<div class="semester-fade-in">${html}</div>`;
     return;
   }
 
@@ -150,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
           cell.classList.add('active');
 
           semesterSelectedText.textContent = `Semester ${semNum}`;
-          loadSemester(sem);
+          loadSemester(sem, true);
           semesterDropdown.classList.remove('active');
         }
       );
@@ -182,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Load initially selected semester
-  loadSemester(initialSem);
+  // Load initially selected semester (keep opacity 0 initially on page load)
+  loadSemester(initialSem, false);
 
   // Scroll to semester content after 3 seconds if department has semesters
   if (semesters.length > 0) {
@@ -192,12 +196,18 @@ document.addEventListener('DOMContentLoaded', () => {
       if (contentEl) {
         contentEl.scrollIntoView({ behavior: 'smooth' });
       }
-    }, 3000);
+
+      // Trigger the fade-in animation
+      const wrapperEl = document.getElementById('semester-content-wrapper');
+      if (wrapperEl) {
+        wrapperEl.classList.add('semester-fade-in');
+      }
+    }, 1000);
   }
 
 
   // --- Helper: Load Semester Content ---
-  function loadSemester(semKey) {
+  function loadSemester(semKey, animateInstantly = true) {
     // 1. Sync custom dropdown display & active state on grid cells
     const semNum = semKey.replace('S', '');
     const semesterSelectedText = document.getElementById('semester-selected-text');
@@ -235,15 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let html = `
       <header class="semester-header">
         <h2 class="semester-title">${semData.title}</h2>
-              <div class="syllabus-container">
-        <img src="${semData.syllabus_image}" alt="${semData.title} List" class="syllabus-img">
-      </div>
-        <a href="${semData.drive_link}" target="_blank" class="drive-btn">
-          <i class="fa-brands fa-google-drive"></i>&nbsp; Open Full Drive
-        </a>
-        <br><br>
-        <div style="display:flex;justify-content:center;">
-        <p style="font-size:10px;background-color:#d7d5c4ff;color:black;width:fit-content;display:flex;justify-content:center;padding:8px;box-shadow:0 5px 10px black;font-weight:bold;border-radius:10px;" >refer to "Others" folder for Note Archive</p>
+        <div class="syllabus-container">
+          <img src="${semData.syllabus_image}" alt="${semData.title} List" class="syllabus-img">
         </div>
       </header>
 
@@ -251,6 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <section id="courses" class="content-section" style="min-height: auto; margin-top: -1.9rem;">
         <h2 style="text-align: center; margin-bottom: 30px;">Course Materials</h2>
+        <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+          <a href="${semData.drive_link}" target="_blank" class="drive-btn" style="margin-top: 0;">
+            <i class="fa-brands fa-google-drive"></i>&nbsp; Open Full Drive
+          </a>
+        </div>
         <div class="course-card-container">
     `;
 
@@ -290,9 +298,44 @@ document.addEventListener('DOMContentLoaded', () => {
       </section>
     `;
 
-    contentContainer.innerHTML = html;
+    const animClass = animateInstantly ? 'semester-fade-in' : 'semester-content-wrapper';
+    contentContainer.innerHTML = `<div id="semester-content-wrapper" class="${animClass}">${html}</div>`;
 
-    // Scroll to top of content if needed, or just let it stay
+    // Set up IntersectionObserver for bottom tooltip
+    if (tooltipTimeout1) clearTimeout(tooltipTimeout1);
+    if (tooltipTimeout2) clearTimeout(tooltipTimeout2);
+
+    const tooltipEl = document.getElementById('bottom-tooltip');
+    if (tooltipEl) {
+      tooltipEl.classList.remove('show');
+    }
+
+    if (tooltipObserver) {
+      tooltipObserver.disconnect();
+    }
+
+    const coursesEl = document.getElementById('courses');
+    if (coursesEl && tooltipEl) {
+      tooltipObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Unobserve so it only triggers once per semester load
+            tooltipObserver.unobserve(coursesEl);
+
+            // Wait 3 seconds to show
+            tooltipTimeout1 = setTimeout(() => {
+              tooltipEl.classList.add('show');
+
+              // Stay visible for 3 seconds, then hide
+              tooltipTimeout2 = setTimeout(() => {
+                tooltipEl.classList.remove('show');
+              }, 3000);
+            }, 3000);
+          }
+        });
+      }, { threshold: 0.1 });
+      tooltipObserver.observe(coursesEl);
+    }
   }
 });
 

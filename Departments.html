@@ -227,6 +227,27 @@
             color: var(--text-color);
         }
 
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .semester-content-wrapper {
+            opacity: 0;
+            width: 100%;
+        }
+
+        .semester-fade-in {
+            animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            width: 100%;
+        }
+
         .drive-btn {
             display: inline-block;
             padding: 10px 20px;
@@ -417,6 +438,63 @@
                 /* 1 col if very small */
             }
         }
+
+        /* Button row optimizations */
+        .dept-buttons-row {
+            display: flex;
+            gap: 1rem;
+            width: 100%;
+        }
+        .dept-buttons-row .info-btn-wrapper {
+            flex: 1;
+            margin: 0;
+        }
+        .btn-text-mobile {
+            display: none;
+        }
+        .btn-text-desktop {
+            display: inline;
+        }
+        @media (max-width: 480px) {
+            .btn-text-desktop {
+                display: none;
+            }
+            .btn-text-mobile {
+                display: inline;
+            }
+            .dept-buttons-row {
+                gap: 0.5rem;
+            }
+            .info-btn-wrapper .drive-btn {
+                padding: 0.85rem 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Bottom Tooltip */
+        .bottom-tooltip {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translate(-50%, 50px);
+            background-color: #d7d5c4;
+            color: black;
+            padding: 10px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            font-weight: bold;
+            border-radius: 10px;
+            font-size: 11px;
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            pointer-events: none;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .bottom-tooltip.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
     </style>
 </head>
 
@@ -465,14 +543,17 @@
                 </div>
             </div>
 
-            <!-- Departmental Info Button -->
-            <div id="dept-info-wrapper" class="info-btn-wrapper" style="display: none;">
-                <!-- Populated by JS -->
-            </div>
+            <!-- Department Info & Question Bank buttons row -->
+            <div class="dept-buttons-row">
+                <!-- Departmental Info Button -->
+                <div id="dept-info-wrapper" class="info-btn-wrapper" style="display: none;">
+                    <!-- Populated by JS -->
+                </div>
 
-            <!-- Question Bank Button -->
-            <div id="qbank-info-wrapper" class="info-btn-wrapper" style="display: none;">
-                <!-- Populated by JS -->
+                <!-- Question Bank Button -->
+                <div id="qbank-info-wrapper" class="info-btn-wrapper" style="display: none;">
+                    <!-- Populated by JS -->
+                </div>
             </div>
 
             <!-- Semester Dropdown Selection -->
@@ -521,6 +602,9 @@
     <a href="index.html" class="mobile-home-btn" aria-label="Go to Home">
         <i class="fas fa-home"></i>
     </a>
+
+    <!-- Scroll-triggered Bottom Tooltip -->
+    <div id="bottom-tooltip" class="bottom-tooltip">refer to "Others" folder for Note Archive</div>
 
     <script src="js/departments-data.js"></script>
     <script src="js/departments.js"></script>

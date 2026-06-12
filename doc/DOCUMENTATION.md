@@ -155,7 +155,7 @@ b1t-Acad/
 ### 3. `js/departments*.js`
 **Purpose:** Parses the structure of the Google Drive query banks and controls resources layout.
 - `departments-data.js`: Holds static definitions and mappings mapping department IDs to their Google Drive folder strings and course structures.
-- `departments.js`: Contains UI DOM manipulation logic to populate custom dropdown selectors, handle redirect navigation, render course lists, manage the display of the persistent "Departmental Info" button, and dynamically update/parse department and semester query parameters (`?dept=...&sem=...`) to allow direct linking and sharing.
+- `departments.js`: Contains UI DOM manipulation logic to populate custom dropdown selectors, handle redirect navigation, render course lists, manage the display of the persistent "Departmental Info" button, and dynamically update/parse department and semester query parameters (`?dept=...&sem=...`) to allow direct linking and sharing. Also automatically scrolls smoothly to `#semester-content` after 3 seconds on initial page load if semesters are available, synchronizing a CSS fade-in transition as the content enters the viewport.
 
 ### 4. `js/theme.js`
 **Purpose:** Dark/Light mode preferences.
@@ -247,6 +247,8 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 5.9 | 2026-06-09 | Dropdown Selectors & Layout Optimization | Converted the department and semester selection grids into compact, custom-styled dropdown selectors, and relocated the "Departmental Info" button persistently above the semester selection. |
 | 6.0 | 2026-06-10 | Neomorphic Custom Dropdowns | Replaced select dropdowns with fully custom interactive selectors featuring smooth transitions, squircle grid options, neomorphic protrusion effects, and multi-theme consistency. |
 | 6.1 | 2026-06-12 | Semester URL Parameter & Department QBank Links | Added support for parsing and dynamically updating the selected semester in the URL parameters (e.g. `?dept=CSE&sem=5`). Added a "Question Bank" link button configuration for each department in `departments-data.js` and rendered it dynamically on the Departments page. |
+| 6.2 | 2026-06-12 | Auto-Scroll & Entry Transition | Added a 3-second timeout scroll animation to smoothly scroll to the resources section on page load, synchronizing a CSS keyframe fade-in entry transition as the content enters the viewport. |
+| 6.3 | 2026-06-12 | Button Relocations & Tooltip Optimizations | Relocated "Open Full Drive" to sit under the Course Materials heading. Added a scroll-triggered bottom viewport-fixed note archive tooltip with fade animations. Optimized departmental buttons layout to display side-by-side and contract dynamically to "Info" and "Qbank" on mobile viewports. |
 
 ---
 
