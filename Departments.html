@@ -444,9 +444,11 @@
             display: flex;
             gap: 1rem;
             width: 100%;
+            justify-content: center;
         }
         .dept-buttons-row .info-btn-wrapper {
             flex: 1;
+            max-width: 240px;
             margin: 0;
         }
         .btn-text-mobile {
@@ -465,35 +467,47 @@
             .dept-buttons-row {
                 gap: 0.5rem;
             }
+            .dept-buttons-row .info-btn-wrapper {
+                max-width: 180px;
+            }
             .info-btn-wrapper .drive-btn {
                 padding: 0.85rem 0.5rem;
                 font-size: 0.9rem;
             }
         }
 
-        /* Bottom Tooltip */
-        .bottom-tooltip {
-            position: fixed;
-            bottom: 20px;
+        /* Drive Tooltip */
+        .drive-tooltip {
+            position: absolute;
+            top: calc(100% + 10px);
             left: 50%;
-            transform: translate(-50%, 50px);
+            transform: translate(-50%, -10px);
             background-color: #d7d5c4;
             color: black;
-            padding: 10px 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            padding: 8px 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             font-weight: bold;
-            border-radius: 10px;
-            font-size: 11px;
-            z-index: 9999;
+            border-radius: 8px;
+            font-size: 10px;
+            z-index: 100;
             opacity: 0;
-            transition: opacity 0.5s ease, transform 0.5s ease;
+            transition: opacity 0.4s ease, transform 0.4s ease;
             pointer-events: none;
-            text-align: center;
             white-space: nowrap;
         }
-        .bottom-tooltip.show {
+        .drive-tooltip.show {
             opacity: 1;
             transform: translate(-50%, 0);
+        }
+        .drive-tooltip::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: transparent transparent #d7d5c4 transparent;
         }
     </style>
 </head>
@@ -602,9 +616,6 @@
     <a href="index.html" class="mobile-home-btn" aria-label="Go to Home">
         <i class="fas fa-home"></i>
     </a>
-
-    <!-- Scroll-triggered Bottom Tooltip -->
-    <div id="bottom-tooltip" class="bottom-tooltip">refer to "Others" folder for Note Archive</div>
 
     <script src="js/departments-data.js"></script>
     <script src="js/departments.js"></script>

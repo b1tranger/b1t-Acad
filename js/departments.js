@@ -254,10 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <section id="courses" class="content-section" style="min-height: auto; margin-top: -1.9rem;">
         <h2 style="text-align: center; margin-bottom: 30px;">Course Materials</h2>
-        <div style="display: flex; justify-content: center; margin-bottom: 30px;">
+        <div style="display: flex; justify-content: center; margin-bottom: 30px; position: relative;" id="drive-btn-container">
           <a href="${semData.drive_link}" target="_blank" class="drive-btn" style="margin-top: 0;">
             <i class="fa-brands fa-google-drive"></i>&nbsp; Open Full Drive
           </a>
+          <div id="drive-tooltip" class="drive-tooltip">refer to "Others" folder for Note Archive</div>
         </div>
         <div class="course-card-container">
     `;
@@ -305,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (tooltipTimeout1) clearTimeout(tooltipTimeout1);
     if (tooltipTimeout2) clearTimeout(tooltipTimeout2);
 
-    const tooltipEl = document.getElementById('bottom-tooltip');
+    const tooltipEl = document.getElementById('drive-tooltip');
     if (tooltipEl) {
       tooltipEl.classList.remove('show');
     }
