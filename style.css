@@ -535,7 +535,7 @@ body {
 
 /* Alternate background colors for sections to distinguish them */
 .content-section:nth-of-type(even) {
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
 }
 
 
@@ -3350,7 +3350,8 @@ now Browse Curated Resources*/
   transform: none;
 }
 
-.page-indicator, .zoom-indicator {
+.page-indicator,
+.zoom-indicator {
   font-size: 0.9rem;
   color: var(--text-content);
   padding: 0 4px;
@@ -3504,7 +3505,7 @@ now Browse Curated Resources*/
   background: #f5f5f5;
 }
 
-[data-theme="gray"] .page-indicator, 
+[data-theme="gray"] .page-indicator,
 [data-theme="gray"] .zoom-indicator {
   color: #333;
 }
@@ -3574,6 +3575,7 @@ now Browse Curated Resources*/
   .academic-calendar-container {
     display: none !important;
   }
+
   .academic-calendar-mobile {
     display: block !important;
   }
@@ -3602,4 +3604,4 @@ now Browse Curated Resources*/
 
 [data-theme="gray"] .mobile-download-btn {
   color: #fff !important;
-}
+}

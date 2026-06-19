@@ -68,6 +68,38 @@ We welcome contributions of all forms!
 | **Facebook** | [Join Group](https://facebook.com/groups/1074592960836263/) |
 | **GitHub** | [@oU1TS](https://github.com/oU1TS) |
 
+## 👥 Credits & Contributors
+
+This project was made possible by the invaluable contributions and support from the following individuals and services.
+
+### UITS Contributors
+
+- **Akib Reza** | Advisor, Contributor | [facebook](https://www.facebook.com/alpha.akibx), [github](https://github.com/AkibReza), [linkedin](https://www.linkedin.com/in/akib-reza-893061352/)
+- **Ashrafuzzaman Sohan** | Guide, Suggested File Structure, UI Decisions, Management | [UITS](https://uits.edu.bd/library-personnel/)
+- **Fahad Rahman** | Contributed Premium Content | [facebook](https://www.facebook.com/fahad.rahamn69)
+- **Jobair Ahammed Tusher** | Advisor, Contributor of Initial Resources | [UITS](https://uits.edu.bd/faculty-members-of-cse/), [linkedin](https://bd.linkedin.com/in/jobairahammed)
+- **Kazi Md. Azhar Uddin Abeer** | Showed Netlify hosting, set "ouits-res.netlify.app" | [website](https://4xrhd.rf.gd/?i=1), [github](https://github.com/4xrhd)
+- **Md Kamruzzaman Shishir** | Guide, Collaborator, Helped with Redesign | [website](https://mkshishir.pages.dev/), [facebook](https://www.facebook.com/muhammad.shishir.75), [github](https://github.com/MuhammadShishir), [linkedin](https://www.linkedin.com/in/md-kamruzzaman-shishir/)
+- **Md. Muhaiminul Islam (Maheem)** | Advisor, Contributor | [facebook](https://www.facebook.com/muhaiminul.islam.103772), [github](https://github.com/Maheem0)
+- **Mr. Al-Imtiaz** | Advisor, Suggested Redesign | [UITS](https://uits.edu.bd/faculty-members-of-cse/)
+- **Mrinmoy Biswas Akash** | Advisor, Contributor | [UITS](https://uits.edu.bd/faculty-members-of-cse/), [github](https://github.com/mrinmoy29a), [linkedin](https://www.linkedin.com/in/mrinmoy-biswas-230b9b72/)
+- **Sabbir Howlader** | Suggested Current File Structure | [UITS](https://uits.edu.bd/faculty-members-of-cse/)
+- **Saima Siddique Tashfia** | Advisor, Suggested Features and Improvements | [UITS](https://uits.edu.bd/faculty-members-of-cse/), [linkedin](https://www.linkedin.com/in/saima-siddique-tashfia-ce022/)
+- **Selim Reza** | Critic, Advisor, Contributor | [facebook](https://www.facebook.com/srreza1999), [github](https://github.com/selim-reza-UITS), [linkedin](https://www.linkedin.com/in/selim-reza-a38a37318)
+- **Masud Ur Rahman** | Contributor, Provided Gemini Pro | [facebook](https://www.facebook.com/Shoytanbaba99), [github](https://github.com/Shoytanbaba99)
+
+### Friends & Collaborators
+
+- **cristal** | Major Collaborator | [github](https://github.com/cristal-node)
+- **MD SajidHasan** | Critic, Contributor | [facebook](https://www.facebook.com/md.sajidhasan.94402)
+- **Shabib Ahmed** | Critic, Suggested background graphics | [facebook](https://www.facebook.com/shabib.shabib.735)
+
+### AI Assistance
+
+- **Google Gemini** | This Credit section
+- **OpenAI ChatGPT** | Learning and Debugging
+- **Anthropic Claude** | Semester Selector, and FAQ Drop Down
+
 ## ⚖️ License
 
 Distributed under the **Apache 2.0 License**. See `LICENSE` for more information.
