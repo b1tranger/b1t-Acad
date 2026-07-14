@@ -7,7 +7,7 @@ const departmentsData = {
             "S01": {
                 "title": "Semester 01",
                 "drive_link": "https://drive.google.com/drive/folders/1_eLOFtG7cHJFxaIbNwysFecQFxPNE-_4?usp=drive_link",
-                "syllabus_image": "images/Course-lists/CSE/S01 Course List.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1784046308/1_wlzfr8.webp",
                 "courses": [
                     { "title": "SPL", "code": "CSE0613111/112", "link": "https://drive.google.com/drive/folders/1nSuCFox1x5rz02HhS0Gfu35b7W74k27x?usp=drive_link", "icon": "fa-code" },
                     { "title": "D & IC", "code": "MATH0541111", "link": "https://drive.google.com/drive/folders/18Tv2KPjLAdIPOBv998lwvs28Y17dXRLE?usp=drive_link", "icon": "fa-calculator" },
@@ -19,7 +19,7 @@ const departmentsData = {
             "S02": {
                 "title": "Semester 02",
                 "drive_link": "https://drive.google.com/drive/folders/1_bke5c5MMU2yEUCq1zhKyN9ARvaVhBwc?usp=drive_link",
-                "syllabus_image": "images/Course-lists/CSE/S02 Course List.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1784046308/2_i8u1eu.webp",
                 "courses": [
                     { "title": "OOP", "code": "CSE0613121/122", "link": "https://drive.google.com/drive/folders/1HHBBJDZDZ4IKwAzf9vKjfty97Uw4FjW6?usp=drive_link", "icon": "fa-laptop-code" },
                     { "title": "Discrete Math", "code": "CSE0541123", "link": "https://drive.google.com/drive/folders/15DOOPBwkSfuimrrREW45jVcevx07-8nu?usp=drive_link", "icon": "fa-calculator" },
@@ -33,7 +33,7 @@ const departmentsData = {
             "S03": {
                 "title": "Semester 03",
                 "drive_link": "https://drive.google.com/drive/folders/1a-v05klj706PZbL-YjWx3LSTs3Q7kvSB?usp=drive_link",
-                "syllabus_image": "images/Course-lists/CSE/S03 Course List.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1784046309/3_aq7j6k.webp",
                 "courses": [
                     { "title": "DSA 1", "code": "CSE0613211/212", "link": "https://drive.google.com/drive/folders/1pmKWdksSPezGZdPct2gAydYctKFJMvpI?usp=drive_link", "icon": "fa-sitemap" },
                     { "title": "DLD", "code": "CSE0611215/216", "link": "https://drive.google.com/drive/folders/11rhTTRViSz-mhOVCV0uwtDgBimN5GO8B?usp=drive_link", "icon": "fa-microchip" },
@@ -46,7 +46,7 @@ const departmentsData = {
             "S04": {
                 "title": "Semester 04",
                 "drive_link": "https://drive.google.com/drive/folders/1_ihH9qW1qBSPKn_cHzf6w6cRUcYEE3Zr?usp=drive_link",
-                "syllabus_image": "images/Course-lists/CSE/S04 Course List.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1784046309/4_t7rvy6.webp",
                 "courses": [
                     { "title": "See Others Folder", "code": "(Where I keep \"other\" files)", "link": "https://drive.google.com/drive/folders/1mdtRWcDmyHuWC39p9okWfEHkfqTmsdvQ?usp=drive_link", "icon": "fa-folder-open", "isSpecial": true },
                     { "title": "DSA 2", "code": "CSE251/252", "link": "https://drive.google.com/drive/folders/1ZR__njpWSwOeJNhgX1t5eWrIzfmoO0fI?usp=drive_link", "icon": "fa-sitemap" },
@@ -60,7 +60,7 @@ const departmentsData = {
             "S05": {
                 "title": "Semester 05",
                 "drive_link": "https://drive.google.com/drive/folders/1_fx4sCES5sL1YeWEI0cSQd850j6Zhkre?usp=drive_link",
-                "syllabus_image": "images/Course-lists/CSE/S05 Course List.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1784046310/5_qsov0v.webp",
                 "courses": [
                     { "title": "AI", "code": "CSE311/312", "link": "https://drive.google.com/drive/folders/1j1Os8LHGAgfOl1gbJjiqWWy05kmsk4Mk?usp=drive_link", "icon": "fa-brain" },
                     { "title": "CN", "code": "CSE313/314", "link": "https://drive.google.com/drive/folders/1ziNG4HDSQVDz0gR8qU1OMbtVW8EPeVRM?usp=drive_link", "icon": "fa-network-wired" },
@@ -75,7 +75,7 @@ const departmentsData = {
             "S06": {
                 "title": "Semester 06",
                 "drive_link": "https://drive.google.com/drive/folders/1_jlvvJXUVnh0HDQp4VR-xhYtTHryj20C?usp=drive_link",
-                "syllabus_image": "images/Course-lists/CSE/S06 Course List.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1784046308/6_ytt6jl.webp",
                 "courses": [
                     { "title": "Compiler", "code": "CSE351/352", "link": "https://drive.google.com/drive/folders/1nPDQAnm5fQVTLOxGP7NqCOcSwGGd3Bem?usp=drive_link", "icon": "fa-file-code" },
                     { "title": "Software Eng.", "code": "CSE355/356", "link": "https://drive.google.com/drive/folders/1Sk3cJwYA0slESsWxa0Xvllerh40iTP-1?usp=drive_link", "icon": "fa-cogs" },
@@ -87,7 +87,7 @@ const departmentsData = {
             "S07": {
                 "title": "Semester 07",
                 "drive_link": "https://drive.google.com/drive/folders/1_hTSpADeXWoHnm90pzbsO7lpZQKAlHkb?usp=drive_link",
-                "syllabus_image": "images/Course-lists/CSE/S07 Course List.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1784046309/7_wla6fh.webp",
                 "courses": [
                     { "title": "Sim & Modeling", "code": "CSE413", "link": "https://drive.google.com/drive/folders/1C8j93IMJ7U6zUANlAH2nUeLhE12j5PYi?usp=drive_link", "icon": "fa-chart-area" },
                     { "title": "Research", "code": "CSE418", "link": "https://drive.google.com/drive/folders/1HrgdXqI1i0iN6Wrh1JIWa7NUyTpeL30P?usp=drive_link", "icon": "fa-book-open" },
@@ -102,7 +102,7 @@ const departmentsData = {
             "S08": {
                 "title": "Semester 08",
                 "drive_link": "https://drive.google.com/drive/folders/1_cWZ_73eWMo4n_WK_DWPlQMoGxTRQWk2?usp=drive_link",
-                "syllabus_image": "images/Course-lists/CSE/S08 Course List.webp",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1784046308/8_m9v3x8.webp",
                 "courses": [
                     { "title": "Ethics", "code": "CSE459", "link": "https://drive.google.com/drive/folders/1cNlANirFZYtjIYm4utSZ5-4W7ZzadO65?usp=drive_link", "icon": "fa-balance-scale" },
                     { "title": "Tech Writing", "code": "CSE492", "link": "https://drive.google.com/drive/folders/1Xke8qu1dpd-rFvKjkUch8svzKZphTw88?usp=drive_link", "icon": "fa-pen-fancy" },
