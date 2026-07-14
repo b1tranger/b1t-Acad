@@ -77,11 +77,13 @@ const departmentsData = {
                 "drive_link": "https://drive.google.com/drive/folders/1_jlvvJXUVnh0HDQp4VR-xhYtTHryj20C?usp=drive_link",
                 "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1784046308/6_ytt6jl.webp",
                 "courses": [
-                    { "title": "Compiler", "code": "CSE351/352", "link": "https://drive.google.com/drive/folders/1nPDQAnm5fQVTLOxGP7NqCOcSwGGd3Bem?usp=drive_link", "icon": "fa-file-code" },
-                    { "title": "Software Eng.", "code": "CSE355/356", "link": "https://drive.google.com/drive/folders/1Sk3cJwYA0slESsWxa0Xvllerh40iTP-1?usp=drive_link", "icon": "fa-cogs" },
-                    { "title": "Graphics", "code": "CSE357/358", "link": "https://drive.google.com/drive/folders/138zkPmC6GXxJOPXdUb3zj4-tdqIT_ix9?usp=drive_link", "icon": "fa-image" },
-                    { "title": "Microprocessors", "code": "CSE359/360", "link": "https://drive.google.com/drive/folders/1snMh8qTLGLy5eqR5FBTVFhDAJYNITBqu?usp=drive_link", "icon": "fa-memory" },
-                    { "title": "I&OM", "code": "GED 115", "link": "https://drive.google.com/drive/folders/1YstV74bC9Vy9VAkfCTpqILzA0jL2DYXd?usp=drive_link", "icon": "fa-briefcase" }
+                    { "title": "Compiler", "code": "CSE0613321/0613322 CSE351/352", "link": "https://drive.google.com/drive/folders/1nPDQAnm5fQVTLOxGP7NqCOcSwGGd3Bem?usp=drive_link", "icon": "fa-file-code" },
+                    { "title": "Cyber Security", "code": "CSE0612325/CSE0612326", "link": "https://drive.google.com/drive/folders/1Lxqop0-uosG8IrlAvqy7yRpj5eFgTAM-?usp=drive_link", "icon": "fa-classic fa-solid fa-fingerprint" },
+                    // { "title": "Software Eng.", "code": "CSE355/356", "link": "https://drive.google.com/drive/folders/1Sk3cJwYA0slESsWxa0Xvllerh40iTP-1?usp=drive_link", "icon": "fa-cogs" },
+                    { "title": "Graphics", "code": "CSE0611327/CSE0611328 CSE357/358", "link": "https://drive.google.com/drive/folders/138zkPmC6GXxJOPXdUb3zj4-tdqIT_ix9?usp=drive_link", "icon": "fa-image" },
+                    { "title": "Microprocessors", "code": "CSE0611323/CSE0611324 CSE359/360", "link": "https://drive.google.com/drive/folders/1snMh8qTLGLy5eqR5FBTVFhDAJYNITBqu?usp=drive_link", "icon": "fa-memory" },
+                    // { "title": "I&OM", "code": "GED 115", "link": "https://drive.google.com/drive/folders/1YstV74bC9Vy9VAkfCTpqILzA0jL2DYXd?usp=drive_link", "icon": "fa-briefcase" },
+                    { "title": "ML", "code": "CSE0611431/CSE0611432 CSE431/432", "link": "https://drive.google.com/drive/folders/1Hvv28jl20e9olD0ToWbsVkG5Cj3dnJog?usp=drive_link", "icon": "fa-robot" }
                 ]
             },
             "S07": {
