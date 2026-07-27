@@ -33,7 +33,7 @@ b1t Academics is an unofficial resource centralization platform for UITS univers
 - **PWA Capabilities** - Installable Progressive Web App with offline caching strategies and smart notifications.
 - **Smart Notification System** - LocalStorage-based polling that triggers a consolidated browser alert for new submissions without spam.
 - **Recent Submissions Drawer** - A sleek, dark-themed panel for quickly reviewing the 10 most recent uploads across both Questions and Notes. Now features live-refresh capabilities and precise timestamp-based sorting.
-- **Anon File Sharing** - An integrated modal experience for anonymously uploading files (up to 200MB) via `Catbox.moe` and `Tmpfiles.org` temporary links, and sharing those links to the community directly through the platform.
+- **Anon File Sharing** - An integrated modal experience for anonymously uploading files (up to 200MB) via temporary file links, featuring `File.io` and `LocalSend` fallback/alternative options, and sharing those links to the community directly through the platform.
 - **Notices System** - Easy viewing of official University notices with dynamic PDF viewer integration.
 - **Academic Calendar 2026 Viewer** - An inline PDF renderer utilizing PDF.js. Integrated into the general info section, it offers customized page scrolling, fit-to-width, zoom controls (drawing onto canvas scroll windows), a collapsible controls toolbar, and a bottom-right floating action download button. Automatically handles `file://` local protocol restrictions or load failures with a clean direct-open fallback layout.
 - **Support & Mentorship Integration** - Embedded SupportKori widget and persistent floating action buttons to seamlessly book 1-on-1 Academic Support & CSE Mentorship sessions or donate directly through the platform.
@@ -249,7 +249,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 6.1 | 2026-06-12 | Semester URL Parameter & Department QBank Links | Added support for parsing and dynamically updating the selected semester in the URL parameters (e.g. `?dept=CSE&sem=5`). Added a "Question Bank" link button configuration for each department in `departments-data.js` and rendered it dynamically on the Departments page. |
 | 6.2 | 2026-06-12 | Auto-Scroll & Entry Transition | Added a 3-second timeout scroll animation to smoothly scroll to the resources section on page load, synchronizing a CSS keyframe fade-in entry transition as the content enters the viewport. |
 | 6.3 | 2026-06-12 | Button Relocations & Tooltip Optimizations | Relocated "Open Full Drive" to sit under the Course Materials heading. Added a scroll-triggered note archive tooltip positioned relatively below the drive button. Optimized departmental buttons to center at a fixed size when single, display side-by-side when paired, and contract to "Info" and "Qbank" on mobile viewports. |
-| 6.4 | 2026-07-28 | Anon File Sharing Form & Sheet Update | Updated Google Form link and response sheet CSV data source for the Anonymous File Sharing module in `anon-share.js`. |
+| 6.4 | 2026-07-28 | Anon File Sharing Form, Sheet & LocalSend Update | Updated Google Form link and response sheet CSV data source in `anon-share.js`. Added LocalSend (`https://localsend.org/`) as an alternative backup option in the upload instructions and fallback dialogs in `index.html`. |
 
 ---
 
