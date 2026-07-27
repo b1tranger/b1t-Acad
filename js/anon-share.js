@@ -5,7 +5,7 @@
 
 const AnonShareManager = {
     UPLOAD_TIMEOUT: 20000,
-    NOTES_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTkfeqBsTm77yzgxPzjwcRNXEzTwjwfY-boa81xysBvyJFoaWwC0hJS2ORiirEwmdbIHtFpM_44I5UC/pub?output=csv',
+    NOTES_CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQMau0BVVvJHxP3z3OAmXVN-MAMJChLaY3rH6zCzT7wLL7ek-u7_Y4TaKLBxJB4-gy921BI527W8g3s/pub?output=csv',
 
     // Column indices for Anon Share Form
     N_COL_TIMESTAMP: 0,
@@ -498,7 +498,7 @@ const AnonShareManager = {
                 btn.innerHTML = originalHTML;
                 btn.style.background = ''; // reset
                 // Redirect user to blank form to paste
-                window.open('https://forms.gle/zouhKqXSh8MaLFKf7', '_blank');
+                window.open('https://forms.gle/HczmosAXoEBx8tm78', '_blank');
                 this.closeAllModals();
                 textarea.value = ''; // clear upon success
             }, 1500);
@@ -506,7 +506,7 @@ const AnonShareManager = {
             console.error('Clipboard error:', err);
             // Fallback: Just open the form and let them copy manually if API fails
             alert('Your browser blocked clipboard access. Please manually select and copy your text before clicking OK.');
-            window.open('https://forms.gle/zouhKqXSh8MaLFKf7', '_blank');
+            window.open('https://forms.gle/HczmosAXoEBx8tm78', '_blank');
         });
     }
 };

@@ -249,6 +249,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 6.1 | 2026-06-12 | Semester URL Parameter & Department QBank Links | Added support for parsing and dynamically updating the selected semester in the URL parameters (e.g. `?dept=CSE&sem=5`). Added a "Question Bank" link button configuration for each department in `departments-data.js` and rendered it dynamically on the Departments page. |
 | 6.2 | 2026-06-12 | Auto-Scroll & Entry Transition | Added a 3-second timeout scroll animation to smoothly scroll to the resources section on page load, synchronizing a CSS keyframe fade-in entry transition as the content enters the viewport. |
 | 6.3 | 2026-06-12 | Button Relocations & Tooltip Optimizations | Relocated "Open Full Drive" to sit under the Course Materials heading. Added a scroll-triggered note archive tooltip positioned relatively below the drive button. Optimized departmental buttons to center at a fixed size when single, display side-by-side when paired, and contract to "Info" and "Qbank" on mobile viewports. |
+| 6.4 | 2026-07-28 | Anon File Sharing Form & Sheet Update | Updated Google Form link and response sheet CSV data source for the Anonymous File Sharing module in `anon-share.js`. |
 
 ---
 
