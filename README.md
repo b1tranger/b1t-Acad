@@ -84,7 +84,7 @@ This project was made possible by the invaluable contributions and support from 
 - **Mr. Al-Imtiaz** | Advisor, Suggested Redesign | [UITS](https://uits.edu.bd/faculty-members-of-cse/)
 - **Mrinmoy Biswas Akash** | Advisor, Contributor | [UITS](https://uits.edu.bd/faculty-members-of-cse/), [github](https://github.com/mrinmoy29a), [linkedin](https://www.linkedin.com/in/mrinmoy-biswas-230b9b72/)
 - **Sabbir Howlader** | Suggested Current File Structure | [UITS](https://uits.edu.bd/faculty-members-of-cse/)
-- **Saima Siddique Tashfia** | Advisor, Suggested Features and Improvements | [UITS](https://uits.edu.bd/faculty-members-of-cse/), [linkedin](https://www.linkedin.com/in/saima-siddique-tashfia-ce022/)
+- **Saima Siddique Tashfia** | Advisor, Suggested Features and Improvements | [UITS](https://uits.edu.bd/faculty-members-of-cse/), [linkedin](https://www.linkedin.com/in/saima-siddique-tashfia-ce022/), [github](https://github.com/saimasiddique)
 - **Selim Reza** | Critic, Advisor, Contributor | [facebook](https://www.facebook.com/srreza1999), [github](https://github.com/selim-reza-UITS), [linkedin](https://www.linkedin.com/in/selim-reza-a38a37318)
 - **Masud Ur Rahman** | Contributor, Provided Gemini Pro | [facebook](https://www.facebook.com/Shoytanbaba99), [github](https://github.com/Shoytanbaba99)
 
