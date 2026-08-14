@@ -155,7 +155,7 @@ b1t-Acad/
 ### 3. `js/departments*.js`
 **Purpose:** Parses the structure of the Google Drive query banks and controls resources layout.
 - `departments-data.js`: Holds static definitions and mappings mapping department IDs to their Google Drive folder strings and course structures.
-- `departments.js`: Contains UI DOM manipulation logic to populate custom dropdown selectors, handle redirect navigation, render course lists, manage the display of the persistent "Departmental Info" button, and dynamically update/parse department and semester query parameters (`?dept=...&sem=...`) to allow direct linking and sharing. Also automatically scrolls smoothly to `#semester-content` after 3 seconds on initial page load if semesters are available, synchronizing a CSS fade-in transition as the content enters the viewport.
+- `departments.js`: Contains UI DOM manipulation logic to populate custom dropdown selectors, handle redirect navigation, render course lists, manage the display of the persistent "Departmental Info" button, and dynamically update/parse department and semester query parameters (`?dept=...&sem=...`) to allow direct linking and sharing. Also automatically scrolls smoothly to `#semester-content` after page load if semesters are available, synchronizing a CSS fade-in transition as the content enters the viewport, while cancelling the auto scroll-snap if the user interacts with the page before the transition is triggered.
 
 ### 4. `js/theme.js`
 **Purpose:** Dark/Light mode preferences.
@@ -250,6 +250,7 @@ Since the site uses Google Sheets instead of a server push database, a custom po
 | 6.2 | 2026-06-12 | Auto-Scroll & Entry Transition | Added a 3-second timeout scroll animation to smoothly scroll to the resources section on page load, synchronizing a CSS keyframe fade-in entry transition as the content enters the viewport. |
 | 6.3 | 2026-06-12 | Button Relocations & Tooltip Optimizations | Relocated "Open Full Drive" to sit under the Course Materials heading. Added a scroll-triggered note archive tooltip positioned relatively below the drive button. Optimized departmental buttons to center at a fixed size when single, display side-by-side when paired, and contract to "Info" and "Qbank" on mobile viewports. |
 | 6.4 | 2026-07-28 | Anon File Sharing Form, Sheet & LocalSend Update | Updated Google Form link and response sheet CSV data source in `anon-share.js`. Added LocalSend (`https://localsend.org/`) as an alternative backup option in the upload instructions and fallback dialogs in `index.html`. |
+| 6.5 | 2026-08-14 | Interactive Auto Scroll-Snap | Updated auto scroll-snap in `js/departments.js` to cancel the automatic transition if the user interacts with the page (scroll, touch, click, key press) before the timeout expires, while ensuring entry fade-in transition triggers seamlessly. |
 
 ---
 

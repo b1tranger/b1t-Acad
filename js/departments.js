@@ -189,20 +189,54 @@ document.addEventListener('DOMContentLoaded', () => {
   // Load initially selected semester (keep opacity 0 initially on page load)
   loadSemester(initialSem, false);
 
-  // Scroll to semester content after 3 seconds if department has semesters
+  // Scroll to semester content after 5 seconds if department has semesters and user hasn't interacted
   if (semesters.length > 0) {
-    setTimeout(() => {
-      const contentEl = document.getElementById('semester-content');
-      if (contentEl) {
-        contentEl.scrollIntoView({ behavior: 'smooth' });
-      }
+    let autoScrollTimer = null;
+    let hasInteracted = false;
 
-      // Trigger the fade-in animation
+    const triggerFadeIn = () => {
       const wrapperEl = document.getElementById('semester-content-wrapper');
       if (wrapperEl) {
         wrapperEl.classList.add('semester-fade-in');
       }
-    }, 1000);
+    };
+
+    const handleUserInteraction = () => {
+      if (hasInteracted) return;
+      hasInteracted = true;
+
+      if (autoScrollTimer) {
+        clearTimeout(autoScrollTimer);
+        autoScrollTimer = null;
+      }
+
+      removeInteractionListeners();
+      // Ensure content is visible if user interacts before auto-scroll
+      triggerFadeIn();
+    };
+
+    const interactionEvents = ['wheel', 'touchstart', 'touchmove', 'keydown', 'mousedown', 'pointerdown'];
+
+    const removeInteractionListeners = () => {
+      interactionEvents.forEach(event => {
+        window.removeEventListener(event, handleUserInteraction, { capture: true });
+      });
+    };
+
+    interactionEvents.forEach(event => {
+      window.addEventListener(event, handleUserInteraction, { capture: true, passive: true });
+    });
+
+    autoScrollTimer = setTimeout(() => {
+      removeInteractionListeners();
+      if (!hasInteracted) {
+        const contentEl = document.getElementById('semester-content');
+        if (contentEl) {
+          contentEl.scrollIntoView({ behavior: 'smooth' });
+        }
+        triggerFadeIn();
+      }
+    }, 3000);
   }
 
 
