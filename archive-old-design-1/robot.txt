@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://ouits-res.netlify.app/sitemap.xml

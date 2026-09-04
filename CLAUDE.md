@@ -15,6 +15,10 @@
   - After **EVERY SINGLE** chat prompt-response cycle, you MUST update the session's comprehensive conversation archive (`doc/prompts/<Prefix>. <Session Title>.md`) by appending the new turn contents to it.
   - **DO NOT** create a new file for each individual prompt turn (avoid creating fragmented files like `<Prefix>.3`, `<Prefix>.4`, `<Prefix>.5`, etc.).
   - Append the current turn's verbatim user request, internal thinking (`### Thinking`), and final response (`### AI Response`) directly to the end of the session archive file, separated by horizontal rules (`---`).
+- **Session Continuity & Updating Past Archives**:
+  - Whenever an existing conversation or chat thread is continued, resumed, or revisited, you MUST locate and update the corresponding existing archive in `doc/prompts/<Prefix>. <Session Title>.md` by appending the new turns directly to it.
+  - **DO NOT** create a new major sequence number or split an ongoing dialogue across multiple files when resuming or updating an existing chat.
+  - If a past archive file was missed or is missing earlier turns from the current conversation, retroactively synchronize and append all missing turns so that the file contains the complete, uninterrupted history.
 - **Fractional Suffixes Reserved for Plans & Walkthroughs Only**:
   - Minor/fractional prefixes (e.g., `<Prefix>.1`, `<Prefix>.2`, etc.) are reserved **exclusively** for companion implementation plans and walkthroughs:
     - Primary chat session: `doc/prompts/<Prefix>. <Session Title>.md` (contains all turns sequentially)
@@ -28,6 +32,7 @@
 - **Target Location**: All prompt, plan, and walkthrough records reside in the [`doc/prompts`](doc/prompts) directory.
 - **Prefix Sequencing Strategy**:
   - Inspect existing files in `doc/prompts/` to identify the current major sequence integer (e.g. `1.`, `2.`, etc.).
+  - Increment the sequence integer ONLY when starting an entirely distinct, new conversation session that does not belong to a pre-existing thread.
   - Keep all conversation turns for that session inside the main file `doc/prompts/<Prefix>. <Session Title>.md`.
 - **Chat Archive Fidelity**:
   - Reproduce the conversation exactly as the source (user request blocks verbatim).
