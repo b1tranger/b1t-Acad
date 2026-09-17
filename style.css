@@ -408,7 +408,9 @@
     right: 20px;
     /* Keep it in the corner */
     top: 20px;
+  }
 }
+/* End @media (max-width: 768px) — mobile floating elements */
 
 /* --- Hanging Droplet Micro-Animation --- */
 @keyframes hang-droplet {

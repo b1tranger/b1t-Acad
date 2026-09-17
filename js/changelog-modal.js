@@ -6,13 +6,25 @@
 
 // Embedded fallback data ensuring the modal ALWAYS opens even on file:// protocol or offline
 const CHANGELOG_DATA_FALLBACK = {
-  "currentVersion": "v8.4",
+  "currentVersion": "v8.5",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v8.4",
+      "version": "v8.5",
       "badge": "Latest",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "Bug Fix",
+          "title": "Desktop Screen Size CSS Restoration & Media Query Scoping",
+          "description": "Resolved critical styling failure on desktop screens caused by an unclosed @media (max-width: 768px) block in style.css. The missing closing brace after #theme-toggle inadvertently trapped over 4,500 lines of core styling (including html layout, universal custom matte scrollbars, body flex centering, typography, and desktop components) inside the mobile-only query, causing browsers to ignore desktop styles entirely."
+        }
+      ]
+    },
+    {
+      "version": "v8.4",
+      "badge": "UI/UX",
       "date": "18.09.26",
       "changes": [
         {

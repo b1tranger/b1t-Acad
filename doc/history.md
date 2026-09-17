@@ -3,6 +3,11 @@ tags: changelog, history, updates, logs, archive, agent-rules, guidelines, promp
 -->
 
 # 18.09.26
+- **Desktop Screen Size CSS Restoration & Media Query Scoping (`style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`, `index.html`)**:
+  - Diagnosed root cause of desktop styling failure: an unclosed `@media (max-width: 768px)` block at [`style.css:L335-L412`](style.css#L335-L412) was missing its closing brace after `#theme-toggle`, inadvertently capturing over 4,500 lines of subsequent core styles (including `html`, custom matte scrollbars, `body` flex centering, typography, sections, and desktop components) inside the mobile-only media query.
+  - Added the missing closing brace `}` and delimiter comment (`/* End @media (max-width: 768px) — mobile floating elements */`) at [`style.css:L412-L413`](style.css#L412-L413), restoring balanced CSS nesting depth (`Final depth: 0`) and ensuring all global and desktop rules are correctly applied on viewports $> 768\text{px}$.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.5'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
 - **Mobile Scheduler Nav Drawer Item — Revised Plan (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
   - Revised mobile b1t Scheduler button strategy: instead of hanging `#floating-button` as a pendulum near `#theme-toggle`, it is now hidden entirely on mobile (`display: none !important;`) and replaced by a new `<li class="mobile-scheduler-nav-item">` inside the sliding nav drawer, positioned directly **above** `.mobile-support-nav-item` (Coffee button).
   - Added `.mobile-scheduler-nav-item` CSS: `display: list-item !important;` on `@media (max-width: 768px)`, `display: none !important;` on `@media (min-width: 769px)`. Styled as a pill button with `float 3s ease-in-out infinite` animation, hover pause, and smooth transitions consistent with the drawer aesthetic.
