@@ -198,13 +198,72 @@
   }
 }
 
-/* --- Smooth Scrolling Behavior --- */
+/* --- Smooth Scrolling Behavior & Layout Stability --- */
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
   /* Offset for fixed nav to prevent content from being hidden */
+  scrollbar-gutter: stable;
+  overflow-y: scroll;
 }
 
+/* --- Universal Custom Matte Scrollbars --- */
+/* Standard syntax (Firefox and standard CSS) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #383d4a rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="gray"] * {
+  scrollbar-color: #aeb4c0 rgba(0, 0, 0, 0.05);
+}
+
+/* WebKit / Chromium Browsers (Chrome, Edge, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #14151e;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #343948;
+  border-radius: 6px;
+  border: 2px solid #14151e; /* Refined matte inset border */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4a5166;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #5b647c;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Light / Gray Theme Matte Scrollbars */
+[data-theme="gray"] ::-webkit-scrollbar-track {
+  background: #ebeef2;
+}
+
+[data-theme="gray"] ::-webkit-scrollbar-thumb {
+  background: #aeb4c0;
+  border: 2px solid #ebeef2;
+}
+
+[data-theme="gray"] ::-webkit-scrollbar-thumb:hover {
+  background: #8e95a3;
+}
+
+[data-theme="gray"] ::-webkit-scrollbar-thumb:active {
+  background: #717887;
+}
 
 * {
   margin: 0;
@@ -1725,6 +1784,8 @@ body.no-scroll {
     transition: transform 0.3s ease-in-out;
     transform: translateX(-100%);
     /* Start off-screen to the left */
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   /* State for when the menu is open */
@@ -3605,3 +3666,91 @@ now Browse Curated Resources*/
 [data-theme="gray"] .mobile-download-btn {
   color: #fff !important;
 }
+
+/* ======================================================= */
+/* Highlighted Action Button (oU1TS Portal) */
+/* ======================================================= */
+.ou1ts-portal-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--accent-color), #0056b3);
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+  border: 2px solid transparent;
+  max-width: 90%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.ou1ts-portal-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.6);
+  background: linear-gradient(135deg, #0056b3, var(--accent-color));
+  animation-play-state: paused;
+}
+
+[data-theme="gray"] .ou1ts-portal-btn {
+  background: linear-gradient(135deg, #2c3e50, #1a252f);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="gray"] .ou1ts-portal-btn:hover {
+  background: linear-gradient(135deg, #1a252f, #2c3e50);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* ======================================================= */
+/* Club Modal Circular Close Button */
+/* ======================================================= */
+.club-modal-close-btn {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: var(--secondary-color) !important;
+  border: 2px solid var(--border-color) !important;
+  color: var(--text-color) !important;
+  font-size: 0.95rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+  z-index: 20 !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+  transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease !important;
+}
+
+.club-modal-close-btn:hover {
+  transform: scale(1.12) !important;
+  border-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+}
+
+@media (max-width: 480px) {
+  .club-modal-close-btn {
+    top: -10px !important;
+    right: -10px !important;
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    font-size: 0.85rem !important;
+  }
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delayed Visitor Counter (Archived)</title>
+  <!-- FontAwesome for the badge eye icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="demo-card">
+    <h2>Delayed Visitor Counter</h2>
+    <p class="description">
+      Standalone archive of the text-based visitor counter originally located at <code>index.html:L1126-L1161</code>.
+    </p>
+
+    <!-- Delayed Visitor Counter (Exact markup from production) -->
+    <div id="visitor-counter-container">
+      <span id="visitor-badge">
+        <i class="fas fa-eye"></i> <span id="visitor-count-text">Loading visits...</span>
+      </span>
+    </div>
+
+    <!-- Testing Controls & Status -->
+    <div class="controls-panel">
+      <div id="countdown-timer" class="countdown-note">Auto-fetching in 30s (original delay)...</div>
+      <button id="btn-test-now" class="btn-action">
+        <i class="fa-solid fa-bolt"></i> Fetch Now (Skip 30s Wait)
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

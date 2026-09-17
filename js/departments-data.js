@@ -3,6 +3,7 @@ const departmentsData = {
         "full_name": "Computer Science & Engineering",
         "info_link": "https://drive.google.com/drive/folders/1Qfw1ZuIIDG6FLiZOnRjBqjFzxyA5pKCF?usp=drive_link",
         "qbank_link": "https://drive.google.com/drive/u/1/folders/1W1SN7oatZsUt-CqnvKm2Tl6k4j9Qwp89",
+        "club_res": "https://drive.google.com/drive/folders/1lHHxqZPx6cVX4PkyE0ywuiOG5iCf0NVk?usp=drive_link",
         "semesters": {
             "S01": {
                 "title": "Semester 01",
@@ -118,6 +119,7 @@ const departmentsData = {
         "full_name": "Civil Engineering",
         "info_link": "https://drive.google.com/drive/folders/1glmRRDZ0a8K4rqxBNMiw8oVFwm3wmy64?usp=drive_link",
         "qbank_link": "https://drive.google.com/drive/folders/1Zh-85bd1j2_QW9oQTxWWzRqTyiu_QH0m?usp=drive_link",
+        "club_res": "",
         "semesters": {
             "S01": {
                 "title": "Semester 01",
@@ -202,6 +204,7 @@ const departmentsData = {
         "full_name": "Information Technology",
         "info_link": "https://drive.google.com/drive/folders/1G9uLocYYebn06sXLcmlRQPC4AYn6yssA?usp=drive_link",
         "qbank_link": "https://drive.google.com/drive/folders/13J7IjVujrgR9hZY3EucQfvryVJgu9aWq?usp=drive_link",
+        "club_res": "",
         "semesters": {
             "S01": {
                 "title": "Semester 01",
@@ -306,42 +309,49 @@ const departmentsData = {
         "full_name": "Business Administration",
         "info_link": "https://drive.google.com/drive/folders/17tOGVKLJAIo1XLFvgMKu4BxwsBmyw8Cn?usp=drive_link",
         "qbank_link": "",
+        "club_res": "",
         "semesters": {}
     },
     "ECE": {
         "full_name": "Electrical & Computer Engineering",
         "info_link": "https://drive.google.com/drive/folders/15P_Iv7LJA1i4EpI2iC5_iMv2_nPisVr-?usp=drive_link",
         "qbank_link": "",
+        "club_res": "",
         "semesters": {}
     },
     "EEE": {
         "full_name": "Electrical & Electronic Engineering",
         "info_link": "https://drive.google.com/drive/folders/1XS7wnExGNZJvJZdema_cyXoGGaNwLira?usp=drive_link",
         "qbank_link": "",
+        "club_res": "",
         "semesters": {}
     },
     "ENGLISH": {
         "full_name": "English",
         "info_link": "https://drive.google.com/drive/folders/1YIIBxw5FbEJLu0TFKcepx0nRXTjWW7tu?usp=drive_link",
         "qbank_link": "",
+        "club_res": "",
         "semesters": {}
     },
     "LAW": {
         "full_name": "Law",
         "info_link": "https://drive.google.com/drive/folders/1O8-TWqaeJPAOzBnmAOQEH9gUDtQoQHoz?usp=drive_link",
         "qbank_link": "https://drive.google.com/drive/folders/1kVE8DdNZaIh49enbPMemrJJ-pu2hSzQi?usp=drive_link",
+        "club_res": "",
         "semesters": {}
     },
     "PHARMA": {
         "full_name": "Pharmacy",
         "info_link": "https://drive.google.com/drive/folders/1PrfJswXjWxoIxGrFrpC79foFWFKBuQGg?usp=drive_link",
         "qbank_link": "",
+        "club_res": "",
         "semesters": {}
     },
     "SOCIAL": {
         "full_name": "Social Work",
         "info_link": "https://drive.google.com/drive/folders/1m9Zy6HeBR-YNLLiGEF1TfgVy1HHVAc7O?usp=drive_link",
         "qbank_link": "",
+        "club_res": "",
         "semesters": {}
     }
 };
