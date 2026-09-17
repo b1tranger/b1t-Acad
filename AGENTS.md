@@ -1,7 +1,11 @@
 # Repository Rules & Guidelines
 
-## 1. Changelog & History Maintenance
-- **Automatic History Updates**: Whenever adding new features, fixing bugs, refactoring components, or altering UI/styles in this codebase, always document the changes in [`doc/history.md`](doc/history.md), bump the service worker cache version (`const CACHE_NAME` in [`sw.js#L2`](sw.js#L2)) when modifying cached runtime assets, and keep [`README.md`](README.md) synchronized with feature and release states.
+## 1. Changelog, History & Changes.json Maintenance
+- **Automatic History & `changes.json` Updates**: Whenever adding new features, fixing bugs, refactoring components, or altering UI/styles in this codebase:
+  1. Document all changes in [`doc/history.md`](doc/history.md).
+  2. Bump the service worker cache version (`const CACHE_NAME` in [`sw.js#L2`](sw.js#L2)) when modifying cached runtime assets.
+  3. **Update [`changes.json`](changes.json)**: Keep `currentVersion` synchronized with `CACHE_NAME` in [`sw.js`](sw.js), refresh `lastUpdated`, and prepend or update the current release entry in `history` with categorized items (`type`, `title`, `description`) so the automated visitor changelog modal reflects the new changes immediately.
+  4. Keep [`README.md`](README.md) synchronized with feature and release states.
 - **Date Format & Placement**:
   - In `doc/history.md`, group entries under the current date using the format `# DD.MM.YY` (e.g., `# 04.09.26`) placed chronologically at the top of the file directly beneath the frontmatter tags comment block.
   - Record detailed release notes and comprehensive per-change descriptions directly in `doc/history.md` and companion walkthrough files in `doc/prompts/`.

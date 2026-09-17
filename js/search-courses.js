@@ -174,6 +174,31 @@ const courses = [
 
 const searchInput = document.querySelector('.search-input');
 const searchResults = document.querySelector('.search-results');
+const searchClearBtn = document.getElementById('search-clear-btn');
+
+function updateClearButtonVisibility() {
+    if (!searchClearBtn) return;
+    if (searchInput && searchInput.value.length > 0) {
+        searchClearBtn.style.display = 'flex';
+    } else {
+        searchClearBtn.style.display = 'none';
+    }
+}
+
+if (searchClearBtn) {
+    searchClearBtn.addEventListener('click', function () {
+        if (searchInput) {
+            searchInput.value = '';
+            searchInput.focus();
+        }
+        updateClearButtonVisibility();
+        if (searchResults) {
+            searchResults.style.display = 'none';
+            searchResults.innerHTML = '';
+        }
+    });
+    updateClearButtonVisibility();
+}
 
 // Function to highlight the matching text
 function highlightMatch(text, query) {
@@ -218,6 +243,18 @@ function displayResults(filteredCourses, query) {
             window.open(course.driveLink, '_blank');
         });
 
+        resultItem.addEventListener('mouseenter', () => {
+            const activeItem = searchResults.querySelector('.result-item.active');
+            if (activeItem && activeItem !== resultItem) {
+                activeItem.classList.remove('active');
+            }
+            resultItem.classList.add('active');
+        });
+
+        resultItem.addEventListener('mouseleave', () => {
+            resultItem.classList.remove('active');
+        });
+
         searchResults.appendChild(resultItem);
     });
 
@@ -226,6 +263,7 @@ function displayResults(filteredCourses, query) {
 
 // Event listeners
 searchInput.addEventListener('input', function () {
+    updateClearButtonVisibility();
     const query = this.value.trim();
 
     if (query.length > 0) {
@@ -245,6 +283,7 @@ document.addEventListener('click', function (event) {
 
 // Show results when focusing on search input (if there's content)
 searchInput.addEventListener('focus', function () {
+    updateClearButtonVisibility();
     if (this.value.trim().length > 0) {
         const filteredCourses = filterCourses(this.value.trim());
         displayResults(filteredCourses, this.value.trim());
@@ -262,19 +301,16 @@ searchInput.addEventListener('keydown', function (event) {
         event.preventDefault();
         if (!currentFocus) {
             resultItems[0].classList.add('active');
-            resultItems[0].style.backgroundColor = '#eef3fd';
+            resultItems[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } else {
             currentFocus.classList.remove('active');
-            currentFocus.style.backgroundColor = '';
 
             const nextFocus = currentFocus.nextElementSibling;
             if (nextFocus && nextFocus.classList.contains('result-item')) {
                 nextFocus.classList.add('active');
-                nextFocus.style.backgroundColor = '#eef3fd';
                 nextFocus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             } else {
                 resultItems[0].classList.add('active');
-                resultItems[0].style.backgroundColor = '#eef3fd';
                 resultItems[0].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         }
@@ -282,29 +318,24 @@ searchInput.addEventListener('keydown', function (event) {
         event.preventDefault();
         if (!currentFocus) {
             resultItems[resultItems.length - 1].classList.add('active');
-            resultItems[resultItems.length - 1].style.backgroundColor = '#eef3fd';
+            resultItems[resultItems.length - 1].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         } else {
             currentFocus.classList.remove('active');
-            currentFocus.style.backgroundColor = '';
 
             const prevFocus = currentFocus.previousElementSibling;
             if (prevFocus && prevFocus.classList.contains('result-item')) {
                 prevFocus.classList.add('active');
-                prevFocus.style.backgroundColor = '#eef3fd';
                 prevFocus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             } else {
                 resultItems[resultItems.length - 1].classList.add('active');
-                resultItems[resultItems.length - 1].style.backgroundColor = '#eef3fd';
                 resultItems[resultItems.length - 1].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
         }
     } else if (event.key === 'Enter') {
-        if (currentFocus) {
-            event.preventDefault();
-            // Modified to open in new tab
-            window.open(courses.find(course =>
-                course.title === currentFocus.querySelector('.result-title').textContent.replace(/\s+/g, ' ').trim()
-            ).driveLink, '_blank');
+        event.preventDefault();
+        const targetItem = currentFocus || resultItems[0];
+        if (targetItem) {
+            targetItem.click();
         }
     }
 });

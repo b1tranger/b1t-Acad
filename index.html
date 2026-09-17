@@ -1191,6 +1191,12 @@
       <!-- <li><a href="misc/blog.html">Blog</a></li> -->
       <!-- <li><a href="misc/tutorial.html">Tutorial</a></li> -->
       <li><a href="#About">About</a></li>
+      <li class="mobile-changelog-nav-item">
+        <a href="#" id="mobile-changelog-btn" class="view-changelog-btn">
+          <i class="fa-solid fa-bullhorn" style="margin-right: 8px; color: var(--accent-color);"></i> Changelog
+          <span class="changelog-badge-pill">v7.1</span>
+        </a>
+      </li>
       <br><br>
       <li><a href="https://ouits-res.netlify.app/" target="_blank" style="border: 1px solid black;display: none;"
           id="floating-button-nav-2">oU1TS
@@ -1242,6 +1248,9 @@
 
         <input id="course-search" type="text" class="search-input"
           placeholder="Search Courses by title, acronym, or code" autocomplete="off">
+        <button type="button" id="search-clear-btn" class="search-clear-btn" title="Clear search" aria-label="Clear search" style="display: none;">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
         <div class="search-results"></div>
       </div>
       <!-- <br> -->
@@ -1274,6 +1283,13 @@
         Visit oU1TS Portal for more projects! &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
+
+    <!-- Desktop Changelog Trigger (Bottom-Left) -->
+    <button type="button" id="desktop-changelog-btn" class="changelog-desktop-btn view-changelog-btn" title="View Changelog / What's New" aria-label="View Changelog">
+      <i class="fa-solid fa-bullhorn"></i>
+      <span>Changelog</span>
+      <span class="changelog-badge-pill">v7.1</span>
+    </button>
 
   </main>
 
@@ -2197,7 +2213,7 @@
       <div class="mirror-links-banner" style="display: flex; justify-content: center; margin-top: 25px; margin-bottom: 1.5rem;">
         <p>[mirror: <a href="https://b1tacad.netlify.app/" class="link-hover-a">Netlify</a> / <a
             href="https://b1tranger.github.io/b1t-Acad/" class="link-hover-a">
-            GitHub</a>]</p>
+            GitHub</a>] &nbsp;&bull;&nbsp; <a href="#" id="view-changelog-link" class="link-hover-a"><i class="fa-solid fa-bullhorn"></i> What's New</a></p>
       </div>
     </section>
 
@@ -2217,6 +2233,7 @@
   <script src="js/departments.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/qbank-browser.js"></script>
+  <script src="js/changelog-modal.js"></script>
 
   <script>
     // Place this inside your existing DOMContentLoaded script block
@@ -2660,6 +2677,41 @@
             class="qbank-full-link">
             <i class="fas fa-external-link-alt"></i> Open Full QBank in Drive
           </a>
+        </div>
+      </div>
+    </div>
+  <!-- Changelog / What's New Modal -->
+  <div id="changelog-modal" class="changelog-modal-overlay" style="display: none;" role="dialog" aria-labelledby="changelog-modal-title" aria-modal="true">
+    <div class="changelog-modal-content">
+      <button id="close-changelog-modal" class="changelog-close-btn" title="Close" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="changelog-modal-header">
+        <div class="changelog-header-title">
+          <div class="changelog-header-icon">
+            <i class="fa-solid fa-bullhorn"></i>
+          </div>
+          <div class="changelog-title-group">
+            <h2 id="changelog-modal-title">What's New in b1t-Acad</h2>
+            <div class="changelog-subtitle">
+              <span>Latest updates</span>
+              <span id="changelog-version-badge" class="changelog-version-badge">v6.9</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="changelog-modal-body" class="changelog-modal-body">
+        <!-- Dynamically populated from changes.json -->
+      </div>
+      <div class="changelog-modal-footer">
+        <div class="changelog-doc-hint">
+          <i class="fa-solid fa-book-open"></i>
+          <span>Want full release notes? Read the <a href="doc/history.md" target="_blank" rel="noopener noreferrer">History & Changelog</a>.</span>
+        </div>
+        <div class="changelog-footer-actions">
+          <button id="changelog-modal-got-it-btn" class="changelog-got-it-btn" type="button">
+            <i class="fa-solid fa-check"></i> Got it
+          </button>
         </div>
       </div>
     </div>

@@ -2,7 +2,40 @@
 tags: changelog, history, updates, logs, archive, agent-rules, guidelines, prompt-archive, anon-file-share, old-code
 -->
 
+# 18.09.26
+- **Changelog Manual Trigger Buttons on Desktop & Mobile (`index.html`, `style.css`, `js/changelog-modal.js`, `sw.js`, `changes.json`)**:
+  - Added desktop manual trigger `#desktop-changelog-btn` at the bottom-left corner of the homepage within `<main class="container">` in [`index.html`](index.html), featuring frosted glassmorphic backdrop (`rgba(15, 23, 42, 0.85)` with blur), accent border glow, hover elevation and scale animations, and a synchronized version badge pill.
+  - Added mobile manual trigger `#mobile-changelog-btn` inside `#sticky-nav` drawer (`.mobile-changelog-nav-item`) with full touch responsiveness and auto-drawer dismissal upon opening the changelog modal.
+  - Created `.changelog-badge-pill` styles across both dark theme and light gray theme (`[data-theme="gray"]`).
+  - Enhanced [`js/changelog-modal.js`](js/changelog-modal.js): configured `setupEventListeners()` to bind all trigger elements (`#desktop-changelog-btn`, `#mobile-changelog-btn`, `#view-changelog-link`, `.view-changelog-btn`) and dynamically synchronize `.changelog-badge-pill` with `data.currentVersion` on initialization.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.1'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) with `v7.1` release entry.
+- **Course Search Clear Button (`index.html`, `style.css`, `js/search-courses.js`, `sw.js`, `changes.json`)**:
+  - Added interactive circular clear button (`#search-clear-btn`) inside `.search-container` in [`index.html`](index.html) with centered FontAwesome `fa-xmark` icon.
+  - Implemented dynamic visibility in [`js/search-courses.js`](js/search-courses.js): displays clear button when search input contains characters and hides it when empty across `input`, `focus`, and initial load events.
+  - Added click handler in [`js/search-courses.js`](js/search-courses.js) to clear search query, dismiss `.search-results` popup, and return focus to `#course-search`.
+  - Added custom CSS in [`style.css`](style.css):
+    - Adjusted `.search-input` right padding (`padding: 0.8rem 2.8rem 0.8rem 1.5rem`) to accommodate the button and prevent text clipping.
+    - Positioned `#search-clear-btn` absolutely at `right: 16px; top: 50%; transform: translateY(-50%)` with subtle translucent background and hover scale animation (`scale(1.1)`).
+    - Added high-contrast theme overrides for light theme (`[data-theme="gray"] .search-clear-btn`).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.0'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) with `v7.0` release entry.
+
 # 17.09.26
+- **Visitor Changelog Modal & `changes.json` Architecture (`changes.json`, `js/changelog-modal.js`, `index.html`, `style.css`, `AGENTS.md`)**:
+  - Implemented an automated visitor changelog popup modal modeled on `b1t-Sched`'s architecture:
+    - Created structured [`changes.json`](changes.json) populated from `doc/history.md`, detailing releases backwards from `v6.9` through `v5.0` with categorized change entries (`type`, `title`, `description`).
+    - Created [`js/changelog-modal.js`](js/changelog-modal.js) tracking `localStorage.getItem('b1t_acad_last_seen_version')` against `data.currentVersion` (synchronized with `CACHE_NAME` in `sw.js#L2`), auto-popping up on first visit or subsequent version bumps.
+    - Designed comprehensive CSS in [`style.css`](style.css) featuring glassmorphic modal styling, protruding circular close button (`#close-changelog-modal`), categorized color-coded tag pills (`new-feature`, `fix`, `enhancement`, `ui-ux`, `major`, `security`, `refactor`, `docs`), earlier versions accordion (`#changelog-history-toggle`), custom matte scrollbar, and full light theme (`[data-theme="gray"]`) compatibility.
+    - Embedded `#changelog-modal` markup and manual trigger link (`#view-changelog-link`) in [`index.html`](index.html).
+    - Updated [`AGENTS.md`](AGENTS.md) Section 1 to enforce automatic synchronization of `changes.json` on future updates alongside `doc/history.md` and `sw.js`.
+- **Course Search Enter Selection & Dual-Theme Keyboard Navigation (`js/search-courses.js`, `style.css`, `sw.js`)**:
+  - Enhanced course search input in [`js/search-courses.js`](js/search-courses.js): allowed desktop users to press `Enter` to directly open the first result (or currently focused result) in a new tab via `targetItem.click()`, without requiring prior arrow key navigation.
+  - Replaced hardcoded inline `style.backgroundColor = '#eef3fd'` in [`js/search-courses.js`](js/search-courses.js) with semantic `.active` class toggles and added mouseenter/mouseleave hover synchronization.
+  - Implemented high-contrast two-theme selection highlight in [`style.css`](style.css):
+    - **Dark Theme**: Glowing accent gradient (`linear-gradient(90deg, rgba(100, 181, 246, 0.22) 0%, rgba(100, 181, 246, 0.08) 100%)`), 4px `#64b5f6` left indicator bar, pure white title, and glowing code/dept tags.
+    - **Light Theme (`[data-theme="gray"]`)**: Soft sky blue tint (`linear-gradient(90deg, #dbeafe 0%, #edf4fe 100%)`), 4px `#1976d2` left indicator bar, and rich `#0d47a1` navy text.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v6.9'` in [`sw.js:L2`](sw.js#L2).
 - **Dark Theme Contrast for Mirror Links & `.link-hover-a` (`index.html`, `style.css`, `sw.js`)**:
   - Resolved low contrast issue in the bottom mirror links banner (`[mirror: Netlify / GitHub]` in [`index.html:L2197-L2201`](index.html)): assigned class `.mirror-links-banner` with legible secondary text color (`#a0aec0` in dark theme, `#4a5568` in light theme).
   - Fixed global `.link-hover-a` styling in [`style.css`](style.css): replaced hardcoded `color: rgb(0, 0, 0);` (which rendered links pitch black on dark backgrounds) with bright accent color `#64b5f6` in dark theme and `#1976d2` in light theme (`[data-theme="gray"]`), restoring high contrast across all `.link-hover-a` anchor links sitewide.

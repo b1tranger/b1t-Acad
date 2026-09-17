@@ -1,0 +1,148 @@
+{
+  "currentVersion": "v7.1",
+  "lastUpdated": "September 2026",
+  "documentationUrl": "doc/history.md",
+  "history": [
+    {
+      "version": "v7.1",
+      "badge": "Latest",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "New Feature",
+          "title": "Changelog Manual Trigger Buttons (Desktop & Mobile)",
+          "description": "Added responsive trigger buttons to manually open the What's New changelog modal: a floating glassmorphic pill button positioned at the bottom-left of the homepage for desktop, and a dedicated menu item with a live version badge inside the mobile navigation drawer."
+        }
+      ]
+    },
+    {
+      "version": "v7.0",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Search Bar Clear Button",
+          "description": "Added an interactive clear button (X) inside the course search input that dynamically appears when typing, allowing one-click query clearance and refocusing with dark and light theme support."
+        }
+      ]
+    },
+    {
+      "version": "v6.9",
+      "badge": "Feature",
+      "date": "17.09.26",
+      "changes": [
+        {
+          "type": "New Feature",
+          "title": "Visitor Changelog Modal & Changes JSON Architecture",
+          "description": "Implemented an automated 'What's New' visitor changelog modal modeled on b1t-Sched, automatically detecting new site updates based on Service Worker CACHE_NAME, with full dark/light theme support, tag pills, and an accordion for earlier releases."
+        },
+        {
+          "type": "Enhancement",
+          "title": "Course Search Enter Selection & Dual-Theme Keyboard Navigation",
+          "description": "Allowed desktop users to press Enter in the course search input to immediately open the top result in a new tab without prior arrow navigation. Replaced hardcoded inline colors with semantic .active classes and high-contrast dual-theme highlight styles."
+        }
+      ]
+    },
+    {
+      "version": "v6.8",
+      "badge": "Fix",
+      "date": "17.09.26",
+      "changes": [
+        {
+          "type": "Fix",
+          "title": "Dark Theme Contrast for Mirror Links & Sitewide .link-hover-a",
+          "description": "Resolved low contrast issue in the bottom mirror links banner ([mirror: Netlify / GitHub]). Replaced hardcoded black text in .link-hover-a with bright accent color #64b5f6 in dark theme and #1976d2 in light theme sitewide."
+        }
+      ]
+    },
+    {
+      "version": "v6.7",
+      "badge": "UI/UX",
+      "date": "17.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Submission Page Mobile Floating Back Button",
+          "description": "Repositioned the back button on mobile devices (<= 768px) to float at the bottom-right corner with a pill shape, glassmorphic backdrop blur, and dark-theme border glow, matching the mobile home button on index.html."
+        },
+        {
+          "type": "New Feature",
+          "title": "Animated Collapsible Notice Banner with Top-Bar Info Trigger",
+          "description": "Implemented dynamic notice banner architecture that displays prominently on initial page load, then automatically glides and minimizes into a top-bar info trigger icon after 4 seconds (with hover-pause). Clicking the icon expands or collapses the banner with smooth animation."
+        },
+        {
+          "type": "UI/UX",
+          "title": "Compact Circular Icon Actions on Mobile Submissions",
+          "description": "Hid text labels on mobile screen widths, transforming the notification action buttons into compact 44x44px circular icon buttons with tooltips and accessible touch hit zones."
+        }
+      ]
+    },
+    {
+      "version": "v6.6",
+      "badge": "Major",
+      "date": "17.09.26",
+      "changes": [
+        {
+          "type": "New Feature",
+          "title": "Club Resources Sub-Section & Wings Modal Architecture",
+          "description": "Added a dedicated Club Resources sub-section inside Extra Curricular Activities (ECA) with interactive department club badges and popup modal displaying parent Google Drive access and subsidiary focus wings across all 10 academic departments."
+        },
+        {
+          "type": "New Feature",
+          "title": "QBank Full-Screen Popup Modal",
+          "description": "Replaced the inline dropdown accordion with a centered launcher button opening a 96vw x 92vh full-screen dialog with circular protruding close button, header banner, tap-outside dismiss, and Escape key handling."
+        },
+        {
+          "type": "UI/UX",
+          "title": "Mobile Floating Home Button & Dark Theme Contrast",
+          "description": "Repositioned #spa-back-btn on mobile viewports to the bottom-right corner (bottom: 2rem; right: 1.5rem;) with pure white text and icon on hover in dark theme."
+        },
+        {
+          "type": "UI/UX",
+          "title": "100vh Viewport Scroll Optimization & Section Headroom Restoration",
+          "description": "Eliminated unnecessary scrolling to blank trailing space when sections fit within 100vh, while preserving generous top clearance below top floating overlays."
+        },
+        {
+          "type": "UI/UX",
+          "title": "Universal Matte Scrollbars & Sticky Nav Width Stabilization",
+          "description": "Deployed custom matte scrollbars across the website and modals, and stabilized layout width during sidebar expansion using scrollbar-gutter: stable."
+        },
+        {
+          "type": "UI/UX",
+          "title": "Light Theme (Gray Mode) Comprehensive Contrast Audit",
+          "description": "Un-nested global gray theme styles to cover mobile viewports and eliminated hardcoded inline white styles across headings, paragraphs, hints, tooltips, tables, and file explorer cards."
+        }
+      ]
+    },
+    {
+      "version": "v5.5",
+      "badge": "Refactor",
+      "date": "17.09.26",
+      "changes": [
+        {
+          "type": "Refactor",
+          "title": "Visitor Counter & Glitch Intro Archival to old-code/",
+          "description": "Cleaned up the production homepage by excising the delayed visitor counter badge and first-visit chromatic aberration glitch intro, preserving both as standalone modular test benches in old-code/."
+        }
+      ]
+    },
+    {
+      "version": "v5.0",
+      "badge": "Docs",
+      "date": "04.09.26",
+      "changes": [
+        {
+          "type": "Docs",
+          "title": "Legacy Codebase & Old Design Architectural Archive",
+          "description": "Created comprehensive documentation in doc/old-files-archive.md analyzing legacy UI patterns, mobile drawer FAB controllers, preloaders, and semester selectors."
+        },
+        {
+          "type": "Docs",
+          "title": "Agent Guidelines & Archiving Workflow Synchronization",
+          "description": "Standardized AI development workflows in AGENTS.md, automated history tracking in doc/history.md, and established full turn prompt archiving in doc/prompts/."
+        }
+      ]
+    }
+  ]
+}
