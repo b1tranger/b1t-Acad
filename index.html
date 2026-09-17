@@ -275,19 +275,13 @@
     }
 
     .qbank-content {
-      display: none;
+      display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      margin-top: 0.75rem;
-      padding: 1rem;
-      background-color: #1a1a1a;
-      border: 2px solid #ffffff;
-      border-radius: 12px;
+      width: 100%;
+      height: 100%;
+      flex: 1;
       animation: fadeIn 0.25s ease;
-    }
-
-    .qbank-browser.open .qbank-content {
-      display: flex;
     }
 
     .qbank-folder {
@@ -412,8 +406,8 @@
     }
 
     [data-theme="gray"] .qbank-content {
-      background-color: #f5f5f5;
-      border-color: #1a1a1a;
+      background-color: transparent;
+      border: none;
     }
 
     [data-theme="gray"] .qbank-full-link {
@@ -1065,15 +1059,18 @@
       .interests-table-wrap {
         overflow: visible !important;
       }
+
       .col-scope-desc {
         display: none !important;
       }
+
       .row-desc-tooltip-wrap {
         display: flex !important;
         align-items: center;
         margin-top: 4px;
         margin-left: 24px;
       }
+
       .interests-resources-table-section table th,
       .interests-resources-table-section table td {
         padding: 10px 12px !important;
@@ -1256,7 +1253,7 @@
       </p>
     </section>
 
-    <section class="button-grid" id="button-grid-section">
+    <section class="button-grid" id="button-grid-section" style="padding-left: 5vw;padding-right: 5vw;">
       <a href="#info" class="grid-button">Info</a>
       <a href="#Qbank" class="grid-button">Question<br>Bank</a>
       <a href="#Departments" class="grid-button">Departments</a>
@@ -1272,7 +1269,7 @@
     <div id="hide-marker"></div>
 
 
-    <div style="text-align: center; margin-top: 2rem; margin-bottom: 2rem;">
+    <div style="text-align: center; margin-top: 2rem;">
       <a href="https://ouits-res.netlify.app/" target="_blank" rel="noopener noreferrer" class="ou1ts-portal-btn">
         Visit oU1TS Portal for more projects! &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
@@ -1394,7 +1391,7 @@
       </div>
 
       <div id="book-session"
-        style="margin-top: 3rem; background: var(--secondary-color); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color);margin-bottom:10vh;">
+        style="margin-top: 3rem; background: var(--secondary-color); padding: 1.5rem; border-radius: 10px; border: 1px solid var(--border-color); margin-bottom: 1.5rem;">
         <h3 style="margin-bottom: 1rem;"><a href="https://www.supportkori.com/b1tranger/services/omjnGNbMFVsweOyjFJDK"
             target="_blank" style="color: var(--accent-color); text-decoration: none;">Academic Support & CSE Mentorship
             (UITS Only)</a></h3>
@@ -1431,7 +1428,7 @@
             animation-play-state: paused;
           }
         </style>
-        <div style="text-align: center; margin-top: 2rem; margin-bottom: 5rem;">
+        <div style="text-align: center; margin-top: 2rem; margin-bottom: 1.5rem;">
           <a href="https://www.supportkori.com/b1tranger/services/omjnGNbMFVsweOyjFJDK" target="_blank"
             class="book-session-btn">
             Book a session &nbsp;<i class="fa-solid fa-calendar-check"></i>
@@ -1451,136 +1448,14 @@
 
 
     <section id="Qbank" class="content-section">
-      <h2 style="margin-bottom: 5rem;">oU1TS QBank</h2>
+      <h2>oU1TS QBank</h2>
 
-      <!-- Nested Folder Browser -->
-      <div class="qbank-browser">
-        <button class="qbank-toggle" onclick="this.parentElement.classList.toggle('open')">
+      <!-- Nested Folder Browser Launcher -->
+      <div class="qbank-browser" style="text-align: center;">
+        <button type="button" class="qbank-toggle" id="open-qbank-modal-btn">
           <span>📁 Browse Question Bank</span>
-          <i class="fas fa-chevron-down qbank-arrow"></i>
+          <i class="fa-solid fa-up-right-from-square qbank-arrow"></i>
         </button>
-        <div class="qbank-content">
-          <!-- CSE Questions -->
-          <div class="qbank-folder">
-            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
-              <i class="fas fa-folder"></i> CSE Questions
-              <i class="fas fa-chevron-right folder-arrow"></i>
-            </button>
-            <div class="qbank-subfolders">
-              <a href="https://drive.google.com/drive/folders/1gqL70wAJ8HC2QtNfW2yWML16DblL_QbM" target="_blank"
-                class="qbank-link folder">libraryQ.CSE</a>
-              <a href="https://drive.google.com/drive/folders/1zDTV1rFgRg-Le-GuYRIILJiL08Hm3627" target="_blank"
-                class="qbank-link folder">q.cse.s01</a>
-              <a href="https://drive.google.com/drive/folders/1xx1mXlK45XaBSe8SJHgkh9kf2h5WsGf2" target="_blank"
-                class="qbank-link folder">q.cse.s02</a>
-              <a href="https://drive.google.com/drive/folders/1kCk-cujSGyMzaN-NW_IThnWhbQ1bfn_a" target="_blank"
-                class="qbank-link folder">q.cse.s03</a>
-              <a href="https://drive.google.com/drive/folders/1n4XCvXgC5YhnblQjVraWAncM3kjqSgLq" target="_blank"
-                class="qbank-link folder">q.cse.s04</a>
-              <a href="https://drive.google.com/drive/folders/1LNlADCqqkvZSzhNEiLmM5Rv0yyeCBAZS" target="_blank"
-                class="qbank-link folder">q.cse.s05</a>
-              <a href="https://drive.google.com/drive/folders/11J12g_bmFSSZKASHN8sIkudzgnDHGkpt" target="_blank"
-                class="qbank-link folder">q.cse.s06</a>
-              <a href="https://drive.google.com/drive/folders/1Lw5hXkM3zmZSjBXPgg_XA9xbzyqqshV4" target="_blank"
-                class="qbank-link folder">q.cse.s07</a>
-              <a href="https://drive.google.com/drive/folders/1UPOToPRUSLUyOzmlSgp9H_8TST62RZPj" target="_blank"
-                class="qbank-link folder">q.cse.s08</a>
-            </div>
-          </div>
-          <!-- CE Questions -->
-          <div class="qbank-folder">
-            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
-              <i class="fas fa-folder"></i> CE Questions
-              <i class="fas fa-chevron-right folder-arrow"></i>
-            </button>
-            <div class="qbank-subfolders">
-              <a href="https://drive.google.com/drive/folders/1sx-ah7XGcDoEwwlyycRbW3fK27iV2RK2" target="_blank"
-                class="qbank-link folder">Autumn 2025</a>
-              <a href="https://drive.google.com/drive/folders/1a38GexO2kCV65MJxf3jad1xI4yUlAS1G" target="_blank"
-                class="qbank-link folder">Spring 2026</a>
-              <a href="https://drive.google.com/drive/folders/1-Dvp3Zt7Y3-8jVFqGsMMhKR5l5k9BiIq" target="_blank"
-                class="qbank-link folder">Civil Engineering Dept.</a>
-              <a href="https://drive.google.com/file/d/1QMF76tuN_vbzsW3ihxp-JD0jZNZ6E9kY/view?usp=drivesdk"
-                target="_blank" class="qbank-link">CE Autumn 22.pdf</a>
-              <a href="https://drive.google.com/file/d/1WBuHDT9VDwZt11DYmfKzZGQ76JIdCmfV/view?usp=drivesdk"
-                target="_blank" class="qbank-link">CE Autumn 23.pdf</a>
-              <a href="https://drive.google.com/file/d/1i6inPCqYldhExgOR9nFTkX0TxXCWYai4/view?usp=drivesdk"
-                target="_blank" class="qbank-link">CE Spring 22.pdf</a>
-              <a href="https://drive.google.com/file/d/1U9IBA0DRSi537U187URWq-FdLkWyd4Fy/view?usp=drivesdk"
-                target="_blank" class="qbank-link">CE Spring 23.pdf</a>
-              <a href="https://drive.google.com/file/d/1snIe_CmCdMaMPPcfy_-8VYteL5Ika5dB/view?usp=drivesdk"
-                target="_blank" class="qbank-link">CE Spring 24.pdf</a>
-              <a href="https://drive.google.com/file/d/1z0gxHESLwXhzN_rjmBBVo-e5otHR7hLU/view?usp=drivesdk"
-                target="_blank" class="qbank-link">CE Summer 22.pdf</a>
-              <a href="https://drive.google.com/file/d/1Oq31_op9dECKIC4vKKsAwbXfFvA1rgFH/view?usp=drivesdk"
-                target="_blank" class="qbank-link">CE autumn 24 - Anamul Haque (UITS CE 40-014).pdf</a>
-            </div>
-          </div>
-          <!-- IT Questions -->
-          <div class="qbank-folder">
-            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
-              <i class="fas fa-folder"></i> IT Questions
-              <i class="fas fa-chevron-right folder-arrow"></i>
-            </button>
-            <div class="qbank-subfolders">
-              <a href="https://drive.google.com/drive/folders/1dhyUuRHp7frqzmdJNbN8zwJGxUkXbrAp?usp=drive_link"
-                target="_blank" class="qbank-link folder">libraryQ.IT</a>
-              <a href="https://drive.google.com/file/d/1o2nJj7F0T1wMx8J5iTk_n6ryHc2pNF2k/view?usp=drivesdk"
-                target="_blank" class="qbank-link">IT-55 Abdullah Saad IMG_20260422_0001.pdf</a>
-            </div>
-          </div>
-          <!-- BBA Questions -->
-          <div class="qbank-folder">
-            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
-              <i class="fas fa-folder"></i> BBA Questions
-              <i class="fas fa-chevron-right folder-arrow"></i>
-            </button>
-            <div class="qbank-subfolders">
-              <a href="https://drive.google.com/file/d/1Af5iUWXIec2m45L0JOwF9hniLz-rmi9S/view?usp=drivesdk"
-                target="_blank" class="qbank-link">MCO_SPRING_2026_MID-JIMMY - Nayeem Jim.pdf</a>
-            </div>
-          </div>
-          <!-- Law Questions -->
-          <div class="qbank-folder">
-            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
-              <i class="fas fa-folder"></i> Law Questions
-              <i class="fas fa-chevron-right folder-arrow"></i>
-            </button>
-            <div class="qbank-subfolders">
-              <a href="https://drive.google.com/file/d/1sZsowEIVzgP6rXzz76hYZFxWzT6gUdzi/view?usp=drivesdk"
-                target="_blank" class="qbank-link">Application in LAW GED0611111-Mid Spring 2026 - Nayeem Jim.jpeg</a>
-              <a href="https://drive.google.com/file/d/1WxgDLvW0B1a0dmtyY3EYI82Qt-2gfA89/view?usp=drivesdk"
-                target="_blank" class="qbank-link">Constitutional Law of Bangaladesh LAW0421203-Mid Spring 2026 - Nayeem
-                Jim.jpeg</a>
-              <a href="https://drive.google.com/file/d/1LOuNB7RkGuRmdwOoPlFfmnQHvHfqcvWd/view?usp=drivesdk"
-                target="_blank" class="qbank-link">Jurisprudence LAW1104 -Mid Spring 2026 - Nayeem Jim.jpeg</a>
-              <a href="https://drive.google.com/file/d/1CXgX67DMT-_p6z3dND-PL4B52kQMuxYX/view?usp=drivesdk"
-                target="_blank" class="qbank-link">Law of Contract LAW04421202 -Mid Spring 2026 - Nayeem Jim.jpeg</a>
-            </div>
-          </div>
-          <!-- Others -->
-          <div class="qbank-folder">
-            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
-              <i class="fas fa-folder"></i> Others
-              <i class="fas fa-chevron-right folder-arrow"></i>
-            </button>
-            <div class="qbank-subfolders">
-              <a href="https://drive.google.com/drive/folders/15Z37rhnQbalAqe-9fdbetPI0rvyl8NCB?usp=drive_link"
-                target="_blank" class="qbank-link folder">[Archived Questions]</a>
-              <a href="https://drive.google.com/drive/folders/1whQG-iO_RMRiKuLCLcUzOMskfAb7YWPj?usp=drive_link"
-                target="_blank" class="qbank-link folder">AIUB community</a>
-              <a href="https://drive.google.com/drive/folders/1ZlT1BBqMXm8dst7mM2KUfY0wRibcuUx8?usp=drive_link"
-                target="_blank" class="qbank-link folder">IUT CHEM 4241</a>
-              <a href="https://drive.google.com/file/d/1XzhAVHOwnAMHYyCXVuxqKOTQv-gwcaAq/view?usp=drivesdk"
-                target="_blank" class="qbank-link">de-thi-2019.pdf</a>
-            </div>
-          </div>
-          <!-- Open Full QBank -->
-          <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
-            class="qbank-full-link">
-            <i class="fas fa-external-link-alt"></i> Open Full QBank in Drive
-          </a>
-        </div>
       </div>
 
       <!-- <nav class="resources-nav">
@@ -1614,22 +1489,21 @@
 
       </div>
 
-      <p>Also try the <a href="#course-search" style="color: white;" class="link-hover-a">Search bar at the top</a>
+      <p>Also try the <a href="#course-search" class="link-hover-a">Search bar at the top</a>
         or browse the
-        <a href="https://b1tacad.netlify.app/departments" style="color: white;" class="link-hover-a">Departments</a> to
+        <a href="https://b1tacad.netlify.app/departments" class="link-hover-a">Departments</a> to
         find your
         questions.
       </p>
 
       <br>
-      <p style="color: rgba(255, 255, 255, 0.212);">This section is under work. Expect to see a Google Drive folder with
+      <p class="section-work-hint">This section is under work. Expect to see a Google Drive folder with
         shortcuts to the
         Question Folders of each
-        course. Or a comprehensive website similar to <a href="https://diuqbank.com/" target="_blank"
-          style="color: rgba(255, 255, 255, 0.534);" class="link-hover-a-3">https://diuqbank.com/</a> .
+        course. Or a comprehensive website similar to <a href="https://diuqbank.com/" target="_blank" class="link-hover-a-3">https://diuqbank.com/</a> .
       </p>
 
-      <div style="text-align: center; margin-top: 2rem; margin-bottom: 5rem;">
+      <div style="text-align: center; margin-top: 2rem; margin-bottom: 1.5rem;">
         <a href="#book-session" class="book-session-btn">
           Need help with studies? &nbsp;<i class="fa-solid fa-graduation-cap"></i>
         </a>
@@ -1714,7 +1588,7 @@
             style="color: white;">Library</a></p>
       </section>
 
-      <div style="text-align: center; margin-top: 2rem; margin-bottom: 5rem;">
+      <div style="text-align: center; margin-top: 2rem; margin-bottom: 1.5rem;">
         <a href="#book-session" class="book-session-btn">
           Need help with studies? &nbsp;<i class="fa-solid fa-graduation-cap"></i>
         </a>
@@ -1766,7 +1640,7 @@
           </a>
 
         </div>
-        <p style="font-size: medium;">You can share them in the group as well: <a style="color: whitesmoke;"
+        <p style="font-size: medium;">You can share them in the group as well: <a class="donate-group-link"
             href="https://t.me/oUITS_res" target="_blank">https://t.me/oUITS_res</a></p>
         <div style="width: 60%;max-width: 400px;margin: 3rem auto;margin-top: 30px;">
           <hr style="border-color: rgba(255, 255, 255, 0.233);">
@@ -1847,7 +1721,7 @@
           Donators )</p>
       </section>
 
-      <div style="text-align: center; margin-top: 2rem; margin-bottom: 5rem;">
+      <div style="text-align: center; margin-top: 2rem; margin-bottom: 1.5rem;">
         <a href="https://www.supportkori.com/b1tranger" class="book-session-btn" target="_blank">
           Support the Dev? &nbsp;<i class="fa-solid fa-mug-hot"></i>
         </a>
@@ -1890,9 +1764,11 @@
 
           <div class="interests-table-wrap"
             style="overflow-x: auto; border: 1px solid var(--border-color); border-radius: 12px; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25); background-color: var(--primary-color); max-width: 780px; margin: 0 auto;">
-            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem; color: var(--text-color);">
+            <table
+              style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.92rem; color: var(--text-color);">
               <thead>
-                <tr style="background-color: var(--secondary-color); border-bottom: 2px solid var(--border-color); color: var(--text-color);">
+                <tr
+                  style="background-color: var(--secondary-color); border-bottom: 2px solid var(--border-color); color: var(--text-color);">
                   <th style="padding: 12px 16px; font-weight: 600; width: 28%;">Resource</th>
                   <th class="col-scope-desc" style="padding: 12px 16px; font-weight: 600;">Scope / Description</th>
                   <th style="padding: 12px 16px; font-weight: 600; text-align: center; width: 22%;">Link</th>
@@ -1906,15 +1782,19 @@
                       <span>Skills Dev</span>
                     </div>
                     <div class="row-desc-tooltip-wrap">
-                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button" aria-label="Description: Skill acquisition, practice repositories & toolkits">
+                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button"
+                        aria-label="Description: Skill acquisition, practice repositories & toolkits">
                         <i class="fa-solid fa-circle-info"></i> <span class="tooltip-btn-label">Info</span>
                         <span class="row-desc-tooltip-bubble">Skill acquisition, practice repositories & toolkits</span>
                       </span>
                     </div>
                   </td>
-                  <td class="col-scope-desc" style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Skill acquisition, practice repositories & toolkits</td>
+                  <td class="col-scope-desc"
+                    style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Skill acquisition,
+                    practice repositories & toolkits</td>
                   <td style="padding: 12px 16px; text-align: center;">
-                    <a href="https://drive.google.com/drive/folders/1hTWa-Z7gV3GaUUMJhT2KPasmq5L1ha3p?usp=drive_link" target="_blank"
+                    <a href="https://drive.google.com/drive/folders/1hTWa-Z7gV3GaUUMJhT2KPasmq5L1ha3p?usp=drive_link"
+                      target="_blank"
                       style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); text-decoration: none; font-size: 0.82rem; transition: background 0.2s;">
                       <i class="fa-brands fa-google-drive" style="color: var(--accent-color);"></i> Open Folder
                     </a>
@@ -1927,15 +1807,19 @@
                       <span>Career</span>
                     </div>
                     <div class="row-desc-tooltip-wrap">
-                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button" aria-label="Description: Career roadmaps, resume guides & interview prep">
+                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button"
+                        aria-label="Description: Career roadmaps, resume guides & interview prep">
                         <i class="fa-solid fa-circle-info"></i> <span class="tooltip-btn-label">Info</span>
                         <span class="row-desc-tooltip-bubble">Career roadmaps, resume guides & interview prep</span>
                       </span>
                     </div>
                   </td>
-                  <td class="col-scope-desc" style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Career roadmaps, resume guides & interview prep</td>
+                  <td class="col-scope-desc"
+                    style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Career roadmaps, resume
+                    guides & interview prep</td>
                   <td style="padding: 12px 16px; text-align: center;">
-                    <a href="https://drive.google.com/drive/folders/1rkfLkMRHJ1OWoSTy15Zefpn4wsTTUAi2?usp=drive_link" target="_blank"
+                    <a href="https://drive.google.com/drive/folders/1rkfLkMRHJ1OWoSTy15Zefpn4wsTTUAi2?usp=drive_link"
+                      target="_blank"
                       style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); text-decoration: none; font-size: 0.82rem; transition: background 0.2s;">
                       <i class="fa-brands fa-google-drive" style="color: var(--accent-color);"></i> Open Folder
                     </a>
@@ -1948,15 +1832,19 @@
                       <span>Resources</span>
                     </div>
                     <div class="row-desc-tooltip-wrap">
-                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button" aria-label="Description: Shared reference drives and collective materials">
+                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button"
+                        aria-label="Description: Shared reference drives and collective materials">
                         <i class="fa-solid fa-circle-info"></i> <span class="tooltip-btn-label">Info</span>
                         <span class="row-desc-tooltip-bubble">Shared reference drives and collective materials</span>
                       </span>
                     </div>
                   </td>
-                  <td class="col-scope-desc" style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Shared reference drives and collective materials</td>
+                  <td class="col-scope-desc"
+                    style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Shared reference drives
+                    and collective materials</td>
                   <td style="padding: 12px 16px; text-align: center;">
-                    <a href="https://drive.google.com/drive/folders/1oO_OG6sGqj8ZLm8Q8pBiCt1IW9KxIY0W?usp=drive_link" target="_blank"
+                    <a href="https://drive.google.com/drive/folders/1oO_OG6sGqj8ZLm8Q8pBiCt1IW9KxIY0W?usp=drive_link"
+                      target="_blank"
                       style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); text-decoration: none; font-size: 0.82rem; transition: background 0.2s;">
                       <i class="fa-brands fa-google-drive" style="color: var(--accent-color);"></i> Open Folder
                     </a>
@@ -1969,13 +1857,16 @@
                       <span>Programming</span>
                     </div>
                     <div class="row-desc-tooltip-wrap">
-                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button" aria-label="Description: Competitive programming resources and problems">
+                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button"
+                        aria-label="Description: Competitive programming resources and problems">
                         <i class="fa-solid fa-circle-info"></i> <span class="tooltip-btn-label">Info</span>
                         <span class="row-desc-tooltip-bubble">Competitive programming resources and problems</span>
                       </span>
                     </div>
                   </td>
-                  <td class="col-scope-desc" style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Competitive programming resources and problems</td>
+                  <td class="col-scope-desc"
+                    style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Competitive programming
+                    resources and problems</td>
                   <td style="padding: 12px 16px; text-align: center;">
                     <a href="misc/CP-aux.html"
                       style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); text-decoration: none; font-size: 0.82rem; transition: background 0.2s;">
@@ -1990,17 +1881,21 @@
                       <span>Core Learning</span>
                     </div>
                     <div class="row-desc-tooltip-wrap">
-                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button" aria-label="Description: Computer Science fundamentals & curated core tracks">
+                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button"
+                        aria-label="Description: Computer Science fundamentals & curated core tracks">
                         <i class="fa-solid fa-circle-info"></i> <span class="tooltip-btn-label">Info</span>
                         <span class="row-desc-tooltip-bubble">Computer Science fundamentals & curated core tracks</span>
                       </span>
                     </div>
                   </td>
-                  <td class="col-scope-desc" style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Computer Science fundamentals & curated core tracks</td>
+                  <td class="col-scope-desc"
+                    style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Computer Science
+                    fundamentals & curated core tracks</td>
                   <td style="padding: 12px 16px; text-align: center;">
                     <a href="https://b1tranger.bro.bd/core-learning" target="_blank"
                       style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); text-decoration: none; font-size: 0.82rem; transition: background 0.2s; box-shadow: 0 0 12px rgba(26, 22, 255, 0.4);">
-                      <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--accent-color);"></i> Visit Site
+                      <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--accent-color);"></i> Visit
+                      Site
                     </a>
                   </td>
                 </tr>
@@ -2011,15 +1906,19 @@
                       <span>Interests</span>
                     </div>
                     <div class="row-desc-tooltip-wrap">
-                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button" aria-label="Description: Extracurricular pursuits, hobbies & creative drives">
+                      <span class="row-desc-tooltip-trigger" tabindex="0" role="button"
+                        aria-label="Description: Extracurricular pursuits, hobbies & creative drives">
                         <i class="fa-solid fa-circle-info"></i> <span class="tooltip-btn-label">Info</span>
                         <span class="row-desc-tooltip-bubble">Extracurricular pursuits, hobbies & creative drives</span>
                       </span>
                     </div>
                   </td>
-                  <td class="col-scope-desc" style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Extracurricular pursuits, hobbies & creative drives</td>
+                  <td class="col-scope-desc"
+                    style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Extracurricular
+                    pursuits, hobbies & creative drives</td>
                   <td style="padding: 12px 16px; text-align: center;">
-                    <a href="https://drive.google.com/drive/folders/1r9ZyCEPb6yeYKn4L2nEt8pxzuEO1mLSz?usp=drive_link" target="_blank"
+                    <a href="https://drive.google.com/drive/folders/1r9ZyCEPb6yeYKn4L2nEt8pxzuEO1mLSz?usp=drive_link"
+                      target="_blank"
                       style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); text-decoration: none; font-size: 0.82rem; transition: background 0.2s;">
                       <i class="fa-brands fa-google-drive" style="color: var(--accent-color);"></i> Open Folder
                     </a>
@@ -2032,17 +1931,21 @@
                       <span>Blog</span>
                     </div>
                     <div class="row-desc-tooltip-wrap">
-                      <span class="row-desc-tooltip-trigger tooltip-up" tabindex="0" role="button" aria-label="Description: Articles, experiences & community blog entries">
+                      <span class="row-desc-tooltip-trigger tooltip-up" tabindex="0" role="button"
+                        aria-label="Description: Articles, experiences & community blog entries">
                         <i class="fa-solid fa-circle-info"></i> <span class="tooltip-btn-label">Info</span>
                         <span class="row-desc-tooltip-bubble">Articles, experiences & community blog entries</span>
                       </span>
                     </div>
                   </td>
-                  <td class="col-scope-desc" style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Articles, experiences & community blog entries</td>
+                  <td class="col-scope-desc"
+                    style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Articles, experiences &
+                    community blog entries</td>
                   <td style="padding: 12px 16px; text-align: center;">
                     <a href="misc/blog.html"
                       style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); text-decoration: none; font-size: 0.82rem; transition: background 0.2s;">
-                      <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--accent-color);"></i> Read Blog
+                      <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--accent-color);"></i> Read
+                      Blog
                     </a>
                   </td>
                 </tr>
@@ -2053,17 +1956,21 @@
                       <span>Tutorial</span>
                     </div>
                     <div class="row-desc-tooltip-wrap">
-                      <span class="row-desc-tooltip-trigger tooltip-up" tabindex="0" role="button" aria-label="Description: Step-by-step guides and video walkthroughs">
+                      <span class="row-desc-tooltip-trigger tooltip-up" tabindex="0" role="button"
+                        aria-label="Description: Step-by-step guides and video walkthroughs">
                         <i class="fa-solid fa-circle-info"></i> <span class="tooltip-btn-label">Info</span>
                         <span class="row-desc-tooltip-bubble">Step-by-step guides and video walkthroughs</span>
                       </span>
                     </div>
                   </td>
-                  <td class="col-scope-desc" style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Step-by-step guides and video walkthroughs</td>
+                  <td class="col-scope-desc"
+                    style="padding: 12px 16px; color: var(--text-content); font-size: 0.88rem;">Step-by-step guides and
+                    video walkthroughs</td>
                   <td style="padding: 12px 16px; text-align: center;">
                     <a href="misc/tutorial.html"
                       style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--secondary-color); border: 1px solid var(--border-color); border-radius: 6px; color: var(--text-color); text-decoration: none; font-size: 0.82rem; transition: background 0.2s;">
-                      <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--accent-color);"></i> Tutorials
+                      <i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--accent-color);"></i>
+                      Tutorials
                     </a>
                   </td>
                 </tr>
@@ -2074,7 +1981,7 @@
       </section>
 
 
-      <div style="text-align: center; margin-top: 2rem; margin-bottom: 5rem;">
+      <div style="text-align: center; margin-top: 2rem; margin-bottom: 1.5rem;">
         <a href="#book-session" class="book-session-btn">
           Need help with studies? &nbsp;<i class="fa-solid fa-graduation-cap"></i>
         </a>
@@ -2186,7 +2093,7 @@
         </nav>
       </section>
 
-      <div style="text-align: center; margin-top: 2rem; margin-bottom: 5rem;">
+      <div style="text-align: center; margin-top: 2rem; margin-bottom: 1.5rem;">
         <a href="#book-session" class="book-session-btn">
           Need help with studies? &nbsp;<i class="fa-solid fa-graduation-cap"></i>
         </a>
@@ -2287,18 +2194,11 @@
 
       </footer>
 
-      <!-- </section> -->
-      <div style="display: flex;justify-content: center;margin-top: 50px;">
+      <div class="mirror-links-banner" style="display: flex; justify-content: center; margin-top: 25px; margin-bottom: 1.5rem;">
         <p>[mirror: <a href="https://b1tacad.netlify.app/" class="link-hover-a">Netlify</a> / <a
             href="https://b1tranger.github.io/b1t-Acad/" class="link-hover-a">
             GitHub</a>]</p>
       </div>
-      <br><br><br><br>
-      <!-- <div style="text-align: center; margin-top: 2rem; margin-bottom: 5rem;">
-        <a href="#book-session" class="book-session-btn">
-          Need help with studies? &nbsp;<i class="fa-solid fa-graduation-cap"></i>
-        </a>
-      </div> -->
     </section>
 
 
@@ -2570,10 +2470,9 @@
     style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 1000000; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box;">
     <div class="modal-content"
       style="position: relative; background-color: var(--primary-color); border: 1px solid var(--border-color); border-radius: 12px; max-width: 650px; width: 100%; max-height: 88vh; display: flex; flex-direction: column; overflow: visible; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
-      
+
       <!-- Close Button Protruding Outside Top-Right Corner -->
-      <button id="close-club-wings-modal" class="club-modal-close-btn"
-        aria-label="Close modal">
+      <button id="close-club-wings-modal" class="club-modal-close-btn" aria-label="Close modal">
         <i class="fas fa-times"></i>
       </button>
 
@@ -2612,6 +2511,155 @@
           <div id="club-modal-wings-list" style="display: flex; flex-direction: column; gap: 10px;">
             <!-- Wings injected dynamically by club-resources.js -->
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QBank Full-Screen Popup Modal -->
+  <div id="qbank-modal" class="modal anon-modal-overlay"
+    style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 1000000; align-items: center; justify-content: center; padding: 16px; box-sizing: border-box;">
+    <div class="modal-content qbank-modal-content"
+      style="position: relative; background-color: var(--primary-color); border: 1px solid var(--border-color); border-radius: 12px; width: 96vw; max-width: 1200px; height: 92vh; max-height: 92vh; display: flex; flex-direction: column; overflow: visible; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+
+      <!-- Close Button Protruding Outside Top-Right Corner -->
+      <button id="close-qbank-modal" class="club-modal-close-btn" aria-label="Close Question Bank modal">
+        <i class="fas fa-times"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="modal-header"
+        style="padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color); background-color: var(--secondary-color); border-top-left-radius: 12px; border-top-right-radius: 12px; display: flex; align-items: center; justify-content: space-between;">
+        <h3 style="margin: 0; font-size: 1.25rem; color: var(--text-color); display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-folder-open" style="color: var(--accent-color);"></i>
+          <span>oU1TS Question Bank</span>
+        </h3>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body qbank-modal-body"
+        style="padding: 1.25rem; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 1rem; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+        <div class="qbank-content" style="display: flex; width: 100%; height: 100%;">
+          <!-- CSE Questions -->
+          <div class="qbank-folder">
+            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
+              <i class="fas fa-folder"></i> CSE Questions
+              <i class="fas fa-chevron-right folder-arrow"></i>
+            </button>
+            <div class="qbank-subfolders">
+              <a href="https://drive.google.com/drive/folders/1gqL70wAJ8HC2QtNfW2yWML16DblL_QbM" target="_blank"
+                class="qbank-link folder">libraryQ.CSE</a>
+              <a href="https://drive.google.com/drive/folders/1zDTV1rFgRg-Le-GuYRIILJiL08Hm3627" target="_blank"
+                class="qbank-link folder">q.cse.s01</a>
+              <a href="https://drive.google.com/drive/folders/1xx1mXlK45XaBSe8SJHgkh9kf2h5WsGf2" target="_blank"
+                class="qbank-link folder">q.cse.s02</a>
+              <a href="https://drive.google.com/drive/folders/1kCk-cujSGyMzaN-NW_IThnWhbQ1bfn_a" target="_blank"
+                class="qbank-link folder">q.cse.s03</a>
+              <a href="https://drive.google.com/drive/folders/1n4XCvXgC5YhnblQjVraWAncM3kjqSgLq" target="_blank"
+                class="qbank-link folder">q.cse.s04</a>
+              <a href="https://drive.google.com/drive/folders/1LNlADCqqkvZSzhNEiLmM5Rv0yyeCBAZS" target="_blank"
+                class="qbank-link folder">q.cse.s05</a>
+              <a href="https://drive.google.com/drive/folders/11J12g_bmFSSZKASHN8sIkudzgnDHGkpt" target="_blank"
+                class="qbank-link folder">q.cse.s06</a>
+              <a href="https://drive.google.com/drive/folders/1Lw5hXkM3zmZSjBXPgg_XA9xbzyqqshV4" target="_blank"
+                class="qbank-link folder">q.cse.s07</a>
+              <a href="https://drive.google.com/drive/folders/1UPOToPRUSLUyOzmlSgp9H_8TST62RZPj" target="_blank"
+                class="qbank-link folder">q.cse.s08</a>
+            </div>
+          </div>
+          <!-- CE Questions -->
+          <div class="qbank-folder">
+            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
+              <i class="fas fa-folder"></i> CE Questions
+              <i class="fas fa-chevron-right folder-arrow"></i>
+            </button>
+            <div class="qbank-subfolders">
+              <a href="https://drive.google.com/drive/folders/1sx-ah7XGcDoEwwlyycRbW3fK27iV2RK2" target="_blank"
+                class="qbank-link folder">Autumn 2025</a>
+              <a href="https://drive.google.com/drive/folders/1a38GexO2kCV65MJxf3jad1xI4yUlAS1G" target="_blank"
+                class="qbank-link folder">Spring 2026</a>
+              <a href="https://drive.google.com/drive/folders/1-Dvp3Zt7Y3-8jVFqGsMMhKR5l5k9BiIq" target="_blank"
+                class="qbank-link folder">Civil Engineering Dept.</a>
+              <a href="https://drive.google.com/file/d/1QMF76tuN_vbzsW3ihxp-JD0jZNZ6E9kY/view?usp=drivesdk"
+                target="_blank" class="qbank-link">CE Autumn 22.pdf</a>
+              <a href="https://drive.google.com/file/d/1WBuHDT9VDwZt11DYmfKzZGQ76JIdCmfV/view?usp=drivesdk"
+                target="_blank" class="qbank-link">CE Autumn 23.pdf</a>
+              <a href="https://drive.google.com/file/d/1i6inPCqYldhExgOR9nFTkX0TxXCWYai4/view?usp=drivesdk"
+                target="_blank" class="qbank-link">CE Spring 22.pdf</a>
+              <a href="https://drive.google.com/file/d/1U9IBA0DRSi537U187URWq-FdLkWyd4Fy/view?usp=drivesdk"
+                target="_blank" class="qbank-link">CE Spring 23.pdf</a>
+              <a href="https://drive.google.com/file/d/1snIe_CmCdMaMPPcfy_-8VYteL5Ika5dB/view?usp=drivesdk"
+                target="_blank" class="qbank-link">CE Spring 24.pdf</a>
+              <a href="https://drive.google.com/file/d/1z0gxHESLwXhzN_rjmBBVo-e5otHR7hLU/view?usp=drivesdk"
+                target="_blank" class="qbank-link">CE Summer 22.pdf</a>
+              <a href="https://drive.google.com/file/d/1Oq31_op9dECKIC4vKKsAwbXfFvA1rgFH/view?usp=drivesdk"
+                target="_blank" class="qbank-link">CE autumn 24 - Anamul Haque (UITS CE 40-014).pdf</a>
+            </div>
+          </div>
+          <!-- IT Questions -->
+          <div class="qbank-folder">
+            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
+              <i class="fas fa-folder"></i> IT Questions
+              <i class="fas fa-chevron-right folder-arrow"></i>
+            </button>
+            <div class="qbank-subfolders">
+              <a href="https://drive.google.com/drive/folders/1dhyUuRHp7frqzmdJNbN8zwJGxUkXbrAp?usp=drive_link"
+                target="_blank" class="qbank-link folder">libraryQ.IT</a>
+              <a href="https://drive.google.com/file/d/1o2nJj7F0T1wMx8J5iTk_n6ryHc2pNF2k/view?usp=drivesdk"
+                target="_blank" class="qbank-link">IT-55 Abdullah Saad IMG_20260422_0001.pdf</a>
+            </div>
+          </div>
+          <!-- BBA Questions -->
+          <div class="qbank-folder">
+            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
+              <i class="fas fa-folder"></i> BBA Questions
+              <i class="fas fa-chevron-right folder-arrow"></i>
+            </button>
+            <div class="qbank-subfolders">
+              <a href="https://drive.google.com/file/d/1Af5iUWXIec2m45L0JOwF9hniLz-rmi9S/view?usp=drivesdk"
+                target="_blank" class="qbank-link">MCO_SPRING_2026_MID-JIMMY - Nayeem Jim.pdf</a>
+            </div>
+          </div>
+          <!-- Law Questions -->
+          <div class="qbank-folder">
+            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
+              <i class="fas fa-folder"></i> Law Questions
+              <i class="fas fa-chevron-right folder-arrow"></i>
+            </button>
+            <div class="qbank-subfolders">
+              <a href="https://drive.google.com/file/d/1sZsowEIVzgP6rXzz76hYZFxWzT6gUdzi/view?usp=drivesdk"
+                target="_blank" class="qbank-link">Application in LAW GED0611111-Mid Spring 2026 - Nayeem Jim.jpeg</a>
+              <a href="https://drive.google.com/file/d/1WxgDLvW0B1a0dmtyY3EYI82Qt-2gfA89/view?usp=drivesdk"
+                target="_blank" class="qbank-link">Constitutional Law of Bangaladesh LAW0421203-Mid Spring 2026 - Nayeem
+                Jim.jpeg</a>
+              <a href="https://drive.google.com/file/d/1LOuNB7RkGuRmdwOoPlFfmnQHvHfqcvWd/view?usp=drivesdk"
+                target="_blank" class="qbank-link">Jurisprudence LAW1104 -Mid Spring 2026 - Nayeem Jim.jpeg</a>
+              <a href="https://drive.google.com/file/d/1CXgX67DMT-_p6z3dND-PL4B52kQMuxYX/view?usp=drivesdk"
+                target="_blank" class="qbank-link">Law of Contract LAW04421202 -Mid Spring 2026 - Nayeem Jim.jpeg</a>
+            </div>
+          </div>
+          <!-- Others -->
+          <div class="qbank-folder">
+            <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
+              <i class="fas fa-folder"></i> Others
+              <i class="fas fa-chevron-right folder-arrow"></i>
+            </button>
+            <div class="qbank-subfolders">
+              <a href="https://drive.google.com/drive/folders/15Z37rhnQbalAqe-9fdbetPI0rvyl8NCB?usp=drive_link"
+                target="_blank" class="qbank-link folder">[Archived Questions]</a>
+              <a href="https://drive.google.com/drive/folders/1whQG-iO_RMRiKuLCLcUzOMskfAb7YWPj?usp=drive_link"
+                target="_blank" class="qbank-link folder">AIUB community</a>
+              <a href="https://drive.google.com/drive/folders/1ZlT1BBqMXm8dst7mM2KUfY0wRibcuUx8?usp=drive_link"
+                target="_blank" class="qbank-link folder">IUT CHEM 4241</a>
+              <a href="https://drive.google.com/file/d/1XzhAVHOwnAMHYyCXVuxqKOTQv-gwcaAq/view?usp=drivesdk"
+                target="_blank" class="qbank-link">de-thi-2019.pdf</a>
+            </div>
+          </div>
+          <!-- Open Full QBank -->
+          <a href="https://drive.google.com/drive/folders/1i0UUsgy68Nypc2ylPsaB-Teljkf0NSUD" target="_blank"
+            class="qbank-full-link">
+            <i class="fas fa-external-link-alt"></i> Open Full QBank in Drive
+          </a>
         </div>
       </div>
     </div>

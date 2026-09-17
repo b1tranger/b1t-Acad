@@ -69,77 +69,236 @@
   #floating-button-nav-2 {
     color: #000;
   }
+}
 
-  /* --- Upload Section (Blood Donation etc.) Lighter Background --- */
-  [data-theme="gray"] .upload-section {
-    background-color: #e0e0e0;
-  }
+/* --- Gray Theme Global Contrast Overrides (Desktop & Mobile) --- */
+[data-theme="gray"] .upload-section {
+  background-color: #e0e0e0;
+}
 
-  [data-theme="gray"] .upload-title,
-  [data-theme="gray"] .upload-section h3,
-  [data-theme="gray"] .upload-section p {
-    color: #333;
-  }
+[data-theme="gray"] .upload-title,
+[data-theme="gray"] .upload-section h3,
+[data-theme="gray"] .upload-section p {
+  color: #222222;
+}
 
-  [data-theme="gray"] .upload-section .link-hover-a,
-  [data-theme="gray"] .upload-section .link-hover-a-2 {
-    color: #1a1a1a;
-  }
+[data-theme="gray"] .upload-section .link-hover-a,
+[data-theme="gray"] .upload-section .link-hover-a-2 {
+  color: #1a1a1a;
+}
 
-  [data-theme="gray"] .upload-section .link-hover-a:hover {
-    color: #007bff !important;
-  }
+[data-theme="gray"] .upload-section .link-hover-a:hover {
+  color: var(--accent-color) !important;
+}
 
-  /* --- Content Section Text Contrast --- */
-  [data-theme="gray"] .content-section p {
-    color: #333;
-  }
+/* --- Content Section Text Contrast --- */
+[data-theme="gray"] .content-section h2 {
+  color: #111111;
+}
 
-  [data-theme="gray"] .content-section a[style*="color: white"],
-  [data-theme="gray"] .content-section a[style*="color:white"] {
-    color: #1a1a1a !important;
-  }
+[data-theme="gray"] .content-section p {
+  color: #222222;
+}
 
-  [data-theme="gray"] .content-section a[style*="color: white"]:hover,
-  [data-theme="gray"] .content-section a[style*="color:white"]:hover {
-    color: #007bff !important;
-  }
+[data-theme="gray"] .content-section a[style*="color: white"],
+[data-theme="gray"] .content-section a[style*="color:white"],
+[data-theme="gray"] .content-section a[style*="whitesmoke"],
+[data-theme="gray"] a[style*="color: whitesmoke"],
+[data-theme="gray"] a[style*="color:whitesmoke"] {
+  color: var(--accent-color) !important;
+}
 
-  /* --- Info Nav Link Improvements --- */
-  [data-theme="gray"] .info-nav-link,
-  [data-theme="gray"] .info-nav-link-a {
-    color: #333;
-    border-color: #bbb;
-  }
+[data-theme="gray"] .content-section a[style*="color: white"]:hover,
+[data-theme="gray"] .content-section a[style*="color:white"]:hover,
+[data-theme="gray"] .content-section a[style*="whitesmoke"]:hover,
+[data-theme="gray"] a[style*="color: whitesmoke"]:hover {
+  color: #004c99 !important;
+}
 
-  [data-theme="gray"] .info-nav-link:hover,
-  [data-theme="gray"] .info-nav-link-a:hover {
-    background-color: #333;
-    color: #fff;
-  }
+[data-theme="gray"] .content-section p[style*="color: rgba(255, 255, 255"] {
+  color: #555555 !important;
+}
 
-  /* --- Resource Links Improvements --- */
-  [data-theme="gray"] .resource-link,
-  [data-theme="gray"] .resources-nav-link {
-    color: #333;
-    border-color: #bbb;
-  }
+.donate-group-link {
+  color: #f5f5f5;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
 
-  [data-theme="gray"] .resource-link:hover,
-  [data-theme="gray"] .resources-nav-link:hover {
-    background-color: #333;
-    color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+.donate-group-link:hover {
+  color: var(--accent-color);
+}
 
-  /* --- Grid Button Improvements --- */
-  [data-theme="gray"] .grid-button {
-    color: #333;
-  }
+.section-work-hint {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
 
-  [data-theme="gray"] .grid-button:hover {
-    color: #fff;
-  }
+[data-theme="gray"] .donate-group-link {
+  color: var(--accent-color) !important;
+  font-weight: 500;
+}
+
+[data-theme="gray"] .donate-group-link:hover {
+  color: #004c99 !important;
+}
+
+[data-theme="gray"] .section-work-hint {
+  color: #555555 !important;
+}
+
+[data-theme="gray"] .search-hint,
+[data-theme="gray"] .search-hint small {
+  color: #444444 !important;
+}
+
+/* --- Info Nav Link Improvements --- */
+[data-theme="gray"] .info-nav-link,
+[data-theme="gray"] .info-nav-link-a {
+  color: #222222;
+  border-color: #bbbbbb;
+}
+
+[data-theme="gray"] .info-nav-link:hover,
+[data-theme="gray"] .info-nav-link-a:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* --- Resource Links Improvements --- */
+[data-theme="gray"] .resource-link,
+[data-theme="gray"] .resources-nav-link {
+  color: #222222;
+  border-color: #bbbbbb;
+}
+
+[data-theme="gray"] .resource-link:hover,
+[data-theme="gray"] .resources-nav-link:hover {
+  background-color: #333333;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Grid Button Improvements --- */
+[data-theme="gray"] .grid-button {
+  color: #222222;
+}
+
+[data-theme="gray"] .grid-button:hover {
+  color: #ffffff;
+}
+
+/* --- QBank Modal & File Explorer Light Theme Contrast --- */
+[data-theme="gray"] .qbank-modal-content {
+  background-color: #f0f0f0 !important;
+  border-color: #bfbfbf !important;
+}
+
+[data-theme="gray"] .qbank-modal-content .modal-header {
+  background-color: #dcdcdc !important;
+  border-bottom-color: #bfbfbf !important;
+}
+
+[data-theme="gray"] .qbank-modal-content .modal-header h3 {
+  color: #1a1a1a !important;
+}
+
+[data-theme="gray"] .qbank-toggle {
+  background-color: #f0f0f0 !important;
+  color: #1a1a1a !important;
+  border-color: #999999 !important;
+}
+
+[data-theme="gray"] .qbank-toggle:hover {
+  background-color: #e0e0e0 !important;
+  border-color: var(--accent-color) !important;
+  color: #1a1a1a !important;
+}
+
+[data-theme="gray"] .qbank-arrow {
+  color: #1a1a1a !important;
+}
+
+[data-theme="gray"] .file-explorer {
+  color: #1a1a1a !important;
+}
+
+[data-theme="gray"] .explorer-header {
+  border-bottom-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="gray"] .explorer-breadcrumbs {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+[data-theme="gray"] .explorer-crumb:hover,
+[data-theme="gray"] .explorer-crumb.active {
+  color: #000000 !important;
+}
+
+[data-theme="gray"] .explorer-item {
+  background-color: #e8e8e8 !important;
+  border-color: #cccccc !important;
+  color: #1a1a1a !important;
+}
+
+[data-theme="gray"] .explorer-item:hover {
+  background-color: #dddddd !important;
+  border-color: var(--accent-color) !important;
+}
+
+[data-theme="gray"] .explorer-item-name {
+  color: #1a1a1a !important;
+}
+
+[data-theme="gray"] .explorer-item-indicator {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* --- Tooltip Bubble Light Theme Contrast --- */
+[data-theme="gray"] .row-desc-tooltip-bubble {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+  border: 1px solid #bfbfbf !important;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="gray"] .row-desc-tooltip-bubble::after {
+  border-color: transparent transparent #ffffff transparent !important;
+}
+
+[data-theme="gray"] .row-desc-tooltip-trigger.tooltip-up .row-desc-tooltip-bubble::after {
+  border-color: #ffffff transparent transparent transparent !important;
+}
+
+/* --- ECA Table Light Theme Contrast --- */
+[data-theme="gray"] #interests-table th {
+  background-color: #dcdcdc !important;
+  color: #1a1a1a !important;
+  border-bottom-color: #bfbfbf !important;
+}
+
+[data-theme="gray"] #interests-table td {
+  color: #1a1a1a !important;
+  border-bottom-color: #cccccc !important;
+}
+
+[data-theme="gray"] #interests-table tr:hover td {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+/* --- Circular Close Buttons in Light Theme --- */
+[data-theme="gray"] .club-modal-close-btn {
+  background: #ffffff !important;
+  border-color: #999999 !important;
+  color: #1a1a1a !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+[data-theme="gray"] .club-modal-close-btn:hover {
+  border-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
 }
 
 /* --- Theme Switcher Button --- */
@@ -204,7 +363,7 @@ html {
   scroll-padding-top: 80px;
   /* Offset for fixed nav to prevent content from being hidden */
   scrollbar-gutter: stable;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* --- Universal Custom Matte Scrollbars --- */
@@ -287,7 +446,8 @@ body {
   align-items: center;
   /* This now centers content horizontally */
   min-height: 100vh;
-  padding: 1rem;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 /* --------------------------------------------------------------- */
@@ -320,17 +480,48 @@ body {
 }
 
 .link-hover-a {
-  /* background-color: #fcfcfc; */
-  color: rgb(0, 0, 0);
+  color: #64b5f6;
   padding: 2px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
+[data-theme="gray"] .link-hover-a {
+  color: #1976d2;
+}
 
 .link-hover-a:hover {
   color: rgb(102, 143, 255) !important;
   font-weight: bold;
   transition: 0.3s ease;
   transform: translateY(-3px);
+}
+
+.mirror-links-banner p {
+  color: #a0aec0;
+  font-size: 0.95rem;
+}
+
+.mirror-links-banner .link-hover-a {
+  color: #64b5f6;
+  font-weight: 600;
+}
+
+.mirror-links-banner .link-hover-a:hover {
+  color: #90caf9 !important;
+  text-decoration: underline;
+}
+
+[data-theme="gray"] .mirror-links-banner p {
+  color: #4a5568;
+}
+
+[data-theme="gray"] .mirror-links-banner .link-hover-a {
+  color: #1976d2;
+}
+
+[data-theme="gray"] .mirror-links-banner .link-hover-a:hover {
+  color: #0d47a1 !important;
 }
 
 .link-hover-a-2 {
@@ -390,9 +581,12 @@ body {
   width: 100%;
   max-width: 800px;
   text-align: center;
-  height: 100vh;
-  margin-top: 10vh;
-  /* margin-bottom: 10rem; */
+  height: auto;
+  min-height: auto;
+  margin: 0 auto;
+  margin-top: 5.5rem;
+  margin-bottom: 1.5rem;
+  box-sizing: border-box;
 }
 
 /* --- Logo --- */
@@ -560,20 +754,15 @@ body {
 /* --- Content Sections --- */
 .content-wrapper {
   width: 100%;
+  box-sizing: border-box;
 }
 
 .content-section {
-  /* height: 100vh; */
-  min-height: 100dvh;
-  /* margin-top: 10vh; */
-  padding: 5rem 2rem;
+  min-height: auto;
+  padding: 5.5rem 1.5rem 1.5rem 1.5rem;
   max-width: 900px;
   margin: 0 auto;
-  margin-top: 2rem;
-  /* margin-top: 20rem; */
-  /* min-height: 40vh; */
-  /* padding: 2rem; */
-  /* Give sections some height */
+  box-sizing: border-box;
   text-align: left;
 }
 
@@ -1743,9 +1932,13 @@ body.no-scroll {
     text-align: center;
   }
 
-  .content-section {
-    padding: 20px;
+  .container {
+    margin-top: 4.5rem;
+  }
 
+  .content-section {
+    padding: 4.5rem 1rem 1.5rem 1rem;
+    box-sizing: border-box;
   }
 
   #About {
@@ -3293,10 +3486,10 @@ now Browse Curated Resources*/
 
 #spa-back-btn:hover {
   background-color: var(--accent-color);
-  color: #1a1a1a;
+  color: #ffffff !important;
   border-color: var(--accent-color);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 123, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
 }
 
 #spa-back-btn i {
@@ -3307,8 +3500,9 @@ now Browse Curated Resources*/
   #spa-back-btn {
     top: auto;
     bottom: 2rem;
-    left: 50%;
-    transform: translateX(5%);
+    right: 1.5rem;
+    left: auto;
+    transform: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   }
 }
@@ -3323,9 +3517,38 @@ now Browse Curated Resources*/
 
 [data-theme="gray"] #spa-back-btn:hover {
   background-color: #dcdcdc;
-  color: #1a1a1a;
+  color: #1a1a1a !important;
   border-color: var(--accent-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ========================================= */
+/* ===== QBank Full-Screen Modal Styles ==== */
+/* ========================================= */
+.qbank-modal-content {
+  width: 96vw !important;
+  max-width: 1200px !important;
+  height: 92vh !important;
+  max-height: 92vh !important;
+}
+
+.qbank-modal-body {
+  padding: 1.25rem !important;
+  overflow-y: auto !important;
+}
+
+.qbank-modal-body .explorer-list {
+  flex: 1 !important;
+  max-height: none !important;
+  min-height: 250px !important;
+}
+
+@media (max-width: 768px) {
+  .qbank-modal-content {
+    width: 98vw !important;
+    height: 94vh !important;
+    max-height: 94vh !important;
+  }
 }
 
 /* ========================================= */

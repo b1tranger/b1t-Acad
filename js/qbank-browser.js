@@ -215,4 +215,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Initial render
   renderExplorer();
+
+  // 4. Modal Open / Close Controller
+  const qbankModal = document.getElementById("qbank-modal");
+  const openBtn = document.getElementById("open-qbank-modal-btn");
+  const closeBtn = document.getElementById("close-qbank-modal");
+
+  function openModal() {
+    if (!qbankModal) return;
+    qbankModal.style.display = "flex";
+    document.body.classList.add("no-scroll");
+  }
+
+  function closeModal() {
+    if (!qbankModal) return;
+    qbankModal.style.display = "none";
+    document.body.classList.remove("no-scroll");
+  }
+
+  if (openBtn) {
+    openBtn.addEventListener("click", openModal);
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener("click", closeModal);
+  }
+
+  // Tap-outside-to-close
+  if (qbankModal) {
+    qbankModal.addEventListener("click", (e) => {
+      if (e.target === qbankModal) {
+        closeModal();
+      }
+    });
+  }
+
+  // Escape key to close
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && qbankModal && qbankModal.style.display === "flex") {
+      closeModal();
+    }
+  });
 });

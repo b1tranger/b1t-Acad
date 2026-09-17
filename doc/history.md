@@ -3,6 +3,21 @@ tags: changelog, history, updates, logs, archive, agent-rules, guidelines, promp
 -->
 
 # 17.09.26
+- **Dark Theme Contrast for Mirror Links & `.link-hover-a` (`index.html`, `style.css`, `sw.js`)**:
+  - Resolved low contrast issue in the bottom mirror links banner (`[mirror: Netlify / GitHub]` in [`index.html:L2197-L2201`](index.html)): assigned class `.mirror-links-banner` with legible secondary text color (`#a0aec0` in dark theme, `#4a5568` in light theme).
+  - Fixed global `.link-hover-a` styling in [`style.css`](style.css): replaced hardcoded `color: rgb(0, 0, 0);` (which rendered links pitch black on dark backgrounds) with bright accent color `#64b5f6` in dark theme and `#1976d2` in light theme (`[data-theme="gray"]`), restoring high contrast across all `.link-hover-a` anchor links sitewide.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v6.8'` in [`sw.js:L2`](sw.js#L2).
+- **Submission Page Mobile Floating Button, Collapsible Notice & Icon Action Buttons (`submission.html`, `sw.js`)**:
+  - Repositioned `.back-btn` on mobile devices (`max-width: 768px`) to float at the bottom-right corner (`position: fixed; bottom: 2rem; right: 1.5rem; z-index: 999;`) with pill shape (`border-radius: 50px`), glassmorphism backdrop blur, and dark-theme border glow, matching the `#spa-back-btn` aesthetic on [`index.html`](index.html).
+  - Implemented dynamic collapsible notice banner architecture (`#page-notice-banner`, `#notice-info-trigger`, `#notice-close-btn`):
+    - Placed top bar info icon button `#notice-info-trigger` inside `.category-header`.
+    - Configured `#page-notice-banner` to display prominently on page load, automatically gliding and minimizing into the top bar info icon after 4 seconds with a pulse highlight.
+    - Added mouseenter/mouseleave hover pause support to prevent auto-minimization while the user is actively reading.
+    - Implemented click toggle on `#notice-info-trigger` to smoothly expand/collapse the banner with CSS cubic-bezier transition, plus manual dismiss button `#notice-close-btn`.
+  - Refactored mobile notification actions (`.notif-actions` at `max-width: 768px`):
+    - Wrapped text inside `.submit-resource-btn` with `<span class="submit-btn-text">`.
+    - Hid button text labels (`#notif-btn-text`, `#recent-bell-text`, `.submit-btn-text`) on screens $\le 768\text{px}$, transforming `#notif-enable-btn`, `#recent-bell-btn`, and `.submit-resource-btn` into compact, touch-friendly $44\times 44\text{px}$ circular icon buttons with tooltips and `aria-label` attributes.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v6.7'` in [`sw.js:L2`](sw.js#L2).
 - **Club Resources Sub-Section & Wings Modal Architecture (`index.html`, `js/clubs-data.js`, `js/departments-data.js`)**:
   - Added a dedicated **"Club Resources"** sub-section within the Extra Curricular Activities (ECA) section of [`index.html`](index.html), complete with interactive department club badges.
   - Implemented the `#club-wings-modal` popup modal displaying department club overviews, parent Google Drive folder access, and comprehensive subsidiary focus wings with icons, descriptions, and direct Drive links.
@@ -17,9 +32,26 @@ tags: changelog, history, updates, logs, archive, agent-rules, guidelines, promp
   - Replaced the homepage promo button and inspired-by paragraph in [`index.html:L1230-L1250`](index.html) with a prominent, floating highlighted action button (`.ou1ts-portal-btn`) linking directly to the **oU1TS Portal** (`https://ouits-res.netlify.app/`) with accent gradient, box-shadow glow, and external link icon.
   - Fixed `.ou1ts-portal-btn` styling on wider displays: resolved a missing media query closing brace in [`index.html`](index.html) that previously trapped the button class inside `@media (max-width: 480px)`, and mirrored the rule into [`style.css`](style.css) for global multi-screen support.
   - Formatted `#close-club-wings-modal` into a truly circular floating button: purged overriding `.btn` and `.btn-icon` classes (which injected 30px padding and 8px border-radius) and enforced `36px` dimensions with `border-radius: 50% !important; padding: 0 !important;` in [`index.html`](index.html) and [`style.css`](style.css).
-  - Prevented website width jumping and scrollbar disappearance on sidebar expansion: configured `html { scrollbar-gutter: stable; overflow-y: scroll; }` and added independent scroll containment (`overflow-y: auto; overscroll-behavior: contain;`) to the mobile `.sticky-nav` drawer.
+  - Prevented website width jumping and scrollbar disappearance on sidebar expansion: configured `html { scrollbar-gutter: stable; overflow-y: auto; }` and added independent scroll containment (`overflow-y: auto; overscroll-behavior: contain;`) to the mobile `.sticky-nav` drawer.
   - Designed and deployed universal custom **matte** scrollbars across the entire website and modals (`*` and `::-webkit-scrollbar` with slate/charcoal track and thumb in dark theme, soft gray in light theme).
-  - Bumped Service Worker cache version `CACHE_NAME` to `'v6.3'` in [`sw.js:L2`](sw.js#L2).
+  - **100vh Viewport Scroll Optimization & Section Headroom Restoration (`style.css`, `index.html`)**:
+    - Eliminated artificial vertical overflow and unnecessary scrolling to blank trailing space when sections fit within 100vh.
+    - Updated `html`: changed `overflow-y: scroll;` to `overflow-y: auto;` while retaining `scrollbar-gutter: stable;`, preventing scroll actions when content fits within 100vh without introducing layout shifts when content expands.
+    - Updated `body`: replaced `padding: 1rem;` with `padding: 0 1rem; box-sizing: border-box;` to prevent vertical edge overrun.
+    - Restored ample top spacing over `.container`: configured `margin-top: 5.5rem;` (`4.5rem` on mobile) to ensure comfortable clearance below top overlays (b1t Scheduler, theme switcher, Coffee button, hamburger menu) without re-introducing overflow.
+    - Restored top headroom over `.content-section`: set `padding: 5.5rem 1.5rem 1.5rem 1.5rem;` (`4.5rem 1rem 1.5rem 1rem;` on mobile) with `min-height: auto;`, providing clean clearance below `#spa-back-btn` and floating badges while keeping the bottom compact.
+    - Purged excessive trailing whitespace and margins across sections in [`index.html`](index.html): reduced trailing button `margin-bottom: 5rem` to `1.5rem` across `#info`, `#Qbank`, `#Departments`, `#Donate`, `#ECA`, and `#Library`, removed trailing `<br><br><br><br>` tags in `#About`, and normalized `#book-session` margin-bottom from `10vh` to `1.5rem`.
+  - **QBank Full-Screen Popup Modal (`index.html`, `js/qbank-browser.js`, `style.css`)**:
+    - Replaced the inline dropdown accordion in `#Qbank` with a centered launcher button (`#open-qbank-modal-btn`).
+    - Implemented `#qbank-modal` full-screen popup modal (`96vw` $\times$ `92vh`) with backdrop blur, styled header banner, protruding circular close button (`#close-qbank-modal`), tap-outside backdrop dismiss, and `Escape` key support.
+    - Updated [`js/qbank-browser.js`](js/qbank-browser.js) to manage modal state, body scroll lock, and expand `.explorer-list` to use full modal height.
+  - **Mobile Home Button & Dark Theme Hover Contrast (`style.css`)**:
+    - Repositioned `#spa-back-btn` on mobile devices (`max-width: 768px`) to the bottom-right corner (`bottom: 2rem; right: 1.5rem; left: auto; transform: none;`).
+    - Fixed dark theme hover styling: enforced pure white text and icon (`color: #ffffff !important;`) on hover against the accent background.
+  - **Light Theme (`[data-theme="gray"]`) Contrast Audit & Global Un-nesting (`style.css`, `index.html`)**:
+    - Extracted global gray theme styles out of the `@media (min-width: 769px)` block so mobile viewports receive complete, high-contrast light theme rules.
+    - Eliminated hardcoded inline white styles and enhanced text contrast across `.content-section h2`, `p`, links, search hints, tooltips, tables, and file explorer cards.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v6.6'` in [`sw.js:L2`](sw.js#L2).
 - **Visitor Counter & Glitch Intro Archival (`old-code/`)**:
   - Excised the text-based delayed visitor counter from [`index.html:L1126-L1161`](index.html) (`#visitor-counter-container`, `#visitor-badge`, and the 30-second delayed fetch to `api.counterapi.dev`) and surrounding spacing markup.
   - Excised the first-visit chromatic aberration glitch intro from [`index.html:L881-L932`](index.html) (`@keyframes glitch-text`, `.glitch-active`), [`index.html:L1072-L1078`](index.html) (removed targeting IDs `main-logo-heading` and `main-logo-subtext`), and [`index.html:L2281-L2353`](index.html) (cookie check `gaus_website_effect_run`, 3-second post-load timer, 10-second temporary text swap to *"Gaus এর Website"* / *"বড়ভাইরা এ নামে ভালো চিনে আরকি"*, and revert animation).

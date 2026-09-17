@@ -137,7 +137,7 @@
             margin: 0 auto;
         }
 
-        /* Responsive Header */
+        /* Responsive Header & Controls */
         @media (max-width: 768px) {
             .category-page {
                 padding: 1rem;
@@ -145,6 +145,7 @@
 
             .category-header {
                 padding: 1.5rem;
+                padding-right: 4.25rem;
                 gap: 1rem;
             }
 
@@ -163,9 +164,83 @@
                 font-size: 0.9rem;
             }
 
+            /* Floating back button at bottom-right corner */
             .back-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
+                position: fixed;
+                bottom: 2rem;
+                right: 1.5rem;
+                z-index: 999;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 0.75rem 1.35rem;
+                background: rgba(26, 26, 46, 0.95);
+                border: 1px solid rgba(100, 181, 246, 0.4);
+                border-radius: 50px;
+                color: #ffffff !important;
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 600;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                transition: all 0.3s ease;
+            }
+
+            .back-btn:hover {
+                background: #64b5f6;
+                color: #ffffff !important;
+                border-color: #64b5f6;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(100, 181, 246, 0.5);
+            }
+
+            .notice-info-trigger {
+                top: 1.25rem;
+                right: 1.25rem;
+                transform: none;
+                width: 40px;
+                height: 40px;
+                font-size: 1.15rem;
+            }
+
+            .notice-info-trigger:hover {
+                transform: scale(1.08);
+            }
+
+            /* Mobile icon-only notification action buttons */
+            #notif-btn-text,
+            #recent-bell-text,
+            .submit-btn-text {
+                display: none !important;
+            }
+
+            .notif-actions {
+                display: flex;
+                gap: 0.75rem;
+                align-items: center;
+            }
+
+            .notif-enable-btn,
+            .recent-bell-btn,
+            .submit-resource-btn {
+                width: 44px !important;
+                height: 44px !important;
+                min-width: 44px !important;
+                padding: 0 !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                border-radius: 50% !important;
+                font-size: 1.1rem !important;
+                flex-shrink: 0;
+            }
+
+            .notif-enable-btn i,
+            .recent-bell-btn i,
+            .submit-resource-btn i {
+                margin: 0 !important;
+                font-size: 1.1rem !important;
             }
         }
 
@@ -174,14 +249,11 @@
                 flex-direction: column;
                 align-items: flex-start;
                 text-align: left;
+                padding-right: 3.75rem;
             }
 
             .category-header::after {
                 display: none;
-            }
-
-            .back-btn {
-                order: -1;
             }
         }
 
@@ -370,26 +442,130 @@
             box-shadow: 0 4px 15px rgba(100, 181, 246, 0.4);
         }
 
+        /* Notice Info Trigger in Top Bar */
+        .notice-info-trigger {
+            position: absolute;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(100, 181, 246, 0.12);
+            border: 1px solid rgba(100, 181, 246, 0.3);
+            color: #64b5f6;
+            font-size: 1.25rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 5;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            outline: none;
+        }
+
+        .notice-info-trigger:hover {
+            background: rgba(100, 181, 246, 0.25);
+            border-color: #64b5f6;
+            color: #ffffff;
+            transform: translateY(-50%) scale(1.08);
+            box-shadow: 0 0 16px rgba(100, 181, 246, 0.4);
+        }
+
+        .notice-info-trigger.pulse {
+            animation: noticeTriggerPulse 1.2s ease-in-out 2;
+        }
+
+        @keyframes noticeTriggerPulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(100, 181, 246, 0.8);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(100, 181, 246, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(100, 181, 246, 0);
+            }
+        }
+
+        /* Collapsible Notice Banner Overlay */
         .page-description {
+            position: relative;
             background: rgba(100, 181, 246, 0.1);
-            border: 1px solid rgba(100, 181, 246, 0.2);
-            border-radius: 12px;
+            border: 1px solid rgba(100, 181, 246, 0.25);
+            border-radius: 14px;
             padding: 1.25rem 1.5rem;
             margin-bottom: 2rem;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.2rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(100, 181, 246, 0.08);
+            max-height: 300px;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            transform-origin: top right;
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                        opacity 0.35s ease,
+                        transform 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                        margin 0.4s ease,
+                        padding 0.4s ease,
+                        border-width 0.4s ease;
+            overflow: hidden;
         }
 
-        .page-description i {
+        .page-description.minimized {
+            max-height: 0;
+            opacity: 0;
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            border-width: 0;
+            transform: translateY(-25px) scale(0.8);
+            pointer-events: none;
+        }
+
+        .page-description i.notice-icon {
             color: #64b5f6;
             font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .notice-text-content {
+            flex: 1;
+            min-width: 0;
         }
 
         .page-description p {
             color: #e0e6ed;
             font-size: 0.95rem;
             line-height: 1.5;
+            margin: 0;
+        }
+
+        .notice-close-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a0b0c0;
+            font-size: 0.9rem;
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.2s ease;
+            margin-left: auto;
+        }
+
+        .notice-close-btn:hover {
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: scale(1.1);
         }
 
         .reference-footer {
@@ -618,7 +794,7 @@
 <body>
     <div class="category-page">
         <header class="category-header">
-            <a href="index.html" class="back-btn">
+            <a href="index.html" class="back-btn" title="Back to Home" aria-label="Back to Home">
                 <i class="fa-solid fa-arrow-left"></i>
                 Back
             </a>
@@ -629,29 +805,37 @@
                 <h1>Submissions</h1>
                 <p>Questions and Notes submitted by students</p>
             </div>
+            <button type="button" class="notice-info-trigger" id="notice-info-trigger" title="Toggle Page Information" aria-label="Toggle Page Information" aria-expanded="true">
+                <i class="fa-solid fa-circle-info"></i>
+            </button>
         </header>
 
         <div class="project-list">
-            <div class="page-description">
-                <i class="fa-solid fa-circle-info"></i>
-                <p>This page showcases questions and notes submitted by students. Toggle between submissions using the
-                    buttons below to view different contributions from the community.</p>
+            <div class="page-description" id="page-notice-banner">
+                <i class="fa-solid fa-circle-info notice-icon"></i>
+                <div class="notice-text-content">
+                    <p>This page showcases questions and notes submitted by students. Toggle between submissions using the
+                        buttons below to view different contributions from the community.</p>
+                </div>
+                <button type="button" class="notice-close-btn" id="notice-close-btn" title="Dismiss notice" aria-label="Dismiss notice">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
             </div>
 
             <!-- Notification Actions -->
             <div class="notif-actions" style="margin-bottom: 1.5rem;">
-                <button class="notif-enable-btn" id="notif-enable-btn" onclick="handleEnableNotifications()">
+                <button class="notif-enable-btn" id="notif-enable-btn" onclick="handleEnableNotifications()" title="Enable Notifications" aria-label="Enable Notifications">
                     <i class="fa-solid fa-bell"></i>
                     <span id="notif-btn-text">Enable Notifications</span>
                 </button>
-                <button class="recent-bell-btn" id="recent-bell-btn" onclick="handleShowRecentSubmissions()">
+                <button class="recent-bell-btn" id="recent-bell-btn" onclick="handleShowRecentSubmissions()" title="Recent Submissions" aria-label="Recent Submissions">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                     <span id="recent-bell-text">Recent Submissions</span>
                 </button>
                 <a href="https://b1tacad.netlify.app/#Donate" class="submit-resource-btn"
-                    style="padding: 0.6rem 1.15rem; font-size: 0.85rem;">
+                    style="padding: 0.6rem 1.15rem; font-size: 0.85rem;" title="Make Submission" aria-label="Make Submission">
                     <i class="fa-solid fa-paper-plane"></i>
-                    Make Submission
+                    <span class="submit-btn-text">Make Submission</span>
                 </a>
             </div>
 
@@ -1271,6 +1455,71 @@
             if ('Notification' in window && Notification.permission === 'granted') {
                 updateNotifButton(true);
             }
+
+            // Initialize animated collapsible notice banner
+            initNoticeBanner();
+        }
+
+        function initNoticeBanner() {
+            const noticeBanner = document.getElementById('page-notice-banner');
+            const noticeTrigger = document.getElementById('notice-info-trigger');
+            const noticeCloseBtn = document.getElementById('notice-close-btn');
+            if (!noticeBanner || !noticeTrigger) return;
+
+            let autoMinimizeTimeout = null;
+
+            function minimizeNotice() {
+                if (!noticeBanner.classList.contains('minimized')) {
+                    noticeBanner.classList.add('minimized');
+                    noticeTrigger.classList.add('pulse');
+                    noticeTrigger.setAttribute('aria-expanded', 'false');
+                    setTimeout(() => {
+                        noticeTrigger.classList.remove('pulse');
+                    }, 2400);
+                }
+            }
+
+            function expandNotice() {
+                noticeBanner.classList.remove('minimized');
+                noticeTrigger.setAttribute('aria-expanded', 'true');
+                if (autoMinimizeTimeout) {
+                    clearTimeout(autoMinimizeTimeout);
+                    autoMinimizeTimeout = null;
+                }
+            }
+
+            function toggleNotice() {
+                if (noticeBanner.classList.contains('minimized')) {
+                    expandNotice();
+                } else {
+                    minimizeNotice();
+                }
+            }
+
+            noticeTrigger.addEventListener('click', toggleNotice);
+
+            if (noticeCloseBtn) {
+                noticeCloseBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    minimizeNotice();
+                });
+            }
+
+            // Auto-minimize after 4 seconds with hover pause
+            autoMinimizeTimeout = setTimeout(minimizeNotice, 4000);
+
+            noticeBanner.addEventListener('mouseenter', () => {
+                if (autoMinimizeTimeout) {
+                    clearTimeout(autoMinimizeTimeout);
+                    autoMinimizeTimeout = null;
+                }
+            });
+
+            noticeBanner.addEventListener('mouseleave', () => {
+                if (!noticeBanner.classList.contains('minimized') && !autoMinimizeTimeout) {
+                    autoMinimizeTimeout = setTimeout(minimizeNotice, 3000);
+                }
+            });
         }
 
         init();
