@@ -1,11 +1,71 @@
 {
-  "currentVersion": "v7.1",
+  "currentVersion": "v7.6",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v7.1",
+      "version": "v7.6",
       "badge": "Latest",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "Fix",
+          "title": "Persistent Support Button & Mobile Navigation Overlap Prevention",
+          "description": "Resolved overlap between the persistent Coffee support button (#support-qr-persistent) and the mobile navigation drawer (#sticky-nav). Lowered button z-index to 2500, elevated mobile drawer and overlay z-indices to 3500/3400, and added automatic fade-out dismissal whenever the drawer is open."
+        }
+      ]
+    },
+    {
+      "version": "v7.5",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Mobile Navigation Drawer Centering & Floating Button Margin",
+          "description": "Added responsive top margin (8.5rem) to the mobile navigation links list (.sticky-nav ul) to cleanly center the navigation items in the sidebar drawer and completely prevent overlap with the floating b1t Scheduler button."
+        }
+      ]
+    },
+    {
+      "version": "v7.4",
+      "badge": "Fix",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "Fix",
+          "title": "Unclosed Parent Modal Hierarchy Resolution",
+          "description": "Resolved critical HTML nesting issue where #changelog-modal was trapped inside an unclosed hidden #qbank-modal container, preventing the changelog modal from rendering on screen."
+        }
+      ]
+    },
+    {
+      "version": "v7.3",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Mobile Navigation Drawer Changelog Button Relocation",
+          "description": "Moved the mobile Changelog button to the very bottom of the sliding navigation drawer with an automatic top margin anchor and subtle border separator for a cleaner menu layout."
+        }
+      ]
+    },
+    {
+      "version": "v7.2",
+      "badge": "Fix",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "Fix",
+          "title": "Changelog Modal Offline & Protocol Resiliency",
+          "description": "Resolved issue where the changelog modal would not display upon button click due to CORS fetch restrictions on file:// protocols. Added embedded fallback data, delegated document click listeners, inline onclick fallbacks, and elevated overlay z-index."
+        }
+      ]
+    },
+    {
+      "version": "v7.1",
+      "badge": "Feature",
       "date": "18.09.26",
       "changes": [
         {

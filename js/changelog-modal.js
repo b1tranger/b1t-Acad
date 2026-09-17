@@ -4,10 +4,221 @@
  * Modeled on b1t-Sched changelog architecture
  */
 
+// Embedded fallback data ensuring the modal ALWAYS opens even on file:// protocol or offline
+const CHANGELOG_DATA_FALLBACK = {
+  "currentVersion": "v7.6",
+  "lastUpdated": "September 2026",
+  "documentationUrl": "doc/history.md",
+  "history": [
+    {
+      "version": "v7.6",
+      "badge": "Latest",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "Fix",
+          "title": "Persistent Support Button & Mobile Navigation Overlap Prevention",
+          "description": "Resolved overlap between the persistent Coffee support button (#support-qr-persistent) and the mobile navigation drawer (#sticky-nav). Lowered button z-index to 2500, elevated mobile drawer and overlay z-indices to 3500/3400, and added automatic fade-out dismissal whenever the drawer is open."
+        }
+      ]
+    },
+    {
+      "version": "v7.5",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Mobile Navigation Drawer Centering & Floating Button Margin",
+          "description": "Added responsive top margin (8.5rem) to the mobile navigation links list (.sticky-nav ul) to cleanly center the navigation items in the sidebar drawer and completely prevent overlap with the floating b1t Scheduler button."
+        }
+      ]
+    },
+    {
+      "version": "v7.4",
+      "badge": "Fix",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "Fix",
+          "title": "Unclosed Parent Modal Hierarchy Resolution",
+          "description": "Resolved critical HTML nesting issue where #changelog-modal was trapped inside an unclosed hidden #qbank-modal container, preventing the changelog modal from rendering on screen."
+        }
+      ]
+    },
+    {
+      "version": "v7.3",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Mobile Navigation Drawer Changelog Button Relocation",
+          "description": "Moved the mobile Changelog button to the very bottom of the sliding navigation drawer with an automatic top margin anchor and subtle border separator for a cleaner menu layout."
+        }
+      ]
+    },
+    {
+      "version": "v7.2",
+      "badge": "Fix",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "Fix",
+          "title": "Changelog Modal Offline & Protocol Resiliency",
+          "description": "Resolved issue where the changelog modal would not display upon button click due to CORS fetch restrictions on file:// protocols. Added embedded fallback data, delegated document click listeners, inline onclick fallbacks, and elevated overlay z-index."
+        }
+      ]
+    },
+    {
+      "version": "v7.1",
+      "badge": "Feature",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "New Feature",
+          "title": "Changelog Manual Trigger Buttons (Desktop & Mobile)",
+          "description": "Added responsive trigger buttons to manually open the What's New changelog modal: a floating glassmorphic pill button positioned at the bottom-left of the homepage for desktop, and a dedicated menu item with a live version badge inside the mobile navigation drawer."
+        }
+      ]
+    },
+    {
+      "version": "v7.0",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Search Bar Clear Button",
+          "description": "Added an interactive clear button (X) inside the course search input that dynamically appears when typing, allowing one-click query clearance and refocusing with dark and light theme support."
+        }
+      ]
+    },
+    {
+      "version": "v6.9",
+      "badge": "Feature",
+      "date": "17.09.26",
+      "changes": [
+        {
+          "type": "New Feature",
+          "title": "Visitor Changelog Modal & Changes JSON Architecture",
+          "description": "Implemented an automated 'What's New' visitor changelog modal modeled on b1t-Sched, automatically detecting new site updates based on Service Worker CACHE_NAME, with full dark/light theme support, tag pills, and an accordion for earlier releases."
+        },
+        {
+          "type": "Enhancement",
+          "title": "Course Search Enter Selection & Dual-Theme Keyboard Navigation",
+          "description": "Allowed desktop users to press Enter in the course search input to immediately open the top result in a new tab without prior arrow navigation. Replaced hardcoded inline colors with semantic .active classes and high-contrast dual-theme highlight styles."
+        }
+      ]
+    },
+    {
+      "version": "v6.8",
+      "badge": "Fix",
+      "date": "17.09.26",
+      "changes": [
+        {
+          "type": "Fix",
+          "title": "Dark Theme Contrast for Mirror Links & Sitewide .link-hover-a",
+          "description": "Resolved low contrast issue in the bottom mirror links banner ([mirror: Netlify / GitHub]). Replaced hardcoded black text in .link-hover-a with bright accent color #64b5f6 in dark theme and #1976d2 in light theme sitewide."
+        }
+      ]
+    },
+    {
+      "version": "v6.7",
+      "badge": "UI/UX",
+      "date": "17.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Submission Page Mobile Floating Back Button",
+          "description": "Repositioned the back button on mobile devices (<= 768px) to float at the bottom-right corner with a pill shape, glassmorphic backdrop blur, and dark-theme border glow, matching the mobile home button on index.html."
+        },
+        {
+          "type": "New Feature",
+          "title": "Animated Collapsible Notice Banner with Top-Bar Info Trigger",
+          "description": "Implemented dynamic notice banner architecture that displays prominently on initial page load, then automatically glides and minimizes into a top-bar info trigger icon after 4 seconds (with hover-pause). Clicking the icon expands or collapses the banner with smooth animation."
+        },
+        {
+          "type": "UI/UX",
+          "title": "Compact Circular Icon Actions on Mobile Submissions",
+          "description": "Hid text labels on mobile screen widths, transforming the notification action buttons into compact 44x44px circular icon buttons with tooltips and accessible touch hit zones."
+        }
+      ]
+    },
+    {
+      "version": "v6.6",
+      "badge": "Major",
+      "date": "17.09.26",
+      "changes": [
+        {
+          "type": "New Feature",
+          "title": "Club Resources Sub-Section & Wings Modal Architecture",
+          "description": "Added a dedicated Club Resources sub-section inside Extra Curricular Activities (ECA) with interactive department club badges and popup modal displaying parent Google Drive access and subsidiary focus wings across all 10 academic departments."
+        },
+        {
+          "type": "New Feature",
+          "title": "QBank Full-Screen Popup Modal",
+          "description": "Replaced the inline dropdown accordion with a centered launcher button opening a 96vw x 92vh full-screen dialog with circular protruding close button, header banner, tap-outside dismiss, and Escape key handling."
+        },
+        {
+          "type": "UI/UX",
+          "title": "Mobile Floating Home Button & Dark Theme Contrast",
+          "description": "Repositioned #spa-back-btn on mobile viewports to the bottom-right corner (bottom: 2rem; right: 1.5rem;) with pure white text and icon on hover in dark theme."
+        },
+        {
+          "type": "UI/UX",
+          "title": "100vh Viewport Scroll Optimization & Section Headroom Restoration",
+          "description": "Eliminated unnecessary scrolling to blank trailing space when sections fit within 100vh, while preserving generous top clearance below top floating overlays."
+        },
+        {
+          "type": "UI/UX",
+          "title": "Universal Matte Scrollbars & Sticky Nav Width Stabilization",
+          "description": "Deployed custom matte scrollbars across the website and modals, and stabilized layout width during sidebar expansion using scrollbar-gutter: stable."
+        },
+        {
+          "type": "UI/UX",
+          "title": "Light Theme (Gray Mode) Comprehensive Contrast Audit",
+          "description": "Un-nested global gray theme styles to cover mobile viewports and eliminated hardcoded inline white styles across headings, paragraphs, hints, tooltips, tables, and file explorer cards."
+        }
+      ]
+    },
+    {
+      "version": "v5.5",
+      "badge": "Refactor",
+      "date": "17.09.26",
+      "changes": [
+        {
+          "type": "Refactor",
+          "title": "Visitor Counter & Glitch Intro Archival to old-code/",
+          "description": "Cleaned up the production homepage by excising the delayed visitor counter badge and first-visit chromatic aberration glitch intro, preserving both as standalone modular test benches in old-code/."
+        }
+      ]
+    },
+    {
+      "version": "v5.0",
+      "badge": "Docs",
+      "date": "04.09.26",
+      "changes": [
+        {
+          "type": "Docs",
+          "title": "Legacy Codebase & Old Design Architectural Archive",
+          "description": "Created comprehensive documentation in doc/old-files-archive.md analyzing legacy UI patterns, mobile drawer FAB controllers, preloaders, and semester selectors."
+        },
+        {
+          "type": "Docs",
+          "title": "Agent Guidelines & Archiving Workflow Synchronization",
+          "description": "Standardized AI development workflows in AGENTS.md, automated history tracking in doc/history.md, and established full turn prompt archiving in doc/prompts/."
+        }
+      ]
+    }
+  ]
+};
+
 const ChangelogModal = {
   data: null,
   storageKey: 'b1t_acad_last_seen_version',
   docUrl: 'doc/history.md',
+  isInitialized: false,
 
   /**
    * Initialize Changelog Modal
@@ -18,7 +229,8 @@ const ChangelogModal = {
     if (data && data.currentVersion) {
       this.updateBadgePills(data.currentVersion);
     }
-    this.checkAndShowChangelog();
+    this.checkAndShowChangelog(false);
+    this.isInitialized = true;
   },
 
   /**
@@ -33,32 +245,33 @@ const ChangelogModal = {
   },
 
   /**
-   * Fetch changes.json bypassing HTTP caching
+   * Fetch changes.json with automatic fallback to embedded data
    */
   async fetchChanges() {
     if (this.data) return this.data;
     try {
       const response = await fetch('changes.json?t=' + Date.now());
-      if (!response.ok) {
-        throw new Error(`HTTP error ${response.status}`);
+      if (response && response.ok) {
+        this.data = await response.json();
+        return this.data;
       }
-      this.data = await response.json();
-      return this.data;
     } catch (error) {
-      console.warn('[ChangelogModal] Could not fetch changes.json:', error);
-      return null;
+      // Expected when browsing file:/// protocol locally or offline
+      console.info('[ChangelogModal] fetch failed or blocked (file:// protocol), using fallback dataset');
     }
+    this.data = CHANGELOG_DATA_FALLBACK;
+    return this.data;
   },
 
   /**
-   * Check if current version is newer than last seen version and show modal
+   * Check if current version is newer than last seen version, or force open
    */
   async checkAndShowChangelog(forceOpen = false) {
     const data = await this.fetchChanges();
-    if (!data || !data.currentVersion) return;
+    if (!data) return;
 
     const lastSeenVersion = localStorage.getItem(this.storageKey);
-    const currentVersion = data.currentVersion;
+    const currentVersion = data.currentVersion || 'v7.1';
 
     if (forceOpen || !lastSeenVersion || lastSeenVersion !== currentVersion) {
       this.render(data);
@@ -190,13 +403,9 @@ const ChangelogModal = {
   },
 
   /**
-   * Setup modal event listeners
+   * Setup modal event listeners with robust global delegation
    */
   setupEventListeners() {
-    const modal = document.getElementById('changelog-modal');
-    const closeBtn = document.getElementById('close-changelog-modal');
-    const gotItBtn = document.getElementById('changelog-modal-got-it-btn');
-
     const handleDismiss = () => {
       this.close();
       if (this.data && this.data.currentVersion) {
@@ -204,35 +413,36 @@ const ChangelogModal = {
       }
     };
 
-    if (closeBtn) {
-      closeBtn.onclick = handleDismiss;
-    }
-
-    if (gotItBtn) {
-      gotItBtn.onclick = handleDismiss;
-    }
-
-    // Manual trigger hooks (desktop floating button, mobile nav item, footer links)
-    const triggerElements = document.querySelectorAll('#view-changelog-link, #desktop-changelog-btn, #mobile-changelog-btn, .view-changelog-btn');
-    triggerElements.forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
+    // Global click delegation for all triggers & modal actions
+    document.addEventListener('click', (e) => {
+      // 1. Check if clicking a changelog trigger button / link
+      const trigger = e.target.closest('#view-changelog-link, #desktop-changelog-btn, #mobile-changelog-btn, .view-changelog-btn, [data-open-changelog]');
+      if (trigger) {
         e.preventDefault();
+        e.stopPropagation();
         this.checkAndShowChangelog(true);
-      });
-    });
+        return;
+      }
 
-    // Backdrop click dismiss
-    if (modal) {
-      modal.onclick = (e) => {
-        if (e.target === modal) {
-          handleDismiss();
-        }
-      };
-    }
+      // 2. Check if clicking close / got it buttons
+      const closeBtn = e.target.closest('#close-changelog-modal, #changelog-modal-got-it-btn');
+      if (closeBtn) {
+        e.preventDefault();
+        handleDismiss();
+        return;
+      }
+
+      // 3. Backdrop dismiss
+      const modal = document.getElementById('changelog-modal');
+      if (modal && e.target === modal) {
+        handleDismiss();
+      }
+    });
 
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal && modal.style.display === 'flex') {
+      const modal = document.getElementById('changelog-modal');
+      if (e.key === 'Escape' && modal && modal.style.display !== 'none') {
         handleDismiss();
       }
     });
@@ -244,7 +454,7 @@ const ChangelogModal = {
   open() {
     const modal = document.getElementById('changelog-modal');
     if (modal) {
-      modal.style.display = 'flex';
+      modal.style.setProperty('display', 'flex', 'important');
       document.body.classList.add('no-scroll');
     }
   },
@@ -255,7 +465,7 @@ const ChangelogModal = {
   close() {
     const modal = document.getElementById('changelog-modal');
     if (modal) {
-      modal.style.display = 'none';
+      modal.style.setProperty('display', 'none', 'important');
       document.body.classList.remove('no-scroll');
     }
   }

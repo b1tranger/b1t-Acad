@@ -3,6 +3,39 @@ tags: changelog, history, updates, logs, archive, agent-rules, guidelines, promp
 -->
 
 # 18.09.26
+- **Persistent Support Button & Mobile Navigation Overlap Prevention (`style.css`, `index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Eliminated overlap between the fixed Coffee support button ([`#support-qr-persistent`](index.html#L1221)) and the mobile navigation drawer ([`#sticky-nav`](index.html#L1175)).
+  - Reduced `#support-qr-persistent` `z-index` from `4000` to `2500` in [`index.html`](index.html), ensuring it is placed underneath the navigation drawer and overlay.
+  - Elevated mobile `.sticky-nav` `z-index` to `3500`, `.overlay` to `3400`, and `.menu-toggle` to `3501` in [`style.css`](style.css).
+  - Added CSS rule `.sticky-nav.open ~ #support-qr-persistent, body.no-scroll #support-qr-persistent` to seamlessly fade out and disable pointer events on `#support-qr-persistent` while the mobile drawer is open.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.6'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback dataset in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Mobile Navigation Drawer Centering & Floating Button Margin (`style.css`, `index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Added responsive `margin-top: 8.5rem;` and `min-height: calc(100% - 8.5rem);` on `.sticky-nav ul` inside the `@media (max-width: 768px)` stylesheet block in [`style.css`](style.css).
+  - Cleaned up top padding to prevent collision with `#floating-button-nav` ("b1t Scheduler"), providing generous breathing room below the floating button.
+  - Horizontally and vertically balanced the navigation link items within the mobile sliding drawer so they appear centered in the viewport.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.5'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Unclosed Parent Modal Hierarchy Resolution (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Fixed root cause of `#changelog-modal` failing to render upon clicking trigger buttons: diagnosed an unclosed parent `<div id="qbank-modal">` container that previously trapped `#changelog-modal` inside its `display: none` subtree.
+  - Added missing `</div>` to properly terminate `#qbank-modal` prior to `#changelog-modal` declaration, establishing `#changelog-modal` as an independent top-level child of `<body>`.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.4'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) and embedded fallback dataset in [`js/changelog-modal.js`](js/changelog-modal.js) with `v7.4` release entry.
+- **Mobile Navigation Drawer Changelog Button Relocation (`index.html`, `style.css`, `js/changelog-modal.js`, `sw.js`, `changes.json`)**:
+  - Moved `.mobile-changelog-nav-item` to the very bottom of `#sticky-nav ul` in [`index.html`](index.html), positioned after the project portal link.
+  - Configured `margin-top: auto;` in [`style.css`](style.css) on `.mobile-changelog-nav-item` inside the flex column drawer to reliably anchor the changelog trigger to the base of the viewport on mobile devices.
+  - Added subtle top border separator (`border-top: 1px solid rgba(255, 255, 255, 0.08)`) and rounded hover container to visually delineate the bottom changelog action within the mobile drawer.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.3'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) and embedded fallback dataset in [`js/changelog-modal.js`](js/changelog-modal.js) with `v7.3` release entry.
+- **Changelog Modal Offline & Protocol Resiliency Fix (`js/changelog-modal.js`, `index.html`, `style.css`, `sw.js`, `changes.json`)**:
+  - Resolved issue where the changelog modal would not open when clicking on the manual trigger buttons on local environments browsing via `file:///` protocol or when network fetch fails.
+  - Embedded complete `CHANGELOG_DATA_FALLBACK` dataset directly inside [`js/changelog-modal.js`](js/changelog-modal.js) ensuring `fetchChanges()` always returns valid release history.
+  - Implemented robust global document-level click delegation for all trigger and dismissal elements (`.view-changelog-btn`, `#desktop-changelog-btn`, `#mobile-changelog-btn`, `#view-changelog-link`, `#close-changelog-modal`, `#changelog-modal-got-it-btn`).
+  - Added fallback inline `onclick` handlers on all changelog trigger elements in [`index.html`](index.html).
+  - Relocated `<script src="js/changelog-modal.js"></script>` to the end of `<body>` after `#changelog-modal` markup to guarantee complete DOM availability prior to script execution.
+  - Elevated `.changelog-modal-overlay` `z-index` to `9999999` in [`style.css`](style.css) and enforced `!important` on `open()`/`close()` display styles.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.2'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) with `v7.2` release entry.
 - **Changelog Manual Trigger Buttons on Desktop & Mobile (`index.html`, `style.css`, `js/changelog-modal.js`, `sw.js`, `changes.json`)**:
   - Added desktop manual trigger `#desktop-changelog-btn` at the bottom-left corner of the homepage within `<main class="container">` in [`index.html`](index.html), featuring frosted glassmorphic backdrop (`rgba(15, 23, 42, 0.85)` with blur), accent border glow, hover elevation and scale animations, and a synchronized version badge pill.
   - Added mobile manual trigger `#mobile-changelog-btn` inside `#sticky-nav` drawer (`.mobile-changelog-nav-item`) with full touch responsiveness and auto-drawer dismissal upon opening the changelog modal.
