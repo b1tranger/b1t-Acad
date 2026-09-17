@@ -47,3 +47,9 @@
 - Follow the established vanilla JavaScript and CSS conventions across the repository.
 - Avoid introducing unnecessary third-party runtime frameworks or heavy libraries unless explicitly requested.
 - Maintain responsive design and dark/sky-blue aesthetic consistency across all interactive tools and modals.
+
+## 4. Commit Message & Chat Summary Generation
+- **Commit Message & Description Suggestion**:
+  - At the end of every response, summarize the work completed across the chat session (referencing the active prompt archive in `doc/prompts/<Prefix>. <Session Title>.md`).
+  - Suggest a ready-to-use Git commit message with a structured commit description at the very end of the response.
+

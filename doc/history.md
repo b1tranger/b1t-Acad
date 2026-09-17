@@ -3,6 +3,71 @@ tags: changelog, history, updates, logs, archive, agent-rules, guidelines, promp
 -->
 
 # 18.09.26
+- **Mobile Scheduler Nav Drawer Item — Revised Plan (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Revised mobile b1t Scheduler button strategy: instead of hanging `#floating-button` as a pendulum near `#theme-toggle`, it is now hidden entirely on mobile (`display: none !important;`) and replaced by a new `<li class="mobile-scheduler-nav-item">` inside the sliding nav drawer, positioned directly **above** `.mobile-support-nav-item` (Coffee button).
+  - Added `.mobile-scheduler-nav-item` CSS: `display: list-item !important;` on `@media (max-width: 768px)`, `display: none !important;` on `@media (min-width: 769px)`. Styled as a pill button with `float 3s ease-in-out infinite` animation, hover pause, and smooth transitions consistent with the drawer aesthetic.
+  - Removed all pendulum hanging animation CSS (`@keyframes hang-droplet`, `transform-origin: 50% 0;`, etc.) from the mobile block — no longer needed.
+  - Removed the `IntersectionObserver` script entirely — desktop `#floating-button` is always visible; mobile button is now a static drawer link.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.4'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Pendulum Hanging Animation for Mobile Scheduler Button (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Diagnosed the root cause of the broken mobile hanging animation: `transform-origin: 0 50%` caused the button to pivot from its **left-center edge**, producing a windshield-wiper motion rather than a true pendulum swing.
+  - Fixed `transform-origin` to `50% 0` (top-center), making the button pivot at its topmost suspension point — directly below `#theme-toggle`, as if hanging from it.
+  - Repositioned `#floating-button` on mobile from `left: calc(100vw - 42.5px); top: 50px;` to `right: 10px; top: 55px;` so it sits flush below the theme toggle circle.
+  - Replaced the broken `rotate(90deg) translateX()` keyframes with clean pendulum keyframes: `rotate(-8deg)` → `rotate(0deg)` → `rotate(8deg)` → `rotate(0deg)` → `rotate(-8deg)` over 4s with `cubic-bezier(0.45, 0.05, 0.55, 0.95)` for natural deceleration at extremes.
+  - Updated `border-radius` to `9999px 9999px 12px 12px` (rounded at suspension top, slightly tapered at bottom drop) for a droplet silhouette hanging correctly.
+  - Removed the `transform 0.3s` component from the desktop `#floating-button` `transition` property — having both a CSS animation and a `transition` on the same `transform` property caused jank.
+  - Simplified `IntersectionObserver` initialization: button now starts hidden (`opacity: 0; pointer-events: none;`) immediately on `DOMContentLoaded`, and toggles purely via `style.opacity` / `style.pointerEvents` (no classList toggle).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.3'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Agent Guidelines Commit Message & Chat Summary Generation (`AGENTS.md`, `temp/AGENTS.md`)**:
+  - Added Section 4 (`Commit Message & Chat Summary Generation`) instructing the agent to summarize all work accomplished throughout the conversation (referencing the active prompt archive in `doc/prompts/<Prefix>. <Session Title>.md`) and suggest a clean, ready-to-use Git commit message with structured description at the conclusion of each response.
+- **Mobile Drawer Coffee Button Repositioning & IntersectionObserver Scheduler Transition (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Relocated the mobile drawer Coffee support button ([`#floating-button-nav`](index.html#L1305)) downward from its previous fixed coordinates (`top: 80px; left: 5rem;`), integrating it cleanly into normal flex flow inside `#sticky-nav ul` wrapped in `<li class="mobile-support-nav-item">`, directly above the mobile Changelog button ([`#mobile-changelog-btn`](index.html#L1312)).
+  - Configured `.mobile-support-nav-item` with `margin-top: auto; padding: 15px 0 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.08);` on screens $\le 768\text{px}$, anchoring both action items neatly at the bottom of the drawer, and set `display: none !important;` on desktop screens ($\ge 769\text{px}$).
+  - Reduced mobile `.sticky-nav ul` `margin-top` from `8.5rem` to `3.5rem; min-height: calc(100% - 3.5rem);` since the fixed top button was removed, eliminating empty whitespace at the top of the mobile drawer.
+  - Implemented an `IntersectionObserver` observing `<main class="container" id="intro">` with a `0.1` threshold matching `temp/index.js`, seamlessly controlling the visibility (`opacity: 1; pointer-events: auto;` vs `opacity: 0; pointer-events: none;`) of the hanging b1t Scheduler droplet button ([`#floating-button`](index.html#L1338)).
+  - Added spring cubic-bezier transitions (`transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);`) to `#floating-button` matching `temp/index.html` on both mobile and desktop.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.2'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Upload Section Mobile Button Padding & Scaling (`style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Scaled down `.upload-card` button padding and physical dimensions on mobile viewports ($\le 768\text{px}$ and $\le 480\text{px}$) to match the scaled-down card images.
+  - On viewports $\le 768\text{px}$, adjusted `.upload-card` to `padding: 0.65rem 0.75rem; width: 135px; height: 135px;` and tuned `.upload-grid` gap to `1.25rem`.
+  - On viewports $\le 480\text{px}$, adjusted `.upload-card` to `padding: 0.5rem; width: 120px; height: 120px; font-size: 0.9rem;` and tuned `.upload-grid` gap to `1rem`.
+  - Added smooth transitions for `padding`, `width`, and `height` to `.upload-card` for fluid responsive behavior across orientation shifts.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.1'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and documentation.
+- **Question Bank Modal Mobile Width Stabilization & Filename Truncation (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Diagnosed and resolved mobile screen width expansion in the Question Bank modal ([`#qbank-modal`](index.html#L2609)) caused by long file names (e.g. `Application in LAW GED0611111-Mid Spring 2026 - Nayeem Jim.jpeg` and `Constitutional Law of Bangaladesh LAW0421203-Mid Spring 2026 - Nayeem Jim.jpeg`).
+  - Restructured `.qbank-link` from flexbox anonymous text items to `display: block !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important;` with inline-block pseudo-element icons (`::before { content: "📄 "; }` and `&.folder::before { content: "📁 "; }`), ensuring standard inline ellipsis behavior without intrinsic content blowout.
+  - Added `flex: 1 1 0%; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;` to `.explorer-item-name` and `flex-shrink: 0;` to `.explorer-item-indicator` in the dynamic explorer view, curing flex item `min-width: auto` content stretching.
+  - Added full width containment (`min-width: 0 !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; overflow-x: hidden !important;`) across all container hierarchy levels: `.qbank-modal-body`, `.qbank-content`, `.file-explorer`, `.explorer-header`, `.explorer-list`, `.explorer-item`, `.qbank-folder`, and `.qbank-subfolders`.
+  - Locked mobile modal width rigidly in [`style.css`](style.css) (`width: calc(100vw - 20px) !important; max-width: calc(100vw - 20px) !important; min-width: calc(100vw - 20px) !important; height: 94vh !important; max-height: 94vh !important; box-sizing: border-box !important;`) with `#qbank-modal` padded at `12px 10px !important;` and `overflow-x: hidden !important;`.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.0'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and documentation.
+- **Hanging Water Droplet Scheduler & Mobile Sidebar Coffee Button (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Redesigned the floating b1t Scheduler button ([`#floating-button`](index.html#L1287)) on mobile viewports ($\le 768\text{px}$) to be rotated 90 degrees downward (`transform: rotate(90deg)`), hanging gracefully underneath the theme toggle ([`#theme-toggle`](index.html#L1271)).
+  - Styled the button as an elongated water droplet with narrower rightward padding (`padding: 0.35rem 0.5rem 0.35rem 1.3rem`) and asymmetric rounding (`border-radius: 9999px 12px 12px 9999px`), giving it a bulbous top and tapered hanging droplet tip.
+  - Added fluid pendulum hanging micro-animation (`@keyframes hang-droplet`) with gentle sway and vertical extension physics, locking the top pivot point directly underneath the theme toggle circle.
+  - Relocated the Coffee support button directly into the mobile sliding navigation drawer ([`#sticky-nav`](index.html#L1234)) in place of the previous scheduler link ([`#floating-button-nav`](index.html#L1238)), styled with vibrant golden theme (`#ffdd00`), bold typography, coffee mug icon, and float animation.
+  - Preserved desktop layouts and interactions untouched (`#floating-button` top-right, `#support-qr-persistent` bottom-right).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.9'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Mobile Floating Buttons Placement Swap (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Swapped mobile screen placement between the Coffee support button ([`#support-qr-persistent`](index.html#L1233)) and the b1t Scheduler floating button ([`#floating-button`](index.html#L1238)).
+  - On mobile screen widths ($\le 768\text{px}$), `#floating-button` is now displayed at `top: 20px; right: 80px;` with compact pill styling (`height: 45px; padding: 0.5rem 1rem; font-size: 0.9rem; margin-right: 0 !important; animation: none;`), perfectly aligned alongside `#theme-toggle` in the top header.
+  - Concealed `#support-qr-persistent` on mobile (`display: none !important;`) in both [`index.html`](index.html) and [`style.css`](style.css), eliminating floating button crowding on compact touchscreens.
+  - Added `.sticky-nav.open ~ #floating-button` and `body.no-scroll #floating-button` dismissal rules in [`style.css`](style.css) so `#floating-button` automatically fades out whenever the mobile navigation drawer slides open.
+  - Preserved desktop layouts and hover interactions untouched (`#floating-button` top-right with `margin-right: 4rem;`, `#support-qr-persistent` bottom-right).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.8'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Upload Section Mobile Card Image Scaling (`style.css`, `index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Added responsive size adjustments for `.upload-card-image` within the upload grid ([`index.html:L1639-L1657`](index.html#L1639-L1657)).
+  - Scaled down image widths from `150px` to `105px` on screens $\le 768\text{px}$ and `90px` on screens $\le 480\text{px}$ in [`style.css`](style.css).
+  - Proportionally adjusted margins (`margin-top: -26px; margin-left: -52px;` on $\le 768\text{px}$ and `margin-top: -22px; margin-left: -45px;` on $\le 480\text{px}$) to maintain visual centering and eliminate card overcrowding on phones and tablets.
+  - Added smooth transition rules for orientation shifts.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.7'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
 - **Persistent Support Button & Mobile Navigation Overlap Prevention (`style.css`, `index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
   - Eliminated overlap between the fixed Coffee support button ([`#support-qr-persistent`](index.html#L1221)) and the mobile navigation drawer ([`#sticky-nav`](index.html#L1175)).
   - Reduced `#support-qr-persistent` `z-index` from `4000` to `2500` in [`index.html`](index.html), ensuring it is placed underneath the navigation drawer and overlay.

@@ -6,13 +6,109 @@
 
 // Embedded fallback data ensuring the modal ALWAYS opens even on file:// protocol or offline
 const CHANGELOG_DATA_FALLBACK = {
-  "currentVersion": "v7.6",
+  "currentVersion": "v8.4",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v7.6",
+      "version": "v8.4",
       "badge": "Latest",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Mobile Scheduler Nav Drawer Item (above Coffee button)",
+          "description": "Revised mobile b1t Scheduler approach: hides fixed #floating-button entirely on mobile and adds a .mobile-scheduler-nav-item list item inside the sliding nav drawer directly above the Coffee support button. Styled as a pill button with float animation matching the drawer aesthetic. Removed IntersectionObserver script and pendulum hanging animation."
+        }
+      ]
+    },
+    {
+      "version": "v8.3",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Pendulum Hanging Animation for Mobile Scheduler Button",
+          "description": "Redesigned the mobile hanging b1t Scheduler droplet button animation: changed transform-origin to 50% 0 (top-center suspension point), positioned below #theme-toggle. Keyframes swing from rotate(-8deg) to rotate(8deg). Removed conflicting transform transition. Simplified IntersectionObserver."
+        }
+      ]
+    },
+    {
+      "version": "v8.2",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Mobile Drawer Coffee Button Placement & IntersectionObserver Scheduler Transition",
+          "description": "Moved the mobile navigation drawer Coffee support button downward directly above the Changelog trigger, eliminating top-drawer fixed coordinates. Implemented IntersectionObserver visibility detection on the intro section with cubic-bezier spring transitions for the hanging scheduler droplet button on mobile viewports, modeled after portfolio reference patterns."
+        }
+      ]
+    },
+    {
+      "version": "v8.1",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Upload Section Mobile Button Padding & Scaling",
+          "description": "Scaled down button padding and dimensions for .upload-card across mobile screen widths (padding: 0.65rem 0.75rem and 135px width/height on <=768px, padding: 0.5rem and 120px width/height on <=480px) with proportional grid gap tuning, matching the scaled-down card images and ensuring snug, well-proportioned button footprints."
+        }
+      ]
+    },
+    {
+      "version": "v8.0",
+      "badge": "Fix",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "Fix",
+          "title": "Question Bank Modal Mobile Width Stabilization & Truncation",
+          "description": "Resolved mobile width stretching in the Question Bank modal when displaying long file names. Enforced strict flex and block-level text ellipsis on .qbank-link and .explorer-item-name with min-width: 0 and overflow-x: hidden containment across all modal container levels, locking mobile modal width invariant to content."
+        }
+      ]
+    },
+    {
+      "version": "v7.9",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Hanging Water Droplet Scheduler & Mobile Sidebar Coffee Button",
+          "description": "Redesigned the mobile b1t Scheduler button as an elongated water droplet suspended 90 degrees downward beneath the theme toggle with fluid pendulum swaying micro-animation and tapered asymmetric padding. Relocated the Coffee support button directly into the mobile navigation drawer in place of the previous scheduler link."
+        }
+      ]
+    },
+    {
+      "version": "v7.8",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Mobile Floating Buttons Placement Swap",
+          "description": "Swapped mobile screen placement between the Coffee support button (#support-qr-persistent) and the b1t Scheduler button (#floating-button). On mobile screens (<=768px), b1t Scheduler now sits prominently in the top header beside the theme toggle while the persistent Coffee button is concealed."
+        }
+      ]
+    },
+    {
+      "version": "v7.7",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Upload Section Mobile Card Image Scaling",
+          "description": "Scaled down .upload-card-image dimensions on mobile screen widths (from 150px to 105px on <=768px and 90px on <=480px) with proportionally tuned margins, preventing card overcrowding and enhancing visual proportioning."
+        }
+      ]
+    },
+    {
+      "version": "v7.6",
+      "badge": "Fix",
       "date": "18.09.26",
       "changes": [
         {

@@ -55,27 +55,84 @@
 
     @media (max-width: 768px) {
       #support-qr-persistent {
-        top: 20px;
-        right: 80px;
-        padding: 0.5rem 1rem;
-        height: 45px;
+        display: none !important;
+      }
+
+      /* Hide fixed floating button on mobile — replaced by nav drawer item */
+      #floating-button {
+        display: none !important;
+      }
+
+      /* Mobile scheduler nav item (shown only in drawer) */
+      .mobile-scheduler-nav-item {
+        display: list-item !important;
+        padding: 8px 0 4px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        margin-top: auto;
+        text-align: center;
+      }
+
+      .mobile-scheduler-nav-item a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        background-color: var(--secondary-color) !important;
+        color: var(--text-color) !important;
+        font-weight: 600;
         font-size: 0.9rem;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 4px 8px var(--shadow-color);
+        padding: 0.6rem 1.1rem;
+        border-radius: 9999px;
+        text-decoration: none;
+        transition: all 0.25s ease;
+        animation: float 3s ease-in-out infinite;
+      }
+
+      .mobile-scheduler-nav-item a:hover {
+        background-color: var(--hover-btn-bg) !important;
+        color: var(--hover-btn-text) !important;
+        border-color: var(--accent-color);
+        transform: scale(1.04);
+        animation-play-state: paused;
       }
     }
 
-    #floating-button {
-      top: 2rem;
-      right: 1.5rem;
+    /* Hide mobile scheduler nav item on desktop */
+    @media (min-width: 769px) {
+      .mobile-scheduler-nav-item {
+        display: none !important;
+      }
+
+      #floating-button {
+        top: 2rem;
+        right: 1.5rem;
+      }
     }
 
     #floating-button-nav {
       display: none;
-      top: 80px;
-      left: 5rem;
+      background-color: #ffdd00 !important;
+      color: #000 !important;
+      font-weight: bold;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 6px var(--shadow-color);
+      padding: 0.8rem 1.2rem;
+      border-radius: 9999px;
+      height: 45px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      animation: float 3s ease-in-out infinite;
     }
 
-    #floating-button,
-    #floating-button-nav {
+    #floating-button-nav:hover {
+      background-color: #ffc900 !important;
+      color: #000 !important;
+      transform: scale(1.05);
+    }
+
+    #floating-button {
       position: fixed;
       /* top: 2rem; */
       /* right: 2rem; */
@@ -89,7 +146,7 @@
       /* gray-200 */
       box-shadow: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -2px var(--shadow-color);
       text-decoration: none;
-      transition: all 0.3s ease-in-out;
+      transition: opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.2s ease, box-shadow 0.2s ease;
       animation: float 3s ease-in-out infinite;
       border: 1px solid var(--border-color);
       /* Added border for better contrast */
@@ -110,11 +167,11 @@
 
     /* Utility classes for JS */
     .opacity-0 {
-      opacity: 0;
+      opacity: 0 !important;
     }
 
     .pointer-events-none {
-      pointer-events: none;
+      pointer-events: none !important;
     }
 
     /* Floating animation */
@@ -279,6 +336,9 @@
       flex-direction: column;
       gap: 0.5rem;
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
       height: 100%;
       flex: 1;
       animation: fadeIn 0.25s ease;
@@ -287,10 +347,17 @@
     .qbank-folder {
       border-radius: 8px;
       overflow: hidden;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .qbank-folder-btn {
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
       display: flex;
       align-items: center;
       gap: 0.75rem;
@@ -335,6 +402,11 @@
       border-left: 2px solid rgba(255, 255, 255, 0.2);
       margin-left: 1rem;
       animation: fadeIn 0.2s ease;
+      width: calc(100% - 1rem);
+      max-width: calc(100% - 1rem);
+      min-width: 0;
+      box-sizing: border-box;
+      overflow-x: hidden;
     }
 
     .qbank-folder.expanded .qbank-subfolders {
@@ -342,9 +414,14 @@
     }
 
     .qbank-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       padding: 0.5rem 0.75rem;
       color: #e0e0e0;
       text-decoration: none;
@@ -355,8 +432,17 @@
     }
 
     .qbank-link::before {
-      content: "📄";
+      content: "📄 ";
       font-size: 0.85rem;
+      display: inline-block;
+      vertical-align: baseline;
+    }
+
+    .qbank-link.folder::before {
+      content: "📁 ";
+      font-size: 0.85rem;
+      display: inline-block;
+      vertical-align: baseline;
     }
 
     .qbank-link:hover {
@@ -429,6 +515,9 @@
       animation: fadeIn 0.25s ease;
       color: #e0e0e0;
       width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     .explorer-header {
@@ -437,6 +526,10 @@
       gap: 0.75rem;
       padding-bottom: 0.75rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     [data-theme="gray"] .explorer-header {
@@ -523,7 +616,12 @@
       gap: 0.45rem;
       max-height: 350px;
       overflow-y: auto;
+      overflow-x: hidden;
       padding-right: 0.25rem;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     /* Custom scrollbar for explorer list */
@@ -568,6 +666,10 @@
       cursor: pointer;
       transition: all 0.2s ease;
       text-align: left;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
 
     [data-theme="gray"] .explorer-item {
@@ -628,7 +730,8 @@
       font-size: 0.9rem;
       font-weight: 500;
       color: rgba(255, 255, 255, 0.9);
-      flex-grow: 1;
+      flex: 1 1 0%;
+      min-width: 0;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -642,6 +745,7 @@
       font-size: 0.8rem;
       color: rgba(255, 255, 255, 0.4);
       transition: transform 0.2s ease, color 0.2s ease;
+      flex-shrink: 0;
     }
 
     [data-theme="gray"] .explorer-item-indicator {
@@ -1174,12 +1278,7 @@
 
   <nav id="sticky-nav" class="sticky-nav">
 
-    <!-- The Floating Button -->
-    <span>
-      <a href="https://b1tsched.netlify.app/" target="_blank" id="floating-button-nav">
-        b1t Scheduler
-      </a>
-    </span>
+
     <ul>
       <li><a href="#course-search">Search Courses</a></li>
       <li><a href="#info">Info</a></li>
@@ -1194,16 +1293,25 @@
       <br><br>
       <li><a href="https://ouits-res.netlify.app/" target="_blank" style="border: 1px solid black;display: none;"
           id="floating-button-nav-2">oU1TS
-          Portal<br><span style="font-size: small;text-align: center;">[ Project ]</span></a></li>
+          Portal</a></li>
+      <li class="mobile-scheduler-nav-item">
+        <a href="https://b1tsched.netlify.app/" target="_blank">
+          <i class="fa-solid fa-calendar-check"></i>&nbsp;b1t Scheduler
+        </a>
+      </li>
+      <li class="mobile-support-nav-item">
+        <a href="https://b1tranger.bro.bd/#support" target="_blank" id="floating-button-nav" class="support-qr-nav">
+          Coffee?&nbsp;<i class="fa-solid fa-mug-hot"></i>
+        </a>
+      </li>
       <li class="mobile-changelog-nav-item">
         <a href="#" id="mobile-changelog-btn" class="view-changelog-btn"
           onclick="if(window.ChangelogModal){window.ChangelogModal.checkAndShowChangelog(true);}return false;">
           <i class="fa-solid fa-bullhorn" style="margin-right: 8px; color: var(--accent-color);"></i> Changelog
-          <span class="changelog-badge-pill">v7.6</span>
+          <span class="changelog-badge-pill">v8.4</span>
         </a>
       </li>
     </ul>
-
   </nav>
 
 
@@ -1235,7 +1343,7 @@
 
   <div id="overlay" class="overlay"></div>
 
-  <main class="container">
+  <main class="container" id="intro">
     <header>
       <h1 class="logo">b1t Academics</h1>
 
@@ -1281,7 +1389,7 @@
 
     <div style="text-align: center; margin-top: 2rem;">
       <a href="https://ouits-res.netlify.app/" target="_blank" rel="noopener noreferrer" class="ou1ts-portal-btn">
-        Visit oU1TS Portal for more projects! &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>
+        Visit oU1TS Portal &nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i>
       </a>
     </div>
 
@@ -1291,7 +1399,7 @@
       title="View Changelog / What's New" aria-label="View Changelog">
       <i class="fa-solid fa-bullhorn"></i>
       <span>Changelog</span>
-      <span class="changelog-badge-pill">v7.6</span>
+      <span class="changelog-badge-pill">v8.4</span>
     </button>
 
   </main>
@@ -1503,7 +1611,7 @@
 
       <p>Also try the <a href="#course-search" class="link-hover-a">Search bar at the top</a>
         or browse the
-        <a href="https://b1tacad.netlify.app/departments" class="link-hover-a">Departments</a> to
+        <a href="#Departments" class="link-hover-a">Departments</a> to
         find your
         questions.
       </p>
@@ -2297,33 +2405,8 @@
   </script>
 
 
-  <script>
-    // JavaScript to handle the button's visibility on scroll
-    document.addEventListener('DOMContentLoaded', () => {
-      const floatingButton = document.getElementById('floating-button');
-      const hideMarker = document.getElementById('hide-marker');
 
-      if (floatingButton && hideMarker) {
-        const toggleVisibility = () => {
-          const markerPosition = hideMarker.getBoundingClientRect().top;
 
-          // Hide the button if the top of the marker is above the viewport
-          if (markerPosition < 0) {
-            floatingButton.classList.add('opacity-0', 'pointer-events-none');
-          } else {
-            // Otherwise, show it
-            floatingButton.classList.remove('opacity-0', 'pointer-events-none');
-          }
-        };
-
-        // Listen for scroll events on the window
-        window.addEventListener('scroll', toggleVisibility);
-
-        // Initial check in case the page loads already scrolled
-        toggleVisibility();
-      }
-    });
-  </script>
 
   <!-- <script>function adjustSections() {
       document.querySelectorAll('content-section').forEach(sec => {
@@ -2565,8 +2648,8 @@
 
       <!-- Modal Body -->
       <div class="modal-body qbank-modal-body"
-        style="padding: 1.25rem; overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: 1rem; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
-        <div class="qbank-content" style="display: flex; width: 100%; height: 100%;">
+        style="padding: 1.25rem; overflow-y: auto; overflow-x: hidden; flex: 1; display: flex; flex-direction: column; gap: 1rem; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px; min-width: 0; box-sizing: border-box;">
+        <div class="qbank-content" style="display: flex; width: 100%; max-width: 100%; min-width: 0; height: 100%; box-sizing: border-box;">
           <!-- CSE Questions -->
           <div class="qbank-folder">
             <button class="qbank-folder-btn" onclick="this.parentElement.classList.toggle('expanded')">
@@ -2708,7 +2791,7 @@
             <h2 id="changelog-modal-title">What's New in b1t-Acad</h2>
             <div class="changelog-subtitle">
               <span>Latest updates</span>
-              <span id="changelog-version-badge" class="changelog-version-badge">v7.6</span>
+              <span id="changelog-version-badge" class="changelog-version-badge">v7.9</span>
             </div>
           </div>
         </div>

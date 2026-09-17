@@ -334,14 +334,68 @@
 /* --- Mobile Responsiveness for Floating Elements --- */
 @media (max-width: 768px) {
 
-  /* Hide the floating scheduler button on mobile */
-  #floating-button {
+  /* Hide bottom desktop coffee button on mobile (displayed in sidebar instead) */
+  #support-qr-persistent {
     display: none !important;
+  }
+
+  /* b1t Scheduler hangs under theme-toggle as an elongated water droplet */
+  #floating-button {
+    display: flex !important;
+    position: fixed;
+    top: 50px;
+    left: calc(100vw - 42.5px);
+    right: auto !important;
+    margin-right: 0 !important;
+    height: 34px;
+    padding: 0.35rem 0.5rem 0.35rem 1.3rem;
+    border-radius: 9999px 12px 12px 9999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    transform-origin: 0 50%;
+    transform: rotate(90deg);
+    animation: hang-droplet 3.5s ease-in-out infinite;
+    z-index: 3999;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+    transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  #floating-button:hover {
+    animation-play-state: paused;
   }
 
   #floating-button-nav,
   #floating-button-nav-2 {
-    display: block !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #floating-button-nav {
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    margin: 0 auto !important;
+    background-color: #ffdd00 !important;
+    color: #000 !important;
+    font-weight: bold;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border-radius: 9999px;
+    height: 45px;
+    padding: 0.8rem 1.4rem;
+    animation: float 3s ease-in-out infinite;
+    text-decoration: none;
+  }
+
+  #floating-button-nav:hover {
+    background-color: #ffc900 !important;
+    color: #000 !important;
+    transform: scale(1.05);
   }
 
   /* Make sure the sidebar link is visible (it might be hidden by default if desktop styles hide it) */
@@ -354,6 +408,24 @@
     right: 20px;
     /* Keep it in the corner */
     top: 20px;
+}
+
+/* --- Hanging Droplet Micro-Animation --- */
+@keyframes hang-droplet {
+  0% {
+    transform: rotate(90deg) translateX(0);
+  }
+  25% {
+    transform: rotate(92.5deg) translateX(1px);
+  }
+  50% {
+    transform: rotate(90deg) translateX(2px);
+  }
+  75% {
+    transform: rotate(87.5deg) translateX(1px);
+  }
+  100% {
+    transform: rotate(90deg) translateX(0);
   }
 }
 
@@ -1051,7 +1123,7 @@ body.no-scroll {
   height: 160px;
   /* A fixed height for consistency */
   padding: 1rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, padding 0.2s ease, width 0.2s ease, height 0.2s ease;
 }
 
 .upload-card:hover {
@@ -1064,6 +1136,43 @@ body.no-scroll {
   margin-bottom: -0.5rem;
   margin-top: -40px;
   margin-left: -80px;
+  transition: width 0.2s ease, margin 0.2s ease;
+}
+
+/* Mobile screen width adjustments for upload cards */
+@media (max-width: 768px) {
+  .upload-grid {
+    gap: 1.25rem;
+  }
+  .upload-card {
+    padding: 0.65rem 0.75rem;
+    width: 135px;
+    height: 135px;
+  }
+  .upload-card-image {
+    width: 105px;
+    margin-top: -26px;
+    margin-left: -52px;
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-grid {
+    gap: 1rem;
+  }
+  .upload-card {
+    padding: 0.5rem;
+    width: 120px;
+    height: 120px;
+    font-size: 0.9rem;
+  }
+  .upload-card-image {
+    width: 90px;
+    margin-top: -22px;
+    margin-left: -45px;
+    margin-bottom: 0.25rem;
+  }
 }
 
 .upload-card-text {
@@ -2092,10 +2201,13 @@ body.no-scroll {
     overscroll-behavior: contain;
   }
 
-  /* Prevent #support-qr-persistent from overlapping sticky-nav drawer when open */
+  /* Prevent floating buttons from overlapping sticky-nav drawer when open */
   .sticky-nav.open ~ #support-qr-persistent,
   body.no-scroll #support-qr-persistent,
-  .overlay.active ~ #support-qr-persistent {
+  .overlay.active ~ #support-qr-persistent,
+  .sticky-nav.open ~ #floating-button,
+  body.no-scroll #floating-button,
+  .overlay.active ~ #floating-button {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
@@ -2121,8 +2233,8 @@ body.no-scroll {
     flex-direction: column;
     align-items: flex-start;
     padding: 15px 20px 20px 20px;
-    margin-top: 8.5rem;
-    min-height: calc(100% - 8.5rem);
+    margin-top: 3.5rem;
+    min-height: calc(100% - 3.5rem);
     box-sizing: border-box;
   }
 
@@ -3657,19 +3769,36 @@ now Browse Curated Resources*/
 .qbank-modal-body {
   padding: 1.25rem !important;
   overflow-y: auto !important;
+  overflow-x: hidden !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
 }
 
 .qbank-modal-body .explorer-list {
   flex: 1 !important;
   max-height: none !important;
   min-height: 250px !important;
+  min-width: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
 }
 
 @media (max-width: 768px) {
+  #qbank-modal {
+    padding: 12px 10px !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
   .qbank-modal-content {
-    width: 98vw !important;
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    min-width: calc(100vw - 20px) !important;
     height: 94vh !important;
     max-height: 94vh !important;
+    box-sizing: border-box !important;
+  }
+  .qbank-modal-body {
+    padding: 0.85rem !important;
   }
 }
 
@@ -4771,7 +4900,8 @@ now Browse Curated Resources*/
 
 /* Hide mobile nav item on desktop (min-width: 769px) */
 @media (min-width: 769px) {
-  .mobile-changelog-nav-item {
+  .mobile-changelog-nav-item,
+  .mobile-support-nav-item {
     display: none !important;
   }
 }
@@ -4782,12 +4912,25 @@ now Browse Curated Resources*/
     display: none !important;
   }
 
+  .mobile-support-nav-item {
+    display: flex !important;
+    justify-content: center;
+    width: 100%;
+    margin-top: auto;
+    padding: 15px 0 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  [data-theme="gray"] .mobile-support-nav-item {
+    border-top-color: rgba(0, 0, 0, 0.08);
+  }
+
   .mobile-changelog-nav-item {
     display: block;
     width: 100%;
-    margin-top: auto;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 0;
+    padding-top: 5px;
+    border-top: none;
   }
 
   [data-theme="gray"] .mobile-changelog-nav-item {
