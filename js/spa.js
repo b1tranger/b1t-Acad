@@ -87,4 +87,25 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.hash = '';
         });
     }
+
+    // Intercept clicks on links pointing to "index.html" to return home smoothly without reload
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link) {
+            const href = link.getAttribute('href');
+            if (href === 'index.html' || href === 'index.html#' || href === '#') {
+                if (window.location.hash) {
+                    e.preventDefault();
+                    window.location.hash = '';
+                    handleRouting();
+                    window.scrollTo(0, 0);
+                } else if (href === '#' || href === 'index.html#') {
+                    e.preventDefault();
+                    handleRouting();
+                    window.scrollTo(0, 0);
+                }
+            }
+        }
+    });
 });
+

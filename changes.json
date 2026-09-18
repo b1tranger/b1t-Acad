@@ -1,11 +1,47 @@
 {
-  "currentVersion": "v8.5",
+  "currentVersion": "v8.8",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v8.5",
+      "version": "v8.8",
       "badge": "Latest",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Desktop Home Button Restoration & Search Courses Removal",
+          "description": "Restored the desktop floating Home button (#spa-back-btn) aligned with the top frosted-glass header, allowing instant one-click return to the home view. Removed the redundant Search Courses button from the top navigation bar across all content sections, keeping only direct departmental and resource section links."
+        }
+      ]
+    },
+    {
+      "version": "v8.7",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Expanded Top Navigation Bar Buttons for Content Sections",
+          "description": "Updated the desktop top navigation bar across all content sections to include all 8 primary navigation buttons (Search Courses, Info, Question Bank, Departments, Donate, ECA, Library, About) matching the main navigation list. Added flex wrapping and proportional button padding to ensure seamless rendering across all desktop screen sizes."
+        }
+      ]
+    },
+    {
+      "version": "v8.6",
+      "badge": "UI/UX",
+      "date": "18.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Desktop Top Navigation Bar for Content Sections",
+          "description": "Added persistent desktop top navigation bar (Home, Departments, Q-Bank, Library) to all content-section views in index.html matching the Departments.html header aesthetics. Features frosted-glass backdrop filter, centered links, and seamless SPA routing without page reloads, while suppressing the navigation on mobile to preserve touch drawer ergonomics."
+        }
+      ]
+    },
+    {
+      "version": "v8.5",
+      "badge": "Fix",
       "date": "18.09.26",
       "changes": [
         {

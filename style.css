@@ -1005,6 +1005,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 2px 4px;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1014,14 +1016,32 @@ body {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
-  padding: 0.8rem 1.2rem;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.95rem;
   border-radius: 6px;
   transition: background-color 0.2s ease, color 0.2s ease;
+  white-space: nowrap;
 }
 
 .sticky-nav ul li a:hover {
   background-color: var(--accent-color);
   color: #fff;
+}
+
+/* --- Content Section Desktop Navigation Bar --- */
+@media (max-width: 768px) {
+  .content-section-nav {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  #spa-back-btn {
+    top: 0.55rem;
+    left: 1.5rem;
+    padding: 0.45rem 1rem;
+    font-size: 0.95rem;
+  }
 }
 
 /* ========================================================== */
