@@ -2,6 +2,30 @@
 tags: changelog, history, updates, logs, archive, agent-rules, guidelines, prompt-archive, anon-file-share, old-code
 -->
 
+# 19.09.26
+- **Donate Section FAQ Tooltip Grace Period & Hover Bridge (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Resolved the immediate hiding issue on the reconstructed questions FAQ tooltip (`.faq-tooltip-container` / `.faq-tooltip-content`) in the Donate section:
+    - Added a 1-second unhover grace period (`transition: opacity 0.35s ease 1s, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, visibility 0.35s ease 1s;`) allowing users sufficient time to read and move their cursor to the tooltip and its links without it vanishing immediately.
+    - Added an invisible bridge pseudo-element (`.faq-tooltip-content::before`) spanning the vertical gap between the icon and tooltip container, preventing accidental hover dropouts while moving toward the content.
+    - Configured immediate appearance on re-hover (`transition-delay: 0s`).
+    - Added tap-to-toggle click listener support on `.faq-tooltip-container` for mobile devices and desktop clicking with tap-outside dismissal.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.0'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **First-Visit Contribution Incentive Modal for QBank & Donate (`index.html`, `js/contribution-modal.js`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Implemented an introductory modal (`#contribution-modal`) to greet first-time visitors of the **Question Bank (`#Qbank`)** and **Donate Resources (`#Donate`)** sections, delivering a motivational call-to-action regarding community reciprocity and the donation cycle of past exam questions and study notes.
+  - Added verbatim bilingual copy featuring:
+    - English alert callout card: *"Attention!! If you were ever benefited from this Project, please consider contributing by donating Questions/Notes or spreading the word! Appreciated 👍"*.
+    - Bengali reflective narrative on why sharing exam questions immediately after leaving the exam hall is an act of "donation" that keeps the student resource ecosystem running for future juniors.
+    - Islamic benediction: *"JazakAllahu Khairan. BarakAllahu Feekum."*.
+  - Engineered the client controller [`js/contribution-modal.js`](js/contribution-modal.js):
+    - Persistent state gating via `localStorage` key `b1t_contribution_intro_seen`, guaranteeing the modal is displayed only once per user device across `#Qbank` and `#Donate`.
+    - Handles initial direct URL loads (e.g. `index.html#Qbank`, `index.html#Donate`), dynamic `hashchange` SPA transitions, and click delegation on anchor navigation elements.
+    - Added backdrop click dismissal, protruding circular close button (`#close-contribution-modal`), `Escape` keyboard dismissal, and a primary *"Understood / বুঝেছি 👍"* button.
+  - Placed subtle manual trigger buttons (`.btn-why-donate`) inside both `#Qbank` and `#Donate` sections, allowing visitors to re-read the contribution message on demand even after initial dismissal.
+  - Designed comprehensive glassmorphic responsive styles and dark/gray theme contrast rules (`[data-theme="gray"]`) in [`style.css`](style.css).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.9'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+
 # 18.09.26
 - **Desktop Home Button Restoration & Search Courses Removal (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
   - Restored desktop visibility and vertical alignment for `#spa-back-btn` (`position: fixed; top: 0.55rem; left: 1.5rem; padding: 0.45rem 1rem; font-size: 0.95rem;`) in [`style.css`](style.css), seating the floating Home button seamlessly within the left edge of the desktop frosted-glass top navigation bar.

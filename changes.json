@@ -1,11 +1,28 @@
 {
-  "currentVersion": "v8.8",
+  "currentVersion": "v9.0",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v8.8",
+      "version": "v9.0",
       "badge": "Latest",
+      "date": "19.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Donate Section FAQ Tooltip Grace Period & Hover Bridge",
+          "description": "Enhanced the reconstructed questions FAQ tooltip in the Donate section (.faq-tooltip-container) to stay open for 1 full second after cursor is unhovered before smoothly fading out. Added an invisible bridge pseudo-element between the icon and tooltip content preventing accidental hover dropouts, and implemented tap-to-toggle support on mobile and desktop."
+        },
+        {
+          "type": "UI/UX",
+          "title": "First-Visit Contribution Incentive Modal for QBank & Donate",
+          "description": "Added a responsive introductory modal shown the first time visitors navigate to either the Question Bank (#Qbank) or Donate Resources (#Donate) section. Features bilingual motivational copy explaining the reciprocal donation cycle of questions and notes, Islamic benediction, localStorage first-visit tracking, dark/light theme support, and dedicated manual trigger buttons."
+        }
+      ]
+    },
+    {
+      "version": "v8.8",
+      "badge": "UI/UX",
       "date": "18.09.26",
       "changes": [
         {

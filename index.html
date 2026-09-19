@@ -877,7 +877,8 @@
       opacity: 0.7;
     }
 
-    .faq-tooltip-container:hover .faq-icon {
+    .faq-tooltip-container:hover .faq-icon,
+    .faq-tooltip-container.active .faq-icon {
       transform: scale(1.2);
       opacity: 1;
       color: #fff;
@@ -899,7 +900,8 @@
       left: 50%;
       transform: translateX(-50%) translateY(-10px);
       opacity: 0;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      /* Grace period on unhover: stays visible for 1s before smoothly fading out */
+      transition: opacity 0.35s ease 1s, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, visibility 0.35s ease 1s;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
       border: 1px solid var(--border-color);
       font-size: 0.9rem;
@@ -908,11 +910,29 @@
       backdrop-filter: blur(10px);
     }
 
-    .faq-tooltip-container:hover .faq-tooltip-content {
+    /* Invisible bridge between icon and tooltip preventing hover dropout */
+    .faq-tooltip-content::before {
+      content: "";
+      position: absolute;
+      bottom: 100%;
+      left: 0;
+      right: 0;
+      height: 35px;
+      background: transparent;
+      pointer-events: auto;
+    }
+
+    .faq-tooltip-container:hover .faq-tooltip-content,
+    .faq-tooltip-container.active .faq-tooltip-content,
+    .faq-tooltip-content:hover {
       visibility: visible;
       opacity: 1;
       transform: translateX(-50%) translateY(0);
       pointer-events: auto;
+      /* Appear immediately upon hover */
+      transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
+        transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
+        visibility 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
     }
 
     .faq-tooltip-content::after {
@@ -963,10 +983,16 @@
         transform: translateY(-10px);
         scrollbar-width: thin;
         scrollbar-color: var(--accent-color) var(--secondary-color);
+        transition: opacity 0.35s ease 1s, transform 0.35s ease 1s, visibility 0.35s ease 1s;
       }
 
-      .faq-tooltip-container:hover .faq-tooltip-content {
+      .faq-tooltip-container:hover .faq-tooltip-content,
+      .faq-tooltip-container.active .faq-tooltip-content,
+      .faq-tooltip-content:hover {
         transform: translateY(0);
+        transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
+          transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
+          visibility 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
       }
 
       .faq-tooltip-content::after {
@@ -1307,7 +1333,7 @@
         <a href="#" id="mobile-changelog-btn" class="view-changelog-btn"
           onclick="if(window.ChangelogModal){window.ChangelogModal.checkAndShowChangelog(true);}return false;">
           <i class="fa-solid fa-bullhorn" style="margin-right: 8px; color: var(--accent-color);"></i> Changelog
-          <span class="changelog-badge-pill">v8.8</span>
+          <span class="changelog-badge-pill">v9.0</span>
         </a>
       </li>
     </ul>
@@ -1398,7 +1424,7 @@
       title="View Changelog / What's New" aria-label="View Changelog">
       <i class="fa-solid fa-bullhorn"></i>
       <span>Changelog</span>
-      <span class="changelog-badge-pill">v8.8</span>
+      <span class="changelog-badge-pill">v9.0</span>
     </button>
 
   </main>
@@ -1592,7 +1618,8 @@
       </nav>
 
       <h2>oU1TS QBank</h2>
-
+      <p style="">Consider donating your questions &#40;PDF / Image&#41; after your Exams to keep the
+        QBank alive. </p><br>
       <!-- Nested Folder Browser Launcher -->
       <div class="qbank-browser" style="text-align: center;">
         <button type="button" class="qbank-toggle" id="open-qbank-modal-btn">
@@ -1611,8 +1638,12 @@
         </ul>
       </nav> -->
 
-      <p style="margin-top: 5rem;">Consider donating your questions &#40;PDF / Image&#41; after your Exams to keep the
-        QBank alive. </p>
+
+      <div style="text-align: center; margin-top: 0.75rem; margin-bottom: 0.5rem;">
+        <button type="button" class="btn-why-donate" data-open-contribution-modal>
+          <i class="fa-solid fa-lightbulb"></i> Why contribute? / কেন অবদান রাখবেন?
+        </button>
+      </div>
       <br><br>
       <p class="submission-btn-wrapper">
         <a href="#Donate"
@@ -1773,25 +1804,14 @@
       <h2>Donate Resources</h2>
       <section id="upload-section" class="upload-section">
 
-        <h3 class="upload-title">
-          Feeling generous?
-          <span class="faq-tooltip-container">
-            <i class="fa-solid fa-circle-question faq-icon"></i>
-            <div class="faq-tooltip-content">
-              <p>Let me introduce you to a concept known as <strong>"Re-constructed"</strong> questions.</p>
-              <p>Reconstructed questions in exams—often termed "recalled" or "reconstructed" recalls—are exam questions
-                recreated by students based on memory after taking the test.</p>
-              <p>These are vital for preparing for professional exams, as they help identify recurring concepts and
-                patterns, even if exact values or wording differ.</p>
-              <p>When a faculty takes away the exam question after the exam, do not worry. If you remember anything
-                about the question, consider sharing that as well. We can re-construct it and keep it archived.</p>
-              <p>Before exam, what the students need is not a full-fledged question bank, rather, a hint to what they
-                would be tested with.</p>
-              <p>See this file as an example: <a href="https://tinyurl.com/2rvcxbkz" target="_blank">Question</a></p>
-              <p>Format: <a href="https://tinyurl.com/fsk7jryd" target="_blank">txt</a></p>
-            </div>
-          </span>
-        </h3>
+
+        <div style="text-align: center; margin: 0.75rem 0 1.25rem;">
+          <button type="button" class="btn-why-donate" data-open-contribution-modal>
+            <i class="fa-solid fa-hand-holding-heart"></i> Why contribute?
+          </button>
+        </div>
+
+        <br>
 
         <div class="upload-grid">
 
@@ -1812,11 +1832,31 @@
           </a>
 
         </div>
+
+        <h4 class="upload-title" style="margin-top: 25px;margin-bottom: 10px;">
+          Faculty took the questions away?
+          <span class="faq-tooltip-container">
+            <i class="fa-solid fa-circle-question faq-icon"></i>
+            <div class="faq-tooltip-content">
+              <p>Let me introduce you to a concept known as <strong>"Re-constructed"</strong> questions.</p>
+              <p>Reconstructed questions in exams—often termed "recalled" or "reconstructed" recalls—are exam questions
+                recreated by students based on memory after taking the test.</p>
+              <p>These are vital for preparing for professional exams, as they help identify recurring concepts and
+                patterns, even if exact values or wording differ.</p>
+              <p>When a faculty takes away the exam question after the exam, do not worry. If you remember anything
+                about the question, consider sharing that as well. We can re-construct it and keep it archived.</p>
+              <p>Before exam, what the students need is not a full-fledged question bank, rather, a hint to what they
+                would be tested with.</p>
+              <p>See this file as an example: <a href="https://tinyurl.com/2rvcxbkz" target="_blank">Question</a></p>
+              <p>Format: <a href="https://tinyurl.com/fsk7jryd" target="_blank">txt</a></p>
+            </div>
+          </span>
+        </h4>
+
         <p style="font-size: medium;">You can share them in the group as well: <a class="donate-group-link"
             href="https://t.me/oUITS_res" target="_blank">https://t.me/oUITS_res</a></p>
-        <div style="width: 60%;max-width: 400px;margin: 3rem auto;margin-top: 30px;">
-          <hr style="border-color: rgba(255, 255, 255, 0.233);">
-        </div>
+
+
         <div style="width: 80%;margin: auto;text-align: left;">
           <!-- Highlighted Submission Button with Arrow -->
           <div class="submission-highlight">
@@ -1827,40 +1867,14 @@
             <div class="pointing-arrow">
               <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;👆</span>
             </div>
-            <!-- <p class="click-prompt">Click here to view submissions!</p> -->
-            <br>
             <p class="submission-btn-wrapper">
               <a href="#Departments"
                 style="background: linear-gradient(135deg, #17ad24, #31f30b);box-shadow: 0 6px 25px rgba(44, 250, 44, 0.7), 0 0 30px rgba(255, 153, 0, 0.5);"
                 class="submission-cta ">Go to
                 Departments</a>
             </p>
-            <!-- <p
-              style="margin: auto;text-align: center;background-color: #3bbb08;width: fit-content;padding: 5px;border-radius: 5px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);">
-              <a href="#Departments" style="color: white;text-decoration:none" class="link-hover-a">Go to
-                Departments</a>
-            </p> -->
           </div>
 
-
-
-          <!-- <br> -->
-          <!-- <p># Instructions:
-          <ul style="padding-left: 30px;list-style-type:decimal-leading-zero;">
-            <li style="padding: 5px;">If you want to see your uploads &rarr; <a href="submission.html"
-                class="link-hover-a-2"> See_Submissions</a></li>
-            <li style="padding: 5px;">Your submissions will be organized in the <a href="Departments.html"
-                class="link-hover-a-2">Departments</a> and moved to the "old" folder in the submissions.</li>
-            <li style="padding: 5px;">How File Sharing Works <span
-                style="background-color: rgba(255, 255, 255, 0.185);">(Without Login)</span> :
-              <ul style="padding-left: 20px;">
-                <li style="padding: 5px;">You upload your file in file.io and copy the share link</li>
-                <li style="padding: 5px;">Submit the share link in the form</li>
-                <li style="padding: 5px;">Open the attached Sheet (in the form) in another device</li>
-              </ul>
-            </li>
-          </ul>
-          </p> -->
         </div>
 
 
@@ -2651,11 +2665,22 @@
   </div>
 
   <script>
-    // Close modal when clicking outside of the modal content
+    // Close modal when clicking outside of the modal content & FAQ tooltip tap-to-toggle
     window.addEventListener("click", function (event) {
       const modal = document.getElementById("supportKoriModal");
       if (event.target === modal) {
         modal.style.display = "none";
+      }
+
+      // FAQ Tooltip tap-to-toggle on mobile and click toggle on desktop
+      const faqContainer = event.target.closest('.faq-tooltip-container');
+      const allFaqTooltips = document.querySelectorAll('.faq-tooltip-container.active');
+      if (faqContainer && event.target.closest('.faq-icon')) {
+        event.preventDefault();
+        faqContainer.classList.toggle('active');
+        allFaqTooltips.forEach(t => { if (t !== faqContainer) t.classList.remove('active'); });
+      } else if (!faqContainer) {
+        allFaqTooltips.forEach(t => t.classList.remove('active'));
       }
     });
   </script>
@@ -2878,7 +2903,7 @@
             <h2 id="changelog-modal-title">What's New in b1t-Acad</h2>
             <div class="changelog-subtitle">
               <span>Latest updates</span>
-              <span id="changelog-version-badge" class="changelog-version-badge">v7.9</span>
+              <span id="changelog-version-badge" class="changelog-version-badge">v9.0</span>
             </div>
           </div>
         </div>
@@ -2902,6 +2927,82 @@
     </div>
   </div>
 
+  <!-- Contribution Incentive Introductory Modal -->
+  <div id="contribution-modal" class="contribution-modal-overlay" style="display: none;" role="dialog"
+    aria-labelledby="contribution-modal-title" aria-modal="true">
+    <div class="contribution-modal-content">
+      <button id="close-contribution-modal" class="contribution-close-btn" title="Close" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- <div class="contribution-modal-header">
+        <div class="contribution-header-icon">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+        </div>
+        <div class="contribution-title-group">
+          <h2 id="contribution-modal-title">Pay It Forward / একটি বিনীত অনুরোধ</h2>
+          <div class="contribution-subtitle">
+            <span>A message to our students & community</span>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="contribution-modal-body">
+        <!-- English Attention Callout Card -->
+        <div class="contribution-attention-card">
+          <div class="contribution-attention-icon">
+            <i class="fa-solid fa-circle-exclamation"></i>
+          </div>
+          <div class="contribution-attention-content">
+            <p class="contribution-attention-text">
+              <strong>Attention!!</strong> If you were ever benefited from this Project, please consider contributing by
+              donating Questions/Notes or spreading the word!
+            </p>
+            <span>Appreciated 👍</span>
+          </div>
+        </div>
+
+        <!-- Bengali Reciprocal Donation Concept -->
+        <div class="contribution-bn-section">
+          <p class="contribution-bn-p">
+            আপনার প্রশ্ন থাকতে পারে যে এই কাজ আপনি কেন করবেন?
+          </p>
+          <p class="contribution-bn-p contribution-bn-highlight">
+            স্বাভাবিক।
+          </p>
+          <p class="contribution-bn-p">
+            পরীক্ষার হল থেকে বেরিয়ে এক হাতে থাকা ফোন দিয়ে আরেক হাতে থাকা প্রশ্নটার একটা ছবি তুলে পাঠানো অনেক কঠিন আর
+            কষ্টসাধ্য কাজ।
+          </p>
+          <p class="contribution-bn-p">
+            কিন্তু খেয়াল করবেন, এই কাজটা কে এখন <strong>"donation"</strong> বলা হচ্ছে। কেন সেটা?
+          </p>
+          <p class="contribution-bn-p">
+            কারণ আজকে আপনি যেই আগের বছরের প্রশ্ন দেখতে পাচ্ছেন সেটা আগের বছর অন্য কেউ উদার মনে <strong>"donate"</strong>
+            করেছিল। অর্থাৎ এখানে যে <strong>system</strong> টা কাজ করছে তাতে একজনের দেয়া প্রশ্ন আরেকজন পড়ছে।
+          </p>
+          <p class="contribution-bn-p contribution-system-callout">
+            আর এই system চালু রাখার দায়িত্ব আপনার, আমার, আমাদের। সুতরাং একটু কষ্ট স্বীকার করে আপনার ভবিষ্যৎ জুনিয়র কে
+            প্রশ্ন টা পাঠিয়ে দিন।
+          </p>
+          <p class="contribution-dua">
+            JazakAllahu Khairan. BarakAllahu Feekum.
+          </p>
+        </div>
+      </div>
+
+      <div class="contribution-modal-footer">
+        <a href="#Donate" class="contribution-action-btn" onclick="ContributionModal.close();">
+          <i class="fa-solid fa-upload"></i> Donate Questions / Notes
+        </a>
+        <button id="contribution-modal-got-it-btn" class="contribution-got-it-btn" type="button">
+          <i class="fa-solid fa-check"></i> Understood / বুঝেছি 👍
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/contribution-modal.js"></script>
   <script src="js/changelog-modal.js"></script>
 </body>
 
