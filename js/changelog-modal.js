@@ -6,13 +6,49 @@
 
 // Embedded fallback data ensuring the modal ALWAYS opens even on file:// protocol or offline
 const CHANGELOG_DATA_FALLBACK = {
-  "currentVersion": "v9.3",
+  "currentVersion": "v9.6",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v9.3",
+      "version": "v9.6",
       "badge": "Latest",
+      "date": "19.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Tooltip Content Hover Persistence & Unclipped Bridge Optimization",
+          "description": "Resolved premature tooltip hiding when moving cursor over the scrollable text: added an unclipped container hover bridge preventing hover loss across the vertical gap, ensured persistent visibility while hovering the card (.is-hovered), and set a comfortable 0.6s grace period."
+        }
+      ]
+    },
+    {
+      "version": "v9.5",
+      "badge": "UI/UX",
+      "date": "19.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Mobile Tooltip Screen-Centered Alignment & Dynamic Arrow Positioning",
+          "description": "Engineered dynamic viewport centering for the reconstructed questions FAQ tooltip on mobile devices, keeping the modal centered across the screen with responsive margins while dynamically positioning the upward-pointing arrow directly below the tooltip button."
+        }
+      ]
+    },
+    {
+      "version": "v9.4",
+      "badge": "UI/UX",
+      "date": "19.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Wider Tooltip Modal Width, Faster Unhover & Instant Outside-Click Dismissal",
+          "description": "Expanded the reconstructed questions FAQ tooltip on mobile to full screen width (calc(100vw - 36px)) with desktop max-width of 700px. Accelerated unhover hiding delay to 0.25s, and added instant dismissal when clicking or tapping outside."
+        }
+      ]
+    },
+    {
+      "version": "v9.3",
+      "badge": "UI/UX",
       "date": "19.09.26",
       "changes": [
         {

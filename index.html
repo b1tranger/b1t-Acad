@@ -939,9 +939,9 @@
 
     .faq-tooltip-content {
       visibility: hidden;
-      min-width: 400px;
-      max-width: 600px;
-      /* width: 90%; */
+      min-width: 480px;
+      max-width: 700px;
+      width: max-content;
       background-color: var(--secondary-color);
       color: var(--text-color);
       text-align: left;
@@ -953,8 +953,8 @@
       left: 50%;
       transform: translateX(-50%) translateY(-10px);
       opacity: 0;
-      /* Grace period on unhover: stays visible for 2s before smoothly fading out */
-      transition: opacity 0.35s ease 2s, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s, visibility 0.35s ease 2s;
+      /* Grace period on unhover: 0.6s allows smooth cursor transition to the text */
+      transition: opacity 0.25s ease 0.6s, transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s, visibility 0.25s ease 0.6s;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
       border: 1px solid var(--border-color);
       font-size: 0.9rem;
@@ -963,7 +963,30 @@
       backdrop-filter: blur(10px);
     }
 
-    /* Invisible bridge between icon and tooltip preventing hover dropout */
+    /* Instant dismissal override when clicking outside */
+    .faq-tooltip-container.force-hidden .faq-tooltip-content,
+    .faq-tooltip-container.force-hidden:hover .faq-tooltip-content {
+      visibility: hidden !important;
+      opacity: 0 !important;
+      transform: translateX(-50%) translateY(-10px) !important;
+      transition: none !important;
+      pointer-events: none !important;
+    }
+
+    /* Unclipped hover bridge on container to bridge any vertical gap */
+    .faq-tooltip-container::before {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: -100px;
+      right: -100px;
+      height: 35px;
+      background: transparent;
+      z-index: 999;
+      pointer-events: auto;
+    }
+
+    /* Secondary hover bridge on content */
     .faq-tooltip-content::before {
       content: "";
       position: absolute;
@@ -976,16 +999,17 @@
     }
 
     .faq-tooltip-container:hover .faq-tooltip-content,
+    .faq-tooltip-container.is-hovered .faq-tooltip-content,
     .faq-tooltip-container.active .faq-tooltip-content,
     .faq-tooltip-content:hover {
-      visibility: visible;
-      opacity: 1;
+      visibility: visible !important;
+      opacity: 1 !important;
       transform: translateX(-50%) translateY(0);
-      pointer-events: auto;
-      /* Appear immediately upon hover */
-      transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
-        transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
-        visibility 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
+      pointer-events: auto !important;
+      /* Stay fully visible with zero delay while hovered */
+      transition: opacity 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
+        transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
+        visibility 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s !important;
     }
 
     .faq-tooltip-content::after {
@@ -1025,33 +1049,44 @@
       border-bottom-style: solid;
     }
 
+    /* Mobile FAQ Tooltip & Grace Period Styles */
     @media (max-width: 768px) {
       .faq-tooltip-content {
-        min-width: 280px;
-        max-width: 85vw;
-        max-height: 350px;
+        /* Mobile Tooltip Modal Width: centered to the screen */
+        min-width: calc(100vw - 32px);
+        max-width: min(650px, calc(100vw - 32px));
+        width: calc(100vw - 32px);
+        max-height: 380px;
         overflow-y: auto;
-        left: auto;
-        right: -20px;
         transform: translateY(-10px);
         scrollbar-width: thin;
         scrollbar-color: var(--accent-color) var(--secondary-color);
-        transition: opacity 0.35s ease 2s, transform 0.35s ease 2s, visibility 0.35s ease 2s;
+        /* Mobile Grace Period on unhover: 0.6s grace period */
+        transition: opacity 0.25s ease 0.6s, transform 0.25s ease 0.6s, visibility 0.25s ease 0.6s;
+      }
+
+      .faq-tooltip-container.force-hidden .faq-tooltip-content,
+      .faq-tooltip-container.force-hidden:hover .faq-tooltip-content {
+        transform: translateY(-10px) !important;
       }
 
       .faq-tooltip-container:hover .faq-tooltip-content,
+      .faq-tooltip-container.is-hovered .faq-tooltip-content,
       .faq-tooltip-container.active .faq-tooltip-content,
       .faq-tooltip-content:hover {
-        transform: translateY(0);
-        transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
-          transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
-          visibility 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        pointer-events: auto !important;
+        transition: opacity 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
+          transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s,
+          visibility 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0s !important;
       }
 
       .faq-tooltip-content::after {
-        left: auto;
-        right: 25px;
-        margin-left: 0;
+        left: var(--faq-arrow-left, 50%);
+        right: auto;
+        margin-left: -10px;
       }
     }
 
@@ -1386,7 +1421,7 @@
         <a href="#" id="mobile-changelog-btn" class="view-changelog-btn"
           onclick="if(window.ChangelogModal){window.ChangelogModal.checkAndShowChangelog(true);}return false;">
           <i class="fa-solid fa-bullhorn" style="margin-right: 8px; color: var(--accent-color);"></i> Changelog
-          <span class="changelog-badge-pill">v9.3</span>
+          <span class="changelog-badge-pill">v9.6</span>
         </a>
       </li>
     </ul>
@@ -1477,7 +1512,7 @@
       title="View Changelog / What's New" aria-label="View Changelog">
       <i class="fa-solid fa-bullhorn"></i>
       <span>Changelog</span>
-      <span class="changelog-badge-pill">v9.3</span>
+      <span class="changelog-badge-pill">v9.6</span>
     </button>
 
   </main>
@@ -2723,6 +2758,86 @@
   </div>
 
   <script>
+    // FAQ Tooltip Dynamic Mobile Centering & Arrow Alignment
+    function updateMobileTooltipPosition() {
+      const container = document.querySelector('.faq-tooltip-container');
+      if (!container) return;
+      const content = container.querySelector('.faq-tooltip-content');
+      const icon = container.querySelector('.faq-icon');
+      if (!content || !icon) return;
+
+      if (window.innerWidth <= 768) {
+        const iconRect = icon.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        const screenWidth = window.innerWidth;
+        const maxModalWidth = 650;
+        const sideMargin = Math.max(16, (screenWidth - maxModalWidth) / 2);
+        const modalWidth = screenWidth - (sideMargin * 2);
+
+        // Position modal centered horizontally on screen
+        const contentLeft = sideMargin - containerRect.left;
+        content.style.left = `${contentLeft}px`;
+        content.style.right = 'auto';
+        content.style.width = `${modalWidth}px`;
+        content.style.minWidth = `${modalWidth}px`;
+        content.style.maxWidth = `${modalWidth}px`;
+
+        // Position upward arrow directly under the icon
+        const iconCenterScreen = iconRect.left + (iconRect.width / 2);
+        const arrowLeft = iconCenterScreen - sideMargin;
+        content.style.setProperty('--faq-arrow-left', `${arrowLeft}px`);
+      } else {
+        content.style.left = '';
+        content.style.right = '';
+        content.style.width = '';
+        content.style.minWidth = '';
+        content.style.maxWidth = '';
+        content.style.removeProperty('--faq-arrow-left');
+      }
+    }
+
+    window.addEventListener('resize', updateMobileTooltipPosition);
+    window.addEventListener('orientationchange', updateMobileTooltipPosition);
+    document.addEventListener('DOMContentLoaded', updateMobileTooltipPosition);
+    setTimeout(updateMobileTooltipPosition, 100);
+
+    // FAQ Tooltip Instant Dismissal Helper
+    function dismissFaqTooltipsInstant() {
+      document.querySelectorAll('.faq-tooltip-container').forEach(container => {
+        container.classList.remove('active');
+        container.classList.remove('is-hovered');
+        container.classList.add('force-hidden');
+      });
+    }
+
+    // Maintain hover state when mouse enters container or tooltip content
+    document.querySelectorAll('.faq-tooltip-container').forEach(container => {
+      const content = container.querySelector('.faq-tooltip-content');
+
+      const enterHandler = () => {
+        container.classList.remove('force-hidden');
+        container.classList.add('is-hovered');
+        updateMobileTooltipPosition();
+      };
+
+      const leaveHandler = (e) => {
+        // If moving between container and content, stay open
+        if (e.relatedTarget && (container.contains(e.relatedTarget) || (content && content.contains(e.relatedTarget)))) {
+          return;
+        }
+        container.classList.remove('is-hovered');
+      };
+
+      container.addEventListener('mouseenter', enterHandler);
+      container.addEventListener('mouseleave', leaveHandler);
+      container.addEventListener('touchstart', enterHandler, { passive: true });
+
+      if (content) {
+        content.addEventListener('mouseenter', enterHandler);
+        content.addEventListener('mouseleave', leaveHandler);
+      }
+    });
+
     // Close modal when clicking outside of the modal content & FAQ tooltip tap-to-toggle
     window.addEventListener("click", function (event) {
       const modal = document.getElementById("supportKoriModal");
@@ -2732,15 +2847,29 @@
 
       // FAQ Tooltip tap-to-toggle on mobile and click toggle on desktop
       const faqContainer = event.target.closest('.faq-tooltip-container');
-      const allFaqTooltips = document.querySelectorAll('.faq-tooltip-container.active');
       if (faqContainer && event.target.closest('.faq-icon')) {
         event.preventDefault();
-        faqContainer.classList.toggle('active');
-        allFaqTooltips.forEach(t => { if (t !== faqContainer) t.classList.remove('active'); });
+        faqContainer.classList.remove('force-hidden');
+        updateMobileTooltipPosition();
+        const isOpening = !faqContainer.classList.contains('active');
+        document.querySelectorAll('.faq-tooltip-container').forEach(t => t.classList.remove('active'));
+        if (isOpening) {
+          faqContainer.classList.add('active');
+        } else {
+          faqContainer.classList.add('force-hidden');
+        }
       } else if (!faqContainer) {
-        allFaqTooltips.forEach(t => t.classList.remove('active'));
+        // Disappear instantly upon clicking outside
+        dismissFaqTooltipsInstant();
       }
     });
+
+    // Instant dismissal upon touch outside for mobile
+    document.addEventListener("touchstart", function (event) {
+      if (!event.target.closest('.faq-tooltip-container')) {
+        dismissFaqTooltipsInstant();
+      }
+    }, { passive: true });
   </script>
 
   <!-- Club Wings Modal -->
@@ -2961,7 +3090,7 @@
             <h2 id="changelog-modal-title">What's New in b1t-Acad</h2>
             <div class="changelog-subtitle">
               <span>Latest updates</span>
-              <span id="changelog-version-badge" class="changelog-version-badge">v9.3</span>
+              <span id="changelog-version-badge" class="changelog-version-badge">v9.6</span>
             </div>
           </div>
         </div>

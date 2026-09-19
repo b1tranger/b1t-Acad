@@ -3,6 +3,27 @@ tags: changelog, history, updates, logs, archive, agent-rules, guidelines, promp
 -->
 
 # 19.09.26
+- **Tooltip Content Hover Persistence & Unclipped Bridge Optimization (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Fixed premature tooltip hiding when moving the cursor onto the scrollable text inside the reconstructed questions FAQ tooltip:
+    - Added an unclipped hover bridge on the container element (`.faq-tooltip-container::before`) spanning 100px left and right and 35px down, preventing cursor dropouts across the vertical gap between the icon and popup card.
+    - Implemented bidirectional hover persistence via `.faq-tooltip-container.is-hovered`: hovering either the icon or the scrollable modal content keeps the tooltip fully active (`visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;`) without timing out while reading, selecting text, or scrolling.
+    - Configured a balanced `0.6s` unhover grace period allowing seamless cursor traversal, while retaining instant 0ms closure on outside clicks.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.6'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Mobile Tooltip Screen-Centered Alignment & Dynamic Arrow Positioning (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Re-architected mobile tooltip layout for the reconstructed questions tooltip (`.faq-tooltip-container` / `.faq-tooltip-content`):
+    - **Screen-Centered Modal on Mobile**: Replaced icon-relative offset centering with dynamic viewport positioning via `updateMobileTooltipPosition()`. The modal automatically computes viewport width and horizontal offsets to position itself centered to the screen with clean 16px margins (`min-width: calc(100vw - 32px); max-width: min(650px, calc(100vw - 32px))`).
+    - **Arrow Aligned to Tooltip Button**: Dynamically calculates the horizontal midpoint of `.faq-icon` relative to the modal bounds (`--faq-arrow-left`), ensuring that `.faq-tooltip-content::after` always points straight to the question mark trigger button on any screen width or orientation.
+    - Updated handlers across `resize`, `orientationchange`, `DOMContentLoaded`, and initial tap/hover interactions.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.5'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **FAQ Tooltip Wide Modal Width, Faster Unhover & Instant Outside-Click Dismissal (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Addressed mobile tooltip responsiveness, hiding speed, and outside-click dismissal for the reconstructed questions FAQ tooltip (`.faq-tooltip-container` / `.faq-tooltip-content`):
+    - **Explicit Mobile Section & Wider Modal Width**: Clearly documented and styled the mobile section (`/* Mobile FAQ Tooltip & Grace Period Styles */`). Expanded mobile width to `calc(100vw - 36px)` (max-width `calc(100vw - 36px)`) with centered placement (`left: 50%; transform: translateX(-50%)`), matching a clean full-width modal feel. Expanded desktop max-width to `700px` (`min-width: 480px`).
+    - **Faster Unhover Disappearance**: Reduced the unhover transition delay from lingering delays to a snappy `0.25s` delay with `0.2s` fade/slide across both desktop and mobile.
+    - **Instant Click-Outside Dismissal**: Added JavaScript helper `dismissFaqTooltipsInstant()` triggered by `click` and `touchstart` outside `.faq-tooltip-container`. Leveraged `.faq-tooltip-container.force-hidden` with `transition: none !important; opacity: 0 !important; visibility: hidden !important;` for immediate 0ms dismissal without waiting for transitions.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.4'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
 - **FAQ Tooltip Hiding Delay Extension to 2 Seconds (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
   - Increased the unhover grace period for the reconstructed questions FAQ tooltip (`.faq-tooltip-content`) from 1 second to 2 seconds across both desktop ([`index.html:L957`](index.html#L957)) and mobile responsive styles ([`index.html:L1039`](index.html#L1039)).
   - Updated the CSS transition definition to `transition: opacity 0.35s ease 2s, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s, visibility 0.35s ease 2s;` allowing visitors a generous 2-second grace interval to move their cursor or read popup contents without accidental dismissal.
