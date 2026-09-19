@@ -3,6 +3,19 @@ tags: changelog, history, updates, logs, archive, agent-rules, guidelines, promp
 -->
 
 # 19.09.26
+- **FAQ Tooltip Hiding Delay Extension to 2 Seconds (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Increased the unhover grace period for the reconstructed questions FAQ tooltip (`.faq-tooltip-content`) from 1 second to 2 seconds across both desktop ([`index.html:L957`](index.html#L957)) and mobile responsive styles ([`index.html:L1039`](index.html#L1039)).
+  - Updated the CSS transition definition to `transition: opacity 0.35s ease 2s, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s, visibility 0.35s ease 2s;` allowing visitors a generous 2-second grace interval to move their cursor or read popup contents without accidental dismissal.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.3'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Enhanced Intermittent Horizontal Shake for Reconstructed Questions Heading (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Enhanced the intermittent horizontal shake animation on the reconstructed questions heading text (*"Faculty took the questions away?"*) in the Donate section:
+    - Located and resolved the issue where the text appeared not to shake:
+      1. The full-width block-level heading hover constraint (`.upload-title:hover .shake-highlight-text { animation-play-state: paused; }`) was freezing the animation whenever the cursor was anywhere across the container width. Removed this rule so the shake executes reliably.
+      2. The initial oscillation amplitude (±4px) over a 5s cycle with 4.3s rest was too subtle on high-DPI screens and hard to catch. Increased oscillation displacement to ±8px (damping smoothly from ±8px → ±6px → ±4px → ±2px → 0px) and condensed the loop cycle to 3.8s for clear, crisp visual highlighting.
+      3. Documented the delayed hiding logic of the adjacent FAQ tooltip ([`index.html:L953-L954`](index.html#L953-L954)) which utilizes a `1s` transition-delay on unhover (`transition: opacity 0.35s ease 1s, transform 0.35s cubic-bezier(...) 1s, visibility 0.35s ease 1s;`) and transparent bridge pseudo-element (`.faq-tooltip-content::before`).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.2'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
 - **Donate Section FAQ Tooltip Grace Period & Hover Bridge (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
   - Resolved the immediate hiding issue on the reconstructed questions FAQ tooltip (`.faq-tooltip-container` / `.faq-tooltip-content`) in the Donate section:
     - Added a 1-second unhover grace period (`transition: opacity 0.35s ease 1s, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, visibility 0.35s ease 1s;`) allowing users sufficient time to read and move their cursor to the tooltip and its links without it vanishing immediately.

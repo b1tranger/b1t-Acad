@@ -861,6 +861,59 @@
       }
     }
 
+    /* Intermittent Horizontal Shake for Reconstructed Questions Heading */
+    .shake-highlight-text {
+      display: inline-block;
+      vertical-align: middle;
+      animation: intermittent-shake 3.8s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    @keyframes intermittent-shake {
+
+      0%,
+      20%,
+      100% {
+        transform: translateX(0);
+      }
+
+      2% {
+        transform: translateX(-8px);
+      }
+
+      4% {
+        transform: translateX(8px);
+      }
+
+      6% {
+        transform: translateX(-6px);
+      }
+
+      8% {
+        transform: translateX(6px);
+      }
+
+      10% {
+        transform: translateX(-4px);
+      }
+
+      12% {
+        transform: translateX(4px);
+      }
+
+      14% {
+        transform: translateX(-2px);
+      }
+
+      16% {
+        transform: translateX(2px);
+      }
+
+      18% {
+        transform: translateX(0);
+      }
+    }
+
     /* FAQ Tooltip Styles */
     .faq-tooltip-container {
       position: relative;
@@ -900,8 +953,8 @@
       left: 50%;
       transform: translateX(-50%) translateY(-10px);
       opacity: 0;
-      /* Grace period on unhover: stays visible for 1s before smoothly fading out */
-      transition: opacity 0.35s ease 1s, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, visibility 0.35s ease 1s;
+      /* Grace period on unhover: stays visible for 2s before smoothly fading out */
+      transition: opacity 0.35s ease 2s, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s, visibility 0.35s ease 2s;
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
       border: 1px solid var(--border-color);
       font-size: 0.9rem;
@@ -983,7 +1036,7 @@
         transform: translateY(-10px);
         scrollbar-width: thin;
         scrollbar-color: var(--accent-color) var(--secondary-color);
-        transition: opacity 0.35s ease 1s, transform 0.35s ease 1s, visibility 0.35s ease 1s;
+        transition: opacity 0.35s ease 2s, transform 0.35s ease 2s, visibility 0.35s ease 2s;
       }
 
       .faq-tooltip-container:hover .faq-tooltip-content,
@@ -1333,7 +1386,7 @@
         <a href="#" id="mobile-changelog-btn" class="view-changelog-btn"
           onclick="if(window.ChangelogModal){window.ChangelogModal.checkAndShowChangelog(true);}return false;">
           <i class="fa-solid fa-bullhorn" style="margin-right: 8px; color: var(--accent-color);"></i> Changelog
-          <span class="changelog-badge-pill">v9.0</span>
+          <span class="changelog-badge-pill">v9.3</span>
         </a>
       </li>
     </ul>
@@ -1424,7 +1477,7 @@
       title="View Changelog / What's New" aria-label="View Changelog">
       <i class="fa-solid fa-bullhorn"></i>
       <span>Changelog</span>
-      <span class="changelog-badge-pill">v9.0</span>
+      <span class="changelog-badge-pill">v9.3</span>
     </button>
 
   </main>
@@ -1833,8 +1886,10 @@
 
         </div>
 
-        <h4 class="upload-title" style="margin-top: 25px;margin-bottom: 10px;">
-          Faculty took the questions away?
+
+
+        <h4 class="upload-title">
+          <span class="shake-highlight-text">Faculty took the questions away?</span>
           <span class="faq-tooltip-container">
             <i class="fa-solid fa-circle-question faq-icon"></i>
             <div class="faq-tooltip-content">
@@ -1853,9 +1908,12 @@
           </span>
         </h4>
 
+
+
         <p style="font-size: medium;">You can share them in the group as well: <a class="donate-group-link"
             href="https://t.me/oUITS_res" target="_blank">https://t.me/oUITS_res</a></p>
 
+        <br>
 
         <div style="width: 80%;margin: auto;text-align: left;">
           <!-- Highlighted Submission Button with Arrow -->
@@ -2903,7 +2961,7 @@
             <h2 id="changelog-modal-title">What's New in b1t-Acad</h2>
             <div class="changelog-subtitle">
               <span>Latest updates</span>
-              <span id="changelog-version-badge" class="changelog-version-badge">v9.0</span>
+              <span id="changelog-version-badge" class="changelog-version-badge">v9.3</span>
             </div>
           </div>
         </div>

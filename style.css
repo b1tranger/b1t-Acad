@@ -410,6 +410,7 @@
     top: 20px;
   }
 }
+
 /* End @media (max-width: 768px) — mobile floating elements */
 
 /* --- Hanging Droplet Micro-Animation --- */
@@ -417,15 +418,19 @@
   0% {
     transform: rotate(90deg) translateX(0);
   }
+
   25% {
     transform: rotate(92.5deg) translateX(1px);
   }
+
   50% {
     transform: rotate(90deg) translateX(2px);
   }
+
   75% {
     transform: rotate(87.5deg) translateX(1px);
   }
+
   100% {
     transform: rotate(90deg) translateX(0);
   }
@@ -465,7 +470,8 @@ html {
 ::-webkit-scrollbar-thumb {
   background: #343948;
   border-radius: 6px;
-  border: 2px solid #14151e; /* Refined matte inset border */
+  border: 2px solid #14151e;
+  /* Refined matte inset border */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -1114,6 +1120,58 @@ body.no-scroll {
   margin-bottom: 2rem;
 }
 
+/* Intermittent Horizontal Shake for Reconstructed Questions Heading */
+.shake-highlight-text {
+  display: inline-block;
+  vertical-align: middle;
+  animation: intermittent-shake 3.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes intermittent-shake {
+  0%,
+  20%,
+  100% {
+    transform: translateX(0);
+  }
+
+  2% {
+    transform: translateX(-8px);
+  }
+
+  4% {
+    transform: translateX(8px);
+  }
+
+  6% {
+    transform: translateX(-6px);
+  }
+
+  8% {
+    transform: translateX(6px);
+  }
+
+  10% {
+    transform: translateX(-4px);
+  }
+
+  12% {
+    transform: translateX(4px);
+  }
+
+  14% {
+    transform: translateX(-2px);
+  }
+
+  16% {
+    transform: translateX(2px);
+  }
+
+  18% {
+    transform: translateX(0);
+  }
+}
+
 .upload-grid {
   display: flex;
   justify-content: center;
@@ -1166,11 +1224,13 @@ body.no-scroll {
   .upload-grid {
     gap: 1.25rem;
   }
+
   .upload-card {
     padding: 0.65rem 0.75rem;
     width: 135px;
     height: 135px;
   }
+
   .upload-card-image {
     width: 105px;
     margin-top: -26px;
@@ -1183,12 +1243,14 @@ body.no-scroll {
   .upload-grid {
     gap: 1rem;
   }
+
   .upload-card {
     padding: 0.5rem;
     width: 120px;
     height: 120px;
     font-size: 0.9rem;
   }
+
   .upload-card-image {
     width: 90px;
     margin-top: -22px;
@@ -2224,12 +2286,12 @@ body.no-scroll {
   }
 
   /* Prevent floating buttons from overlapping sticky-nav drawer when open */
-  .sticky-nav.open ~ #support-qr-persistent,
+  .sticky-nav.open~#support-qr-persistent,
   body.no-scroll #support-qr-persistent,
-  .overlay.active ~ #support-qr-persistent,
-  .sticky-nav.open ~ #floating-button,
+  .overlay.active~#support-qr-persistent,
+  .sticky-nav.open~#floating-button,
   body.no-scroll #floating-button,
-  .overlay.active ~ #floating-button {
+  .overlay.active~#floating-button {
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
@@ -3811,6 +3873,7 @@ now Browse Curated Resources*/
     overflow-x: hidden !important;
     box-sizing: border-box !important;
   }
+
   .qbank-modal-content {
     width: calc(100vw - 20px) !important;
     max-width: calc(100vw - 20px) !important;
@@ -3819,6 +3882,7 @@ now Browse Curated Resources*/
     max-height: 94vh !important;
     box-sizing: border-box !important;
   }
+
   .qbank-modal-body {
     padding: 0.85rem !important;
   }
@@ -4292,6 +4356,7 @@ now Browse Curated Resources*/
     opacity: 0;
     transform: scale(0.96) translateY(8px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -4922,6 +4987,7 @@ now Browse Curated Resources*/
 
 /* Hide mobile nav item on desktop (min-width: 769px) */
 @media (min-width: 769px) {
+
   .mobile-changelog-nav-item,
   .mobile-support-nav-item {
     display: none !important;
@@ -5074,6 +5140,7 @@ now Browse Curated Resources*/
     opacity: 0;
     transform: scale(0.92) translateY(16px);
   }
+
   100% {
     opacity: 1;
     transform: scale(1) translateY(0);
@@ -5247,7 +5314,7 @@ now Browse Curated Resources*/
   padding: 12px 16px;
   border-radius: 10px;
   background: rgba(58, 162, 231, 0.08);
-  border-left: 3.5px solid #3aa2e7;
+  /* border-left: 3.5px solid #3aa2e7; */
   color: #f0f6fc;
   font-weight: 500;
   line-height: 1.65;
@@ -5502,6 +5569,3 @@ now Browse Curated Resources*/
     justify-content: center;
   }
 }
-
-
-

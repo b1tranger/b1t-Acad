@@ -6,13 +6,37 @@
 
 // Embedded fallback data ensuring the modal ALWAYS opens even on file:// protocol or offline
 const CHANGELOG_DATA_FALLBACK = {
-  "currentVersion": "v9.0",
+  "currentVersion": "v9.3",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v9.0",
+      "version": "v9.3",
       "badge": "Latest",
+      "date": "19.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Extended FAQ Tooltip Hiding Delay to 2 Seconds",
+          "description": "Increased the unhover grace period on the reconstructed questions FAQ tooltip in the Donate section (.faq-tooltip-content) from 1 second to 2 seconds across desktop and mobile screens, giving users ample time to read and interact with the content."
+        }
+      ]
+    },
+    {
+      "version": "v9.2",
+      "badge": "UI/UX",
+      "date": "19.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Enhanced Intermittent Horizontal Shake for Reconstructed Questions Heading",
+          "description": "Enhanced the intermittent horizontal shake animation on 'Faculty took the questions away?' in the Donate section: increased oscillation amplitude to ±8px with smooth damping, removed the block-level heading hover-pause constraint that was freezing the animation, and optimized the cycle to 3.8s for crisp, noticeable visibility."
+        }
+      ]
+    },
+    {
+      "version": "v9.0",
+      "badge": "UI/UX",
       "date": "19.09.26",
       "changes": [
         {
