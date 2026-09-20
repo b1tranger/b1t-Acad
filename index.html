@@ -939,8 +939,9 @@
 
     .faq-tooltip-content {
       visibility: hidden;
+      box-sizing: border-box;
       min-width: 480px;
-      max-width: 700px;
+      max-width: min(700px, 90vw);
       width: max-content;
       background-color: var(--secondary-color);
       color: var(--text-color);
@@ -978,8 +979,8 @@
       content: "";
       position: absolute;
       top: 100%;
-      left: -100px;
-      right: -100px;
+      left: -20px;
+      right: -20px;
       height: 35px;
       background: transparent;
       z-index: 999;
@@ -1051,11 +1052,17 @@
 
     /* Mobile FAQ Tooltip & Grace Period Styles */
     @media (max-width: 768px) {
+      .faq-tooltip-container::before {
+        left: -10px;
+        right: -10px;
+      }
+
       .faq-tooltip-content {
-        /* Mobile Tooltip Modal Width: centered to the screen */
-        min-width: calc(100vw - 32px);
-        max-width: min(650px, calc(100vw - 32px));
-        width: calc(100vw - 32px);
+        box-sizing: border-box;
+        /* Mobile Tooltip Modal Width: max 90% of screen width */
+        min-width: 0;
+        width: 90vw;
+        max-width: min(650px, 90vw);
         max-height: 380px;
         overflow-y: auto;
         transform: translateY(-10px);
@@ -1087,6 +1094,24 @@
         left: var(--faq-arrow-left, 50%);
         right: auto;
         margin-left: -10px;
+      }
+    }
+
+    /* Very Small Screen FAQ Tooltip (100% max width) */
+    @media (max-width: 480px) {
+      .faq-tooltip-container::before {
+        left: 0;
+        right: 0;
+      }
+
+      .faq-tooltip-content {
+        box-sizing: border-box;
+        /* Very small screen width: 100% of screen width */
+        width: 100vw;
+        max-width: 100vw;
+        min-width: 0;
+        padding: 1.2rem 1rem;
+        border-radius: 12px;
       }
     }
 
@@ -2766,13 +2791,24 @@
       const icon = container.querySelector('.faq-icon');
       if (!content || !icon) return;
 
-      if (window.innerWidth <= 768) {
+      const viewportWidth = Math.min(window.innerWidth, document.documentElement.clientWidth || window.innerWidth);
+
+      if (viewportWidth <= 768) {
         const iconRect = icon.getBoundingClientRect();
         const containerRect = container.getBoundingClientRect();
-        const screenWidth = window.innerWidth;
-        const maxModalWidth = 650;
-        const sideMargin = Math.max(16, (screenWidth - maxModalWidth) / 2);
-        const modalWidth = screenWidth - (sideMargin * 2);
+
+        let modalWidth;
+        let sideMargin;
+
+        if (viewportWidth <= 480) {
+          // Very small screen width: 100% of screen width
+          modalWidth = viewportWidth;
+          sideMargin = 0;
+        } else {
+          // Mobile screen width: max width at 90% of screen width
+          modalWidth = Math.min(650, Math.floor(viewportWidth * 0.9));
+          sideMargin = (viewportWidth - modalWidth) / 2;
+        }
 
         // Position modal centered horizontally on screen
         const contentLeft = sideMargin - containerRect.left;
@@ -2785,7 +2821,8 @@
         // Position upward arrow directly under the icon
         const iconCenterScreen = iconRect.left + (iconRect.width / 2);
         const arrowLeft = iconCenterScreen - sideMargin;
-        content.style.setProperty('--faq-arrow-left', `${arrowLeft}px`);
+        const clampedArrowLeft = Math.max(16, Math.min(modalWidth - 16, arrowLeft));
+        content.style.setProperty('--faq-arrow-left', `${clampedArrowLeft}px`);
       } else {
         content.style.left = '';
         content.style.right = '';

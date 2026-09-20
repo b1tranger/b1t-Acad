@@ -6,13 +6,25 @@
 
 // Embedded fallback data ensuring the modal ALWAYS opens even on file:// protocol or offline
 const CHANGELOG_DATA_FALLBACK = {
-  "currentVersion": "v9.6",
+  "currentVersion": "v9.7",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v9.6",
+      "version": "v9.7",
       "badge": "Latest",
+      "date": "20.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "Reconstructed Questions FAQ Tooltip Mobile Width & Small Screen Max-Width Optimization",
+          "description": "Resolved right screen border clipping and website width distortion from the reconstructed questions FAQ tooltip (.faq-tooltip-content). Enforced box-sizing: border-box, capped modal max-width at 90% of screen width for mobile displays (centered with 5% side margins), and enabled 100% full-screen width adaptation for very small screens (<= 480px)."
+        }
+      ]
+    },
+    {
+      "version": "v9.6",
+      "badge": "UI/UX",
       "date": "19.09.26",
       "changes": [
         {

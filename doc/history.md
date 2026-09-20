@@ -2,6 +2,17 @@
 tags: changelog, history, updates, logs, archive, agent-rules, guidelines, prompt-archive, anon-file-share, old-code
 -->
 
+# 20.09.26
+- **Reconstructed Questions FAQ Tooltip Mobile Width & Small Screen Max-Width Optimization (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Diagnosed and resolved right-edge screen clipping and website width distortion caused by the reconstructed questions FAQ tooltip ([`index.html:L1930-L1942`](index.html#L1930-L1942)):
+    - **Box-Sizing Enforcement**: Applied `box-sizing: border-box;` to `.faq-tooltip-content` across desktop and mobile styles ([`index.html:L942`](index.html#L942), [`index.html:L1057`](index.html#L1057), [`index.html:L1097`](index.html#L1097)), eliminating extra horizontal sizing additions from `padding: 1.5rem` that previously caused the modal to exceed screen width.
+    - **90% Max-Width for Mobile Displays (`<= 768px`)**: Capped mobile tooltip max-width at 90% of screen width (`max-width: min(650px, 90vw); width: 90vw;`) with centered horizontal alignment and equal 5% side margins.
+    - **100% Max-Width Adaptation for Very Small Screens (`<= 480px`)**: Implemented responsive rule `@media (max-width: 480px)` allowing `.faq-tooltip-content` to adapt up to 100% full screen width (`width: 100vw; max-width: 100vw; min-width: 0; padding: 1.2rem 1rem; border-radius: 12px;`) without clipping.
+    - **Dynamic Positioning & Arrow Clamping**: Updated `updateMobileTooltipPosition()` in JavaScript to calculate `viewportWidth = Math.min(window.innerWidth, document.documentElement.clientWidth || window.innerWidth)`, dynamically setting `modalWidth` (100% on `<= 480px`, 90% on `<= 768px`) and positioning the upward pointer arrow directly below the trigger icon with safety boundary clamping (`clampedArrowLeft = Math.max(16, Math.min(modalWidth - 16, arrowLeft))`).
+    - **Hover Bridge Overflow Containment**: Constrained `.faq-tooltip-container::before` side extensions on mobile viewports (`left: -10px; right: -10px;` on `<= 768px`; `left: 0; right: 0;` on `<= 480px`), eliminating any horizontal overflow distortion.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.7'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) and embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js).
+
 # 19.09.26
 - **Tooltip Content Hover Persistence & Unclipped Bridge Optimization (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
   - Fixed premature tooltip hiding when moving the cursor onto the scrollable text inside the reconstructed questions FAQ tooltip:
