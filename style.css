@@ -943,46 +943,18 @@ body {
 
 
 /* --- Content Sections --- */
-/* Default hidden state prevents FOUC / flash of sections and headers on homescreen page reload */
 .content-wrapper {
-  display: none;
   width: 100%;
   box-sizing: border-box;
 }
 
 .content-section {
-  display: none;
   min-height: auto;
   padding: 5.5rem 1.5rem 1.5rem 1.5rem;
   max-width: 900px;
   margin: 0 auto;
   box-sizing: border-box;
   text-align: left;
-}
-
-/* Page State Classes for Immediate Routing on Reload */
-html.page-state-home .content-wrapper {
-  display: none !important;
-}
-
-html.page-state-section #intro {
-  display: none !important;
-}
-
-html.page-state-section .content-wrapper {
-  display: block !important;
-}
-
-html.page-state-section .content-section:target {
-  display: block !important;
-}
-
-html.page-state-section #info:has(#book-session) {
-  display: block !important;
-}
-
-html.page-state-section #spa-back-btn {
-  display: flex !important;
 }
 
 .content-section h2 {

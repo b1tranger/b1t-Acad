@@ -1,17 +1,17 @@
 {
-  "currentVersion": "v9.8",
+  "currentVersion": "v9.9",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v9.8",
+      "version": "v9.9",
       "badge": "Latest",
       "date": "28.09.26",
       "changes": [
         {
           "type": "Fix & Performance",
-          "title": "Page Reload Section Flash Elimination & Synchronous Routing State Check",
-          "description": "Resolved brief flashing of the desktop top navigation header (.content-section-nav sticky-nav visible) and content sections during homescreen reload. Added synchronous initial page state detection in <head> checking window.location.hash prior to initial render, applied default hidden display states to .content-wrapper and .content-section in CSS and HTML markup, and synchronized dynamic state classes in js/spa.js."
+          "title": "Section Routing Redirection Fix, Departments.html Restoration & Scoped Reload State",
+          "description": "Resolved section redirection issue where navigation links only opened #info by eliminating conflicting CSS selector overrides. Restored resource rendering on Departments.html by removing global display:none on .content-section. Cleaned up global head script in favor of scoped page-state checks on #intro and .content-wrapper, preserving zero-FOUC reload while ensuring each navigation button opens its corresponding section."
         }
       ]
     },

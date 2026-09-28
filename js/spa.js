@@ -11,19 +11,6 @@
         const sections = document.querySelectorAll('.content-section');
         const backBtn = document.getElementById('spa-back-btn');
 
-        /**
-         * Synchronize page state classes on <html>
-         */
-        function updatePageState(isSection) {
-            if (isSection) {
-                document.documentElement.classList.remove('page-state-home');
-                document.documentElement.classList.add('page-state-section');
-            } else {
-                document.documentElement.classList.remove('page-state-section');
-                document.documentElement.classList.add('page-state-home');
-            }
-        }
-
         function handleRouting() {
             const hash = window.location.hash;
 
@@ -32,7 +19,6 @@
 
             if (!hash || hash === '#' || hash === '#course-search') {
                 // Show Home Page
-                updatePageState(false);
                 if (homeSection) homeSection.style.display = 'block';
                 if (contentWrapper) contentWrapper.style.display = 'none';
                 if (backBtn) backBtn.style.display = 'none';
@@ -59,7 +45,6 @@
 
                 if (targetSection && targetSection.classList.contains('content-section')) {
                     // Valid Section found: Open sub-page view
-                    updatePageState(true);
                     if (homeSection) homeSection.style.display = 'none';
                     if (contentWrapper) contentWrapper.style.display = 'block';
                     targetSection.style.display = 'block';
@@ -77,7 +62,6 @@
                     // Target is inside a content section (e.g., #book-session inside #info)
                     const parentSection = targetSection.closest('.content-section');
 
-                    updatePageState(true);
                     if (homeSection) homeSection.style.display = 'none';
                     if (contentWrapper) contentWrapper.style.display = 'block';
                     parentSection.style.display = 'block';
@@ -95,7 +79,6 @@
                     }, 100);
                 } else {
                     // Invalid hash or internal fragment on home page
-                    updatePageState(false);
                     if (homeSection) homeSection.style.display = 'block';
                     if (contentWrapper) contentWrapper.style.display = 'none';
                     if (backBtn) backBtn.style.display = 'none';
