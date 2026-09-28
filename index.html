@@ -11,6 +11,29 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="images/icons/OSL-Logo-192.png">
   <link rel="stylesheet" href="style.css">
+  <script>
+    // Immediately check initial page state before rendering to prevent FOUC / flash of sections or headers
+    (function () {
+      try {
+        var hash = window.location.hash;
+        var validSections = ['#info', '#Qbank', '#Departments', '#Donate', '#ECA', '#Library', '#About', '#book-session'];
+        var isSection = false;
+        if (hash && hash !== '#' && hash !== '#course-search') {
+          for (var i = 0; i < validSections.length; i++) {
+            if (validSections[i].toLowerCase() === hash.toLowerCase()) {
+              isSection = true;
+              break;
+            }
+          }
+        }
+        if (isSection) {
+          document.documentElement.classList.add('page-state-section');
+        } else {
+          document.documentElement.classList.add('page-state-home');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <!-- ICON LINK -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -1446,7 +1469,7 @@
         <a href="#" id="mobile-changelog-btn" class="view-changelog-btn"
           onclick="if(window.ChangelogModal){window.ChangelogModal.checkAndShowChangelog(true);}return false;">
           <i class="fa-solid fa-bullhorn" style="margin-right: 8px; color: var(--accent-color);"></i> Changelog
-          <span class="changelog-badge-pill">v9.6</span>
+          <span class="changelog-badge-pill">v9.8</span>
         </a>
       </li>
     </ul>
@@ -1537,7 +1560,7 @@
       title="View Changelog / What's New" aria-label="View Changelog">
       <i class="fa-solid fa-bullhorn"></i>
       <span>Changelog</span>
-      <span class="changelog-badge-pill">v9.6</span>
+      <span class="changelog-badge-pill">v9.8</span>
     </button>
 
   </main>
@@ -1545,7 +1568,7 @@
 
   <!-- <hr style="width: 10;border-color: transparent;margin: 10rem;"> -->
 
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="display: none;">
     <section id="info" class="content-section">
       <!-- Desktop Top Navigation Bar -->
       <nav class="content-section-nav sticky-nav visible">
@@ -3127,7 +3150,7 @@
             <h2 id="changelog-modal-title">What's New in b1t-Acad</h2>
             <div class="changelog-subtitle">
               <span>Latest updates</span>
-              <span id="changelog-version-badge" class="changelog-version-badge">v9.6</span>
+              <span id="changelog-version-badge" class="changelog-version-badge">v9.8</span>
             </div>
           </div>
         </div>

@@ -1,11 +1,23 @@
 {
-  "currentVersion": "v9.7",
+  "currentVersion": "v9.8",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v9.7",
+      "version": "v9.8",
       "badge": "Latest",
+      "date": "28.09.26",
+      "changes": [
+        {
+          "type": "Fix & Performance",
+          "title": "Page Reload Section Flash Elimination & Synchronous Routing State Check",
+          "description": "Resolved brief flashing of the desktop top navigation header (.content-section-nav sticky-nav visible) and content sections during homescreen reload. Added synchronous initial page state detection in <head> checking window.location.hash prior to initial render, applied default hidden display states to .content-wrapper and .content-section in CSS and HTML markup, and synchronized dynamic state classes in js/spa.js."
+        }
+      ]
+    },
+    {
+      "version": "v9.7",
+      "badge": "UI/UX",
       "date": "20.09.26",
       "changes": [
         {

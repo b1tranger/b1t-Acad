@@ -2,6 +2,23 @@
 tags: changelog, history, updates, logs, archive, agent-rules, guidelines, prompt-archive, anon-file-share, old-code
 -->
 
+# 28.09.26
+- **Page Reload Section Flash Elimination & Synchronous Routing State Check (`index.html`, `style.css`, `js/spa.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Eliminated the brief flash of the desktop sticky navigation header (`.content-section-nav sticky-nav visible`) and other content sections during homescreen page reload (`#intro` / [`index.html:L1484-L1543`](index.html#L1484-L1543)):
+    - **Synchronous Initial Page State Check in `<head>`**: Added a lightweight inline script in `<head>` ([`index.html:L14-L35`](index.html#L14-L35)) that inspects `window.location.hash` before DOM parsing begins. If a valid section hash (`#info`, `#Qbank`, `#Departments`, `#Donate`, `#ECA`, `#Library`, `#About`, `#book-session`) is present, it assigns `.page-state-section` to `document.documentElement`; otherwise (empty hash, `#`, `#course-search`, or home route), it assigns `.page-state-home`.
+    - **Zero-FOUC CSS Display Defaults**: Set `display: none;` on `.content-wrapper` and `.content-section` by default in [`style.css:L946-L958`](style.css#L946-L958) along with inline `style="display: none;"` on `<div class="content-wrapper">` in [`index.html`](index.html). Ensured `.content-wrapper` and all descendant sections and headers are never painted during initial homescreen parse.
+    - **Page State CSS Directives**: Added explicit state overrides in [`style.css`](style.css):
+      - `html.page-state-home .content-wrapper { display: none !important; }`
+      - `html.page-state-section #intro { display: none !important; }`
+      - `html.page-state-section .content-wrapper { display: block !important; }`
+      - `html.page-state-section .content-section:target { display: block !important; }`
+      - `html.page-state-section #info:has(#book-session) { display: block !important; }`
+      - `html.page-state-section #spa-back-btn { display: flex !important; }`
+    - **SPA Routing Controller Synchronization**: Refactored [`js/spa.js`](js/spa.js) with helper `updatePageState(isSection)` to dynamically synchronize `page-state-home` and `page-state-section` classes on `<html>` across in-page hash changes, back button clicks, and home transitions. Added case-insensitive matching fallback for hash fragments and immediate initialization when DOM is ready.
+    - **Version Badging**: Bumped changelog badge pills to `v9.8` across mobile navigation drawer (`#mobile-changelog-btn`), desktop bottom-left trigger (`#desktop-changelog-btn`), and changelog modal (`#changelog-version-badge`).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.8'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) and embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js).
+
 # 20.09.26
 - **Reconstructed Questions FAQ Tooltip Mobile Width & Small Screen Max-Width Optimization (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
   - Diagnosed and resolved right-edge screen clipping and website width distortion caused by the reconstructed questions FAQ tooltip ([`index.html:L1930-L1942`](index.html#L1930-L1942)):
