@@ -1,0 +1,312 @@
+<!--
+tags: changelog, history, updates, logs, archive, agent-rules, guidelines, prompt-archive, anon-file-share, old-code
+-->
+
+# 30.09.26
+- **Archived Courses Data Architecture and Dedicated UI Section (`js/departments-data.js`, `js/departments.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`, `index.html`)**:
+  - Implemented semester-scoped archived course management for department resources:
+    - **Data Architecture (`js/departments-data.js`)**: Added `"archivedCourses": []` to each semester (`S01` to `S08`) across all departments (`CSE`, `CE`, `IT`). Migrated legacy courses (including previously commented `"Software Eng."` and `"I&OM"` in CSE S06) directly into `archivedCourses`.
+    - **Dedicated UI Section (`js/departments.js`)**: Rendered an **"Archived Courses"** section (`<section id="archived-courses" class="content-section">`) directly below Course Materials inside `loadSemester()` whenever `semData.archivedCourses` contains courses. Uses matching responsive grid and button styling (`.course-card-container`, `.course-button`, `.others-btn`) with subtle contextual subtext explaining archived curriculum status.
+    - **Version Synchronization**: Bumped Service Worker cache `CACHE_NAME` to `'v10.0'` in [`sw.js`](sw.js), updated `currentVersion` and history in [`changes.json`](changes.json), synchronized fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and updated version badge pills across [`index.html`](index.html).
+
+# 28.09.26
+- **Section Routing Redirection Fix, Departments.html Restoration & Scoped Reload State (`index.html`, `style.css`, `js/spa.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Resolved section navigation and rendering issues across [`index.html`](index.html) and [`Departments.html`](Departments.html):
+    - **Restored Cross-Section Redirection**: Removed conflicting `:has(#book-session)` selector in [`style.css`](style.css) that was forcefully displaying `#info` across all section navigation attempts, ensuring each link (`#info`, `#Qbank`, `#Departments`, `#Donate`, `#ECA`, `#Library`, `#About`) navigates exclusively to its corresponding content section.
+    - **Restored Departments.html Dynamic Rendering**: Removed global `display: none;` on `.content-section` in [`style.css`](style.css) which was hiding `#courses` inside `#semester-content` in [`Departments.html`](Departments.html).
+    - **Scoped Early Reload State Detection**: Replaced global `<head>` script and CSS `!important` overrides with clean, scoped inline state checks directly within `<main class="container" id="intro">` and `<div class="content-wrapper">` in [`index.html`](index.html). If visiting via section redirect link on reload, `#intro` is suppressed and `.content-wrapper` is revealed; if loading homescreen, `<div class="content-wrapper" style="display: none;">` keeps other sections and fixed top headers hidden with zero FOUC.
+    - **Clean SPA Controller**: Streamlined [`js/spa.js`](js/spa.js) to manage component visibility directly through element inline styles, removing `html` class dependencies while maintaining case-insensitive hash matching.
+    - **Version Badges**: Bumped badges to `v9.9` across [`index.html`](index.html), [`sw.js`](sw.js), [`changes.json`](changes.json), and [`js/changelog-modal.js`](js/changelog-modal.js).
+
+# 20.09.26
+- **Reconstructed Questions FAQ Tooltip Mobile Width & Small Screen Max-Width Optimization (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Diagnosed and resolved right-edge screen clipping and website width distortion caused by the reconstructed questions FAQ tooltip ([`index.html:L1930-L1942`](index.html#L1930-L1942)):
+    - **Box-Sizing Enforcement**: Applied `box-sizing: border-box;` to `.faq-tooltip-content` across desktop and mobile styles ([`index.html:L942`](index.html#L942), [`index.html:L1057`](index.html#L1057), [`index.html:L1097`](index.html#L1097)), eliminating extra horizontal sizing additions from `padding: 1.5rem` that previously caused the modal to exceed screen width.
+    - **90% Max-Width for Mobile Displays (`<= 768px`)**: Capped mobile tooltip max-width at 90% of screen width (`max-width: min(650px, 90vw); width: 90vw;`) with centered horizontal alignment and equal 5% side margins.
+    - **100% Max-Width Adaptation for Very Small Screens (`<= 480px`)**: Implemented responsive rule `@media (max-width: 480px)` allowing `.faq-tooltip-content` to adapt up to 100% full screen width (`width: 100vw; max-width: 100vw; min-width: 0; padding: 1.2rem 1rem; border-radius: 12px;`) without clipping.
+    - **Dynamic Positioning & Arrow Clamping**: Updated `updateMobileTooltipPosition()` in JavaScript to calculate `viewportWidth = Math.min(window.innerWidth, document.documentElement.clientWidth || window.innerWidth)`, dynamically setting `modalWidth` (100% on `<= 480px`, 90% on `<= 768px`) and positioning the upward pointer arrow directly below the trigger icon with safety boundary clamping (`clampedArrowLeft = Math.max(16, Math.min(modalWidth - 16, arrowLeft))`).
+    - **Hover Bridge Overflow Containment**: Constrained `.faq-tooltip-container::before` side extensions on mobile viewports (`left: -10px; right: -10px;` on `<= 768px`; `left: 0; right: 0;` on `<= 480px`), eliminating any horizontal overflow distortion.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.7'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) and embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js).
+
+# 19.09.26
+- **Tooltip Content Hover Persistence & Unclipped Bridge Optimization (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Fixed premature tooltip hiding when moving the cursor onto the scrollable text inside the reconstructed questions FAQ tooltip:
+    - Added an unclipped hover bridge on the container element (`.faq-tooltip-container::before`) spanning 100px left and right and 35px down, preventing cursor dropouts across the vertical gap between the icon and popup card.
+    - Implemented bidirectional hover persistence via `.faq-tooltip-container.is-hovered`: hovering either the icon or the scrollable modal content keeps the tooltip fully active (`visibility: visible !important; opacity: 1 !important; pointer-events: auto !important;`) without timing out while reading, selecting text, or scrolling.
+    - Configured a balanced `0.6s` unhover grace period allowing seamless cursor traversal, while retaining instant 0ms closure on outside clicks.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.6'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Mobile Tooltip Screen-Centered Alignment & Dynamic Arrow Positioning (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Re-architected mobile tooltip layout for the reconstructed questions tooltip (`.faq-tooltip-container` / `.faq-tooltip-content`):
+    - **Screen-Centered Modal on Mobile**: Replaced icon-relative offset centering with dynamic viewport positioning via `updateMobileTooltipPosition()`. The modal automatically computes viewport width and horizontal offsets to position itself centered to the screen with clean 16px margins (`min-width: calc(100vw - 32px); max-width: min(650px, calc(100vw - 32px))`).
+    - **Arrow Aligned to Tooltip Button**: Dynamically calculates the horizontal midpoint of `.faq-icon` relative to the modal bounds (`--faq-arrow-left`), ensuring that `.faq-tooltip-content::after` always points straight to the question mark trigger button on any screen width or orientation.
+    - Updated handlers across `resize`, `orientationchange`, `DOMContentLoaded`, and initial tap/hover interactions.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.5'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **FAQ Tooltip Wide Modal Width, Faster Unhover & Instant Outside-Click Dismissal (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Addressed mobile tooltip responsiveness, hiding speed, and outside-click dismissal for the reconstructed questions FAQ tooltip (`.faq-tooltip-container` / `.faq-tooltip-content`):
+    - **Explicit Mobile Section & Wider Modal Width**: Clearly documented and styled the mobile section (`/* Mobile FAQ Tooltip & Grace Period Styles */`). Expanded mobile width to `calc(100vw - 36px)` (max-width `calc(100vw - 36px)`) with centered placement (`left: 50%; transform: translateX(-50%)`), matching a clean full-width modal feel. Expanded desktop max-width to `700px` (`min-width: 480px`).
+    - **Faster Unhover Disappearance**: Reduced the unhover transition delay from lingering delays to a snappy `0.25s` delay with `0.2s` fade/slide across both desktop and mobile.
+    - **Instant Click-Outside Dismissal**: Added JavaScript helper `dismissFaqTooltipsInstant()` triggered by `click` and `touchstart` outside `.faq-tooltip-container`. Leveraged `.faq-tooltip-container.force-hidden` with `transition: none !important; opacity: 0 !important; visibility: hidden !important;` for immediate 0ms dismissal without waiting for transitions.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.4'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **FAQ Tooltip Hiding Delay Extension to 2 Seconds (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Increased the unhover grace period for the reconstructed questions FAQ tooltip (`.faq-tooltip-content`) from 1 second to 2 seconds across both desktop ([`index.html:L957`](index.html#L957)) and mobile responsive styles ([`index.html:L1039`](index.html#L1039)).
+  - Updated the CSS transition definition to `transition: opacity 0.35s ease 2s, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s, visibility 0.35s ease 2s;` allowing visitors a generous 2-second grace interval to move their cursor or read popup contents without accidental dismissal.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.3'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Enhanced Intermittent Horizontal Shake for Reconstructed Questions Heading (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Enhanced the intermittent horizontal shake animation on the reconstructed questions heading text (*"Faculty took the questions away?"*) in the Donate section:
+    - Located and resolved the issue where the text appeared not to shake:
+      1. The full-width block-level heading hover constraint (`.upload-title:hover .shake-highlight-text { animation-play-state: paused; }`) was freezing the animation whenever the cursor was anywhere across the container width. Removed this rule so the shake executes reliably.
+      2. The initial oscillation amplitude (±4px) over a 5s cycle with 4.3s rest was too subtle on high-DPI screens and hard to catch. Increased oscillation displacement to ±8px (damping smoothly from ±8px → ±6px → ±4px → ±2px → 0px) and condensed the loop cycle to 3.8s for clear, crisp visual highlighting.
+      3. Documented the delayed hiding logic of the adjacent FAQ tooltip ([`index.html:L953-L954`](index.html#L953-L954)) which utilizes a `1s` transition-delay on unhover (`transition: opacity 0.35s ease 1s, transform 0.35s cubic-bezier(...) 1s, visibility 0.35s ease 1s;`) and transparent bridge pseudo-element (`.faq-tooltip-content::before`).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.2'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Donate Section FAQ Tooltip Grace Period & Hover Bridge (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Resolved the immediate hiding issue on the reconstructed questions FAQ tooltip (`.faq-tooltip-container` / `.faq-tooltip-content`) in the Donate section:
+    - Added a 1-second unhover grace period (`transition: opacity 0.35s ease 1s, transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s, visibility 0.35s ease 1s;`) allowing users sufficient time to read and move their cursor to the tooltip and its links without it vanishing immediately.
+    - Added an invisible bridge pseudo-element (`.faq-tooltip-content::before`) spanning the vertical gap between the icon and tooltip container, preventing accidental hover dropouts while moving toward the content.
+    - Configured immediate appearance on re-hover (`transition-delay: 0s`).
+    - Added tap-to-toggle click listener support on `.faq-tooltip-container` for mobile devices and desktop clicking with tap-outside dismissal.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v9.0'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **First-Visit Contribution Incentive Modal for QBank & Donate (`index.html`, `js/contribution-modal.js`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Implemented an introductory modal (`#contribution-modal`) to greet first-time visitors of the **Question Bank (`#Qbank`)** and **Donate Resources (`#Donate`)** sections, delivering a motivational call-to-action regarding community reciprocity and the donation cycle of past exam questions and study notes.
+  - Added verbatim bilingual copy featuring:
+    - English alert callout card: *"Attention!! If you were ever benefited from this Project, please consider contributing by donating Questions/Notes or spreading the word! Appreciated 👍"*.
+    - Bengali reflective narrative on why sharing exam questions immediately after leaving the exam hall is an act of "donation" that keeps the student resource ecosystem running for future juniors.
+    - Islamic benediction: *"JazakAllahu Khairan. BarakAllahu Feekum."*.
+  - Engineered the client controller [`js/contribution-modal.js`](js/contribution-modal.js):
+    - Persistent state gating via `localStorage` key `b1t_contribution_intro_seen`, guaranteeing the modal is displayed only once per user device across `#Qbank` and `#Donate`.
+    - Handles initial direct URL loads (e.g. `index.html#Qbank`, `index.html#Donate`), dynamic `hashchange` SPA transitions, and click delegation on anchor navigation elements.
+    - Added backdrop click dismissal, protruding circular close button (`#close-contribution-modal`), `Escape` keyboard dismissal, and a primary *"Understood / বুঝেছি 👍"* button.
+  - Placed subtle manual trigger buttons (`.btn-why-donate`) inside both `#Qbank` and `#Donate` sections, allowing visitors to re-read the contribution message on demand even after initial dismissal.
+  - Designed comprehensive glassmorphic responsive styles and dark/gray theme contrast rules (`[data-theme="gray"]`) in [`style.css`](style.css).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.9'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+
+# 18.09.26
+- **Desktop Home Button Restoration & Search Courses Removal (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Restored desktop visibility and vertical alignment for `#spa-back-btn` (`position: fixed; top: 0.55rem; left: 1.5rem; padding: 0.45rem 1rem; font-size: 0.95rem;`) in [`style.css`](style.css), seating the floating Home button seamlessly within the left edge of the desktop frosted-glass top navigation bar.
+  - Removed the `Search Courses` button from `<nav class="content-section-nav sticky-nav visible">` across all 7 `.content-section` elements in [`index.html`](index.html), streamlining the desktop bar strictly to the 7 core sectional links (`Info`, `Question Bank`, `Departments`, `Donate`, `ECA`, `Library`, `About`).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.8'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Expanded Top Navigation Bar Buttons for Content Sections (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Updated desktop top navigation bars in all 7 `.content-section` elements in [`index.html`](index.html) to incorporate the full 8 primary navigation buttons (`Search Courses`, `Info`, `Question Bank`, `Departments`, `Donate`, `ECA`, `Library`, `About`) matching [`index.html:L1283-L1290`](index.html#L1283-L1290).
+  - Enhanced navigation layout rules in [`style.css`](style.css): added `flex-wrap: wrap; gap: 2px 4px;` and refined button padding to `padding: 0.55rem 0.85rem; font-size: 0.95rem; white-space: nowrap;` for `.sticky-nav ul li a`, ensuring that all 8 buttons remain elegantly aligned in a single row across desktop displays without horizontal overflow or excessive spacing.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.7'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Desktop Top Navigation Bar for Content Sections (`index.html`, `style.css`, `js/spa.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Added desktop top navigation bar (`<nav class="content-section-nav sticky-nav visible">`) containing links to `Home`, `Departments`, `Q-Bank`, and `Library` inside each of the 7 `.content-section` elements (`#info`, `#Qbank`, `#Departments`, `#Donate`, `#ECA`, `#Library`, `#About`) in [`index.html`](index.html), mirroring the header navigation in [`Departments.html:L523-L531`](Departments.html#L523-L531).
+  - Added responsive CSS in [`style.css`](style.css): suppressed `.content-section-nav` on mobile screens (`@media (max-width: 768px) { display: none !important; }`) to maintain full isolation from the mobile sliding drawer menu, and suppressed `#spa-back-btn` on desktop screens (`@media (min-width: 769px) { display: none !important; }`) to avoid visual overlap with the top navigation bar while preserving bottom-right back button access on mobile.
+  - Enhanced [`js/spa.js`](js/spa.js) click delegation: intercepted clicks on links targeting `index.html` to smoothly clear `window.location.hash`, invoke SPA routing, and scroll to top without requiring a browser page reload.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.6'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Desktop Screen Size CSS Restoration & Media Query Scoping (`style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`, `index.html`)**:
+  - Diagnosed root cause of desktop styling failure: an unclosed `@media (max-width: 768px)` block at [`style.css:L335-L412`](style.css#L335-L412) was missing its closing brace after `#theme-toggle`, inadvertently capturing over 4,500 lines of subsequent core styles (including `html`, custom matte scrollbars, `body` flex centering, typography, sections, and desktop components) inside the mobile-only media query.
+  - Added the missing closing brace `}` and delimiter comment (`/* End @media (max-width: 768px) — mobile floating elements */`) at [`style.css:L412-L413`](style.css#L412-L413), restoring balanced CSS nesting depth (`Final depth: 0`) and ensuring all global and desktop rules are correctly applied on viewports $> 768\text{px}$.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.5'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Mobile Scheduler Nav Drawer Item — Revised Plan (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Revised mobile b1t Scheduler button strategy: instead of hanging `#floating-button` as a pendulum near `#theme-toggle`, it is now hidden entirely on mobile (`display: none !important;`) and replaced by a new `<li class="mobile-scheduler-nav-item">` inside the sliding nav drawer, positioned directly **above** `.mobile-support-nav-item` (Coffee button).
+  - Added `.mobile-scheduler-nav-item` CSS: `display: list-item !important;` on `@media (max-width: 768px)`, `display: none !important;` on `@media (min-width: 769px)`. Styled as a pill button with `float 3s ease-in-out infinite` animation, hover pause, and smooth transitions consistent with the drawer aesthetic.
+  - Removed all pendulum hanging animation CSS (`@keyframes hang-droplet`, `transform-origin: 50% 0;`, etc.) from the mobile block — no longer needed.
+  - Removed the `IntersectionObserver` script entirely — desktop `#floating-button` is always visible; mobile button is now a static drawer link.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.4'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Pendulum Hanging Animation for Mobile Scheduler Button (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Diagnosed the root cause of the broken mobile hanging animation: `transform-origin: 0 50%` caused the button to pivot from its **left-center edge**, producing a windshield-wiper motion rather than a true pendulum swing.
+  - Fixed `transform-origin` to `50% 0` (top-center), making the button pivot at its topmost suspension point — directly below `#theme-toggle`, as if hanging from it.
+  - Repositioned `#floating-button` on mobile from `left: calc(100vw - 42.5px); top: 50px;` to `right: 10px; top: 55px;` so it sits flush below the theme toggle circle.
+  - Replaced the broken `rotate(90deg) translateX()` keyframes with clean pendulum keyframes: `rotate(-8deg)` → `rotate(0deg)` → `rotate(8deg)` → `rotate(0deg)` → `rotate(-8deg)` over 4s with `cubic-bezier(0.45, 0.05, 0.55, 0.95)` for natural deceleration at extremes.
+  - Updated `border-radius` to `9999px 9999px 12px 12px` (rounded at suspension top, slightly tapered at bottom drop) for a droplet silhouette hanging correctly.
+  - Removed the `transform 0.3s` component from the desktop `#floating-button` `transition` property — having both a CSS animation and a `transition` on the same `transform` property caused jank.
+  - Simplified `IntersectionObserver` initialization: button now starts hidden (`opacity: 0; pointer-events: none;`) immediately on `DOMContentLoaded`, and toggles purely via `style.opacity` / `style.pointerEvents` (no classList toggle).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.3'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Agent Guidelines Commit Message & Chat Summary Generation (`AGENTS.md`, `temp/AGENTS.md`)**:
+  - Added Section 4 (`Commit Message & Chat Summary Generation`) instructing the agent to summarize all work accomplished throughout the conversation (referencing the active prompt archive in `doc/prompts/<Prefix>. <Session Title>.md`) and suggest a clean, ready-to-use Git commit message with structured description at the conclusion of each response.
+- **Mobile Drawer Coffee Button Repositioning & IntersectionObserver Scheduler Transition (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Relocated the mobile drawer Coffee support button ([`#floating-button-nav`](index.html#L1305)) downward from its previous fixed coordinates (`top: 80px; left: 5rem;`), integrating it cleanly into normal flex flow inside `#sticky-nav ul` wrapped in `<li class="mobile-support-nav-item">`, directly above the mobile Changelog button ([`#mobile-changelog-btn`](index.html#L1312)).
+  - Configured `.mobile-support-nav-item` with `margin-top: auto; padding: 15px 0 10px 0; border-top: 1px solid rgba(255, 255, 255, 0.08);` on screens $\le 768\text{px}$, anchoring both action items neatly at the bottom of the drawer, and set `display: none !important;` on desktop screens ($\ge 769\text{px}$).
+  - Reduced mobile `.sticky-nav ul` `margin-top` from `8.5rem` to `3.5rem; min-height: calc(100% - 3.5rem);` since the fixed top button was removed, eliminating empty whitespace at the top of the mobile drawer.
+  - Implemented an `IntersectionObserver` observing `<main class="container" id="intro">` with a `0.1` threshold matching `temp/index.js`, seamlessly controlling the visibility (`opacity: 1; pointer-events: auto;` vs `opacity: 0; pointer-events: none;`) of the hanging b1t Scheduler droplet button ([`#floating-button`](index.html#L1338)).
+  - Added spring cubic-bezier transitions (`transition: opacity 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);`) to `#floating-button` matching `temp/index.html` on both mobile and desktop.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.2'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Upload Section Mobile Button Padding & Scaling (`style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Scaled down `.upload-card` button padding and physical dimensions on mobile viewports ($\le 768\text{px}$ and $\le 480\text{px}$) to match the scaled-down card images.
+  - On viewports $\le 768\text{px}$, adjusted `.upload-card` to `padding: 0.65rem 0.75rem; width: 135px; height: 135px;` and tuned `.upload-grid` gap to `1.25rem`.
+  - On viewports $\le 480\text{px}$, adjusted `.upload-card` to `padding: 0.5rem; width: 120px; height: 120px; font-size: 0.9rem;` and tuned `.upload-grid` gap to `1rem`.
+  - Added smooth transitions for `padding`, `width`, and `height` to `.upload-card` for fluid responsive behavior across orientation shifts.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.1'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and documentation.
+- **Question Bank Modal Mobile Width Stabilization & Filename Truncation (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Diagnosed and resolved mobile screen width expansion in the Question Bank modal ([`#qbank-modal`](index.html#L2609)) caused by long file names (e.g. `Application in LAW GED0611111-Mid Spring 2026 - Nayeem Jim.jpeg` and `Constitutional Law of Bangaladesh LAW0421203-Mid Spring 2026 - Nayeem Jim.jpeg`).
+  - Restructured `.qbank-link` from flexbox anonymous text items to `display: block !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; box-sizing: border-box !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important;` with inline-block pseudo-element icons (`::before { content: "📄 "; }` and `&.folder::before { content: "📁 "; }`), ensuring standard inline ellipsis behavior without intrinsic content blowout.
+  - Added `flex: 1 1 0%; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;` to `.explorer-item-name` and `flex-shrink: 0;` to `.explorer-item-indicator` in the dynamic explorer view, curing flex item `min-width: auto` content stretching.
+  - Added full width containment (`min-width: 0 !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; overflow-x: hidden !important;`) across all container hierarchy levels: `.qbank-modal-body`, `.qbank-content`, `.file-explorer`, `.explorer-header`, `.explorer-list`, `.explorer-item`, `.qbank-folder`, and `.qbank-subfolders`.
+  - Locked mobile modal width rigidly in [`style.css`](style.css) (`width: calc(100vw - 20px) !important; max-width: calc(100vw - 20px) !important; min-width: calc(100vw - 20px) !important; height: 94vh !important; max-height: 94vh !important; box-sizing: border-box !important;`) with `#qbank-modal` padded at `12px 10px !important;` and `overflow-x: hidden !important;`.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v8.0'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and documentation.
+- **Hanging Water Droplet Scheduler & Mobile Sidebar Coffee Button (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Redesigned the floating b1t Scheduler button ([`#floating-button`](index.html#L1287)) on mobile viewports ($\le 768\text{px}$) to be rotated 90 degrees downward (`transform: rotate(90deg)`), hanging gracefully underneath the theme toggle ([`#theme-toggle`](index.html#L1271)).
+  - Styled the button as an elongated water droplet with narrower rightward padding (`padding: 0.35rem 0.5rem 0.35rem 1.3rem`) and asymmetric rounding (`border-radius: 9999px 12px 12px 9999px`), giving it a bulbous top and tapered hanging droplet tip.
+  - Added fluid pendulum hanging micro-animation (`@keyframes hang-droplet`) with gentle sway and vertical extension physics, locking the top pivot point directly underneath the theme toggle circle.
+  - Relocated the Coffee support button directly into the mobile sliding navigation drawer ([`#sticky-nav`](index.html#L1234)) in place of the previous scheduler link ([`#floating-button-nav`](index.html#L1238)), styled with vibrant golden theme (`#ffdd00`), bold typography, coffee mug icon, and float animation.
+  - Preserved desktop layouts and interactions untouched (`#floating-button` top-right, `#support-qr-persistent` bottom-right).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.9'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Mobile Floating Buttons Placement Swap (`index.html`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Swapped mobile screen placement between the Coffee support button ([`#support-qr-persistent`](index.html#L1233)) and the b1t Scheduler floating button ([`#floating-button`](index.html#L1238)).
+  - On mobile screen widths ($\le 768\text{px}$), `#floating-button` is now displayed at `top: 20px; right: 80px;` with compact pill styling (`height: 45px; padding: 0.5rem 1rem; font-size: 0.9rem; margin-right: 0 !important; animation: none;`), perfectly aligned alongside `#theme-toggle` in the top header.
+  - Concealed `#support-qr-persistent` on mobile (`display: none !important;`) in both [`index.html`](index.html) and [`style.css`](style.css), eliminating floating button crowding on compact touchscreens.
+  - Added `.sticky-nav.open ~ #floating-button` and `body.no-scroll #floating-button` dismissal rules in [`style.css`](style.css) so `#floating-button` automatically fades out whenever the mobile navigation drawer slides open.
+  - Preserved desktop layouts and hover interactions untouched (`#floating-button` top-right with `margin-right: 4rem;`, `#support-qr-persistent` bottom-right).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.8'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Upload Section Mobile Card Image Scaling (`style.css`, `index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Added responsive size adjustments for `.upload-card-image` within the upload grid ([`index.html:L1639-L1657`](index.html#L1639-L1657)).
+  - Scaled down image widths from `150px` to `105px` on screens $\le 768\text{px}$ and `90px` on screens $\le 480\text{px}$ in [`style.css`](style.css).
+  - Proportionally adjusted margins (`margin-top: -26px; margin-left: -52px;` on $\le 768\text{px}$ and `margin-top: -22px; margin-left: -45px;` on $\le 480\text{px}$) to maintain visual centering and eliminate card overcrowding on phones and tablets.
+  - Added smooth transition rules for orientation shifts.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.7'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Persistent Support Button & Mobile Navigation Overlap Prevention (`style.css`, `index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Eliminated overlap between the fixed Coffee support button ([`#support-qr-persistent`](index.html#L1221)) and the mobile navigation drawer ([`#sticky-nav`](index.html#L1175)).
+  - Reduced `#support-qr-persistent` `z-index` from `4000` to `2500` in [`index.html`](index.html), ensuring it is placed underneath the navigation drawer and overlay.
+  - Elevated mobile `.sticky-nav` `z-index` to `3500`, `.overlay` to `3400`, and `.menu-toggle` to `3501` in [`style.css`](style.css).
+  - Added CSS rule `.sticky-nav.open ~ #support-qr-persistent, body.no-scroll #support-qr-persistent` to seamlessly fade out and disable pointer events on `#support-qr-persistent` while the mobile drawer is open.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.6'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback dataset in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Mobile Navigation Drawer Centering & Floating Button Margin (`style.css`, `index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Added responsive `margin-top: 8.5rem;` and `min-height: calc(100% - 8.5rem);` on `.sticky-nav ul` inside the `@media (max-width: 768px)` stylesheet block in [`style.css`](style.css).
+  - Cleaned up top padding to prevent collision with `#floating-button-nav` ("b1t Scheduler"), providing generous breathing room below the floating button.
+  - Horizontally and vertically balanced the navigation link items within the mobile sliding drawer so they appear centered in the viewport.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.5'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json), embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js), and badge pills across [`index.html`](index.html).
+- **Unclosed Parent Modal Hierarchy Resolution (`index.html`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Fixed root cause of `#changelog-modal` failing to render upon clicking trigger buttons: diagnosed an unclosed parent `<div id="qbank-modal">` container that previously trapped `#changelog-modal` inside its `display: none` subtree.
+  - Added missing `</div>` to properly terminate `#qbank-modal` prior to `#changelog-modal` declaration, establishing `#changelog-modal` as an independent top-level child of `<body>`.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.4'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) and embedded fallback dataset in [`js/changelog-modal.js`](js/changelog-modal.js) with `v7.4` release entry.
+- **Mobile Navigation Drawer Changelog Button Relocation (`index.html`, `style.css`, `js/changelog-modal.js`, `sw.js`, `changes.json`)**:
+  - Moved `.mobile-changelog-nav-item` to the very bottom of `#sticky-nav ul` in [`index.html`](index.html), positioned after the project portal link.
+  - Configured `margin-top: auto;` in [`style.css`](style.css) on `.mobile-changelog-nav-item` inside the flex column drawer to reliably anchor the changelog trigger to the base of the viewport on mobile devices.
+  - Added subtle top border separator (`border-top: 1px solid rgba(255, 255, 255, 0.08)`) and rounded hover container to visually delineate the bottom changelog action within the mobile drawer.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.3'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) and embedded fallback dataset in [`js/changelog-modal.js`](js/changelog-modal.js) with `v7.3` release entry.
+- **Changelog Modal Offline & Protocol Resiliency Fix (`js/changelog-modal.js`, `index.html`, `style.css`, `sw.js`, `changes.json`)**:
+  - Resolved issue where the changelog modal would not open when clicking on the manual trigger buttons on local environments browsing via `file:///` protocol or when network fetch fails.
+  - Embedded complete `CHANGELOG_DATA_FALLBACK` dataset directly inside [`js/changelog-modal.js`](js/changelog-modal.js) ensuring `fetchChanges()` always returns valid release history.
+  - Implemented robust global document-level click delegation for all trigger and dismissal elements (`.view-changelog-btn`, `#desktop-changelog-btn`, `#mobile-changelog-btn`, `#view-changelog-link`, `#close-changelog-modal`, `#changelog-modal-got-it-btn`).
+  - Added fallback inline `onclick` handlers on all changelog trigger elements in [`index.html`](index.html).
+  - Relocated `<script src="js/changelog-modal.js"></script>` to the end of `<body>` after `#changelog-modal` markup to guarantee complete DOM availability prior to script execution.
+  - Elevated `.changelog-modal-overlay` `z-index` to `9999999` in [`style.css`](style.css) and enforced `!important` on `open()`/`close()` display styles.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.2'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) with `v7.2` release entry.
+- **Changelog Manual Trigger Buttons on Desktop & Mobile (`index.html`, `style.css`, `js/changelog-modal.js`, `sw.js`, `changes.json`)**:
+  - Added desktop manual trigger `#desktop-changelog-btn` at the bottom-left corner of the homepage within `<main class="container">` in [`index.html`](index.html), featuring frosted glassmorphic backdrop (`rgba(15, 23, 42, 0.85)` with blur), accent border glow, hover elevation and scale animations, and a synchronized version badge pill.
+  - Added mobile manual trigger `#mobile-changelog-btn` inside `#sticky-nav` drawer (`.mobile-changelog-nav-item`) with full touch responsiveness and auto-drawer dismissal upon opening the changelog modal.
+  - Created `.changelog-badge-pill` styles across both dark theme and light gray theme (`[data-theme="gray"]`).
+  - Enhanced [`js/changelog-modal.js`](js/changelog-modal.js): configured `setupEventListeners()` to bind all trigger elements (`#desktop-changelog-btn`, `#mobile-changelog-btn`, `#view-changelog-link`, `.view-changelog-btn`) and dynamically synchronize `.changelog-badge-pill` with `data.currentVersion` on initialization.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.1'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) with `v7.1` release entry.
+- **Course Search Clear Button (`index.html`, `style.css`, `js/search-courses.js`, `sw.js`, `changes.json`)**:
+  - Added interactive circular clear button (`#search-clear-btn`) inside `.search-container` in [`index.html`](index.html) with centered FontAwesome `fa-xmark` icon.
+  - Implemented dynamic visibility in [`js/search-courses.js`](js/search-courses.js): displays clear button when search input contains characters and hides it when empty across `input`, `focus`, and initial load events.
+  - Added click handler in [`js/search-courses.js`](js/search-courses.js) to clear search query, dismiss `.search-results` popup, and return focus to `#course-search`.
+  - Added custom CSS in [`style.css`](style.css):
+    - Adjusted `.search-input` right padding (`padding: 0.8rem 2.8rem 0.8rem 1.5rem`) to accommodate the button and prevent text clipping.
+    - Positioned `#search-clear-btn` absolutely at `right: 16px; top: 50%; transform: translateY(-50%)` with subtle translucent background and hover scale animation (`scale(1.1)`).
+    - Added high-contrast theme overrides for light theme (`[data-theme="gray"] .search-clear-btn`).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v7.0'` in [`sw.js:L2`](sw.js#L2).
+  - Synchronized [`changes.json`](changes.json) with `v7.0` release entry.
+
+# 17.09.26
+- **Visitor Changelog Modal & `changes.json` Architecture (`changes.json`, `js/changelog-modal.js`, `index.html`, `style.css`, `AGENTS.md`)**:
+  - Implemented an automated visitor changelog popup modal modeled on `b1t-Sched`'s architecture:
+    - Created structured [`changes.json`](changes.json) populated from `doc/history.md`, detailing releases backwards from `v6.9` through `v5.0` with categorized change entries (`type`, `title`, `description`).
+    - Created [`js/changelog-modal.js`](js/changelog-modal.js) tracking `localStorage.getItem('b1t_acad_last_seen_version')` against `data.currentVersion` (synchronized with `CACHE_NAME` in `sw.js#L2`), auto-popping up on first visit or subsequent version bumps.
+    - Designed comprehensive CSS in [`style.css`](style.css) featuring glassmorphic modal styling, protruding circular close button (`#close-changelog-modal`), categorized color-coded tag pills (`new-feature`, `fix`, `enhancement`, `ui-ux`, `major`, `security`, `refactor`, `docs`), earlier versions accordion (`#changelog-history-toggle`), custom matte scrollbar, and full light theme (`[data-theme="gray"]`) compatibility.
+    - Embedded `#changelog-modal` markup and manual trigger link (`#view-changelog-link`) in [`index.html`](index.html).
+    - Updated [`AGENTS.md`](AGENTS.md) Section 1 to enforce automatic synchronization of `changes.json` on future updates alongside `doc/history.md` and `sw.js`.
+- **Course Search Enter Selection & Dual-Theme Keyboard Navigation (`js/search-courses.js`, `style.css`, `sw.js`)**:
+  - Enhanced course search input in [`js/search-courses.js`](js/search-courses.js): allowed desktop users to press `Enter` to directly open the first result (or currently focused result) in a new tab via `targetItem.click()`, without requiring prior arrow key navigation.
+  - Replaced hardcoded inline `style.backgroundColor = '#eef3fd'` in [`js/search-courses.js`](js/search-courses.js) with semantic `.active` class toggles and added mouseenter/mouseleave hover synchronization.
+  - Implemented high-contrast two-theme selection highlight in [`style.css`](style.css):
+    - **Dark Theme**: Glowing accent gradient (`linear-gradient(90deg, rgba(100, 181, 246, 0.22) 0%, rgba(100, 181, 246, 0.08) 100%)`), 4px `#64b5f6` left indicator bar, pure white title, and glowing code/dept tags.
+    - **Light Theme (`[data-theme="gray"]`)**: Soft sky blue tint (`linear-gradient(90deg, #dbeafe 0%, #edf4fe 100%)`), 4px `#1976d2` left indicator bar, and rich `#0d47a1` navy text.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v6.9'` in [`sw.js:L2`](sw.js#L2).
+- **Dark Theme Contrast for Mirror Links & `.link-hover-a` (`index.html`, `style.css`, `sw.js`)**:
+  - Resolved low contrast issue in the bottom mirror links banner (`[mirror: Netlify / GitHub]` in [`index.html:L2197-L2201`](index.html)): assigned class `.mirror-links-banner` with legible secondary text color (`#a0aec0` in dark theme, `#4a5568` in light theme).
+  - Fixed global `.link-hover-a` styling in [`style.css`](style.css): replaced hardcoded `color: rgb(0, 0, 0);` (which rendered links pitch black on dark backgrounds) with bright accent color `#64b5f6` in dark theme and `#1976d2` in light theme (`[data-theme="gray"]`), restoring high contrast across all `.link-hover-a` anchor links sitewide.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v6.8'` in [`sw.js:L2`](sw.js#L2).
+- **Submission Page Mobile Floating Button, Collapsible Notice & Icon Action Buttons (`submission.html`, `sw.js`)**:
+  - Repositioned `.back-btn` on mobile devices (`max-width: 768px`) to float at the bottom-right corner (`position: fixed; bottom: 2rem; right: 1.5rem; z-index: 999;`) with pill shape (`border-radius: 50px`), glassmorphism backdrop blur, and dark-theme border glow, matching the `#spa-back-btn` aesthetic on [`index.html`](index.html).
+  - Implemented dynamic collapsible notice banner architecture (`#page-notice-banner`, `#notice-info-trigger`, `#notice-close-btn`):
+    - Placed top bar info icon button `#notice-info-trigger` inside `.category-header`.
+    - Configured `#page-notice-banner` to display prominently on page load, automatically gliding and minimizing into the top bar info icon after 4 seconds with a pulse highlight.
+    - Added mouseenter/mouseleave hover pause support to prevent auto-minimization while the user is actively reading.
+    - Implemented click toggle on `#notice-info-trigger` to smoothly expand/collapse the banner with CSS cubic-bezier transition, plus manual dismiss button `#notice-close-btn`.
+  - Refactored mobile notification actions (`.notif-actions` at `max-width: 768px`):
+    - Wrapped text inside `.submit-resource-btn` with `<span class="submit-btn-text">`.
+    - Hid button text labels (`#notif-btn-text`, `#recent-bell-text`, `.submit-btn-text`) on screens $\le 768\text{px}$, transforming `#notif-enable-btn`, `#recent-bell-btn`, and `.submit-resource-btn` into compact, touch-friendly $44\times 44\text{px}$ circular icon buttons with tooltips and `aria-label` attributes.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v6.7'` in [`sw.js:L2`](sw.js#L2).
+- **Club Resources Sub-Section & Wings Modal Architecture (`index.html`, `js/clubs-data.js`, `js/departments-data.js`)**:
+  - Added a dedicated **"Club Resources"** sub-section within the Extra Curricular Activities (ECA) section of [`index.html`](index.html), complete with interactive department club badges.
+  - Implemented the `#club-wings-modal` popup modal displaying department club overviews, parent Google Drive folder access, and comprehensive subsidiary focus wings with icons, descriptions, and direct Drive links.
+  - Standardized unified native JavaScript data architecture by creating [`js/clubs-data.js`](js/clubs-data.js) containing structured club and wing profiles across all 10 academic departments (`CSE`, `CE`, `IT`, `EEE`, `ECE`, `BBA`, `LAW`, `ENGLISH`, `PHARMA`, `SOCIAL`).
+  - Added the `"club_res"` Google Drive link property to all 10 departments in [`js/departments-data.js`](js/departments-data.js) alongside `"info_link"` and `"qbank_link"`.
+  - Configured verified active Drive folders for CSE Club (`club_drive`: `1lHHxqZPx6cVX4PkyE0ywuiOG5iCf0NVk`) and Cyber Security & Networks Wing (`drive_link`: `1bX4GuqkoAUiYTIljwqo2MyhqrwRrocRb`), leaving non-configured wing links blank to gracefully display the *"Drive folder coming soon"* placeholder instead of dead redirects.
+  - Created [`js/club-resources.js`](js/club-resources.js) to dynamically render club cards, coordinate modal open/close, manage body scroll lock, and handle backdrop/Esc key events.
+  - Converted the legacy button list of interests, career, programming, core learning, blog, and tutorials in ECA into a clean, modern responsive table with themed borders, icons, resource scopes, and direct action buttons.
+  - Enhanced table responsiveness for mobile screens (`max-width: 680px`): hidden the "Scope / Description" column and moved inline info tooltips (`.row-desc-tooltip-trigger`) to a dedicated second line beneath each resource name (`.row-desc-tooltip-wrap`) with an indented pill button (`[ ⓘ Info ]`), supporting mobile tap toggle and outside-dismiss in [`js/club-resources.js`](js/club-resources.js).
+  - Configured `#club-buttons-list` for single-column mobile viewports (`max-width: 600px`): styled department club buttons (`.club-btn-trigger`) to expand to 90% screen width (`width: 90% !important`), eliminating excessive margins on both sides.
+  - Redesigned `#club-wings-modal` close button (`#close-club-wings-modal`) to a floating circular badge positioned at the top-right corner slightly protruding outside the modal card with hover scaling and theme-adaptive borders.
+  - Replaced the homepage promo button and inspired-by paragraph in [`index.html:L1230-L1250`](index.html) with a prominent, floating highlighted action button (`.ou1ts-portal-btn`) linking directly to the **oU1TS Portal** (`https://ouits-res.netlify.app/`) with accent gradient, box-shadow glow, and external link icon.
+  - Fixed `.ou1ts-portal-btn` styling on wider displays: resolved a missing media query closing brace in [`index.html`](index.html) that previously trapped the button class inside `@media (max-width: 480px)`, and mirrored the rule into [`style.css`](style.css) for global multi-screen support.
+  - Formatted `#close-club-wings-modal` into a truly circular floating button: purged overriding `.btn` and `.btn-icon` classes (which injected 30px padding and 8px border-radius) and enforced `36px` dimensions with `border-radius: 50% !important; padding: 0 !important;` in [`index.html`](index.html) and [`style.css`](style.css).
+  - Prevented website width jumping and scrollbar disappearance on sidebar expansion: configured `html { scrollbar-gutter: stable; overflow-y: auto; }` and added independent scroll containment (`overflow-y: auto; overscroll-behavior: contain;`) to the mobile `.sticky-nav` drawer.
+  - Designed and deployed universal custom **matte** scrollbars across the entire website and modals (`*` and `::-webkit-scrollbar` with slate/charcoal track and thumb in dark theme, soft gray in light theme).
+  - **100vh Viewport Scroll Optimization & Section Headroom Restoration (`style.css`, `index.html`)**:
+    - Eliminated artificial vertical overflow and unnecessary scrolling to blank trailing space when sections fit within 100vh.
+    - Updated `html`: changed `overflow-y: scroll;` to `overflow-y: auto;` while retaining `scrollbar-gutter: stable;`, preventing scroll actions when content fits within 100vh without introducing layout shifts when content expands.
+    - Updated `body`: replaced `padding: 1rem;` with `padding: 0 1rem; box-sizing: border-box;` to prevent vertical edge overrun.
+    - Restored ample top spacing over `.container`: configured `margin-top: 5.5rem;` (`4.5rem` on mobile) to ensure comfortable clearance below top overlays (b1t Scheduler, theme switcher, Coffee button, hamburger menu) without re-introducing overflow.
+    - Restored top headroom over `.content-section`: set `padding: 5.5rem 1.5rem 1.5rem 1.5rem;` (`4.5rem 1rem 1.5rem 1rem;` on mobile) with `min-height: auto;`, providing clean clearance below `#spa-back-btn` and floating badges while keeping the bottom compact.
+    - Purged excessive trailing whitespace and margins across sections in [`index.html`](index.html): reduced trailing button `margin-bottom: 5rem` to `1.5rem` across `#info`, `#Qbank`, `#Departments`, `#Donate`, `#ECA`, and `#Library`, removed trailing `<br><br><br><br>` tags in `#About`, and normalized `#book-session` margin-bottom from `10vh` to `1.5rem`.
+  - **QBank Full-Screen Popup Modal (`index.html`, `js/qbank-browser.js`, `style.css`)**:
+    - Replaced the inline dropdown accordion in `#Qbank` with a centered launcher button (`#open-qbank-modal-btn`).
+    - Implemented `#qbank-modal` full-screen popup modal (`96vw` $\times$ `92vh`) with backdrop blur, styled header banner, protruding circular close button (`#close-qbank-modal`), tap-outside backdrop dismiss, and `Escape` key support.
+    - Updated [`js/qbank-browser.js`](js/qbank-browser.js) to manage modal state, body scroll lock, and expand `.explorer-list` to use full modal height.
+  - **Mobile Home Button & Dark Theme Hover Contrast (`style.css`)**:
+    - Repositioned `#spa-back-btn` on mobile devices (`max-width: 768px`) to the bottom-right corner (`bottom: 2rem; right: 1.5rem; left: auto; transform: none;`).
+    - Fixed dark theme hover styling: enforced pure white text and icon (`color: #ffffff !important;`) on hover against the accent background.
+  - **Light Theme (`[data-theme="gray"]`) Contrast Audit & Global Un-nesting (`style.css`, `index.html`)**:
+    - Extracted global gray theme styles out of the `@media (min-width: 769px)` block so mobile viewports receive complete, high-contrast light theme rules.
+    - Eliminated hardcoded inline white styles and enhanced text contrast across `.content-section h2`, `p`, links, search hints, tooltips, tables, and file explorer cards.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v6.6'` in [`sw.js:L2`](sw.js#L2).
+- **Visitor Counter & Glitch Intro Archival (`old-code/`)**:
+  - Excised the text-based delayed visitor counter from [`index.html:L1126-L1161`](index.html) (`#visitor-counter-container`, `#visitor-badge`, and the 30-second delayed fetch to `api.counterapi.dev`) and surrounding spacing markup.
+  - Excised the first-visit chromatic aberration glitch intro from [`index.html:L881-L932`](index.html) (`@keyframes glitch-text`, `.glitch-active`), [`index.html:L1072-L1078`](index.html) (removed targeting IDs `main-logo-heading` and `main-logo-subtext`), and [`index.html:L2281-L2353`](index.html) (cookie check `gaus_website_effect_run`, 3-second post-load timer, 10-second temporary text swap to *"Gaus এর Website"* / *"বড়ভাইরা এ নামে ভালো চিনে আরকি"*, and revert animation).
+  - Created standalone, modular test benches in [`old-code/`](old-code/):
+    - [`old-code/visitor-counter/`](old-code/visitor-counter/): Isolated `index.html`, `style.css`, and `script.js` with dark theme variables, FontAwesome CDN integration, 30s delay countdown, and test override button.
+    - [`old-code/glitch-intro/`](old-code/glitch-intro/): Isolated `index.html`, `style.css`, and `script.js` with full chromatic aberration keyframes, cookie persistence, 10s display timer, and "Reset Cookie & Replay" developer button.
+    - [`old-code/index.html`](old-code/index.html): Direct navigation portal linking to all archived modules.
+  - Created [`old-code/AGENTS.md`](old-code/AGENTS.md) and [`old-code/README.md`](old-code/README.md) defining strict guidelines for working inside the archive (100% standalone execution contract, zero build tools, tri-file architecture, storage hygiene, and provenance tracking).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v5.5'` in [`sw.js:L2`](sw.js#L2) to ensure clients receive the clean `index.html`.
+
+# 04.09.26
+- **Legacy Codebase & Old Design Archive (`doc/old-files-archive.md`)**:
+  - Created [`doc/old-files-archive.md`](doc/old-files-archive.md) providing a written structural and architectural breakdown of [`archive-old-design-1`](archive-old-design-1) and [`archive-old-design-2`](archive-old-design-2).
+  - Documented JavaScript and CSS logic across previous iterations: mobile drawer FAB controllers (`menu.js`), `localStorage`-persisted first-visit preloaders (`preloader.js`), `data-faq` attribute tooltips (`faq.tooltip.js`), multi-modal backdrop coordinators (`menubtn.academics.js`), PWA offline state queues (`PWA/pwa.js`), and `sessionStorage`-persisted semester selectors (`academics.semester.selector.js`).
+  - Evaluated advantages, disadvantages, and future reusability potential for all extracted patterns, comparing the legacy 24-file static semester approach against the modern dynamic URL routing model (`Departments.html?dept=...&sem=...`).
+- **Agent Guidelines & Archiving Workflow Synchronization**:
+  - Created [AGENTS.md](AGENTS.md) and [CLAUDE.md](CLAUDE.md) in the project root referencing [temp/AGENTS.md](temp/AGENTS.md) and [temp/CLAUDE.md](temp/CLAUDE.md) to standardize cross-platform AI pair programming conventions.
+  - Updated both guideline files with explicit **Session Continuity & Updating Past Archives** rules, directing AI agents to locate and append turns directly to existing conversation archive files (`doc/prompts/<Prefix>. <Session Title>.md`) when chats are continued or updated rather than creating new or fragmented archives.
+  - Initialized automated history maintenance in [`doc/history.md`](doc/history.md) and established prompt archiving in [`doc/prompts/`](doc/prompts/).
+  - Audited the Anonymous File Sharing recent uploads ordering in [`index.html:L1609-L1739`](index.html#L1609-L1739) and [`js/anon-share.js`](js/anon-share.js#L262-L286) against the upstream fix in Prompt 101, documenting the pending chronological sort improvements.
+
