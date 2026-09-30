@@ -1,11 +1,22 @@
 {
-  "currentVersion": "v10.0",
+  "currentVersion": "v10.1",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v10.0",
+      "version": "v10.1",
       "badge": "Latest",
+      "date": "30.09.26",
+      "changes": [
+        {
+          "type": "Feature",
+          "title": "BBA Semester 03 Course Search Integration",
+          "description": "Integrated BBA Semester 03 curriculum courses into the global search index in search-courses.js with structured department comment blocks and comprehensive acronym tags for BD Studies, Business Communication, Business Statistics, Macroeconomics, and Principles of Marketing."
+        }
+      ]
+    },
+    {
+      "version": "v10.0",
       "date": "30.09.26",
       "changes": [
         {

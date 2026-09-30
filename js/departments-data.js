@@ -335,9 +335,23 @@ const departmentsData = {
     "BBA": {
         "full_name": "Business Administration",
         "info_link": "https://drive.google.com/drive/folders/17tOGVKLJAIo1XLFvgMKu4BxwsBmyw8Cn?usp=drive_link",
-        "qbank_link": "",
+        "qbank_link": "https://drive.google.com/drive/folders/114sXjQtGaf8YWUHwuYvG5_BAGSrMphM1?usp=drive_link",
         "club_res": "",
-        "semesters": {}
+        "semesters": {
+            "S03": {
+                "title": "Semester 03",
+                "drive_link": "https://drive.google.com/drive/folders/1aCgdzMky0jhx8f2bxtRp0F7ux8Z71GkM?usp=drive_link",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1790785357/3_yu7ta9.webp",
+                "courses": [
+                    { "title": "BD Studies", "code": "GED0222121", "link": "https://drive.google.com/drive/folders/1cbmYREhfX7_1VePKk-RPW26NCqbBrWYe?usp=drive_link", "icon": "fa-landmark" },
+                    { "title": "Business Communication", "code": "BUS0413214", "link": "https://drive.google.com/drive/folders/1UOYkIHUalrXFmGi6PXrYMmQ0Q8gPNWEa?usp=drive_link", "icon": "fa-calculator" },
+                    { "title": "Business Statistics", "code": "STAT0542123", "link": "https://drive.google.com/drive/folders/17m41VbhOd6u1ZxET5C9gZ8RJqvyHwLb4?usp=drive_link", "icon": "fa-atom" },
+                    { "title": "Macroeconomics", "code": "ECO031215", "link": "https://drive.google.com/drive/folders/1BcTFC1w88sH9JkoGS64sFoPZ0uH-5B6z?usp=drive_link", "icon": "fa-flask" },
+                    { "title": "Principles of Marketing MKT0414213", "code": "GED0232111/112", "link": "https://drive.google.com/drive/folders/1QPH_RH7WxWGXopsbA6BDlQy5DtPYVwxJ?usp=drive_link", "icon": "fa-language" }
+                ],
+                "archivedCourses": []
+            }
+        }
     },
     "ECE": {
         "full_name": "Electrical & Computer Engineering",

@@ -3,6 +3,17 @@ tags: changelog, history, updates, logs, archive, agent-rules, guidelines, promp
 -->
 
 # 30.09.26
+- **BBA Semester 03 Course Search Integration (`js/search-courses.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Integrated Business Administration (BBA) Semester 03 courses from [`js/departments-data.js:L341-L353`](js/departments-data.js#L341-L353) into the global search index in [`js/search-courses.js`](js/search-courses.js):
+    - Added structured department comment block `// [ BBA ] { code: "", title: "", department: "Dept: BBA", driveLink: "" }` under the `####S03####` section immediately following `// [ IT ]`.
+    - Added all 5 curriculum courses with clean titles, common search acronyms, department markers (`"Dept: BBA"`), and Google Drive links:
+      - `GED0222121`: `"Bangladesh Studies: History and Culture - BD Studies"`
+      - `BUS0413214`: `"Business Communication - BC"`
+      - `STAT0542123`: `"Business Statistics - BS"`
+      - `ECO031215`: `"Macroeconomics - ME"`
+      - `MKT0414213 / GED0232111/112`: `"Principles of Marketing - PM"`
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v10.1'` in [`sw.js`](sw.js).
+  - Synchronized `currentVersion` and history in [`changes.json`](changes.json) and embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js).
 - **Archived Courses Data Architecture and Dedicated UI Section (`js/departments-data.js`, `js/departments.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`, `index.html`)**:
   - Implemented semester-scoped archived course management for department resources:
     - **Data Architecture (`js/departments-data.js`)**: Added `"archivedCourses": []` to each semester (`S01` to `S08`) across all departments (`CSE`, `CE`, `IT`). Migrated legacy courses (including previously commented `"Software Eng."` and `"I&OM"` in CSE S06) directly into `archivedCourses`.

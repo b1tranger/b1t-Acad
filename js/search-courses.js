@@ -59,6 +59,15 @@ const courses = [
     //
     // [ IT ]
     //
+    //
+    // [ BBA ] { code: "", title: "", department: "Dept: BBA", driveLink: "" },
+    //
+    { code: "GED0222121", title: "Bangladesh Studies: History and Culture - BD Studies", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1cbmYREhfX7_1VePKk-RPW26NCqbBrWYe?usp=drive_link" },
+    { code: "BUS0413214", title: "Business Communication - BC", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1UOYkIHUalrXFmGi6PXrYMmQ0Q8gPNWEa?usp=drive_link" },
+    { code: "STAT0542123", title: "Business Statistics - BS", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/17m41VbhOd6u1ZxET5C9gZ8RJqvyHwLb4?usp=drive_link" },
+    { code: "ECO031215", title: "Macroeconomics - ME", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1BcTFC1w88sH9JkoGS64sFoPZ0uH-5B6z?usp=drive_link" },
+    { code: "MKT0414213 / GED0232111/112", title: "Principles of Marketing - PM", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1QPH_RH7WxWGXopsbA6BDlQy5DtPYVwxJ?usp=drive_link" },
+
 
     // ----------------------------------------------------------------------
     // ---------------------------####S04####--------------------------------
