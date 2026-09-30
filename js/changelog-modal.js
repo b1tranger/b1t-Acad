@@ -6,13 +6,24 @@
 
 // Embedded fallback data ensuring the modal ALWAYS opens even on file:// protocol or offline
 const CHANGELOG_DATA_FALLBACK = {
-  "currentVersion": "v10.3",
-  "lastUpdated": "September 2026",
+  "currentVersion": "v10.4",
+  "lastUpdated": "October 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v10.3",
+      "version": "v10.4",
       "badge": "Latest",
+      "date": "01.10.26",
+      "changes": [
+        {
+          "type": "Feature",
+          "title": "BBA Semester 08 Drive Crawl and Search Integration",
+          "description": "Crawled Google Drive curriculum repository for BBA Semester 08 and updated departments-data.js with authentic course titles, codes, Drive links, and contextual icons for Business Ethics & CSR (fa-handshake), Intermediate Accounting (fa-calculator), Financial Reporting Practices (fa-file-invoice), and Accounting for Government & NPO (fa-hand-holding-heart). Integrated all courses into search-courses.js with standard search acronyms and department tags."
+        }
+      ]
+    },
+    {
+      "version": "v10.3",
       "date": "30.09.26",
       "changes": [
         {

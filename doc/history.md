@@ -2,6 +2,18 @@
 tags: changelog, history, updates, logs, archive, agent-rules, guidelines, prompt-archive, anon-file-share, old-code
 -->
 
+# 01.10.26
+- **BBA Semester 08 Drive Crawl and Search Integration (`js/departments-data.js`, `js/search-courses.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Crawled the Google Drive repository for BBA Semester 08 ([`drive_link`](https://drive.google.com/drive/folders/1IlfYohbGlh4e-J5SZ9Ui3uWA5o6uJH01?usp=drive_link)) and cataloged all 4 official courses:
+    - **Department Dataset (`js/departments-data.js`)**: Populated BBA `S08` with authentic course titles, codes, contextual icons, and individual Drive links:
+      - `BUS 422`: `"Business Ethics & CSR"` (`fa-handshake`)
+      - `ACT 424`: `"Intermediate Accounting"` (`fa-calculator`)
+      - `ACT 425`: `"Financial Reporting Practices"` (`fa-file-invoice`)
+      - `ACT0411423`: `"Accounting for Govt & NPO"` (`fa-hand-holding-heart`)
+    - **Global Search Index (`js/search-courses.js`)**: Added `// [ BBA ]` comment block and all 4 courses under `####S08####` with dual course code aliases (e.g. `BUS 422 / BUS0413422`, `ACT 424 / ACT0411424`, `ACT 425 / ACT0411425`, `ACT0411423 / ACT 423`), search-friendly acronym tags (`- BECSR`, `- IA`, `- FRP`, `- AGNPO`), and department markers (`"Dept: BBA"`).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v10.4'` in [`sw.js`](sw.js).
+  - Synchronized `currentVersion` and history in [`changes.json`](changes.json) and embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js).
+
 # 30.09.26
 - **BBA Curriculum Contextual Icon Refinement (`js/departments-data.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
   - Replaced legacy copied course icons in BBA `S03` and `S05` datasets in [`js/departments-data.js`](js/departments-data.js) with context-accurate FontAwesome icons:

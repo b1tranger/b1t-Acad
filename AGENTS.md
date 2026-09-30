@@ -53,3 +53,6 @@
   - At the end of every response, summarize the work completed across the chat session (referencing the active prompt archive in `doc/prompts/<Prefix>. <Session Title>.md`).
   - Suggest a ready-to-use Git commit message with a structured commit description at the very end of the response.
 
+## 5. Department & Course Data Synchronization
+- Refer to [`js/AGENTS.md`](js/AGENTS.md) for the standardized workflow when crawling Google Drive folders and updating [`js/departments-data.js`](js/departments-data.js) and [`js/search-courses.js`](js/search-courses.js).
+

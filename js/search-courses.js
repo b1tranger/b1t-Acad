@@ -186,6 +186,14 @@ const courses = [
     //
     // [ IT ]
     //
+    //
+    // [ BBA ] { code: "", title: "", department: "Dept: BBA", driveLink: "" },
+    //
+    { code: "BUS 422 / BUS0413422", title: "Business Ethics & CSR - BECSR", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/127WvFp2xdBrOd12CI-GWYyw1dXC1Vq1H?usp=drive_link" },
+    { code: "ACT 424 / ACT0411424", title: "Intermediate Accounting - IA", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1Ux-xN08_05d4Uo4vWOPdRMvFtuwbgvyv?usp=drive_link" },
+    { code: "ACT 425 / ACT0411425", title: "Financial Reporting Practices - FRP", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1PjtqhJQnHGPcHBDIMCbWwpirumMaNLQ_?usp=drive_link" },
+    { code: "ACT0411423 / ACT 423", title: "Accounting for Government & Non-Profit Organizations - AGNPO", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1slKu2rpmE3mdrrAdlu40AAKDnSk2fzRO?usp=drive_link" },
+
     // ----------------------------------------------------------------------
     // ----------------------------------------------------------------------
     // ----------------------------------------------------------------------

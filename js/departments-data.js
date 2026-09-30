@@ -364,6 +364,18 @@ const departmentsData = {
                     { "title": "SAPM", "code": "FIN0412315", "link": "https://drive.google.com/drive/folders/1aGBsXNseQlPg4pF_G8q9KMLGgMt6_gqf?usp=drive_link", "icon": "fa-chart-pie" }
                 ],
                 "archivedCourses": []
+            },
+            "S08": {
+                "title": "Semester 08",
+                "drive_link": "https://drive.google.com/drive/folders/1IlfYohbGlh4e-J5SZ9Ui3uWA5o6uJH01?usp=drive_link",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1790785364/8_rzk3sw.webp",
+                "courses": [
+                    { "title": "Business Ethics & CSR", "code": "BUS 422", "link": "https://drive.google.com/drive/folders/127WvFp2xdBrOd12CI-GWYyw1dXC1Vq1H?usp=drive_link", "icon": "fa-handshake" },
+                    { "title": "Intermediate Accounting", "code": "ACT 424", "link": "https://drive.google.com/drive/folders/1Ux-xN08_05d4Uo4vWOPdRMvFtuwbgvyv?usp=drive_link", "icon": "fa-calculator" },
+                    { "title": "Financial Reporting Practices", "code": "ACT 425", "link": "https://drive.google.com/drive/folders/1PjtqhJQnHGPcHBDIMCbWwpirumMaNLQ_?usp=drive_link", "icon": "fa-file-invoice" },
+                    { "title": "Accounting for Govt & NPO", "code": "ACT0411423", "link": "https://drive.google.com/drive/folders/1slKu2rpmE3mdrrAdlu40AAKDnSk2fzRO?usp=drive_link", "icon": "fa-hand-holding-heart" }
+                ],
+                "archivedCourses": []
             }
         }
     },
