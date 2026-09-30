@@ -6,13 +6,35 @@
 
 // Embedded fallback data ensuring the modal ALWAYS opens even on file:// protocol or offline
 const CHANGELOG_DATA_FALLBACK = {
-  "currentVersion": "v10.1",
+  "currentVersion": "v10.3",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v10.1",
+      "version": "v10.3",
       "badge": "Latest",
+      "date": "30.09.26",
+      "changes": [
+        {
+          "type": "UI/UX",
+          "title": "BBA Curriculum Contextual Icon Refinement",
+          "description": "Refined and contextualized FontAwesome icons across BBA Semesters 03 and 05 in departments-data.js to accurately represent each discipline: Business Communication (fa-comments), Business Statistics (fa-chart-line), Macroeconomics (fa-coins), Principles of Marketing (fa-bullseye), Financial Institutions & Markets (fa-building-columns), Commercial Law (fa-scale-balanced), Organizational Behavior (fa-people-group), and Advertising & Salesmanship (fa-bullhorn)."
+        }
+      ]
+    },
+    {
+      "version": "v10.2",
+      "date": "30.09.26",
+      "changes": [
+        {
+          "type": "Feature",
+          "title": "BBA Semester 05 Drive Crawl and Search Integration",
+          "description": "Crawled Google Drive curriculum repository for BBA Semester 05 and updated departments-data.js with authentic course titles, codes, and Drive links for Management Accounting, Financial Institutions and Markets, Commercial Law, Organizational Behavior, Advertising and Salesmanship, and SAPM. Integrated all courses into search-courses.js with standard search acronyms and department tags."
+        }
+      ]
+    },
+    {
+      "version": "v10.1",
       "date": "30.09.26",
       "changes": [
         {

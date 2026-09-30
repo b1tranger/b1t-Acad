@@ -344,10 +344,24 @@ const departmentsData = {
                 "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1790785357/3_yu7ta9.webp",
                 "courses": [
                     { "title": "BD Studies", "code": "GED0222121", "link": "https://drive.google.com/drive/folders/1cbmYREhfX7_1VePKk-RPW26NCqbBrWYe?usp=drive_link", "icon": "fa-landmark" },
-                    { "title": "Business Communication", "code": "BUS0413214", "link": "https://drive.google.com/drive/folders/1UOYkIHUalrXFmGi6PXrYMmQ0Q8gPNWEa?usp=drive_link", "icon": "fa-calculator" },
-                    { "title": "Business Statistics", "code": "STAT0542123", "link": "https://drive.google.com/drive/folders/17m41VbhOd6u1ZxET5C9gZ8RJqvyHwLb4?usp=drive_link", "icon": "fa-atom" },
-                    { "title": "Macroeconomics", "code": "ECO031215", "link": "https://drive.google.com/drive/folders/1BcTFC1w88sH9JkoGS64sFoPZ0uH-5B6z?usp=drive_link", "icon": "fa-flask" },
-                    { "title": "Principles of Marketing MKT0414213", "code": "GED0232111/112", "link": "https://drive.google.com/drive/folders/1QPH_RH7WxWGXopsbA6BDlQy5DtPYVwxJ?usp=drive_link", "icon": "fa-language" }
+                    { "title": "Business Communication", "code": "BUS0413214", "link": "https://drive.google.com/drive/folders/1UOYkIHUalrXFmGi6PXrYMmQ0Q8gPNWEa?usp=drive_link", "icon": "fa-comments" },
+                    { "title": "Business Statistics", "code": "STAT0542123", "link": "https://drive.google.com/drive/folders/17m41VbhOd6u1ZxET5C9gZ8RJqvyHwLb4?usp=drive_link", "icon": "fa-chart-line" },
+                    { "title": "Macroeconomics", "code": "ECO031215", "link": "https://drive.google.com/drive/folders/1BcTFC1w88sH9JkoGS64sFoPZ0uH-5B6z?usp=drive_link", "icon": "fa-coins" },
+                    { "title": "Principles of Marketing MKT0414213", "code": "GED0232111/112", "link": "https://drive.google.com/drive/folders/1QPH_RH7WxWGXopsbA6BDlQy5DtPYVwxJ?usp=drive_link", "icon": "fa-bullseye" }
+                ],
+                "archivedCourses": []
+            },
+            "S05": {
+                "title": "Semester 05",
+                "drive_link": "https://drive.google.com/drive/folders/1Nrim-1RG5hLt2Qkqf1btS2IM1HeOIuiA?usp=drive_link",
+                "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1790785358/5_hbuyel.webp",
+                "courses": [
+                    { "title": "Management Accounting", "code": "ACT0411311", "link": "https://drive.google.com/drive/folders/15hgVzTKg26m8CzDvtYtZDNN6nSBBaGg8?usp=drive_link", "icon": "fa-calculator" },
+                    { "title": "Fin. Institutions & Markets", "code": "FIN0412312", "link": "https://drive.google.com/drive/folders/1vCITIlPeQ2nCw3apA1qKTMBCNjXeXGRz?usp=drive_link", "icon": "fa-building-columns" },
+                    { "title": "Commercial Law", "code": "BUS0413223", "link": "https://drive.google.com/drive/folders/1dG2HDQIbCLcG5tH_BZmgfduUoXlf7pWE?usp=drive_link", "icon": "fa-scale-balanced" },
+                    { "title": "Organizational Behavior", "code": "MKT0413222", "link": "https://drive.google.com/drive/folders/1ReIxSK7p2Eitl-Ksrp7HIPVpZc_z-6WR?usp=drive_link", "icon": "fa-people-group" },
+                    { "title": "Advertising & Salesmanship", "code": "MKT0414415", "link": "https://drive.google.com/drive/folders/1Dhji5SYseMeWR9HW2WgQlORRxnejLX6B?usp=drive_link", "icon": "fa-bullhorn" },
+                    { "title": "SAPM", "code": "FIN0412315", "link": "https://drive.google.com/drive/folders/1aGBsXNseQlPg4pF_G8q9KMLGgMt6_gqf?usp=drive_link", "icon": "fa-chart-pie" }
                 ],
                 "archivedCourses": []
             }

@@ -113,6 +113,16 @@ const courses = [
     //
     // [ IT ]
     //
+    //
+    // [ BBA ] { code: "", title: "", department: "Dept: BBA", driveLink: "" },
+    //
+    { code: "ACT0411311 / ACT 311", title: "Management Accounting - MA", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/15hgVzTKg26m8CzDvtYtZDNN6nSBBaGg8?usp=drive_link" },
+    { code: "FIN0412312 / FIN 312", title: "Financial Institutions and Markets - FIM", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1vCITIlPeQ2nCw3apA1qKTMBCNjXeXGRz?usp=drive_link" },
+    { code: "BUS0413223 / BUS 313", title: "Commercial Law (Labor Law)", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1dG2HDQIbCLcG5tH_BZmgfduUoXlf7pWE?usp=drive_link" },
+    { code: "MKT0413222 / MGT 314", title: "Organizational Behavior - OB (HRM)", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1ReIxSK7p2Eitl-Ksrp7HIPVpZc_z-6WR?usp=drive_link" },
+    { code: "MKT0414415", title: "Advertising and Salesmanship - AS", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1Dhji5SYseMeWR9HW2WgQlORRxnejLX6B?usp=drive_link" },
+    { code: "FIN0412315", title: "Security Analysis & Portfolio Management - SAPM", department: "Dept: BBA", driveLink: "https://drive.google.com/drive/folders/1aGBsXNseQlPg4pF_G8q9KMLGgMt6_gqf?usp=drive_link" },
+
     // ----------------------------------------------------------------------
     // ---------------------------####S06####--------------------------------
     // ----------------------------------------------------------------------

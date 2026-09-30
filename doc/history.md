@@ -3,6 +3,32 @@ tags: changelog, history, updates, logs, archive, agent-rules, guidelines, promp
 -->
 
 # 30.09.26
+- **BBA Curriculum Contextual Icon Refinement (`js/departments-data.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Replaced legacy copied course icons in BBA `S03` and `S05` datasets in [`js/departments-data.js`](js/departments-data.js) with context-accurate FontAwesome icons:
+    - **Semester 03**:
+      - `BUS0413214` (Business Communication): Updated to `fa-comments` (business discourse / communication).
+      - `STAT0542123` (Business Statistics): Updated to `fa-chart-line` (data trends and statistical distributions).
+      - `ECO031215` (Macroeconomics): Updated to `fa-coins` (currency, national wealth, and capital markets).
+      - `GED0232111/112` (Principles of Marketing): Updated to `fa-bullseye` (market targeting and consumer positioning).
+    - **Semester 05**:
+      - `FIN0412312` (Fin. Institutions & Markets): Updated to `fa-building-columns` (banking and treasury institutions).
+      - `BUS0413223` (Commercial Law): Refined to `fa-scale-balanced` (legal scales of justice and corporate contracts).
+      - `MKT0413222` (Organizational Behavior): Refined to `fa-people-group` (workplace dynamics and team behavior).
+      - `MKT0414415` (Advertising & Salesmanship): Refined to `fa-bullhorn` (promotions, broadcasts, and sales pitches).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v10.3'` in [`sw.js`](sw.js).
+  - Synchronized `currentVersion` and history in [`changes.json`](changes.json) and embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js).
+- **BBA Semester 05 Drive Crawl and Search Integration (`js/departments-data.js`, `js/search-courses.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - Crawled the Google Drive repository for BBA Semester 05 ([`drive_link`](https://drive.google.com/drive/folders/1Nrim-1RG5hLt2Qkqf1btS2IM1HeOIuiA?usp=drive_link)) and cataloged all 6 official courses:
+    - **Department Dataset (`js/departments-data.js`)**: Populated BBA `S05` with exact course titles, codes, icons, and individual Drive links:
+      - `ACT0411311`: `"Management Accounting"` (`fa-calculator`)
+      - `FIN0412312`: `"Fin. Institutions & Markets"` (`fa-landmark`)
+      - `BUS0413223`: `"Commercial Law"` (`fa-balance-scale`)
+      - `MKT0413222`: `"Organizational Behavior"` (`fa-briefcase`)
+      - `MKT0414415`: `"Advertising & Salesmanship"` (`fa-comments`)
+      - `FIN0412315`: `"SAPM"` (`fa-chart-pie`)
+    - **Global Search Index (`js/search-courses.js`)**: Added `// [ BBA ]` comment block and all 6 courses under `####S05####` with dual course code aliases (e.g. `ACT0411311 / ACT 311`, `FIN0412312 / FIN 312`, `BUS0413223 / BUS 313`, `MKT0413222 / MGT 314`), search-friendly acronym tags (`- MA`, `- FIM`, `- OB (HRM)`, `- AS`, `- SAPM`), and department markers (`"Dept: BBA"`).
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v10.2'` in [`sw.js`](sw.js).
+  - Synchronized `currentVersion` and history in [`changes.json`](changes.json) and embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js).
 - **BBA Semester 03 Course Search Integration (`js/search-courses.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
   - Integrated Business Administration (BBA) Semester 03 courses from [`js/departments-data.js:L341-L353`](js/departments-data.js#L341-L353) into the global search index in [`js/search-courses.js`](js/search-courses.js):
     - Added structured department comment block `// [ BBA ] { code: "", title: "", department: "Dept: BBA", driveLink: "" }` under the `####S03####` section immediately following `// [ IT ]`.
