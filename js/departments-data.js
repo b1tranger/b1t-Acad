@@ -15,7 +15,8 @@ const departmentsData = {
                     { "title": "Physics", "code": "PHY0533111/112", "link": "https://drive.google.com/drive/folders/1i0fmFBuSl-yzHV6e7aBU124eWqQpXnHg?usp=drive_link", "icon": "fa-atom" },
                     { "title": "Chemistry", "code": "CHEM0531175", "link": "https://drive.google.com/drive/folders/1sk_4HSbvdA_cxSqwjOdOQ8ud4ctY6qt2?usp=drive_link", "icon": "fa-flask" },
                     { "title": "English", "code": "GED0232111/112", "link": "https://drive.google.com/drive/folders/19LPsLUN5QCBplYGDyy1b3f5Z2IZVIG3S?usp=drive_link", "icon": "fa-language" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S02": {
                 "title": "Semester 02",
@@ -29,7 +30,8 @@ const departmentsData = {
                     { "title": "Web Design", "code": "CSE0613124", "link": "https://drive.google.com/drive/folders/1ymhnpGQEAJhGhGWDim-yGtrsj-vDG1-e?usp=drive_link", "icon": "fa-globe" },
                     { "title": "Eng. Drawing", "code": "ME0715122", "link": "https://drive.google.com/drive/folders/1rkl0UWNfJUS3FUxvvKJLKuOUjihWYKc-?usp=drive_link", "icon": "fa-compass" },
                     { "title": "BD Studies", "code": "GED0222121", "link": "https://drive.google.com/drive/folders/1cbmYREhfX7_1VePKk-RPW26NCqbBrWYe?usp=drive_link", "icon": "fa-landmark" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S03": {
                 "title": "Semester 03",
@@ -42,7 +44,8 @@ const departmentsData = {
                     { "title": "CGLAVA", "code": "MATH0541211", "link": "https://drive.google.com/drive/folders/1bpqvXJuu2qPZ-hVtkK4D9kotKvlqMtH0?usp=drive_link", "icon": "fa-square-root-variable" },
                     { "title": "Web Design", "code": "CSE0613124", "link": "https://drive.google.com/drive/folders/1tjlH5xP-PlcosHZxcPwvinQE-wAUzOZS?usp=drive_link", "icon": "fa-globe" },
                     { "title": "Electronics", "code": "EEE0714211/212", "link": "https://drive.google.com/drive/folders/1dLr18ZBIpOTFleZYS3hjiMu3O_ZxBtIC?usp=drive_link", "icon": "fa-plug" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S04": {
                 "title": "Semester 04",
@@ -56,7 +59,8 @@ const departmentsData = {
                     { "title": "NMA", "code": "CSE318", "link": "https://drive.google.com/drive/folders/1gLWZ6NISQQSZuagWmEJGT_fw9I4BQEXz?usp=drive_link", "icon": "fa-calculator" },
                     { "title": "Data Comm", "code": "CSE0612223", "link": "https://drive.google.com/drive/folders/1G5HhXeaaESsUUzvshJI_-UFpQOSMZL-s?usp=drive_link", "icon": "fa-tower-cell" },
                     { "title": "Internet Prog.", "code": "CSE208", "link": "https://drive.google.com/drive/folders/1yidd6DDh7Oy-D9DTHR3iQApWCXQ9lH39?usp=drive_link", "icon": "fa-globe" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S05": {
                 "title": "Semester 05",
@@ -71,7 +75,8 @@ const departmentsData = {
                     { "title": "Project Design", "code": "CSE0613316/CSE416", "link": "https://drive.google.com/drive/folders/1BDXFHdEjoJEwyeGBkbbS2ZzNgJ9Zub-s?usp=drive_link", "icon": "fa-project-diagram" },
                     { "title": "Theory of Computation", "code": "CSE0611319/CSE213", "link": "https://drive.google.com/drive/folders/1Lk_dkegB5YNBlQpYrOIcUP0KYS7e-oo0?usp=drive_link", "icon": "fa-calculator" },
                     { "title": "Probability & Statistics", "code": "MATH0542213", "link": "https://drive.google.com/drive/folders/1p1Pm7lHPWORr_uQqyWag8Mp6BQKIHoAm?usp=drive_link", "icon": "fa-chart-simple" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S06": {
                 "title": "Semester 06",
@@ -80,11 +85,15 @@ const departmentsData = {
                 "courses": [
                     { "title": "Compiler", "code": "CSE0613321/0613322 CSE351/352", "link": "https://drive.google.com/drive/folders/1nPDQAnm5fQVTLOxGP7NqCOcSwGGd3Bem?usp=drive_link", "icon": "fa-file-code" },
                     { "title": "Cyber Security", "code": "CSE0612325/CSE0612326", "link": "https://drive.google.com/drive/folders/1Lxqop0-uosG8IrlAvqy7yRpj5eFgTAM-?usp=drive_link", "icon": "fa-classic fa-solid fa-fingerprint" },
-                    // { "title": "Software Eng.", "code": "CSE355/356", "link": "https://drive.google.com/drive/folders/1Sk3cJwYA0slESsWxa0Xvllerh40iTP-1?usp=drive_link", "icon": "fa-cogs" },
+
                     { "title": "Graphics", "code": "CSE0611327/CSE0611328 CSE357/358", "link": "https://drive.google.com/drive/folders/138zkPmC6GXxJOPXdUb3zj4-tdqIT_ix9?usp=drive_link", "icon": "fa-image" },
                     { "title": "Microprocessors", "code": "CSE0611323/CSE0611324 CSE359/360", "link": "https://drive.google.com/drive/folders/1snMh8qTLGLy5eqR5FBTVFhDAJYNITBqu?usp=drive_link", "icon": "fa-memory" },
-                    // { "title": "I&OM", "code": "GED 115", "link": "https://drive.google.com/drive/folders/1YstV74bC9Vy9VAkfCTpqILzA0jL2DYXd?usp=drive_link", "icon": "fa-briefcase" },
+
                     { "title": "ML", "code": "CSE0611431/CSE0611432 CSE431/432", "link": "https://drive.google.com/drive/folders/1Hvv28jl20e9olD0ToWbsVkG5Cj3dnJog?usp=drive_link", "icon": "fa-robot" }
+                ],
+                "archivedCourses": [
+                    { "title": "Software Eng.", "code": "CSE355/356", "link": "https://drive.google.com/drive/folders/1Sk3cJwYA0slESsWxa0Xvllerh40iTP-1?usp=drive_link", "icon": "fa-cogs" },
+                    { "title": "I&OM", "code": "GED 115", "link": "https://drive.google.com/drive/folders/1FDk4P-PLq8NCyyX6Z6ebxVUcF-fCtrvp?usp=drive_link", "icon": "fa-briefcase" }
                 ]
             },
             "S07": {
@@ -100,7 +109,8 @@ const departmentsData = {
                     { "title": "Capstone", "code": "CSE490", "link": "https://drive.google.com/drive/folders/153HLCcu2Kt-3wU6z-f6ujmSQqX85H-R3?usp=drive_link", "icon": "fa-graduation-cap" },
                     { "title": "IoT", "code": "CSE401/402", "link": "https://drive.google.com/drive/folders/1deGPqXj8JqS72dQt3EKi3KReVrdiL2df?usp=drive_link", "icon": "fa-wifi" },
                     { "title": "ML", "code": "CSE431/432", "link": "https://drive.google.com/drive/folders/1Hvv28jl20e9olD0ToWbsVkG5Cj3dnJog?usp=drive_link", "icon": "fa-robot" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S08": {
                 "title": "Semester 08",
@@ -111,7 +121,8 @@ const departmentsData = {
                     { "title": "Tech Writing", "code": "CSE492", "link": "https://drive.google.com/drive/folders/1Xke8qu1dpd-rFvKjkUch8svzKZphTw88?usp=drive_link", "icon": "fa-pen-fancy" },
                     { "title": "Data Mining", "code": "CSE425/426", "link": "https://drive.google.com/drive/folders/1XAuS1BQ_eES_Mdg-DsuIl5UsnodhYxMm?usp=drive_link", "icon": "fa-search" },
                     { "title": "Neural Networks", "code": "CSE 421/422", "link": "https://drive.google.com/drive/folders/1dIXOU0zRrjPKaWaP0j3SPzQ_lelX78J8?usp=drive_link", "icon": "fa-network-wired" }
-                ]
+                ],
+                "archivedCourses": []
             }
         }
     },
@@ -131,7 +142,8 @@ const departmentsData = {
                     { "title": "POWOHT", "code": "PHY 0533175/176", "link": "#", "icon": "fa-atom" },
                     { "title": "Functional Bangla", "code": "GED 0232117", "link": "#", "icon": "fa-language" },
                     { "title": "CE Drawing", "code": "CE 0732102", "link": "#", "icon": "fa-drafting-compass" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S02": {
                 "title": "Semester 02",
@@ -146,7 +158,8 @@ const departmentsData = {
                     { "title": "English Lab", "code": "GED 0232102", "link": "#", "icon": "fa-comments" },
                     { "title": "CAD", "code": "CE 0732104", "link": "#", "icon": "fa-desktop" },
                     { "title": "Workshop", "code": "CE 0732108", "link": "#", "icon": "fa-tools" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S03": {
                 "title": "Semester 03",
@@ -160,7 +173,8 @@ const departmentsData = {
                     { "title": "Accounting", "code": "GED 0411153", "link": "https://drive.google.com/drive/folders/1achIW_ZkLk7SUTcCBIamg7CHvvl2yeSb?usp=drive_link", "icon": "fa-fax" },
                     { "title": "Government", "code": "GED 0312159", "link": "https://drive.google.com/drive/folders/1g-uy0jo8Ji8LLfvm4VDZ3RLZUFc6gH_q?usp=drive_link", "icon": "fa-landmark" },
                     { "title": "Construction Lab", "code": "CE 0732202", "link": "#", "icon": "fa-hard-hat" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S04": {
                 "title": "Semester 04",
@@ -172,31 +186,36 @@ const departmentsData = {
                     { "title": "Fluid Mechanics", "code": "CE 241", "link": "https://drive.google.com/drive/folders/1IhaiGgO9MVkE7-W7suO2ZcSwT4XNU77I?usp=drive_link", "icon": "fa-water" },
                     { "title": "Solid Mech II", "code": "CE 253", "link": "https://drive.google.com/drive/folders/1IeAwsCMioRlJxqDMTYhwuzuf8OSy0-4w?usp=drive_link", "icon": "fa-hammer" },
                     { "title": "Supply Eng.", "code": "CE 311", "link": "https://drive.google.com/drive/folders/1Vx78OVtJ5ro1wzwTllMU7CtehfAJwxCS?usp=drive_link", "icon": "fa-truck-loading" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S05": {
                 "title": "Semester 05",
                 "drive_link": "https://drive.google.com/drive/folders/1_fx4sCES5sL1YeWEI0cSQd850j6Zhkre?usp=drive_link",
                 "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280062/CE_Semester_5_do3ul4.webp",
-                "courses": []
+                "courses": [],
+                "archivedCourses": []
             },
             "S06": {
                 "title": "Semester 06",
                 "drive_link": "https://drive.google.com/drive/folders/1_jlvvJXUVnh0HDQp4VR-xhYtTHryj20C?usp=drive_link",
                 "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280062/CE_Semester_6_mspvan.webp",
-                "courses": []
+                "courses": [],
+                "archivedCourses": []
             },
             "S07": {
                 "title": "Semester 07",
                 "drive_link": "https://drive.google.com/drive/folders/1_hTSpADeXWoHnm90pzbsO7lpZQKAlHkb?usp=drive_link",
                 "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280061/CE_Semester_7_sosxyv.webp",
-                "courses": []
+                "courses": [],
+                "archivedCourses": []
             },
             "S08": {
                 "title": "Semester 08",
                 "drive_link": "https://drive.google.com/drive/folders/1_cWZ_73eWMo4n_WK_DWPlQMoGxTRQWk2?usp=drive_link",
                 "syllabus_image": "https://res.cloudinary.com/b1tranger/image/upload/v1755280062/CE_Semester_8_bdpngy.webp",
-                "courses": []
+                "courses": [],
+                "archivedCourses": []
             }
         }
     },
@@ -216,7 +235,8 @@ const departmentsData = {
                     { "title": "Chemistry", "code": "CHEM05311101", "link": "https://drive.google.com/drive/folders/1dgYGezIucMYZzEKH0hJjuIS-NFxK6shE?usp=drive_link", "icon": "fa-flask" },
                     { "title": "FEE", "code": "EEE07131101/102", "link": "https://drive.google.com/drive/folders/14sHPvad25P9uLHgemzpcGl-ZoEdhKjDJ?usp=drive_link", "icon": "fa-bolt" },
                     { "title": "D & IC", "code": "MATH0541101", "link": "https://drive.google.com/drive/folders/1FIOXPhirWUx8fQp8BJUXc9lRdEJQbu6h?usp=drive_link", "icon": "fa-calculator" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S02": {
                 "title": "Semester 02",
@@ -230,7 +250,8 @@ const departmentsData = {
                     { "title": "OPDE", "code": "MATH05411201", "link": "https://drive.google.com/drive/folders/1_Zqg9MyV8XE0950vrqODdEVSlpYwnsZ-?usp=drive_link", "icon": "fa-square-root-variable" },
                     { "title": "Physics", "code": "PHY0533201", "link": "https://drive.google.com/drive/folders/1i0fmFBuSl-yzHV6e7aBU124eWqQpXnHg?usp=drive_link", "icon": "fa-atom" },
                     { "title": "Project", "code": "IT06131000", "link": "https://drive.google.com/drive/folders/1svCxkmTx2qAk8v9OQ7v3k2j7SALZKY8J?usp=drive_link", "icon": "fa-project-diagram" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S03": {
                 "title": "Semester 03",
@@ -243,7 +264,8 @@ const departmentsData = {
                     { "title": "DBMS", "code": "IT06122107/108", "link": "https://drive.google.com/drive/folders/1MGpG5Kg3BmzdDp7t_CgPpU_buDtS3jKt?usp=drive_link", "icon": "fa-database" },
                     { "title": "CGLAVA", "code": "MATH05412101", "link": "https://drive.google.com/drive/folders/1Sfs0isxHELjYuZxpuHy0Adwy7rslrmjW?usp=drive_link", "icon": "fa-square-root-variable" },
                     { "title": "UX Project", "code": "IT06112000", "link": "https://drive.google.com/drive/folders/1eYmgGh9p-ijIFBn03VaKOap2Mw8YtyQ7?usp=drive_link", "icon": "fa-pencil-ruler" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S04": {
                 "title": "Semester 04",
@@ -256,7 +278,8 @@ const departmentsData = {
                     { "title": "Comp. Arch.", "code": "IT06112207", "link": "https://drive.google.com/drive/folders/12SzE_yCO0nn1mJnbF8V4gSWeCPJ7I5W9?usp=drive_link", "icon": "fa-server" },
                     { "title": "CVFALT", "code": "MATH05412201", "link": "https://drive.google.com/drive/folders/1gQKvxVABnMOqMFIE08qQ1rthQGwSOK1x?usp=drive_link", "icon": "fa-square-root-variable" },
                     { "title": "Web Project", "code": "IT06132001", "link": "https://drive.google.com/drive/folders/1keSYvPJKKsnK8xTSJT_gCg6fZlMAKwwK?usp=drive_link", "icon": "fa-globe" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S05": {
                 "title": "Semester 05",
@@ -267,7 +290,8 @@ const departmentsData = {
                     { "title": "Data Comm", "code": "IT06123103/104", "link": "https://drive.google.com/drive/folders/1deJl54gufmHKMsQIKtwW3yzNYwLnsRrW?usp=drive_link", "icon": "fa-network-wired" },
                     { "title": "Prob & Stats", "code": "MATH05423101", "link": "https://drive.google.com/drive/folders/1paUFykVeFIoWIzW57Uetq-XJGeBefTZw?usp=drive_link", "icon": "fa-chart-pie" },
                     { "title": "Mobile App Project", "code": "IT06133000", "link": "https://drive.google.com/drive/folders/18tO4nXEra19ai3LhoBifcDi5sDu57inb?usp=drive_link", "icon": "fa-mobile-alt" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S06": {
                 "title": "Semester 06",
@@ -279,7 +303,8 @@ const departmentsData = {
                     { "title": "ToC", "code": "IT06113205", "link": "https://drive.google.com/drive/folders/16ezV8dU-QEzR78v9DWnykV9zY1qNfEQq?usp=drive_link", "icon": "fa-microchip" },
                     { "title": "Ethics", "code": "GED02233201", "link": "https://drive.google.com/drive/folders/1yb2lzBd8zvIe3Z3b3Q4Aphfe0eDgB5Tl?usp=drive_link", "icon": "fa-balance-scale" },
                     { "title": "Embedded Project", "code": "IT06133001", "link": "https://drive.google.com/drive/folders/1H89i8fPV8cjQ1r6lQjDKiIAYp_U1oZOI?usp=drive_link", "icon": "fa-microchip" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S07": {
                 "title": "Semester 07",
@@ -292,7 +317,8 @@ const departmentsData = {
                     { "title": "Research Lab", "code": "IT06134106", "link": "https://drive.google.com/drive/folders/15eemfaDbTwRLAN409SUgiEo_xbp9BuJ0?usp=drive_link", "icon": "fa-flask" },
                     { "title": "Emerging Tech", "code": "IT06134107", "link": "https://drive.google.com/drive/folders/1eUPOgsPyHvDqElWNsJvoRYq8YlhXzNF3?usp=drive_link", "icon": "fa-rocket" },
                     { "title": "Capstone", "code": "IT06134000", "link": "https://drive.google.com/drive/folders/14UdzsIp3QFK5WWHzhOIE18hE7uVE2iIR?usp=drive_link", "icon": "fa-graduation-cap" }
-                ]
+                ],
+                "archivedCourses": []
             },
             "S08": {
                 "title": "Semester 08",
@@ -301,7 +327,8 @@ const departmentsData = {
                 "courses": [
                     { "title": "Soft. Proj. Mgmt.", "code": "IT06134201/202", "link": "https://drive.google.com/drive/folders/1pCaqOC0FTi7bBRbm5cIugXF9ckydcaHD?usp=drive_link", "icon": "fa-tasks" },
                     { "title": "Industrial", "code": "IT06134204", "link": "https://drive.google.com/drive/folders/19Qt-bBwM5TrLU-M4QMEahnShYABtzXeX?usp=drive_link", "icon": "fa-industry" }
-                ]
+                ],
+                "archivedCourses": []
             }
         }
     },

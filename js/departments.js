@@ -333,6 +333,48 @@ document.addEventListener('DOMContentLoaded', () => {
       </section>
     `;
 
+    // Archived Courses Section
+    if (semData.archivedCourses && semData.archivedCourses.length > 0) {
+      html += `
+        <section id="archived-courses" class="content-section" style="min-height: auto; margin-top: 2rem;">
+          <h2 style="text-align: center; margin-bottom: 30px;">Archived Courses</h2>
+          <div class="course-card-container">
+      `;
+
+      semData.archivedCourses.forEach(course => {
+        const isSpecial = course.isSpecial || false;
+        const cardClass = isSpecial ? 'others-btn' : 'course-button';
+        const iconClass = course.icon || 'fa-folder';
+
+        if (isSpecial) {
+          html += `
+            <a href="${course.link}" target="_blank" class="${cardClass}" style="grid-column: 1 / -1; max-width: 400px; margin: 0 auto;">
+              <i class="fa-regular ${iconClass}"></i>&nbsp; <strong>${course.title}</strong><br>
+              <small style="opacity: 0.7; font-size: 0.8rem;">${course.code}</small>
+            </a>
+          `;
+        } else {
+          html += `
+            <a href="${course.link}" target="_blank" class="${cardClass}">
+               <i class="fa-solid ${iconClass} fa-2x" style="margin-bottom: 10px;"></i>
+               <strong>${course.title}</strong>
+               <span class="course-code">${course.code}</span>
+            </a>
+          `;
+        }
+      });
+
+      html += `
+          </div>
+          <br><br>
+          <p style="text-align: center; color: var(--text-content); opacity: 0.8;">
+            <small>Archived courses from previous syllabus versions or curriculums</small>
+          </p>
+        </section>
+      `;
+    }
+
+
     const animClass = animateInstantly ? 'semester-fade-in' : 'semester-content-wrapper';
     contentContainer.innerHTML = `<div id="semester-content-wrapper" class="${animClass}">${html}</div>`;
 

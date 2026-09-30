@@ -6,13 +6,25 @@
 
 // Embedded fallback data ensuring the modal ALWAYS opens even on file:// protocol or offline
 const CHANGELOG_DATA_FALLBACK = {
-  "currentVersion": "v9.9",
+  "currentVersion": "v10.0",
   "lastUpdated": "September 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v9.9",
+      "version": "v10.0",
       "badge": "Latest",
+      "date": "30.09.26",
+      "changes": [
+        {
+          "type": "Feature & UI/UX",
+          "title": "Archived Courses Data Architecture and Dedicated UI Section",
+          "description": "Introduced an archivedCourses array variable across all semester datasets in departments-data.js for moving legacy courses. Implemented dynamic rendering of an 'Archived Courses' section in departments.js positioned immediately below Course Materials with matching responsive card styling."
+        }
+      ]
+    },
+    {
+      "version": "v9.9",
+      "badge": "Performance",
       "date": "28.09.26",
       "changes": [
         {
