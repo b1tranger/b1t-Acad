@@ -40,7 +40,7 @@
   - Keep all conversation turns for that session inside the main file `doc/prompts/<Prefix>. <Session Title>.md`.
 - **Chat Archive Fidelity**:
   - Reproduce the conversation exactly as the source (user request blocks verbatim).
-  - Include the model's internal thinking/reasoning parts (`### Thinking`) alongside the final response (`### AI Response`).
+  - Include the model's internal thinking/reasoning parts (`### Thinking`) alongside the final response (`### AI Response`) verbatim exactly as delivered in the chat (never use placeholders like `*(Refer to output in main chat)*` or truncated summaries).
   - Preserve the frontmatter tags comment block at the top of the archive file.
 
 ## 3. Code Quality & Styling Standards
