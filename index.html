@@ -1454,6 +1454,12 @@
 
 
 
+  <!-- GitHub Repository Button -->
+  <a href="https://github.com/b1tranger/b1t-Acad" target="_blank" rel="noopener noreferrer" id="github-top-btn"
+    aria-label="GitHub Repository" title="GitHub Repository">
+    <i class="fa-brands fa-github"></i>
+  </a>
+
   <!-- Theme Switcher -->
   <button id="theme-toggle" aria-label="Toggle Theme">
     <i class="fas fa-moon"></i>
@@ -1470,7 +1476,7 @@
   </a>
 
   <!-- The Floating Button -->
-  <a href="https://b1tsched.netlify.app/" target="_blank" id="floating-button" style="margin-right: 4rem;">
+  <a href="https://b1tsched.netlify.app/" target="_blank" id="floating-button" style="margin-right: 7.5rem;">
     b1t Scheduler
   </a>
 
@@ -2672,9 +2678,11 @@
       <div
         style="background: rgba(100, 181, 246, 0.1); color: #64b5f6; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-size: 0.85rem; border: 1px solid rgba(100, 181, 246, 0.2);margin:10px">
         <i class="fas fa-info-circle"></i> <strong>Note:</strong> You only need to paste the link in the form after
-        you upload using this interface. File.io or <a href="https://localsend.org/" target="_blank"
-          style="color: #ffffff; text-decoration: underline;">LocalSend</a> are backup options if it does not
-        work!<br><br>Please refer to
+        you upload using this interface. <a href="https://catbox.moe" target="_blank"
+          style="color: #ffffff; text-decoration: underline;">Catbox.moe</a>, <a href="https://file.io" target="_blank"
+          style="color: #ffffff; text-decoration: underline;">File.io</a>, <a href="https://tmpfiles.org" target="_blank"
+          style="color: #ffffff; text-decoration: underline;">Tmpfiles</a>, or <a href="https://localsend.org/" target="_blank"
+          style="color: #ffffff; text-decoration: underline;">LocalSend</a> can be used to host your files!<br><br>Please refer to
         the guide: <a href="#" id="open-guide-pdf"
           data-pdf="https://github.com/user-attachments/files/25736866/2.Anon.File.Sharing.Guide.pdf"
           style="color: #ffffff; text-decoration: underline; cursor: pointer;">GUIDE.pdf</a>
@@ -2735,12 +2743,35 @@
         <div id="anon-upload-error" class="message"
           style="display: none; margin-bottom: 10px; padding: 10px; border-radius: 4px;"></div>
 
-        <p class="upload-instruction" style="font-size: 0.85rem; color: #a0a0a0; margin-bottom: 15px;">
-          <i class="fas fa-info-circle"></i> Use the uploader for files up to 200MB. Links will be generated in the text
-          box below.
+        <div style="margin-bottom: 12px;">
+          <label for="anon-provider-select"
+            style="display: block; font-size: 0.82rem; color: #64b5f6; margin-bottom: 5px; font-weight: 600;">
+            <i class="fas fa-cloud-upload-alt"></i> Choose File Sharing Provider:
+          </label>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <select id="anon-provider-select" class="form-input"
+              style="flex: 1; padding: 8px 10px; background: #2a2d32; color: #fff; border: 1px solid #444; border-radius: 5px; font-size: 0.85rem; cursor: pointer;">
+              <option value="catbox" selected>Catbox.moe (Recommended • Up to 200MB • Direct Link)</option>
+              <option value="fileio">File.io (Temporary • Up to 2GB • Auto-expires)</option>
+              <option value="tmpfiles">Tmpfiles.org (Temporary • Up to 100MB • 60 Min)</option>
+              <option value="auto">Auto (Try Catbox &gt; File.io &gt; Tmpfiles)</option>
+            </select>
+            <a id="anon-provider-external-link" href="https://catbox.moe" target="_blank" rel="noopener noreferrer"
+              class="btn btn-secondary"
+              style="padding: 7px 11px; font-size: 0.82rem; white-space: nowrap; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; background: #343a40; border: 1px solid #555; color: #e0e0e0; border-radius: 5px;"
+              title="Open selected provider website directly">
+              <i class="fas fa-external-link-alt"></i> Website
+            </a>
+          </div>
+        </div>
+
+        <p id="anon-upload-instruction" class="upload-instruction"
+          style="font-size: 0.82rem; color: #a0a0a0; margin-bottom: 12px;">
+          <i class="fas fa-info-circle"></i> <span id="anon-instruction-text">Use Catbox for files up to 200MB. Direct
+            link will be generated in the box below.</span>
         </p>
 
-        <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+        <div style="display: flex; gap: 10px; margin-bottom: 12px;">
           <button id="anon-trigger-upload-btn" class="btn btn-secondary" style="flex: 1; padding: 10px;">
             <i class="fas fa-paperclip"></i> Attach File
           </button>
@@ -2748,11 +2779,13 @@
         </div>
 
         <div id="anon-fileio-fallback"
-          style="display: none; background: rgba(255,183,77,0.1); color: #ffb74d; padding: 10px; border-radius: 4px; font-size: 0.85rem; margin-bottom: 15px;">
-          <i class="fas fa-exclamation-triangle"></i> Upload failed. Try uploading your file directly at <a
-            href="https://file.io" target="_blank" style="color: #64b5f6;">file.io</a> or use <a
-            href="https://localsend.org/" target="_blank" style="color: #64b5f6;">LocalSend</a> as an alternative, and
-          paste the link below.
+          style="display: none; background: rgba(255,183,77,0.1); color: #ffb74d; padding: 10px; border-radius: 4px; font-size: 0.85rem; margin-bottom: 12px;">
+          <i class="fas fa-exclamation-triangle"></i> Upload failed. Try switching providers in the dropdown above, or
+          upload directly at <a id="anon-fallback-link" href="https://catbox.moe" target="_blank"
+            style="color: #64b5f6; text-decoration: underline;">Catbox.moe</a> / <a href="https://file.io"
+            target="_blank" style="color: #64b5f6; text-decoration: underline;">file.io</a> / <a
+            href="https://localsend.org/" target="_blank"
+            style="color: #64b5f6; text-decoration: underline;">LocalSend</a>, then paste the link below.
         </div>
 
         <textarea id="anon-textarea" class="form-input form-textarea"

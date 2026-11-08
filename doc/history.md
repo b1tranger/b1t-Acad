@@ -2,6 +2,27 @@
 tags: changelog, history, updates, logs, archive, agent-rules, guidelines, prompt-archive, anon-file-share, old-code
 -->
 
+# 08.11.26
+- **Anon File Sharing Multi-Provider Dropdown & Top GitHub Button (`index.html`, `js/anon-share.js`, `style.css`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
+  - **Multi-Provider Dropdown in Anon File Sharing (`index.html`, `js/anon-share.js`)**:
+    - Resolved reliability issues where `https://tmpfiles.org/` failed to upload files from the browser interface.
+    - Introduced an intuitive file sharing provider dropdown selector (`#anon-provider-select`) in `#anon-editor-modal` allowing users to select:
+      - `Catbox.moe`: Direct permanent link hosting supporting up to 200MB (recommended default).
+      - `File.io`: Auto-expiring temporary storage supporting up to 2GB.
+      - `Tmpfiles.org`: 60-minute expiring temporary storage up to 100MB.
+      - `Auto`: Sequential automated fallback attempting Catbox -> File.io -> Tmpfiles.
+    - Added a companion direct external website link button (`#anon-provider-external-link`) dynamically linking to the selected provider's website.
+    - Added dynamic instruction text and provider-specific file size validation (`catbox`: 200MB, `fileio`: 2GB, `tmpfiles`: 100MB).
+    - Updated `#anon-recent-modal` notice to clearly document Catbox.moe, File.io, Tmpfiles, and LocalSend.
+    - Implemented `uploadToFileIo(file)` with standard REST API and error handling in `js/anon-share.js`.
+  - **Top-Right Header GitHub Button (`index.html`, `style.css`)**:
+    - Added a persistent circular GitHub repository icon button (`#github-top-btn`) linking to `https://github.com/b1tranger/b1t-Acad`.
+    - Positioned directly to the left of `#theme-toggle` at `top: 2rem; right: calc(2rem + 45px + 10px)` on desktop and `top: 20px; right: 75px` on mobile.
+    - Styled with matching circular container, border, shadow, hover scaling, and full light/dark theme contrast.
+    - Adjusted `#floating-button` margin-right to `7.5rem` to prevent any overlap on desktop viewports.
+  - Bumped Service Worker cache version `CACHE_NAME` to `'v10.5'` in [`sw.js`](sw.js).
+  - Synchronized `currentVersion` and history in [`changes.json`](changes.json) and embedded fallback data in [`js/changelog-modal.js`](js/changelog-modal.js).
+
 # 01.10.26
 - **BBA Semester 08 Drive Crawl and Search Integration (`js/departments-data.js`, `js/search-courses.js`, `sw.js`, `changes.json`, `js/changelog-modal.js`)**:
   - Crawled the Google Drive repository for BBA Semester 08 ([`drive_link`](https://drive.google.com/drive/folders/1IlfYohbGlh4e-J5SZ9Ui3uWA5o6uJH01?usp=drive_link)) and cataloged all 4 official courses:

@@ -157,6 +157,35 @@ const AnonShareManager = {
             uploadNewBtn.addEventListener('click', () => this.openEditorModal());
         }
 
+        // Provider Selection Dropdown Listener
+        const providerSelect = document.getElementById('anon-provider-select');
+        const providerExtLink = document.getElementById('anon-provider-external-link');
+        const instructionText = document.getElementById('anon-instruction-text');
+        const fallbackLink = document.getElementById('anon-fallback-link');
+
+        if (providerSelect) {
+            providerSelect.addEventListener('change', () => {
+                const val = providerSelect.value;
+                if (val === 'catbox') {
+                    if (providerExtLink) providerExtLink.href = 'https://catbox.moe';
+                    if (fallbackLink) fallbackLink.href = 'https://catbox.moe';
+                    if (instructionText) instructionText.textContent = 'Use Catbox for files up to 200MB. Direct link will be generated in the box below.';
+                } else if (val === 'fileio') {
+                    if (providerExtLink) providerExtLink.href = 'https://file.io';
+                    if (fallbackLink) fallbackLink.href = 'https://file.io';
+                    if (instructionText) instructionText.textContent = 'Use File.io for temporary files up to 2GB. Link will be generated in the box below.';
+                } else if (val === 'tmpfiles') {
+                    if (providerExtLink) providerExtLink.href = 'https://tmpfiles.org';
+                    if (fallbackLink) fallbackLink.href = 'https://tmpfiles.org';
+                    if (instructionText) instructionText.textContent = 'Use Tmpfiles for files up to 100MB (expires in 60 minutes). Link will be generated in the box below.';
+                } else {
+                    if (providerExtLink) providerExtLink.href = 'https://catbox.moe';
+                    if (fallbackLink) fallbackLink.href = 'https://catbox.moe';
+                    if (instructionText) instructionText.textContent = 'Automatic mode tries Catbox, then File.io, then Tmpfiles if any provider fails.';
+                }
+            });
+        }
+
         // File Uploader Trigger
         const triggerUploadBtn = document.getElementById('anon-trigger-upload-btn');
         const fileInput = document.getElementById('anon-file-input');
@@ -382,9 +411,20 @@ const AnonShareManager = {
         let file = event.target.files[0];
         if (!file) return;
 
-        const maxSize = 200 * 1024 * 1024; // 200MB
+        const providerSelect = document.getElementById('anon-provider-select');
+        const selectedProvider = providerSelect ? providerSelect.value : 'catbox';
+
+        // Check max size depending on selected provider
+        let maxSize = 200 * 1024 * 1024; // 200MB default
+        if (selectedProvider === 'fileio') {
+            maxSize = 2 * 1024 * 1024 * 1024; // 2GB
+        } else if (selectedProvider === 'tmpfiles') {
+            maxSize = 100 * 1024 * 1024; // 100MB
+        }
+
         if (file.size > maxSize) {
-            this.showMessage('File is too large. Maximum size is 200MB.', 'error');
+            const sizeMb = Math.round(maxSize / (1024 * 1024));
+            this.showMessage(`File is too large for this provider. Maximum size is ${sizeMb}MB.`, 'error');
             return;
         }
 
@@ -398,7 +438,7 @@ const AnonShareManager = {
         if (fallback) fallback.style.display = 'none';
 
         try {
-            const result = await this.uploadWithFallback(file);
+            const result = await this.uploadByProvider(file, selectedProvider);
 
             // Insert link
             const textarea = document.getElementById('anon-textarea');
@@ -415,8 +455,9 @@ const AnonShareManager = {
             this.showMessage(message, 'success');
         } catch (error) {
             console.error('Upload error:', error);
-            this.showMessage('Failed to upload file. See fallback below.', 'error');
-            if (fallback) fallback.style.display = 'flex';
+            const providerName = selectedProvider === 'catbox' ? 'Catbox' : (selectedProvider === 'fileio' ? 'File.io' : (selectedProvider === 'tmpfiles' ? 'Tmpfiles' : 'selected services'));
+            this.showMessage(`Failed to upload file via ${providerName}. Try switching providers or use manual links below.`, 'error');
+            if (fallback) fallback.style.display = 'block';
         } finally {
             uploadBtn.innerHTML = originalText;
             uploadBtn.disabled = false;
@@ -425,10 +466,41 @@ const AnonShareManager = {
         }
     },
 
+    async uploadByProvider(file, provider) {
+        if (provider === 'catbox') {
+            const url = await Promise.race([
+                this.uploadToCatbox(file),
+                new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error('Catbox upload timed out.')), this.UPLOAD_TIMEOUT)
+                )
+            ]);
+            return { url, provider: 'Catbox.moe' };
+        } else if (provider === 'fileio') {
+            const url = await Promise.race([
+                this.uploadToFileIo(file),
+                new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error('File.io upload timed out.')), this.UPLOAD_TIMEOUT)
+                )
+            ]);
+            return { url, provider: 'File.io' };
+        } else if (provider === 'tmpfiles') {
+            const url = await Promise.race([
+                this.uploadToTmpfiles(file),
+                new Promise((_, reject) =>
+                    setTimeout(() => reject(new Error('Tmpfiles upload timed out.')), this.UPLOAD_TIMEOUT)
+                )
+            ]);
+            return { url, provider: 'Tmpfiles.org' };
+        } else {
+            return await this.uploadWithFallback(file);
+        }
+    },
+
     async uploadWithFallback(file) {
         const providers = [
-            { name: 'Catbox', method: () => this.uploadToCatbox(file), maxSize: 200 * 1024 * 1024 },
-            { name: 'Tmpfiles', method: () => this.uploadToTmpfiles(file), maxSize: 100 * 1024 * 1024 }
+            { name: 'Catbox.moe', method: () => this.uploadToCatbox(file), maxSize: 200 * 1024 * 1024 },
+            { name: 'File.io', method: () => this.uploadToFileIo(file), maxSize: 2 * 1024 * 1024 * 1024 },
+            { name: 'Tmpfiles.org', method: () => this.uploadToTmpfiles(file), maxSize: 100 * 1024 * 1024 }
         ];
 
         let lastError = null;
@@ -450,6 +522,16 @@ const AnonShareManager = {
             }
         }
         throw new Error(lastError?.message || 'All automated upload providers failed');
+    },
+
+    async uploadToFileIo(file) {
+        const formData = new FormData();
+        formData.append('file', file);
+        const response = await fetch('https://file.io', { method: 'POST', body: formData });
+        if (!response.ok) throw new Error(`File.io upload failed: ${response.status}`);
+        const data = await response.json();
+        if (!data.success || !data.link) throw new Error(data.message || 'Invalid response from File.io');
+        return data.link;
     },
 
     async uploadToTmpfiles(file) {

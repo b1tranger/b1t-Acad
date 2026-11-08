@@ -331,6 +331,35 @@
   /* Always white on hover for high contrast against accent */
 }
 
+/* --- GitHub Repository Top Button --- */
+#github-top-btn {
+  position: fixed;
+  top: 2rem;
+  right: calc(2rem + 45px + 10px);
+  z-index: 4000;
+  padding: 0.8rem;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+#github-top-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
 /* --- Mobile Responsiveness for Floating Elements --- */
 @media (max-width: 768px) {
 
@@ -407,6 +436,11 @@
   #theme-toggle {
     right: 20px;
     /* Keep it in the corner */
+    top: 20px;
+  }
+
+  #github-top-btn {
+    right: 75px;
     top: 20px;
   }
 }

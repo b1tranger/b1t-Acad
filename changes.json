@@ -1,11 +1,22 @@
 {
-  "currentVersion": "v10.4",
-  "lastUpdated": "October 2026",
+  "currentVersion": "v10.5",
+  "lastUpdated": "November 2026",
   "documentationUrl": "doc/history.md",
   "history": [
     {
-      "version": "v10.4",
+      "version": "v10.5",
       "badge": "Latest",
+      "date": "08.11.26",
+      "changes": [
+        {
+          "type": "Feature",
+          "title": "Anon File Sharing Multi-Provider Dropdown & Top GitHub Button",
+          "description": "Added a flexible file sharing service dropdown selector in the Anonymous File Sharing modal supporting Catbox.moe (recommended, direct 200MB link), File.io (temporary 2GB auto-expiring storage), Tmpfiles.org (60-minute expiry), and an intelligent Auto-fallback mode. Added direct website links and dynamic size limit instructions. Also introduced a persistent circular GitHub repository icon button in the header directly beside the theme toggle."
+        }
+      ]
+    },
+    {
+      "version": "v10.4",
       "date": "01.10.26",
       "changes": [
         {
